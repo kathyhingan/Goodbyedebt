@@ -1,0 +1,65 @@
+:root {
+  /* Earth-tone + money-green direction (SOW 3.1); provisional, to be finalized in design. */
+  --bg: #f4f6f1;
+  --surface: #ffffff;
+  --ink: #1f2a24;
+  --muted: #5c6b60;
+  --border: #dfe6db;
+  --moss: #3f6b4c;      /* earth-tone green */
+  --money: #1f9d55;     /* "money" green accent */
+  --money-soft: #e5f3ea;
+  --danger: #b3452f;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--moss); }
+
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 64px; }
+
+.brand { display: flex; align-items: baseline; gap: 8px; margin: 8px 0 4px; }
+.brand h1 { font-size: 1.5rem; margin: 0; color: var(--moss); }
+.brand span { color: var(--money); font-weight: 700; }
+.tagline { color: var(--muted); margin: 0 0 20px; font-size: 0.95rem; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.stat { background: var(--money-soft); border-radius: var(--radius); padding: 14px; }
+.stat .label { color: var(--muted); font-size: 0.8rem; margin-bottom: 4px; }
+.stat .value { font-size: 1.35rem; font-weight: 700; color: var(--moss); }
+
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+button, select, input {
+  font: inherit;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: var(--surface);
+  color: var(--ink);
+}
+button.primary { background: var(--money); color: #fff; border-color: var(--money); cursor: pointer; }
+label { font-size: 0.85rem; color: var(--muted); display: block; margin-bottom: 4px; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--border); }
+th { color: var(--muted); font-weight: 600; }
+.priority { font-weight: 700; color: var(--money); }
+.note { color: var(--muted); font-size: 0.85rem; }
+.warn { color: var(--danger); font-weight: 600; }
