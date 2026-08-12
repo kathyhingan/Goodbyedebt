@@ -5,12 +5,13 @@ import Link from "next/link";
 import type { StrategyName } from "@/lib/engine";
 import { projectPayoff, compareToMinimumsOnly } from "@/lib/engine";
 import { useDebts } from "@/lib/data/useDebts";
-
-const money = (n: number) =>
-  n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+import { useCurrency } from "@/lib/currency/currency";
+import { formatDuration, formatMonthYear } from "@/lib/format/duration";
 
 export default function Home() {
   const { debts, loading, demo } = useDebts();
+  const { format } = useCurrency();
+  const money = (n: number) => format(n, { maximumFractionDigits: 0 });
   const [strategy, setStrategy] = useState<StrategyName>("avalanche");
   const [extra, setExtra] = useState(300);
   const [weight, setWeight] = useState(0.5);
@@ -72,6 +73,26 @@ export default function Home() {
                 </div>
               )}
             </div>
+
+            {plan.unpayable ? (
+              <div className="payoff-hero warn-hero">
+                <div className="payoff-lead">Debt-free date can&apos;t be reached</div>
+                <div className="payoff-sub">
+                  At the current extra payment, at least one balance never clears. Increase your
+                  monthly extra to see a payoff timeline.
+                </div>
+              </div>
+            ) : (
+              <div className="payoff-hero">
+                <div className="payoff-lead">
+                  You&apos;ll be debt-free in <strong>{formatDuration(plan.monthsToDebtFree)}</strong>
+                </div>
+                <div className="payoff-sub">
+                  On track to clear every balance by <strong>{formatMonthYear(plan.debtFreeDate)}</strong>
+                  {" — "}paying about {money(plan.totalInterestPaid)} in total interest along the way.
+                </div>
+              </div>
+            )}
 
             <div className="stat-grid">
               <div className="stat"><div className="label">Debt-free date</div><div className="value">{plan.debtFreeDate}</div></div>

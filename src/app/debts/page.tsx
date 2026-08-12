@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import type { Debt, DebtType } from "@/lib/engine";
 import { useDebts } from "@/lib/data/useDebts";
+import { useCurrency } from "@/lib/currency/currency";
 import { parseDebtsCsv, type RowError } from "@/lib/csv/parse";
 import { csvTemplate, DEBT_TYPES } from "@/lib/csv/template";
 import { debtsToCsv } from "@/lib/csv/serialize";
@@ -27,6 +28,7 @@ function download(name: string, text: string) {
 
 export default function DebtsPage() {
   const { debts, loading, demo, save, bulkSave, remove } = useDebts();
+  const { format } = useCurrency();
   const [form, setForm] = useState<Debt>(EMPTY);
   const [editing, setEditing] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
@@ -173,9 +175,9 @@ export default function DebtsPage() {
               {debts.map((d) => (
                 <tr key={d.accountId}>
                   <td><strong>{d.creditor || d.accountId}</strong><br /><span className="muted" style={{ fontSize: "0.75rem" }}>{d.accountId}</span></td>
-                  <td>${d.balance.toLocaleString()}</td>
+                  <td>{format(d.balance, { maximumFractionDigits: 0 })}</td>
                   <td>{d.apr}%</td>
-                  <td>${d.minimumPayment}</td>
+                  <td>{format(d.minimumPayment, { maximumFractionDigits: 0 })}</td>
                   <td>{d.dueDate ?? "—"}</td>
                   <td>
                     <div className="row-actions">

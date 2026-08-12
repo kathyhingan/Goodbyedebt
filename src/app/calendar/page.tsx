@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import Link from "next/link";
 import { useDebts } from "@/lib/data/useDebts";
+import { useCurrency } from "@/lib/currency/currency";
 import { upcomingDueDates } from "@/lib/reminders/dueDates";
 
 const fmt = (iso: string) =>
@@ -14,6 +15,7 @@ const fmt = (iso: string) =>
 
 export default function CalendarPage() {
   const { debts, loading, demo } = useDebts();
+  const { format } = useCurrency();
   const upcoming = useMemo(() => upcomingDueDates(debts, new Date(), 60), [debts]);
 
   return (
@@ -38,7 +40,7 @@ export default function CalendarPage() {
               <div>
                 <strong>{u.creditor || u.accountId}</strong>
                 <div className="muted" style={{ fontSize: "0.8rem" }}>
-                  Min ${u.minimumPayment.toLocaleString()}
+                  Min {format(u.minimumPayment, { maximumFractionDigits: 0 })}
                 </div>
               </div>
               <div style={{ textAlign: "right" }}>
