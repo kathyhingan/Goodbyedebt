@@ -43,14 +43,44 @@ npm run build      # production build / type-check
 | Dashboard / what-if UI (wired to engine, demo data) | ✅ Scaffold | `src/app/page.tsx` |
 | PWA install (manifest, meta) | ✅ Scaffold | `public/manifest.webmanifest`, `layout.tsx` |
 
+## Backend (Supabase)
+
+Persistence and auth run on **Supabase** (Postgres + Auth). The schema lives in
+`supabase/migrations/0001_init.sql` — a `debts` table plus `reminder_settings`
+and `push_subscriptions`, all under **Row Level Security** so a user can only
+ever touch their own rows (SOW §4.6). Data is encrypted at rest by Supabase
+storage encryption and in transit over HTTPS.
+
+To connect:
+
+1. Apply `supabase/migrations/0001_init.sql` to your project (Supabase SQL
+   editor or `supabase db push`).
+2. Copy `.env.example` → `.env.local` and fill in `NEXT_PUBLIC_SUPABASE_URL`
+   and `NEXT_PUBLIC_SUPABASE_ANON_KEY` from your project's API settings.
+3. (Optional) For Web Push, generate VAPID keys (`npx web-push
+   generate-vapid-keys`) and set the `*_VAPID_*` vars.
+
+Without env vars the app still boots in **demo mode** (sample data, no auth) so
+previews never break.
+
+## Features wired in this build
+
+- **Auth** — email/password sign-in / sign-up (`/login`), session refresh + route
+  guarding via `src/middleware.ts`, sign-out.
+- **Manual entry** — add / edit / delete debts on `/debts`.
+- **CSV** — upload (Account-ID consolidation), download template, export
+  (`/debts`).
+- **Calendar** — upcoming due-date timeline on `/calendar` (SOW §4.3).
+- **Reminders** — configurable lead days + Web Push opt-in on `/settings`, with
+  in-app calendar fallback when push is unsupported (SOW §10). Service worker at
+  `public/sw.js`.
+
 ## Next up (not yet built)
 
-- Persistence + user auth and encryption at rest (SOW §4.6) — a DB/backend
-  (e.g. Supabase/Postgres) behind the engine; manual entry & CSV upload UIs.
-- Due-date calendar view + Web Push reminders with in-app fallback (SOW §4.3, §10).
-- Export (CSV/PDF), progress dashboard trends, per-account timelines (SOW §4.4).
-- App icons at `public/icons/icon-192.png` / `icon-512.png` (referenced by the
-  manifest; add real assets in the design phase).
+- Scheduled push **delivery** — a cron/Edge Function that reads `reminder_settings`
+  and sends Web Push on lead days (client subscription + SW receiver are done).
+- Export to PDF; progress dashboard trends, per-account timelines (SOW §4.4).
+- Real app icons at `public/icons/icon-192.png` / `icon-512.png`.
 - Free vs. paid tier gating (SOW §6).
 
 ## The engine (core value)
