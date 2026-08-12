@@ -5,11 +5,13 @@ import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { DEFAULT_SETTINGS, loadSettings, saveSettings, type ReminderSettings } from "@/lib/reminders/settings";
 import { enablePush, pushSupported } from "@/lib/push/subscribe";
+import { CURRENCIES, useCurrency } from "@/lib/currency/currency";
 
 const LEAD_OPTIONS = [1, 3, 5, 7, 14];
 
 export default function SettingsPage() {
   const demo = !isSupabaseConfigured;
+  const { currency, setCurrency, format } = useCurrency();
   const [settings, setSettings] = useState<ReminderSettings>(DEFAULT_SETTINGS);
   const [msg, setMsg] = useState<string | null>(null);
   const [supported, setSupported] = useState(false);
@@ -51,6 +53,30 @@ export default function SettingsPage() {
     <main className="container">
       <h1 style={{ color: "var(--moss)" }}>Settings</h1>
       {demo && <div className="banner">Demo mode — preferences are not saved.</div>}
+
+      <section className="card">
+        <h2 style={{ marginTop: 0, fontSize: "1.05rem" }}>Currency</h2>
+        <p className="note">Used to display every balance, payment, and interest figure across the app.</p>
+        <div className="controls">
+          <div>
+            <label htmlFor="currency">Display currency</label>
+            <select
+              id="currency"
+              value={currency}
+              onChange={(e) => setCurrency(e.target.value as typeof currency)}
+            >
+              {CURRENCIES.map((c) => (
+                <option key={c.code} value={c.code}>
+                  {c.code} — {c.label}
+                </option>
+              ))}
+            </select>
+          </div>
+          <span className="note" style={{ alignSelf: "end" }}>
+            Preview: {format(1234.5)}
+          </span>
+        </div>
+      </section>
 
       <section className="card">
         <h2 style={{ marginTop: 0, fontSize: "1.05rem" }}>Reminder timing</h2>
