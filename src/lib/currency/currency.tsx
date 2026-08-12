@@ -13,6 +13,7 @@ export const CURRENCIES = [
   { code: "INR", label: "Indian Rupee", locale: "en-IN" },
   { code: "JPY", label: "Japanese Yen", locale: "ja-JP" },
   { code: "MXN", label: "Mexican Peso", locale: "es-MX" },
+  { code: "PHP", label: "Philippine Peso", locale: "en-PH" },
 ] as const;
 
 export type CurrencyCode = (typeof CURRENCIES)[number]["code"];
