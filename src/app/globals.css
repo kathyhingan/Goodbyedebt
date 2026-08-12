@@ -40,6 +40,12 @@ a { color: var(--moss); }
   margin-bottom: 16px;
 }
 
+.payoff-hero { background: linear-gradient(135deg, var(--moss), var(--money)); color: #fff; border-radius: var(--radius); padding: 18px 20px; margin-bottom: 14px; }
+.payoff-hero.warn-hero { background: var(--danger); }
+.payoff-hero .payoff-lead { font-size: 1.3rem; font-weight: 700; line-height: 1.3; }
+.payoff-hero .payoff-lead strong { color: #fff; }
+.payoff-hero .payoff-sub { margin-top: 6px; font-size: 0.9rem; opacity: 0.92; }
+.payoff-hero .payoff-sub strong { color: #fff; font-weight: 700; }
 .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 .stat { background: var(--money-soft); border-radius: var(--radius); padding: 14px; }
 .stat .label { color: var(--muted); font-size: 0.8rem; margin-bottom: 4px; }
