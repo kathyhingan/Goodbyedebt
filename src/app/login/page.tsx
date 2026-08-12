@@ -25,9 +25,16 @@ function LoginForm() {
     const supabase = createClient();
     try {
       if (mode === "signup") {
-        const { error } = await supabase.auth.signUp({ email, password });
+        const { data, error } = await supabase.auth.signUp({ email, password });
         if (error) throw error;
-        setMsg("Check your email to confirm your account, then sign in.");
+        // With email confirmation off, signUp returns an active session — send
+        // the user straight into the app. If confirmation is on, there's no
+        // session yet, so fall back to the check-your-email prompt.
+        if (data.session) {
+          window.location.assign(redirect);
+        } else {
+          setMsg("Check your email to confirm your account, then sign in.");
+        }
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
