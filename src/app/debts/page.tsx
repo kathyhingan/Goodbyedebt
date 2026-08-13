@@ -8,7 +8,8 @@ import { parseDebtsCsv, type RowError } from "@/lib/csv/parse";
 import { csvTemplate, DEBT_TYPES } from "@/lib/csv/template";
 import { debtsToCsv } from "@/lib/csv/serialize";
 import { extractPdfLines } from "@/lib/pdf/read";
-import { parseStatement, statementToDebt, type ParsedStatement } from "@/lib/pdf/statement";
+import { parseStatement, extractTransactions, statementToDebt, type ParsedStatement, type StatementTxn } from "@/lib/pdf/statement";
+import { useStatementTxns } from "@/lib/data/useStatementTxns";
 
 const EMPTY: Debt = {
   accountId: "",
@@ -30,12 +31,14 @@ function download(name: string, text: string) {
 
 export default function DebtsPage() {
   const { debts, loading, demo, save, bulkSave, remove } = useDebts();
+  const { addMany: addTxns } = useStatementTxns();
   const { format } = useCurrency();
   const [form, setForm] = useState<Debt>(EMPTY);
   const [editing, setEditing] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
   const [errors, setErrors] = useState<RowError[]>([]);
   const [parsed, setParsed] = useState<ParsedStatement | null>(null);
+  const [pendingTxns, setPendingTxns] = useState<StatementTxn[]>([]);
   const [pdfBusy, setPdfBusy] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
   const pdfRef = useRef<HTMLInputElement>(null);
@@ -48,10 +51,19 @@ export default function DebtsPage() {
     if (!form.accountId.trim()) { setMsg("Account ID is required."); return; }
     try {
       await save({ ...form, lastUpdated: new Date().toISOString() });
+      if (pendingTxns.length > 0) {
+        try {
+          await addTxns(form.accountId, pendingTxns);
+        } catch {
+          /* Debt saved; transaction import is best-effort. */
+        }
+      }
+      const importedNote = pendingTxns.length > 0 ? ` Imported ${pendingTxns.length} transaction${pendingTxns.length === 1 ? "" : "s"}.` : "";
       setForm(EMPTY);
       setEditing(false);
       setParsed(null);
-      setMsg("Saved.");
+      setPendingTxns([]);
+      setMsg(`Saved.${importedNote}`);
     } catch (err) {
       setMsg(err instanceof Error ? err.message : "Save failed.");
     }
@@ -106,6 +118,7 @@ export default function DebtsPage() {
       setForm(statementToDebt(result));
       setEditing(false);
       setParsed(result);
+      setPendingTxns(extractTransactions(text));
       const from = result.bank === "Unknown bank" ? "your statement" : `your ${result.bank} statement`;
       if (result.missing.length > 0) {
         setMsg(`Imported from ${from} — please fill in: ${result.missing.join(", ")}.`);
@@ -176,6 +189,11 @@ export default function DebtsPage() {
                 : "These banks bill interest monthly, shown here as an annual APR (×12)."}{" "}
               Edit any field below if it looks off, then Add debt.
             </p>
+            {pendingTxns.length > 0 && (
+              <p className="note" style={{ margin: "6px 0 0", color: "var(--moss)", fontWeight: 600 }}>
+                + {pendingTxns.length} transaction{pendingTxns.length === 1 ? "" : "s"} found on this statement — imported to the Transactions tab when you Add debt.
+              </p>
+            )}
           </div>
         )}
 
@@ -222,7 +240,7 @@ export default function DebtsPage() {
           </div>
           <div className="row-actions" style={{ marginTop: 14 }}>
             <button type="submit" className="primary">{editing ? "Save changes" : "Add debt"}</button>
-            {(editing || parsed) && <button type="button" onClick={() => { setForm(EMPTY); setEditing(false); setParsed(null); }}>Cancel</button>}
+            {(editing || parsed) && <button type="button" onClick={() => { setForm(EMPTY); setEditing(false); setParsed(null); setPendingTxns([]); }}>Cancel</button>}
           </div>
           {msg && <p className="note" style={{ marginTop: 10 }}>{msg}</p>}
         </form>

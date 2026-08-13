@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useDebts } from "@/lib/data/useDebts";
 import { usePayments } from "@/lib/data/usePayments";
+import { useStatementTxns } from "@/lib/data/useStatementTxns";
 import { useCurrency } from "@/lib/currency/currency";
 import type { Payment } from "@/lib/data/payments";
 
@@ -18,6 +19,7 @@ const todayISO = () => new Date().toISOString().slice(0, 10);
 export default function TransactionsPage() {
   const { debts } = useDebts();
   const { payments, loading, demo, add, remove } = usePayments();
+  const { txns, remove: removeTxn } = useStatementTxns();
   const { format } = useCurrency();
 
   const nameFor = useMemo(() => {
@@ -48,6 +50,35 @@ export default function TransactionsPage() {
     }
     return [...by.entries()].sort((a, b) => (a[0] < b[0] ? 1 : -1));
   }, [payments]);
+
+  // ---- Statement transactions (spending) ----
+  const spend = useMemo(
+    () => txns.filter((t) => t.direction === "debit").reduce((s, t) => s + t.amount, 0),
+    [txns]
+  );
+  const txnGroups = useMemo(() => {
+    const by = new Map<string, typeof txns>();
+    for (const t of txns) {
+      const k = monthKey(t.txnDate);
+      if (!by.has(k)) by.set(k, []);
+      by.get(k)!.push(t);
+    }
+    return [...by.entries()].sort((a, b) => (a[0] < b[0] ? 1 : -1));
+  }, [txns]);
+
+  // Group debits by merchant (first token) to surface recurring spend.
+  const topMerchants = useMemo(() => {
+    const by = new Map<string, { total: number; count: number; label: string }>();
+    for (const t of txns) {
+      if (t.direction !== "debit") continue;
+      const key = t.description.toUpperCase().split(/\s+/)[0] || t.description.toUpperCase();
+      const cur = by.get(key) ?? { total: 0, count: 0, label: t.description };
+      cur.total += t.amount;
+      cur.count += 1;
+      by.set(key, cur);
+    }
+    return [...by.values()].sort((a, b) => b.total - a.total).slice(0, 8);
+  }, [txns]);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -160,6 +191,75 @@ export default function TransactionsPage() {
               </div>
             );
           })
+        )}
+      </section>
+
+      <section className="card">
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 8 }}>
+          <h2 style={{ margin: 0, fontSize: "1.05rem" }}>Spending from statements</h2>
+          <span className="muted">Total spend: {format(spend, { maximumFractionDigits: 0 })}</span>
+        </div>
+        <p className="note">
+          Line items read from your uploaded statements. Upload more on the{" "}
+          <Link href="/debts">Debts</Link> page to build spending history.
+        </p>
+
+        {txns.length === 0 ? (
+          <p className="muted">No statement transactions yet — upload a PDF statement to populate this.</p>
+        ) : (
+          <>
+            {topMerchants.length > 0 && (
+              <div style={{ marginBottom: 16 }}>
+                <strong style={{ color: "var(--moss)", fontSize: "0.9rem" }}>Top merchants</strong>
+                <table>
+                  <thead>
+                    <tr><th>Merchant</th><th>Count</th><th style={{ textAlign: "right" }}>Total</th></tr>
+                  </thead>
+                  <tbody>
+                    {topMerchants.map((m) => (
+                      <tr key={m.label}>
+                        <td>
+                          {m.label}
+                          {m.count >= 2 && <span className="pill" style={{ marginLeft: 8 }}>recurring?</span>}
+                        </td>
+                        <td>{m.count}×</td>
+                        <td style={{ textAlign: "right" }}>{format(m.total, { maximumFractionDigits: 0 })}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <p className="note" style={{ marginTop: 6 }}>
+                  Merchants seen more than once are likely recurring — candidates to review or cancel.
+                </p>
+              </div>
+            )}
+
+            {txnGroups.map(([key, rows]) => (
+              <div key={key} style={{ marginBottom: 16 }}>
+                <strong style={{ color: "var(--moss)" }}>{monthLabel(key)}</strong>
+                <table>
+                  <thead>
+                    <tr><th>Date</th><th>Description</th><th>Account</th><th style={{ textAlign: "right" }}>Amount</th><th></th></tr>
+                  </thead>
+                  <tbody>
+                    {rows.map((t) => (
+                      <tr key={t.id}>
+                        <td>{dayLabel(t.txnDate)}</td>
+                        <td>{t.description}</td>
+                        <td className="muted">{nameFor(t.accountId)}</td>
+                        <td style={{ textAlign: "right", color: t.direction === "credit" ? "var(--money)" : undefined }}>
+                          {t.direction === "credit" ? "+" : ""}{format(t.amount, { maximumFractionDigits: 0 })}
+                        </td>
+                        <td>
+                          {t.id && <button type="button" className="danger-btn" onClick={() => removeTxn(t.id!)}>Delete</button>}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ))}
+          </>
         )}
       </section>
     </main>
