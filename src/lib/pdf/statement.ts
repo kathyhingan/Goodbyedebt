@@ -7,192 +7,196 @@ export interface ParsedField<T> {
   raw: string | null;
 }
 
-export type BankName = "BDO" | "Security Bank" | "Unknown";
-
 export interface ParsedStatement {
-  bank: BankName;
+  /** Detected issuer name, or "Unknown bank" — used only to label the debt. */
+  bank: string;
   creditor: string;
   accountId: string | null;
   cardMasked: string | null;
   balance: ParsedField<number>; // Total Amount Due
   minimumPayment: ParsedField<number>; // Minimum Amount Due
-  /** Annual APR (monthly rate × 12). */
+  /** Annual APR. */
   apr: ParsedField<number>;
-  /** The raw monthly rate string, e.g. "3.00%", shown to explain the ×12. */
   aprMonthlyRaw: string | null;
-  /** True when APR came from a stated rate that the user should double-check. */
+  /** True when APR came from prose text the user should double-check. */
   aprNeedsReview: boolean;
-  dueDate: ParsedField<string>; // ISO yyyy-mm-dd — Payment Due Date
-  statementDate: ParsedField<string>; // ISO — Statement Date
+  dueDate: ParsedField<string>; // ISO yyyy-mm-dd
+  statementDate: ParsedField<string>; // ISO
   creditLimit: ParsedField<number>;
+  /** True when we found enough to be worth confirming (vs. an unreadable PDF). */
+  recognized: boolean;
   /** Fields we couldn't find — surfaced so the user knows what to fill in. */
   missing: string[];
 }
 
+// ---------------------------------------------------------------------------
+// Bank identity (only used to name the debt — parsing does not depend on it).
+// ---------------------------------------------------------------------------
+const BANKS: { name: string; slug: string; re: RegExp }[] = [
+  { name: "BDO", slug: "bdo", re: /BDO Unibank|bdo\.com\.ph|\bBDO\b/i },
+  { name: "Security Bank", slug: "sbc", re: /security bank|securitybank|SBMastercard/i },
+  { name: "BPI", slug: "bpi", re: /\bBPI\b|Bank of the Philippine Islands/i },
+  { name: "Metrobank", slug: "mbtc", re: /metrobank|metropolitan bank/i },
+  { name: "RCBC", slug: "rcbc", re: /\bRCBC\b|Rizal Commercial/i },
+  { name: "UnionBank", slug: "ub", re: /unionbank|union bank/i },
+  { name: "Citi", slug: "citi", re: /\bciti\b|citibank/i },
+  { name: "EastWest", slug: "ew", re: /eastwest|east west bank/i },
+  { name: "PNB", slug: "pnb", re: /\bPNB\b|philippine national bank/i },
+  { name: "Maya", slug: "maya", re: /\bmaya bank\b|maya credit/i },
+];
+
+export function detectBank(text: string): { name: string; slug: string } {
+  for (const b of BANKS) if (b.re.test(text)) return { name: b.name, slug: b.slug };
+  return { name: "Unknown bank", slug: "card" };
+}
+
+// ---------------------------------------------------------------------------
+// Field-level matchers.
+// ---------------------------------------------------------------------------
 const MONTHS: Record<string, number> = {
   jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6,
   jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12,
 };
 
-/**
- * Parses common PH statement date formats to ISO (no timezone drift):
- *  - "August 3, 2026" / "Aug 28, 2026"  (Month D, YYYY — BDO)
- *  - "24 JUL 2026" / "14 AUG 2026"      (D Mon YYYY — Security Bank)
- */
+// A money value: thousands-grouped, or any number with 2 decimals. Optional
+// currency prefix. Avoids matching bare small integers like the "3" in "3%".
+const AMOUNT = /(?:PHP|Php|₱|P)?\s*(\d{1,3}(?:,\d{3})+(?:\.\d{2})?|\d+\.\d{2})/;
+
+/** Parses many PH statement date formats to ISO (no timezone drift). */
 export function parseStatementDate(input: string): string | null {
   const iso = (y: number, mo: number, d: number) =>
-    `${y}-${String(mo).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+    y >= 2000 && mo >= 1 && mo <= 12 && d >= 1 && d <= 31
+      ? `${y}-${String(mo).padStart(2, "0")}-${String(d).padStart(2, "0")}`
+      : null;
 
   let m = input.match(/([A-Za-z]{3,9})\.?\s+(\d{1,2}),\s*(\d{4})/); // Month D, YYYY
   if (m) {
     const mo = MONTHS[m[1].slice(0, 3).toLowerCase()];
     if (mo) return iso(Number(m[3]), mo, Number(m[2]));
   }
-  m = input.match(/(\d{1,2})\s+([A-Za-z]{3,9})\.?\s+(\d{4})/); // D Mon YYYY
+  m = input.match(/\b(\d{1,2})[\s-]+([A-Za-z]{3,9})\.?[\s-]+(\d{4})\b/); // D Mon YYYY / D-Mon-YYYY
   if (m) {
     const mo = MONTHS[m[2].slice(0, 3).toLowerCase()];
     if (mo) return iso(Number(m[3]), mo, Number(m[1]));
   }
+  m = input.match(/\b(\d{4})-(\d{2})-(\d{2})\b/); // ISO
+  if (m) return iso(Number(m[1]), Number(m[2]), Number(m[3]));
+  m = input.match(/\b(\d{1,2})\/(\d{1,2})\/(\d{2,4})\b/); // MM/DD/YYYY (PH card convention)
+  if (m) {
+    const yr = Number(m[3].length === 2 ? `20${m[3]}` : m[3]);
+    return iso(yr, Number(m[1]), Number(m[2]));
+  }
   return null;
 }
 
-function parseAmount(input: string | undefined | null): number | null {
-  if (!input) return null;
-  const n = Number(input.replace(/,/g, ""));
-  return Number.isFinite(n) ? n : null;
+function num(s: string): number {
+  return Number(s.replace(/,/g, ""));
 }
 
-function firstMatch(text: string, re: RegExp): string | null {
-  const m = text.match(re);
-  return m ? m[1] : null;
+/**
+ * Finds a value near a label. Statements put the value on the same line as the
+ * label, or (for some banks) on the line directly above or below it — so we
+ * search the label line first, then adjacent lines.
+ */
+function findNear(
+  lines: string[],
+  labels: RegExp,
+  match: (line: string) => { value: number | string; raw: string } | null
+): { value: number | string; raw: string } | null {
+  for (let i = 0; i < lines.length; i++) {
+    if (!labels.test(lines[i])) continue;
+    const here = match(lines[i]);
+    if (here) return here;
+    for (const j of [i + 1, i - 1, i + 2]) {
+      if (j < 0 || j >= lines.length) continue;
+      // Don't let an adjacent *different* labeled row hijack the value.
+      const near = match(lines[j]);
+      if (near) return near;
+    }
+  }
+  return null;
 }
 
-/** Grabs the first 16-digit grouped card number and returns its last 4. */
-function cardLast4(text: string): string | null {
-  const m = text.match(/(\d{4}-\d{4}-\d{4}-\d{4})/);
-  return m ? m[1].replace(/\D/g, "").slice(-4) : null;
+const amountAt = (line: string) => {
+  const m = line.match(AMOUNT);
+  return m ? { value: num(m[1]), raw: m[1] } : null;
+};
+const dateAt = (line: string) => {
+  const iso = parseStatementDate(line);
+  if (!iso) return null;
+  return { value: iso, raw: line.trim() };
+};
+
+function field<T>(hit: { value: number | string; raw: string } | null): ParsedField<T> {
+  return hit ? { value: hit.value as T, raw: hit.raw } : { value: null, raw: null };
 }
 
-/** Detects the issuing bank from statement text. Order matters — check the
- * bank-specific brand tokens, not generic phrases like "Statement of Account". */
-export function detectBank(text: string): BankName {
-  if (/security bank|securitybank|SBMastercard/i.test(text)) return "Security Bank";
-  if (/BDO Unibank|bdo\.com\.ph/i.test(text)) return "BDO";
-  return "Unknown";
+function extractApr(text: string): { apr: number | null; monthlyRaw: string | null; needsReview: boolean } {
+  let m = text.match(/Interest Rate per Month\s*([\d.]+)\s*%/i); // labeled monthly (e.g. BDO)
+  if (m) return { apr: round3(Number(m[1]) * 12), monthlyRaw: `${m[1]}%`, needsReview: false };
+  m = text.match(/([\d.]+)\s*%\s*per month/i); // prose monthly (e.g. Security Bank)
+  if (m) return { apr: round3(Number(m[1]) * 12), monthlyRaw: `${m[1]}%`, needsReview: true };
+  m = text.match(/([\d.]+)\s*%\s*per\s*(?:annum|year)/i); // prose annual
+  if (m) return { apr: round3(Number(m[1])), monthlyRaw: null, needsReview: true };
+  return { apr: null, monthlyRaw: null, needsReview: false };
 }
 
-function missingList(s: {
-  balance: ParsedField<number>;
-  minimumPayment: ParsedField<number>;
-  apr: ParsedField<number>;
-  dueDate: ParsedField<string>;
-}): string[] {
-  const missing: string[] = [];
-  if (s.balance.value == null) missing.push("Total Amount Due (balance)");
-  if (s.minimumPayment.value == null) missing.push("Minimum Amount Due");
-  if (s.apr.value == null) missing.push("APR / interest rate");
-  if (s.dueDate.value == null) missing.push("Payment Due Date");
-  return missing;
-}
-
-/** BDO Statement of Account (credit / installment card). */
-export function parseBdoStatement(text: string): ParsedStatement {
-  const totalRaw = firstMatch(text, /Total Amount Due\s*(?:PHP|₱)?\s*([\d,]+\.\d{2})/i);
-  const minRaw = firstMatch(text, /Minimum Amount Due\s*(?:PHP|₱)?\s*([\d,]+\.\d{2})/i);
-  const monthlyRaw = firstMatch(text, /Interest Rate per Month\s*([\d.]+)\s*%/i);
-  const dueRaw = firstMatch(text, /Payment Due Date\s*([A-Za-z]{3,9}\.?\s+\d{1,2},\s*\d{4})/i);
-  const stmtRaw = firstMatch(text, /Statement Date\s*([A-Za-z]{3,9}\.?\s+\d{1,2},\s*\d{4})/i);
-  const limitRaw = firstMatch(text, /Credit Limit\s*(?:PHP|₱)?\s*([\d,]+(?:\.\d{2})?)/i);
-
-  const monthly = monthlyRaw ? Number(monthlyRaw) : null;
-  const apr = monthly != null && Number.isFinite(monthly) ? round3(monthly * 12) : null;
-  const last4 = cardLast4(text);
-
-  const s = {
-    balance: { value: parseAmount(totalRaw), raw: totalRaw },
-    minimumPayment: { value: parseAmount(minRaw), raw: minRaw },
-    apr: { value: apr, raw: apr != null ? `${apr}%` : null },
-    dueDate: { value: dueRaw ? parseStatementDate(dueRaw) : null, raw: dueRaw },
-  };
-
-  return {
-    bank: "BDO",
-    creditor: /INSTALLMENT CARD/i.test(text) ? "BDO Installment Card" : "BDO Credit Card",
-    accountId: last4 ? `bdo-${last4}` : null,
-    cardMasked: last4 ? `•••• ${last4}` : null,
-    balance: s.balance,
-    minimumPayment: s.minimumPayment,
-    apr: s.apr,
-    aprMonthlyRaw: monthlyRaw ? `${monthlyRaw}%` : null,
-    aprNeedsReview: false,
-    dueDate: s.dueDate,
-    statementDate: { value: stmtRaw ? parseStatementDate(stmtRaw) : null, raw: stmtRaw },
-    creditLimit: { value: parseAmount(limitRaw), raw: limitRaw },
-    missing: missingList(s),
-  };
-}
-
-/** Security Bank Statement of Account (Mastercard / Visa credit card). */
-export function parseSbcStatement(text: string): ParsedStatement {
-  const amt = /\s*(?:PHP|₱)?\s*([\d,]+\.\d{2})/i.source;
-  const totalRaw = firstMatch(text, new RegExp(`TOTAL AMOUNT DUE${amt}`, "i"));
-  const minRaw = firstMatch(text, new RegExp(`MINIMUM AMOUNT DUE${amt}`, "i"));
-  const limitRaw = firstMatch(text, new RegExp(`CREDIT LIMIT${amt}`, "i"));
-  const stmtRaw = firstMatch(text, /CUT-OFF STATEMENT DATE\s+(\d{1,2}\s+[A-Za-z]{3}\s+\d{4})/i);
-  // The due date value can print either after the label or on the line above it.
-  const dueRaw =
-    firstMatch(text, /PAYMENT DUE DATE\s+(\d{1,2}\s+[A-Za-z]{3}\s+\d{4})/i) ??
-    firstMatch(text, /(\d{1,2}\s+[A-Za-z]{3}\s+\d{4})\s*\n\s*PAYMENT DUE DATE/i);
-
-  // SBC states the rate in prose: "3% per month (or 36% per annum)".
-  const rate = text.match(/([\d.]+)%\s*per month\s*\(or\s*([\d.]+)%\s*per annum\)/i);
-  const monthlyRaw = rate ? rate[1] : null;
-  const apr = rate ? round3(Number(rate[2])) : null;
-  const last4 = cardLast4(text);
-
-  const s = {
-    balance: { value: parseAmount(totalRaw), raw: totalRaw },
-    minimumPayment: { value: parseAmount(minRaw), raw: minRaw },
-    apr: { value: apr, raw: apr != null ? `${apr}%` : null },
-    dueDate: { value: dueRaw ? parseStatementDate(dueRaw) : null, raw: dueRaw },
-  };
-
-  return {
-    bank: "Security Bank",
-    creditor: "Security Bank Credit Card",
-    accountId: last4 ? `sbc-${last4}` : null,
-    cardMasked: last4 ? `•••• ${last4}` : null,
-    balance: s.balance,
-    minimumPayment: s.minimumPayment,
-    apr: s.apr,
-    aprMonthlyRaw: monthlyRaw ? `${monthlyRaw}%` : null,
-    aprNeedsReview: apr != null, // stated-rate; ask the user to confirm
-    dueDate: s.dueDate,
-    statementDate: { value: stmtRaw ? parseStatementDate(stmtRaw) : null, raw: stmtRaw },
-    creditLimit: { value: parseAmount(limitRaw), raw: limitRaw },
-    missing: missingList(s),
-  };
-}
-
-/** Detects the bank and parses the statement accordingly. */
+/**
+ * Generic PH credit-card statement parser. Label-driven so it works across
+ * banks without per-bank code; the confirm screen lets the user fix anything.
+ */
 export function parseStatement(text: string): ParsedStatement {
-  const bank = detectBank(text);
-  if (bank === "BDO") return parseBdoStatement(text);
-  if (bank === "Security Bank") return parseSbcStatement(text);
+  const lines = text.split("\n").map((l) => l.trim()).filter(Boolean);
+  const { name, slug } = detectBank(text);
+
+  const balance = field<number>(
+    findNear(lines, /total amount due|total balance due|new balance|total outstanding balance|please pay this amount/i, amountAt)
+  );
+  const minimumPayment = field<number>(
+    findNear(lines, /minimum amount due|minimum payment due|minimum amount payable|min(?:imum)? amount/i, amountAt)
+  );
+  const creditLimit = field<number>(findNear(lines, /credit limit/i, amountAt));
+  const dueDate = field<string>(findNear(lines, /payment due date|due date/i, dateAt));
+  const statementDate = field<string>(
+    findNear(lines, /statement date|cut-?off statement date|cut-?off date|statement\/cut-?off/i, dateAt)
+  );
+
+  const { apr, monthlyRaw, needsReview } = extractApr(text);
+
+  const cardMatch = text.match(/(\d{4}[-\s]\d{4}[-\s]\d{4}[-\s]\d{4})/);
+  const last4 = cardMatch ? cardMatch[1].replace(/\D/g, "").slice(-4) : null;
+
+  const missing: string[] = [];
+  if (balance.value == null) missing.push("Total Amount Due (balance)");
+  if (minimumPayment.value == null) missing.push("Minimum Amount Due");
+  if (apr == null) missing.push("APR / interest rate");
+  if (dueDate.value == null) missing.push("Payment Due Date");
+
+  // "Recognized" = we pulled at least the balance or minimum; below that the PDF
+  // is likely scanned/image-only or an unsupported layout.
+  const recognized = balance.value != null || minimumPayment.value != null;
+
+  const installment = /installment card/i.test(text);
+  const creditor =
+    name === "Unknown bank"
+      ? "Credit card"
+      : `${name} ${installment ? "Installment Card" : "Credit Card"}`;
+
   return {
-    bank: "Unknown",
-    creditor: "",
-    accountId: null,
-    cardMasked: null,
-    balance: { value: null, raw: null },
-    minimumPayment: { value: null, raw: null },
-    apr: { value: null, raw: null },
-    aprMonthlyRaw: null,
-    aprNeedsReview: false,
-    dueDate: { value: null, raw: null },
-    statementDate: { value: null, raw: null },
-    creditLimit: { value: null, raw: null },
-    missing: ["Total Amount Due (balance)", "Minimum Amount Due", "APR / interest rate", "Payment Due Date"],
+    bank: name,
+    creditor,
+    accountId: last4 ? `${slug}-${last4}` : null,
+    cardMasked: last4 ? `•••• ${last4}` : null,
+    balance,
+    minimumPayment,
+    apr: { value: apr, raw: apr != null ? `${apr}%` : null },
+    aprMonthlyRaw: monthlyRaw,
+    aprNeedsReview: needsReview,
+    dueDate,
+    statementDate,
+    creditLimit,
+    recognized,
+    missing,
   };
 }
 

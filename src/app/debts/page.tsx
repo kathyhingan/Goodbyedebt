@@ -96,9 +96,9 @@ export default function DebtsPage() {
     try {
       const text = await extractPdfLines(file);
       const result = parseStatement(text);
-      if (result.bank === "Unknown") {
+      if (!result.recognized) {
         setMsg(
-          "We couldn't recognize this bank's statement yet (supported: BDO, Security Bank). You can still add the debt manually below — or send us the bank so we can add support."
+          "We couldn't read the figures from this PDF — it may be scanned/image-only or password-protected. You can still add the debt manually below."
         );
         return;
       }
@@ -106,10 +106,11 @@ export default function DebtsPage() {
       setForm(statementToDebt(result));
       setEditing(false);
       setParsed(result);
+      const from = result.bank === "Unknown bank" ? "your statement" : `your ${result.bank} statement`;
       if (result.missing.length > 0) {
-        setMsg(`Imported from your ${result.bank} statement — please fill in: ${result.missing.join(", ")}.`);
+        setMsg(`Imported from ${from} — please fill in: ${result.missing.join(", ")}.`);
       } else {
-        setMsg(`Imported from your ${result.bank} statement — review the highlighted figures below, then Add debt.`);
+        setMsg(`Imported from ${from} — review the highlighted figures below, then Add debt.`);
       }
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch {
@@ -132,7 +133,7 @@ export default function DebtsPage() {
             <button type="button" onClick={() => pdfRef.current?.click()} disabled={pdfBusy}>
               {pdfBusy ? "Reading statement…" : "📄 Upload bank statement (PDF)"}
             </button>
-            <span className="note">BDO &amp; Security Bank statements supported — we read the figures for you to confirm.</span>
+            <span className="note">Works with most PH bank statements (BDO, Security Bank, BPI, Metrobank, and more) — we read the figures for you to confirm.</span>
             <input ref={pdfRef} type="file" accept="application/pdf,.pdf" hidden onChange={onPdf} />
           </div>
         )}
