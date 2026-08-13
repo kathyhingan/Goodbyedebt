@@ -28,6 +28,9 @@ yarn-error.log*
 .env*.local
 .env.production
 
+# generated: pdf.js worker staged into public by scripts/copy-pdf-worker.mjs
+/public/pdf.worker.min.mjs
+
 # editor
 .idea/
 .vscode/

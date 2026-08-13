@@ -4,8 +4,11 @@
   "private": true,
   "description": "Debt Payoff Optimization App — PWA that sequences and optimizes multi-debt repayment.",
   "scripts": {
+    "predev": "node scripts/copy-pdf-worker.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/copy-pdf-worker.mjs",
     "build": "next build",
+    "postinstall": "node scripts/copy-pdf-worker.mjs",
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
@@ -15,6 +18,7 @@
     "@supabase/ssr": "0.5.1",
     "@supabase/supabase-js": "2.45.4",
     "next": "14.2.5",
+    "pdfjs-dist": "^4.2.67",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },

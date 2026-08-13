@@ -46,6 +46,13 @@ a { color: var(--moss); }
 .payoff-hero .payoff-lead strong { color: #fff; }
 .payoff-hero .payoff-sub { margin-top: 6px; font-size: 0.9rem; opacity: 0.92; }
 .payoff-hero .payoff-sub strong { color: #fff; font-weight: 700; }
+.detected { background: var(--money-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 16px; }
+.detected-head { font-weight: 700; color: var(--moss); margin-bottom: 8px; font-size: 0.9rem; }
+.detected ul { list-style: none; padding: 0; margin: 0; }
+.detected li { display: flex; justify-content: space-between; gap: 12px; padding: 4px 0; border-bottom: 1px dashed var(--border); font-size: 0.88rem; }
+.detected li:last-child { border-bottom: none; }
+.detected li span { color: var(--muted); }
+.detected li strong { color: var(--ink); text-align: right; }
 .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 .stat { background: var(--money-soft); border-radius: var(--radius); padding: 14px; }
 .stat .label { color: var(--muted); font-size: 0.8rem; margin-bottom: 4px; }
