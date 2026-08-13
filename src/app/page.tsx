@@ -136,6 +136,34 @@ export default function Home() {
           </section>
 
           <section className="card">
+            <h2 style={{ marginTop: 0, fontSize: "1.1rem" }}>Debt totals</h2>
+            <div className="stat-grid">
+              <div className="stat">
+                <div className="label">Total debt owed</div>
+                <div className="value">{money(plan.startingBalance)}</div>
+              </div>
+              <div className="stat">
+                <div className="label">Total interest ({applied.strategy})</div>
+                <div className="value">{plan.unpayable ? "—" : money(plan.totalInterestPaid)}</div>
+              </div>
+              <div className="stat">
+                <div className="label">Total debt repayment</div>
+                <div className="value">
+                  {plan.unpayable ? "—" : money(plan.startingBalance + plan.totalInterestPaid)}
+                </div>
+              </div>
+              <div className="stat">
+                <div className="label">Accounts</div>
+                <div className="value">{debts.length}</div>
+              </div>
+            </div>
+            <p className="note" style={{ marginTop: 10 }}>
+              Total repayment = what you owe today ({money(plan.startingBalance)}) plus the interest you&apos;ll
+              pay clearing it under the {applied.strategy} plan.
+            </p>
+          </section>
+
+          <section className="card">
             <h2 style={{ marginTop: 0, fontSize: "1.1rem" }}>
               This cycle&apos;s plan <span className="muted" style={{ fontWeight: 400, fontSize: "0.85rem" }}>· {applied.strategy}</span>
             </h2>
