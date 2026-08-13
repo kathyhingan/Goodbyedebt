@@ -52,7 +52,10 @@ export function useProfile(currentTotalDebt: number): UseProfile {
     try {
       const supabase = createClient();
       const { data } = await supabase.auth.getUser();
-      if (!data.user) return;
+      if (!data.user) {
+        setProfile(defaultProfile(currentTotalDebt));
+        return;
+      }
       const existing = await loadProfile(supabase, data.user.id);
       if (existing) {
         setProfile({ ...existing, currentTotalDebt });
@@ -61,6 +64,10 @@ export function useProfile(currentTotalDebt: number): UseProfile {
       } else {
         setProfile(defaultProfile(currentTotalDebt));
       }
+    } catch {
+      // The profiles table may not exist yet, or a transient error — still
+      // render a usable default rather than spinning forever.
+      setProfile(defaultProfile(currentTotalDebt));
     } finally {
       setLoading(false);
     }
