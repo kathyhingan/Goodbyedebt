@@ -12,19 +12,39 @@ export default function Home() {
   const { debts, loading, demo } = useDebts();
   const { format } = useCurrency();
   const money = (n: number) => format(n, { maximumFractionDigits: 0 });
+  // Pending control values (what the user is editing).
   const [strategy, setStrategy] = useState<StrategyName>("avalanche");
   const [extra, setExtra] = useState(300);
   const [weight, setWeight] = useState(0.5);
 
-  const strat = { name: strategy, interestWeight: weight };
+  // Applied snapshot the plan is actually computed from. Clicking "Apply"
+  // commits the pending values, so the recalculation is explicit.
+  const [applied, setApplied] = useState<{ strategy: StrategyName; extra: number; weight: number }>({
+    strategy: "avalanche",
+    extra: 300,
+    weight: 0.5,
+  });
+
+  const dirty =
+    applied.strategy !== strategy || applied.extra !== extra || applied.weight !== weight;
 
   const plan = useMemo(
-    () => projectPayoff(debts, strat, { monthlyExtra: extra }),
-    [debts, strategy, extra, weight]
+    () =>
+      projectPayoff(
+        debts,
+        { name: applied.strategy, interestWeight: applied.weight },
+        { monthlyExtra: applied.extra }
+      ),
+    [debts, applied]
   );
   const savings = useMemo(
-    () => compareToMinimumsOnly(debts, strat, { monthlyExtra: extra }),
-    [debts, strategy, extra, weight]
+    () =>
+      compareToMinimumsOnly(
+        debts,
+        { name: applied.strategy, interestWeight: applied.weight },
+        { monthlyExtra: applied.extra }
+      ),
+    [debts, applied]
   );
   const byId = useMemo(() => new Map(debts.map((d) => [d.accountId, d])), [debts]);
 
@@ -72,7 +92,17 @@ export default function Home() {
                     onChange={(e) => setWeight(Number(e.target.value))} />
                 </div>
               )}
+              <div style={{ alignSelf: "end" }}>
+                <button type="button" className="primary" onClick={() => setApplied({ strategy, extra, weight })} disabled={!dirty}>
+                  {dirty ? "Apply" : "✓ Applied"}
+                </button>
+              </div>
             </div>
+            {dirty && (
+              <p className="note" style={{ marginTop: 8 }}>
+                You changed the {applied.strategy !== strategy ? "strategy" : "inputs"} — click <strong>Apply</strong> to recalculate the plan.
+              </p>
+            )}
 
             {plan.unpayable ? (
               <div className="payoff-hero warn-hero">
@@ -106,7 +136,9 @@ export default function Home() {
           </section>
 
           <section className="card">
-            <h2 style={{ marginTop: 0, fontSize: "1.1rem" }}>This cycle&apos;s plan</h2>
+            <h2 style={{ marginTop: 0, fontSize: "1.1rem" }}>
+              This cycle&apos;s plan <span className="muted" style={{ fontWeight: 400, fontSize: "0.85rem" }}>· {applied.strategy}</span>
+            </h2>
             <table>
               <thead>
                 <tr><th>Priority</th><th>Account</th><th>Balance</th><th>APR</th><th>Due</th></tr>
@@ -126,7 +158,7 @@ export default function Home() {
                 })}
               </tbody>
             </table>
-            <p className="note">Pay every minimum on time, then send your {money(extra)} extra to the ★ account.</p>
+            <p className="note">Pay every minimum on time, then send your {money(applied.extra)} extra to the ★ account.</p>
           </section>
         </>
       )}
