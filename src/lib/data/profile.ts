@@ -91,8 +91,9 @@ export async function saveProfile(
   if (error) throw error;
 }
 
-/** Keeps the leaderboard fresh: updates only the synced progress fields. */
-export async function syncProgress(
+/** Keeps the leaderboard fresh: updates the synced progress fields (and heals a
+ * zero baseline by persisting the provided original). */
+export async function updateProgress(
   supabase: SupabaseClient,
   userId: string,
   currentTotalDebt: number,
@@ -102,6 +103,7 @@ export async function syncProgress(
   const { error } = await supabase
     .from("profiles")
     .update({
+      original_total_debt: originalTotalDebt,
       current_total_debt: currentTotalDebt,
       percent_paid_off: percent,
       updated_at: new Date().toISOString(),
