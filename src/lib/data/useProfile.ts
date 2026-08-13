@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { isSupabaseConfigured } from "../supabase/config";
 import { createClient } from "../supabase/client";
-import { loadProfile, saveProfile, syncProgress, fetchLeaderboard, type Profile, type LeaderboardEntry } from "./profile";
+import { loadProfile, saveProfile, updateProgress, fetchLeaderboard, type Profile, type LeaderboardEntry } from "./profile";
 import { generatePseudonym } from "../community/profile";
 
 function defaultProfile(currentTotalDebt: number): Profile {
@@ -58,9 +58,12 @@ export function useProfile(currentTotalDebt: number): UseProfile {
       }
       const existing = await loadProfile(supabase, data.user.id);
       if (existing) {
-        setProfile({ ...existing, currentTotalDebt });
+        // Heal a zero/absent baseline (snapshot captured before debts loaded)
+        // so percent-paid-off can move off 0%.
+        const original = existing.originalTotalDebt > 0 ? existing.originalTotalDebt : currentTotalDebt;
+        setProfile({ ...existing, originalTotalDebt: original, currentTotalDebt });
         // Keep the leaderboard fresh with live progress.
-        void syncProgress(supabase, data.user.id, currentTotalDebt, existing.originalTotalDebt).catch(() => {});
+        void updateProgress(supabase, data.user.id, currentTotalDebt, original).catch(() => {});
       } else {
         setProfile(defaultProfile(currentTotalDebt));
       }

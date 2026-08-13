@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { CurrencyProvider } from "@/lib/currency/currency";
+import { DebtsProvider } from "@/lib/data/useDebts";
 
 export const metadata: Metadata = {
   title: "GoodbyeDebt — Debt Payoff Optimizer",
@@ -30,8 +31,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <CurrencyProvider>
-          <Nav />
-          {children}
+          <DebtsProvider>
+            <Nav />
+            {children}
+          </DebtsProvider>
         </CurrencyProvider>
       </body>
     </html>

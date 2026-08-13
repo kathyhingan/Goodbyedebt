@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useDebts } from "@/lib/data/useDebts";
 import { usePayments } from "@/lib/data/usePayments";
 import { useCurrency } from "@/lib/currency/currency";
-import { upcomingDueDates, statementsNeedingRefresh } from "@/lib/reminders/dueDates";
+import { upcomingDueDates, statementsNeedingRefresh, addOneMonthISO } from "@/lib/reminders/dueDates";
 
 const fmt = (iso: string) =>
   new Date(iso + "T00:00:00").toLocaleDateString("en-US", {
@@ -37,7 +37,7 @@ export default function CalendarPage() {
     setMsg(null);
   }
 
-  async function record(accountId: string) {
+  async function record(accountId: string, currentDue?: string) {
     const d = byId.get(accountId);
     if (!d) return;
     const paid = Math.max(0, Number(amount));
@@ -45,13 +45,17 @@ export default function CalendarPage() {
     setBusy(true);
     try {
       const newBalance = Math.max(0, d.balance - paid);
-      await save({ ...d, balance: newBalance, lastUpdated: new Date().toISOString() });
-      await addPayment({
-        accountId,
-        amount: paid,
-        paidOn: new Date().toISOString().slice(0, 10),
-        note: "",
-      });
+      // Advance this account's due date to next cycle so it doesn't keep
+      // showing as due after it's been paid.
+      const nextDue = currentDue ? addOneMonthISO(currentDue) : d.dueDate;
+      await save({ ...d, balance: newBalance, dueDate: nextDue, lastUpdated: new Date().toISOString() });
+      // Logging the payment is best-effort — a missing payments table must not
+      // block the balance update.
+      try {
+        await addPayment({ accountId, amount: paid, paidOn: new Date().toISOString().slice(0, 10), note: "" });
+      } catch {
+        /* payments table may not exist yet */
+      }
       setPaidIds((prev) => new Set(prev).add(accountId));
       setPayingId(null);
       setMsg(
@@ -136,7 +140,7 @@ export default function CalendarPage() {
                         style={{ width: 130 }}
                         autoFocus
                       />
-                      <button type="button" className="primary" disabled={busy} onClick={() => record(u.accountId)}>
+                      <button type="button" className="primary" disabled={busy} onClick={() => record(u.accountId, u.dueDate)}>
                         {busy ? "Saving…" : "Record payment"}
                       </button>
                       <button type="button" onClick={() => setPayingId(null)} disabled={busy}>Cancel</button>

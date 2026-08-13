@@ -33,10 +33,19 @@ function daysBetween(from: Date, to: Date): number {
  */
 export function nextDueDate(dueDate: string, today: Date): Date {
   const anchor = parseISO(dueDate);
+  // If the stored date is itself upcoming (e.g. advanced after a payment), use
+  // it directly rather than rolling to this month's day-of-month.
+  if (daysBetween(startOfDay(today), anchor) >= 0) return anchor;
   const dom = anchor.getDate();
   const candidate = clampedDate(today.getFullYear(), today.getMonth(), dom);
   if (daysBetween(startOfDay(today), candidate) >= 0) return candidate;
   return clampedDate(today.getFullYear(), today.getMonth() + 1, dom);
+}
+
+/** Advances an ISO date by one month (clamped to the target month length). */
+export function addOneMonthISO(iso: string): string {
+  const d = parseISO(iso);
+  return toISO(clampedDate(d.getFullYear(), d.getMonth() + 1, d.getDate()));
 }
 
 function clampedDate(year: number, month: number, day: number): Date {

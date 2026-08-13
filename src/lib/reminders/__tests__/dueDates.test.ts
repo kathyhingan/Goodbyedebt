@@ -36,6 +36,12 @@ describe("nextDueDate", () => {
     expect(next.getDate()).toBe(10);
     expect(next.getMonth()).toBe(7);
   });
+
+  it("uses a stored future date directly (e.g. advanced after a payment)", () => {
+    const next = nextDueDate("2026-09-14", new Date(2026, 7, 14)); // Aug 14
+    expect(next.getMonth()).toBe(8); // September — not rolled back to Aug 14
+    expect(next.getDate()).toBe(14);
+  });
 });
 
 describe("upcomingDueDates", () => {
