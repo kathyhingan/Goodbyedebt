@@ -7,6 +7,8 @@ import { useCurrency } from "@/lib/currency/currency";
 import { parseDebtsCsv, type RowError } from "@/lib/csv/parse";
 import { csvTemplate, DEBT_TYPES } from "@/lib/csv/template";
 import { debtsToCsv } from "@/lib/csv/serialize";
+import { extractPdfLines } from "@/lib/pdf/read";
+import { parseBdoStatement, statementToDebt, type ParsedStatement } from "@/lib/pdf/bdo";
 
 const EMPTY: Debt = {
   accountId: "",
@@ -33,7 +35,10 @@ export default function DebtsPage() {
   const [editing, setEditing] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
   const [errors, setErrors] = useState<RowError[]>([]);
+  const [parsed, setParsed] = useState<ParsedStatement | null>(null);
+  const [pdfBusy, setPdfBusy] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
+  const pdfRef = useRef<HTMLInputElement>(null);
 
   const set = <K extends keyof Debt>(k: K, v: Debt[K]) => setForm((f) => ({ ...f, [k]: v }));
 
@@ -45,6 +50,7 @@ export default function DebtsPage() {
       await save({ ...form, lastUpdated: new Date().toISOString() });
       setForm(EMPTY);
       setEditing(false);
+      setParsed(null);
       setMsg("Saved.");
     } catch (err) {
       setMsg(err instanceof Error ? err.message : "Save failed.");
@@ -79,6 +85,40 @@ export default function DebtsPage() {
     if (fileRef.current) fileRef.current.value = "";
   }
 
+  async function onPdf(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (pdfRef.current) pdfRef.current.value = "";
+    if (!file) return;
+    setMsg(null);
+    setErrors([]);
+    setParsed(null);
+    setPdfBusy(true);
+    try {
+      const text = await extractPdfLines(file);
+      const result = parseBdoStatement(text);
+      if (result.bank === "Unknown") {
+        setMsg(
+          "This doesn't look like a BDO statement yet. You can still add the debt manually below — or send us the bank so we can add support."
+        );
+        return;
+      }
+      // Prefill the form as the confirm step; the user reviews, then saves.
+      setForm(statementToDebt(result));
+      setEditing(false);
+      setParsed(result);
+      if (result.missing.length > 0) {
+        setMsg(`Imported from your BDO statement — please fill in: ${result.missing.join(", ")}.`);
+      } else {
+        setMsg("Imported from your BDO statement — review the highlighted figures below, then Add debt.");
+      }
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch {
+      setMsg("Couldn't read that PDF. If it's password-protected, remove the password and try again.");
+    } finally {
+      setPdfBusy(false);
+    }
+  }
+
   return (
     <main className="container">
       <h1 style={{ color: "var(--moss)" }}>Your debts</h1>
@@ -86,6 +126,55 @@ export default function DebtsPage() {
 
       <section className="card">
         <h2 style={{ marginTop: 0, fontSize: "1.05rem" }}>{editing ? "Edit debt" : "Add a debt"}</h2>
+
+        {!editing && (
+          <div className="row-actions" style={{ marginBottom: 14, flexWrap: "wrap" }}>
+            <button type="button" onClick={() => pdfRef.current?.click()} disabled={pdfBusy}>
+              {pdfBusy ? "Reading statement…" : "📄 Upload bank statement (PDF)"}
+            </button>
+            <span className="note">BDO statements supported — we read the figures for you to confirm.</span>
+            <input ref={pdfRef} type="file" accept="application/pdf,.pdf" hidden onChange={onPdf} />
+          </div>
+        )}
+
+        {parsed && (
+          <div className="detected">
+            <div className="detected-head">
+              Detected from your {parsed.creditor}
+              {parsed.cardMasked ? ` (${parsed.cardMasked})` : ""} — confirm before saving:
+            </div>
+            <ul>
+              <li>
+                <span>Balance (Total Amount Due)</span>
+                <strong>{parsed.balance.raw ? `₱${parsed.balance.raw}` : "— not found"}</strong>
+              </li>
+              <li>
+                <span>Minimum payment (Minimum Amount Due)</span>
+                <strong>{parsed.minimumPayment.raw ? `₱${parsed.minimumPayment.raw}` : "— not found"}</strong>
+              </li>
+              <li>
+                <span>APR</span>
+                <strong>
+                  {parsed.apr.value != null
+                    ? `${parsed.apr.value}% / yr (${parsed.aprMonthlyRaw} per month × 12)`
+                    : "— not found"}
+                </strong>
+              </li>
+              <li>
+                <span>Payment due date</span>
+                <strong>{parsed.dueDate.value ?? "— not found"}</strong>
+              </li>
+              <li>
+                <span>Statement date</span>
+                <strong>{parsed.statementDate.value ?? "— not found"}</strong>
+              </li>
+            </ul>
+            <p className="note" style={{ margin: "8px 0 0" }}>
+              BDO bills interest monthly (3% ≈ 36% APR). Edit any field below if it looks off, then Add debt.
+            </p>
+          </div>
+        )}
+
         <form onSubmit={submit}>
           <div className="field-grid">
             <div>
@@ -129,7 +218,7 @@ export default function DebtsPage() {
           </div>
           <div className="row-actions" style={{ marginTop: 14 }}>
             <button type="submit" className="primary">{editing ? "Save changes" : "Add debt"}</button>
-            {editing && <button type="button" onClick={() => { setForm(EMPTY); setEditing(false); }}>Cancel</button>}
+            {(editing || parsed) && <button type="button" onClick={() => { setForm(EMPTY); setEditing(false); setParsed(null); }}>Cancel</button>}
           </div>
           {msg && <p className="note" style={{ marginTop: 10 }}>{msg}</p>}
         </form>
