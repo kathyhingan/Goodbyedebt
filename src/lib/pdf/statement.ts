@@ -200,6 +200,62 @@ export function parseStatement(text: string): ParsedStatement {
   };
 }
 
+// ---------------------------------------------------------------------------
+// Individual transaction line items (for spending analysis).
+// ---------------------------------------------------------------------------
+export interface StatementTxn {
+  txnDate: string; // ISO yyyy-mm-dd
+  description: string;
+  amount: number; // always positive; sign is captured by `direction`
+  direction: "debit" | "credit"; // debit = charge/spend, credit = payment/refund
+  raw: string;
+}
+
+// A statement transaction row: two dates (posting + transaction), a description,
+// then an amount. Credits are marked by a leading "-" or a trailing "CR".
+const TXN_ROW = /^(\d{1,2}\/\d{1,2}\/\d{2,4})\s+(\d{1,2}\/\d{1,2}\/\d{2,4})\s+(.+?)\s+(-?[\d,]+\.\d{2})(\s*CR)?$/i;
+
+// Rows that match the shape but aren't real spending.
+const TXN_NOISE = /previous (statement )?balance|^sub-?total|^total$|amount due|balance forward/i;
+
+function slashToISO(s: string): string | null {
+  const m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/); // MM/DD/YY(YY)
+  if (!m) return null;
+  const yr = m[3].length === 2 ? 2000 + Number(m[3]) : Number(m[3]);
+  const mo = Number(m[1]);
+  const d = Number(m[2]);
+  if (mo < 1 || mo > 12 || d < 1 || d > 31) return null;
+  return `${yr}-${String(mo).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+}
+
+/**
+ * Extracts individual transaction line items from a statement. Bank statements
+ * lay these out positionally, but nearly all PH card statements share the
+ * "date date description amount [CR]" row shape, so one matcher covers them.
+ */
+export function extractTransactions(text: string): StatementTxn[] {
+  const out: StatementTxn[] = [];
+  for (const rawLine of text.split("\n")) {
+    const line = rawLine.trim();
+    const m = line.match(TXN_ROW);
+    if (!m) continue;
+    const iso = slashToISO(m[1]);
+    if (!iso) continue;
+    const description = m[3].trim().replace(/\s+/g, " ");
+    if (!description || TXN_NOISE.test(description)) continue;
+    const negative = m[4].trim().startsWith("-");
+    const isCredit = negative || Boolean(m[5]) || /payment|refund|reversal|thank you/i.test(description);
+    out.push({
+      txnDate: iso,
+      description,
+      amount: Math.abs(num(m[4])),
+      direction: isCredit ? "credit" : "debit",
+      raw: line,
+    });
+  }
+  return out;
+}
+
 /** Build a Debt draft from a parsed statement, for the confirm form to prefill. */
 export function statementToDebt(p: ParsedStatement): Debt {
   return {

@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { detectBank, parseStatement, parseStatementDate, statementToDebt } from "../statement";
+import {
+  detectBank,
+  extractTransactions,
+  parseStatement,
+  parseStatementDate,
+  statementToDebt,
+} from "../statement";
 
 const BDO_TEXT = `Statement of Account
 INSTALLMENT CARD (PHP)
@@ -97,6 +103,40 @@ describe("parseStatement — generic (no per-bank code)", () => {
     expect(p.dueDate.value).toBe("2026-08-14"); // slash date
     expect(p.statementDate.value).toBe("2026-07-24");
     expect(p.accountId).toBe("bpi-9010");
+  });
+});
+
+describe("extractTransactions", () => {
+  const TXNS = `PREVIOUS STATEMENT BALANCE 16,186.30
+08/03/26 08/03/26 FINANCE CHARGE-RETAIL PURCHASES 423.96
+07/09/26 07/12/26 PAYMENT RECEIVED - THANK YOU -3,000.00
+07/09/26 07/12/26 APPLE.COM/BILL CORK IRL 565.60
+07/16/26 07/16/26 PAYMENT - PHP/SBC1 3,000.00 CR
+07/19/26 07/20/26 FS *dataforseo fsprg nl NLD 3,540.72
+SUBTOTAL 18,428.89`;
+
+  const txns = extractTransactions(TXNS);
+
+  it("captures the transaction rows and skips balance/subtotal noise", () => {
+    expect(txns.map((t) => t.description)).toEqual([
+      "FINANCE CHARGE-RETAIL PURCHASES",
+      "PAYMENT RECEIVED - THANK YOU",
+      "APPLE.COM/BILL CORK IRL",
+      "PAYMENT - PHP/SBC1",
+      "FS *dataforseo fsprg nl NLD",
+    ]);
+  });
+
+  it("marks payments/credits vs charges", () => {
+    const byDesc = Object.fromEntries(txns.map((t) => [t.description, t]));
+    expect(byDesc["APPLE.COM/BILL CORK IRL"].direction).toBe("debit");
+    expect(byDesc["APPLE.COM/BILL CORK IRL"].amount).toBe(565.6);
+    expect(byDesc["PAYMENT RECEIVED - THANK YOU"].direction).toBe("credit"); // leading minus
+    expect(byDesc["PAYMENT - PHP/SBC1"].direction).toBe("credit"); // trailing CR
+  });
+
+  it("normalizes MM/DD/YY dates to ISO using the transaction date", () => {
+    expect(txns[0].txnDate).toBe("2026-08-03");
   });
 });
 
