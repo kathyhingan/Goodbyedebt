@@ -1,6 +1,11 @@
 import { describe, it, expect } from "vitest";
 import type { Debt } from "../../engine/types";
-import { nextDueDate, upcomingDueDates, dueForReminder } from "../dueDates";
+import {
+  nextDueDate,
+  upcomingDueDates,
+  dueForReminder,
+  statementsNeedingRefresh,
+} from "../dueDates";
 
 function debt(accountId: string, dueDate?: string): Debt {
   return { accountId, creditor: accountId, balance: 1000, apr: 20, minimumPayment: 50, debtType: "credit_card", dueDate };
@@ -48,5 +53,33 @@ describe("dueForReminder", () => {
     const debts = [debt("five", "2026-01-15"), debt("one", "2026-01-11"), debt("far", "2026-01-25")];
     const fired = dueForReminder(debts, [5, 1], today).map((u) => u.accountId).sort();
     expect(fired).toEqual(["five", "one"]);
+  });
+});
+
+describe("statementsNeedingRefresh", () => {
+  const today = new Date(2026, 7, 10); // Aug 10, 2026
+
+  function withStatement(accountId: string, billingDate: string, lastUpdated?: string, balance = 1000): Debt {
+    return { accountId, creditor: accountId, balance, apr: 20, minimumPayment: 50, debtType: "credit_card", billingDate, lastUpdated };
+  }
+
+  it("flags a debt whose latest statement closed after its last update", () => {
+    // Statement closes on the 3rd; Aug 3 has passed and data is from July.
+    const list = statementsNeedingRefresh([withStatement("a", "2026-06-03", "2026-07-15T00:00:00Z")], today);
+    expect(list.map((s) => s.accountId)).toEqual(["a"]);
+    expect(list[0].statementDate).toBe("2026-08-03");
+  });
+
+  it("does not flag a debt already updated since the latest statement", () => {
+    const list = statementsNeedingRefresh([withStatement("a", "2026-06-03", "2026-08-05T00:00:00Z")], today);
+    expect(list).toEqual([]);
+  });
+
+  it("skips fully-paid debts and debts without a billing date", () => {
+    const debts = [
+      withStatement("paid", "2026-06-03", "2026-01-01T00:00:00Z", 0),
+      debt("nobilling", "2026-01-15"),
+    ];
+    expect(statementsNeedingRefresh(debts, today)).toEqual([]);
   });
 });

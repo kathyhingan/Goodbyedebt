@@ -73,6 +73,43 @@ export function upcomingDueDates(
   return out.sort((a, b) => a.daysUntil - b.daysUntil);
 }
 
+export interface StatementRefresh {
+  accountId: string;
+  creditor: string;
+  /** ISO date of the most recent statement close that hasn't been updated. */
+  statementDate: string;
+}
+
+/** The most recent monthly statement-close date on or before `today`. */
+export function mostRecentStatementDate(billingDate: string, today: Date): Date {
+  const dom = parseISO(billingDate).getDate();
+  const thisMonth = clampedDate(today.getFullYear(), today.getMonth(), dom);
+  if (daysBetween(startOfDay(today), thisMonth) <= 0) return thisMonth; // already passed
+  return clampedDate(today.getFullYear(), today.getMonth() - 1, dom);
+}
+
+/**
+ * Returns debts whose latest statement has closed (by billingDate) but whose
+ * data hasn't been updated since — i.e. the user should upload a fresh
+ * statement of account to keep the plan accurate. Fully-paid debts are skipped.
+ */
+export function statementsNeedingRefresh(
+  debts: Debt[],
+  today: Date = new Date()
+): StatementRefresh[] {
+  const t0 = startOfDay(today);
+  const out: StatementRefresh[] = [];
+  for (const d of debts) {
+    if (!d.billingDate || d.balance <= 0) continue;
+    const recent = mostRecentStatementDate(d.billingDate, t0);
+    const updated = d.lastUpdated ? startOfDay(parseISO(d.lastUpdated.slice(0, 10))) : null;
+    if (!updated || daysBetween(updated, recent) > 0) {
+      out.push({ accountId: d.accountId, creditor: d.creditor, statementDate: toISO(recent) });
+    }
+  }
+  return out.sort((a, b) => (a.statementDate < b.statementDate ? 1 : -1));
+}
+
 /**
  * Given lead-day preferences (e.g. [5, 1]), returns the debts whose next due
  * date is exactly `leadDay` days away today — i.e. a reminder should fire.
