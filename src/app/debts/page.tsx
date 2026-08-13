@@ -8,6 +8,7 @@ import { parseDebtsCsv, type RowError } from "@/lib/csv/parse";
 import { csvTemplate, DEBT_TYPES } from "@/lib/csv/template";
 import { debtsToCsv } from "@/lib/csv/serialize";
 import { extractPdfLines } from "@/lib/pdf/read";
+import { extractImageLines } from "@/lib/ocr/image";
 import { parseStatement, extractTransactions, statementToDebt, type ParsedStatement, type StatementTxn } from "@/lib/pdf/statement";
 import { useStatementTxns } from "@/lib/data/useStatementTxns";
 
@@ -104,13 +105,17 @@ export default function DebtsPage() {
     setMsg(null);
     setErrors([]);
     setParsed(null);
+    const isImage = file.type.startsWith("image/") || /\.(png|jpe?g|webp|heic|bmp|gif)$/i.test(file.name);
     setPdfBusy(true);
+    if (isImage) setMsg("Reading image with OCR — this can take a few seconds…");
     try {
-      const text = await extractPdfLines(file);
+      const text = isImage ? await extractImageLines(file) : await extractPdfLines(file);
       const result = parseStatement(text);
       if (!result.recognized) {
         setMsg(
-          "We couldn't read the figures from this PDF — it may be scanned/image-only or password-protected. You can still add the debt manually below."
+          isImage
+            ? "We couldn't read the figures from this photo. Try a sharper, well-lit image of the summary page — or add the debt manually below."
+            : "We couldn't read the figures from this PDF — it may be scanned/image-only or password-protected. You can still add the debt manually below."
         );
         return;
       }
@@ -127,7 +132,7 @@ export default function DebtsPage() {
       }
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch {
-      setMsg("Couldn't read that PDF. If it's password-protected, remove the password and try again.");
+      setMsg("Couldn't read that file. For PDFs, remove any password; for photos, use a clear, well-lit image.");
     } finally {
       setPdfBusy(false);
     }
@@ -144,10 +149,10 @@ export default function DebtsPage() {
         {!editing && (
           <div className="row-actions" style={{ marginBottom: 14, flexWrap: "wrap" }}>
             <button type="button" onClick={() => pdfRef.current?.click()} disabled={pdfBusy}>
-              {pdfBusy ? "Reading statement…" : "📄 Upload bank statement (PDF)"}
+              {pdfBusy ? "Reading statement…" : "📄 Upload statement (PDF or photo)"}
             </button>
-            <span className="note">Works with most PH bank statements (BDO, Security Bank, BPI, Metrobank, and more) — we read the figures for you to confirm.</span>
-            <input ref={pdfRef} type="file" accept="application/pdf,.pdf" hidden onChange={onPdf} />
+            <span className="note">PDF or a photo/screenshot of most PH bank statements (BDO, Security Bank, BPI, Metrobank, and more) — we read the figures for you to confirm. Photos are read on your device; the image is never uploaded.</span>
+            <input ref={pdfRef} type="file" accept="application/pdf,.pdf,image/*" hidden onChange={onPdf} />
           </div>
         )}
 
