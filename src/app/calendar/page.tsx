@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useDebts } from "@/lib/data/useDebts";
+import { usePayments } from "@/lib/data/usePayments";
 import { useCurrency } from "@/lib/currency/currency";
 import { upcomingDueDates, statementsNeedingRefresh } from "@/lib/reminders/dueDates";
 
@@ -15,6 +16,7 @@ const fmt = (iso: string) =>
 
 export default function CalendarPage() {
   const { debts, loading, demo, save } = useDebts();
+  const { add: addPayment } = usePayments();
   const { format } = useCurrency();
   const upcoming = useMemo(() => upcomingDueDates(debts, new Date(), 60), [debts]);
   const toRefresh = useMemo(() => statementsNeedingRefresh(debts, new Date()), [debts]);
@@ -44,6 +46,12 @@ export default function CalendarPage() {
     try {
       const newBalance = Math.max(0, d.balance - paid);
       await save({ ...d, balance: newBalance, lastUpdated: new Date().toISOString() });
+      await addPayment({
+        accountId,
+        amount: paid,
+        paidOn: new Date().toISOString().slice(0, 10),
+        note: "",
+      });
       setPaidIds((prev) => new Set(prev).add(accountId));
       setPayingId(null);
       setMsg(

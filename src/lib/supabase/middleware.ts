@@ -3,7 +3,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { SUPABASE_ANON_KEY, SUPABASE_URL, isSupabaseConfigured } from "./config";
 
 /** Routes that require an authenticated session. */
-const PROTECTED = ["/", "/debts", "/calendar", "/settings"];
+const PROTECTED = ["/", "/debts", "/calendar", "/transactions", "/settings"];
 const PUBLIC = ["/login", "/auth"];
 
 /** Refreshes the Supabase session cookie and gates protected routes. */

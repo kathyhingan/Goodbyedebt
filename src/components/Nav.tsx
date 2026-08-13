@@ -8,6 +8,7 @@ const LINKS = [
   { href: "/", label: "Plan" },
   { href: "/debts", label: "Debts" },
   { href: "/calendar", label: "Calendar" },
+  { href: "/transactions", label: "Transactions" },
   { href: "/settings", label: "Settings" },
 ];
 
