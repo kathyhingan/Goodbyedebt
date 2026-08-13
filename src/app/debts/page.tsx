@@ -8,7 +8,7 @@ import { parseDebtsCsv, type RowError } from "@/lib/csv/parse";
 import { csvTemplate, DEBT_TYPES } from "@/lib/csv/template";
 import { debtsToCsv } from "@/lib/csv/serialize";
 import { extractPdfLines } from "@/lib/pdf/read";
-import { parseBdoStatement, statementToDebt, type ParsedStatement } from "@/lib/pdf/bdo";
+import { parseStatement, statementToDebt, type ParsedStatement } from "@/lib/pdf/statement";
 
 const EMPTY: Debt = {
   accountId: "",
@@ -95,10 +95,10 @@ export default function DebtsPage() {
     setPdfBusy(true);
     try {
       const text = await extractPdfLines(file);
-      const result = parseBdoStatement(text);
-      if (result.bank === "Unknown") {
+      const result = parseStatement(text);
+      if (!result.recognized) {
         setMsg(
-          "This doesn't look like a BDO statement yet. You can still add the debt manually below — or send us the bank so we can add support."
+          "We couldn't read the figures from this PDF — it may be scanned/image-only or password-protected. You can still add the debt manually below."
         );
         return;
       }
@@ -106,10 +106,11 @@ export default function DebtsPage() {
       setForm(statementToDebt(result));
       setEditing(false);
       setParsed(result);
+      const from = result.bank === "Unknown bank" ? "your statement" : `your ${result.bank} statement`;
       if (result.missing.length > 0) {
-        setMsg(`Imported from your BDO statement — please fill in: ${result.missing.join(", ")}.`);
+        setMsg(`Imported from ${from} — please fill in: ${result.missing.join(", ")}.`);
       } else {
-        setMsg("Imported from your BDO statement — review the highlighted figures below, then Add debt.");
+        setMsg(`Imported from ${from} — review the highlighted figures below, then Add debt.`);
       }
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch {
@@ -132,7 +133,7 @@ export default function DebtsPage() {
             <button type="button" onClick={() => pdfRef.current?.click()} disabled={pdfBusy}>
               {pdfBusy ? "Reading statement…" : "📄 Upload bank statement (PDF)"}
             </button>
-            <span className="note">BDO statements supported — we read the figures for you to confirm.</span>
+            <span className="note">Works with most PH bank statements (BDO, Security Bank, BPI, Metrobank, and more) — we read the figures for you to confirm.</span>
             <input ref={pdfRef} type="file" accept="application/pdf,.pdf" hidden onChange={onPdf} />
           </div>
         )}
@@ -156,7 +157,7 @@ export default function DebtsPage() {
                 <span>APR</span>
                 <strong>
                   {parsed.apr.value != null
-                    ? `${parsed.apr.value}% / yr (${parsed.aprMonthlyRaw} per month × 12)`
+                    ? `${parsed.apr.value}% / yr${parsed.aprMonthlyRaw ? ` (${parsed.aprMonthlyRaw} per month × 12)` : ""}`
                     : "— not found"}
                 </strong>
               </li>
@@ -170,7 +171,10 @@ export default function DebtsPage() {
               </li>
             </ul>
             <p className="note" style={{ margin: "8px 0 0" }}>
-              BDO bills interest monthly (3% ≈ 36% APR). Edit any field below if it looks off, then Add debt.
+              {parsed.aprNeedsReview
+                ? "The APR is taken from the rate stated in the statement text — please confirm it matches your card's finance charge."
+                : "These banks bill interest monthly, shown here as an annual APR (×12)."}{" "}
+              Edit any field below if it looks off, then Add debt.
             </p>
           </div>
         )}
