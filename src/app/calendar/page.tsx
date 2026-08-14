@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useDebts } from "@/lib/data/useDebts";
 import { usePayments } from "@/lib/data/usePayments";
 import { useCurrency } from "@/lib/currency/currency";
-import { upcomingDueDates, statementsNeedingRefresh, addOneMonthISO } from "@/lib/reminders/dueDates";
+import { upcomingDueDates, addOneMonthISO } from "@/lib/reminders/dueDates";
 
 const fmt = (iso: string) =>
   new Date(iso + "T00:00:00").toLocaleDateString("en-US", {
@@ -19,7 +19,6 @@ export default function CalendarPage() {
   const { add: addPayment } = usePayments();
   const { format } = useCurrency();
   const upcoming = useMemo(() => upcomingDueDates(debts, new Date(), 60), [debts]);
-  const toRefresh = useMemo(() => statementsNeedingRefresh(debts, new Date()), [debts]);
   const byId = useMemo(() => new Map(debts.map((d) => [d.accountId, d])), [debts]);
   const totalOwed = useMemo(() => debts.reduce((s, d) => s + Math.max(0, d.balance), 0), [debts]);
 
@@ -85,16 +84,7 @@ export default function CalendarPage() {
         </div>
       )}
 
-      {toRefresh.length > 0 && (
-        <div className="banner" style={{ background: "#fff6e6", borderColor: "#f0d9a8" }}>
-          📄 A new statement has closed for{" "}
-          <strong>{toRefresh.map((s) => s.creditor).join(", ")}</strong>. Upload the updated statement
-          of account so your balances and plan stay accurate.{" "}
-          <Link href="/debts">Upload now →</Link>
-        </div>
-      )}
-
-      {msg && <p className="note" style={{ color: "var(--moss)", fontWeight: 600 }}>{msg}</p>}
+      {msg &&<p className="note" style={{ color: "var(--moss)", fontWeight: 600 }}>{msg}</p>}
 
       <section className="card">
         {loading ? (

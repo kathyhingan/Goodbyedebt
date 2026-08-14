@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { InstallPrompt } from "@/components/InstallPrompt";
+import { StatementReminder } from "@/components/StatementReminder";
 import { CurrencyProvider } from "@/lib/currency/currency";
 import { DebtsProvider } from "@/lib/data/useDebts";
 
@@ -34,6 +35,7 @@ export default function RootLayout({
         <CurrencyProvider>
           <DebtsProvider>
             <Nav />
+            <StatementReminder />
             {children}
             <InstallPrompt />
           </DebtsProvider>
