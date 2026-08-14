@@ -7,8 +7,10 @@ import { isSupabaseConfigured } from "@/lib/supabase/config";
 
 function LoginForm() {
   const params = useSearchParams();
-  const redirect = params.get("redirect") || "/";
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
+  const redirect = params.get("redirect") || "/plan";
+  const [mode, setMode] = useState<"signin" | "signup">(
+    params.get("mode") === "signup" ? "signup" : "signin"
+  );
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [msg, setMsg] = useState<string | null>(null);

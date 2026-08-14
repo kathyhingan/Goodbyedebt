@@ -3,8 +3,9 @@ import { NextResponse, type NextRequest } from "next/server";
 import { SUPABASE_ANON_KEY, SUPABASE_URL, isSupabaseConfigured } from "./config";
 
 /** Routes that require an authenticated session. */
-const PROTECTED = ["/", "/debts", "/calendar", "/transactions", "/community", "/profile", "/settings"];
-const PUBLIC = ["/login", "/auth"];
+const PROTECTED = ["/plan", "/debts", "/calendar", "/transactions", "/community", "/profile", "/settings"];
+/** Public routes: the marketing landing page ("/") plus auth. */
+const PUBLIC = ["/", "/login", "/auth"];
 
 /** Refreshes the Supabase session cookie and gates protected routes. */
 export async function updateSession(request: NextRequest) {
@@ -34,7 +35,8 @@ export async function updateSession(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   const path = request.nextUrl.pathname;
-  const isPublic = PUBLIC.some((p) => path.startsWith(p));
+  // "/" must match exactly (every path starts with "/"); others match by prefix.
+  const isPublic = path === "/" || ["/login", "/auth"].some((p) => path.startsWith(p));
 
   if (!user && !isPublic) {
     const url = request.nextUrl.clone();
@@ -43,9 +45,11 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  if (user && path === "/login") {
+  // Logged-in users skip the landing/login pages and go straight to the app.
+  if (user && (path === "/login" || path === "/")) {
     const url = request.nextUrl.clone();
-    url.pathname = "/";
+    url.pathname = "/plan";
+    url.search = "";
     return NextResponse.redirect(url);
   }
 
