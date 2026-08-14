@@ -135,7 +135,17 @@ th { color: var(--muted); font-weight: 600; }
 .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .field-grid label { margin-top: 4px; }
 .field-grid input, .field-grid select { width: 100%; }
-.row-actions { display: flex; gap: 8px; }
+.row-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* Mobile: keep wide tables and multi-input rows within the viewport. */
+@media (max-width: 640px) {
+  /* Wide tables scroll horizontally inside their card instead of pushing the
+     whole page sideways. */
+  .card table { display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+  /* Stacked inputs in action rows (e.g. profile support links). */
+  .row-actions input, .row-actions select { flex: 1 1 100%; min-width: 0; }
+  .field-grid { grid-template-columns: 1fr; }
+}
 .danger-btn { background: none; border: 1px solid var(--border); color: var(--danger); border-radius: 8px; cursor: pointer; padding: 4px 10px; }
 .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; background: var(--money-soft); color: var(--moss); }
 .pill.soon { background: #fde7e1; color: var(--danger); }
