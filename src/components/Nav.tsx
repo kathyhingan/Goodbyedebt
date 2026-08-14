@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 
 const LINKS = [
-  { href: "/", label: "Plan" },
+  { href: "/plan", label: "Plan" },
   { href: "/debts", label: "Debts" },
   { href: "/calendar", label: "Calendar" },
   { href: "/transactions", label: "Transactions" },
@@ -16,7 +16,8 @@ const LINKS = [
 
 export function Nav() {
   const path = usePathname();
-  if (path === "/login") return null;
+  // Hide the app nav on the public marketing landing page and the auth screen.
+  if (path === "/" || path === "/login") return null;
   return (
     <nav className="nav">
       <div className="nav-inner">
