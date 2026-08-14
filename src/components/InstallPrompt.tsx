@@ -12,6 +12,7 @@ interface BIPEvent extends Event {
 export function InstallPrompt() {
   const [show, setShow] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
+  const [notSafari, setNotSafari] = useState(false);
   const [deferred, setDeferred] = useState<BIPEvent | null>(null);
 
   useEffect(() => {
@@ -27,12 +28,17 @@ export function InstallPrompt() {
     }
 
     const ua = window.navigator.userAgent;
-    const ios = /iphone|ipad|ipod/i.test(ua);
-    const isSafari = /safari/i.test(ua) && !/crios|fxios|edgios/i.test(ua);
+    // iPadOS reports as Mac; detect touch to catch it.
+    const ios =
+      /iphone|ipad|ipod/i.test(ua) ||
+      (/macintosh/i.test(ua) && (navigator.maxTouchPoints ?? 0) > 1);
 
     if (ios) {
-      // iOS has no install event — show the manual Share → Add to Home Screen tip.
-      if (isSafari) setIsIOS(true), setShow(true);
+      // iOS has no install event — always show the manual tip (it works only in
+      // Safari, so the message tells non-Safari users to open it there).
+      setIsIOS(true);
+      setNotSafari(/crios|fxios|edgios|brave|arc/i.test(ua) || !/safari/i.test(ua));
+      setShow(true);
       return;
     }
 
@@ -64,14 +70,35 @@ export function InstallPrompt() {
 
   if (!show) return null;
 
+  const ShareIcon = () => (
+    <svg
+      width="15" height="15" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+      style={{ display: "inline", verticalAlign: "-2px", margin: "0 1px" }}
+      aria-hidden="true"
+    >
+      <path d="M12 3v13M12 3l-4 4M12 3l4 4" />
+      <path d="M5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7" />
+    </svg>
+  );
+
   return (
     <div className="install-prompt" role="dialog" aria-label="Install GoodbyeDebt">
       <div className="install-body">
         {isIOS ? (
-          <span>
-            <strong>Install GoodbyeDebt:</strong> tap the Share icon{" "}
-            <span aria-hidden="true">⎋</span>, then <strong>Add to Home Screen</strong>.
-          </span>
+          notSafari ? (
+            <span>
+              <strong>To install on iPhone/iPad:</strong> open this page in <strong>Safari</strong>,
+              tap the Share button <ShareIcon />, then <strong>Add to Home Screen</strong>.
+              (Add to Home Screen only works in Safari.)
+            </span>
+          ) : (
+            <span>
+              <strong>Install GoodbyeDebt:</strong> tap the Share button <ShareIcon /> in Safari&apos;s
+              toolbar, then <strong>Add to Home Screen</strong>. On iPhone the Share button is in the
+              bottom bar.
+            </span>
+          )
         ) : (
           <span>
             <strong>Install GoodbyeDebt</strong> for a full-screen, app-like experience.
