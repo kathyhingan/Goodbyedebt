@@ -2,7 +2,7 @@
   "name": "GoodbyeDebt — Debt Payoff Optimizer",
   "short_name": "GoodbyeDebt",
   "description": "Sequence and optimize payoff across all your debts.",
-  "start_url": "/",
+  "start_url": "/plan",
   "display": "standalone",
   "background_color": "#f4f6f1",
   "theme_color": "#3f6b4c",
