@@ -19,7 +19,16 @@ export const CURRENCIES = [
 export type CurrencyCode = (typeof CURRENCIES)[number]["code"];
 
 const DEFAULT_CURRENCY: CurrencyCode = "USD";
-const STORAGE_KEY = "goodbyedebt.currency";
+export const STORAGE_KEY = "goodbyedebt.currency";
+
+/** Reads the persisted currency directly from storage (for verifying a save). */
+export function readSavedCurrency(): string | null {
+  try {
+    return window.localStorage.getItem(STORAGE_KEY);
+  } catch {
+    return null;
+  }
+}
 
 function localeFor(code: CurrencyCode): string {
   return CURRENCIES.find((c) => c.code === code)?.locale ?? "en-US";
