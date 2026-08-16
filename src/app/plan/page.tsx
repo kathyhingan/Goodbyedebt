@@ -48,6 +48,28 @@ export default function Home() {
   );
   const byId = useMemo(() => new Map(debts.map((d) => [d.accountId, d])), [debts]);
 
+  // Side-by-side comparison of the strategies at the applied extra payment, so
+  // the user can see which actually saves the most (or that they're close).
+  const comparison = useMemo(() => {
+    const names: { name: StrategyName; label: string }[] = [
+      { name: "avalanche", label: "Avalanche" },
+      { name: "snowball", label: "Snowball" },
+      { name: "hybrid", label: "Hybrid" },
+    ];
+    const rows = names.map((s) => ({
+      ...s,
+      result: projectPayoff(
+        debts,
+        { name: s.name, interestWeight: applied.weight },
+        { monthlyExtra: applied.extra }
+      ),
+    }));
+    const payable = rows.filter((r) => !r.result.unpayable);
+    const bestInterest = payable.length ? Math.min(...payable.map((r) => r.result.totalInterestPaid)) : null;
+    const bestMonths = payable.length ? Math.min(...payable.map((r) => r.result.monthsToDebtFree)) : null;
+    return { rows, bestInterest, bestMonths };
+  }, [debts, applied]);
+
   return (
     <main className="container">
       <div className="brand">
@@ -160,6 +182,57 @@ export default function Home() {
             <p className="note" style={{ marginTop: 10 }}>
               Total repayment = what you owe today ({money(plan.startingBalance)}) plus the interest you&apos;ll
               pay clearing it under the {applied.strategy} plan.
+            </p>
+          </section>
+
+          <section className="card">
+            <h2 style={{ marginTop: 0, fontSize: "1.1rem" }}>Compare strategies</h2>
+            <p className="note">
+              Same debts and {money(applied.extra)}/month extra, run under each strategy. Lower total
+              interest and an earlier date are better.
+            </p>
+            <table>
+              <thead>
+                <tr>
+                  <th>Strategy</th>
+                  <th>Debt-free date</th>
+                  <th>Time</th>
+                  <th style={{ textAlign: "right" }}>Total interest</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparison.rows.map((r) => {
+                  const best =
+                    !r.result.unpayable &&
+                    comparison.bestInterest != null &&
+                    Math.abs(r.result.totalInterestPaid - comparison.bestInterest) < 0.5;
+                  return (
+                    <tr key={r.name}>
+                      <td>
+                        <strong style={{ textTransform: "capitalize" }}>{r.label}</strong>
+                        {best && <span className="pill" style={{ marginLeft: 8 }}>Lowest interest</span>}
+                      </td>
+                      <td>{r.result.unpayable ? "—" : r.result.debtFreeDate}</td>
+                      <td>{r.result.unpayable ? "—" : formatDuration(r.result.monthsToDebtFree)}</td>
+                      <td style={{ textAlign: "right", fontWeight: best ? 700 : 400, color: best ? "var(--moss)" : undefined }}>
+                        {r.result.unpayable ? "—" : money(r.result.totalInterestPaid)}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+            <p className="note" style={{ marginTop: 8 }}>
+              {(() => {
+                const av = comparison.rows.find((r) => r.name === "avalanche")?.result;
+                const sn = comparison.rows.find((r) => r.name === "snowball")?.result;
+                if (!av || !sn || av.unpayable || sn.unpayable) return "Add an extra payment to compare strategies.";
+                const diff = Math.round(sn.totalInterestPaid - av.totalInterestPaid);
+                if (Math.abs(diff) < 1) return "At this extra payment the strategies cost the same — increase your monthly extra to see Avalanche pull ahead on interest.";
+                return diff > 0
+                  ? `Avalanche saves about ${money(diff)} in interest vs. Snowball at this extra payment. Raising your extra widens the gap.`
+                  : `Snowball costs about ${money(-diff)} less interest here — unusual, and usually means increasing the extra will favor Avalanche.`;
+              })()}
             </p>
           </section>
 

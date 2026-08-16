@@ -5,16 +5,31 @@ import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { DEFAULT_SETTINGS, loadSettings, saveSettings, type ReminderSettings } from "@/lib/reminders/settings";
 import { enablePush, pushSupported } from "@/lib/push/subscribe";
-import { CURRENCIES, useCurrency } from "@/lib/currency/currency";
+import { CURRENCIES, useCurrency, readSavedCurrency, type CurrencyCode } from "@/lib/currency/currency";
 
 const LEAD_OPTIONS = [1, 3, 5, 7, 14];
 
 export default function SettingsPage() {
   const demo = !isSupabaseConfigured;
   const { currency, setCurrency, format } = useCurrency();
+  const [pendingCurrency, setPendingCurrency] = useState<CurrencyCode>(currency);
+  const [currencyMsg, setCurrencyMsg] = useState<string | null>(null);
   const [settings, setSettings] = useState<ReminderSettings>(DEFAULT_SETTINGS);
   const [msg, setMsg] = useState<string | null>(null);
   const [supported, setSupported] = useState(false);
+
+  useEffect(() => { setPendingCurrency(currency); }, [currency]);
+
+  function saveCurrency() {
+    setCurrency(pendingCurrency);
+    // Verify it actually persisted so the user gets real confirmation.
+    const saved = readSavedCurrency();
+    setCurrencyMsg(
+      saved === pendingCurrency
+        ? `✓ Saved. Amounts now show in ${pendingCurrency}.`
+        : "Saved on screen, but this device blocked storage — currency may reset. Check that private browsing is off."
+    );
+  }
 
   useEffect(() => {
     setSupported(pushSupported());
@@ -62,8 +77,8 @@ export default function SettingsPage() {
             <label htmlFor="currency">Display currency</label>
             <select
               id="currency"
-              value={currency}
-              onChange={(e) => setCurrency(e.target.value as typeof currency)}
+              value={pendingCurrency}
+              onChange={(e) => setPendingCurrency(e.target.value as CurrencyCode)}
             >
               {CURRENCIES.map((c) => (
                 <option key={c.code} value={c.code}>
@@ -73,9 +88,23 @@ export default function SettingsPage() {
             </select>
           </div>
           <span className="note" style={{ alignSelf: "end" }}>
-            Preview: {format(1234.5)}
+            Preview: {format(1234.5, { maximumFractionDigits: 2 })}
           </span>
+          <div style={{ alignSelf: "end" }}>
+            <button
+              type="button"
+              className="primary"
+              onClick={saveCurrency}
+              disabled={pendingCurrency === currency}
+            >
+              {pendingCurrency === currency ? "✓ Saved" : "Save currency"}
+            </button>
+          </div>
         </div>
+        <p className="note" style={{ marginTop: 8 }}>
+          Currently saved: <strong>{currency}</strong>
+          {currencyMsg ? ` — ${currencyMsg}` : ""}
+        </p>
       </section>
 
       <section className="card">
