@@ -3,6 +3,7 @@ import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { InstallPrompt } from "@/components/InstallPrompt";
 import { StatementReminder } from "@/components/StatementReminder";
+import { ServiceWorkerManager } from "@/components/ServiceWorkerManager";
 import { CurrencyProvider } from "@/lib/currency/currency";
 import { DebtsProvider } from "@/lib/data/useDebts";
 
@@ -38,6 +39,7 @@ export default function RootLayout({
             <StatementReminder />
             {children}
             <InstallPrompt />
+            <ServiceWorkerManager />
           </DebtsProvider>
         </CurrencyProvider>
       </body>

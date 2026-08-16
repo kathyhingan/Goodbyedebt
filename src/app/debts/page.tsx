@@ -22,12 +22,19 @@ const EMPTY: Debt = {
 };
 
 function download(name: string, text: string) {
-  const url = URL.createObjectURL(new Blob([text], { type: "text/csv" }));
+  const blob = new Blob([text], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
   a.download = name;
+  a.rel = "noopener";
+  document.body.appendChild(a);
   a.click();
-  URL.revokeObjectURL(url);
+  // Revoke later — revoking synchronously cancels the download on many browsers.
+  setTimeout(() => {
+    a.remove();
+    URL.revokeObjectURL(url);
+  }, 4000);
 }
 
 export default function DebtsPage() {

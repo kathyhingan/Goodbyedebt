@@ -1,6 +1,6 @@
 /* GoodbyeDebt service worker — PWA install + Web Push due-date reminders. */
 
-const CACHE = "goodbyedebt-v1";
+const CACHE = "goodbyedebt-v2";
 const APP_SHELL = ["/", "/manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {

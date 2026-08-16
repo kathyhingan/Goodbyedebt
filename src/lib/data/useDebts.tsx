@@ -76,6 +76,21 @@ export function DebtsProvider({ children }: { children: React.ReactNode }) {
     void reload();
   }, [reload]);
 
+  // Installed PWAs resume their last snapshot without re-fetching. Reload debts
+  // whenever the app regains focus/visibility so data is fresh on reopen.
+  useEffect(() => {
+    if (demo) return;
+    const onVisible = () => {
+      if (document.visibilityState === "visible") void reload();
+    };
+    window.addEventListener("focus", onVisible);
+    document.addEventListener("visibilitychange", onVisible);
+    return () => {
+      window.removeEventListener("focus", onVisible);
+      document.removeEventListener("visibilitychange", onVisible);
+    };
+  }, [demo, reload]);
+
   async function currentUserId(): Promise<string> {
     const supabase = createClient();
     const { data } = await supabase.auth.getUser();
