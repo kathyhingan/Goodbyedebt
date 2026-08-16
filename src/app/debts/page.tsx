@@ -21,6 +21,14 @@ const EMPTY: Debt = {
   debtType: "credit_card",
 };
 
+/** Rejects if the promise doesn't settle within `ms`, so extraction never hangs. */
+function withTimeout<T>(p: Promise<T>, ms: number): Promise<T> {
+  return Promise.race([
+    p,
+    new Promise<T>((_, reject) => setTimeout(() => reject(new Error("Reading timed out")), ms)),
+  ]);
+}
+
 function download(name: string, text: string) {
   const blob = new Blob([text], { type: "text/csv;charset=utf-8" });
   const url = URL.createObjectURL(blob);
@@ -112,17 +120,32 @@ export default function DebtsPage() {
     setMsg(null);
     setErrors([]);
     setParsed(null);
-    const isImage = file.type.startsWith("image/") || /\.(png|jpe?g|webp|heic|bmp|gif)$/i.test(file.name);
+    setPendingTxns([]);
+
+    const isImage = file.type.startsWith("image/") || /\.(png|jpe?g|webp|heic|bmp|gif|heif)$/i.test(file.name);
+
+    // Guard against oversized files that would hang a phone.
+    if (file.size > 25 * 1024 * 1024) {
+      setMsg("That file is too large (over 25MB). Try a single statement page, or add the debt manually below.");
+      return;
+    }
+
     setPdfBusy(true);
-    if (isImage) setMsg("Reading image with OCR — this can take a few seconds…");
+    setMsg(isImage ? "Reading image with OCR — this can take up to a minute…" : "Reading your statement…");
     try {
-      const text = isImage ? await extractImageLines(file) : await extractPdfLines(file);
+      // Never hang: cap extraction time and always give feedback.
+      const timeoutMs = isImage ? 90_000 : 45_000;
+      const text = await withTimeout(
+        isImage ? extractImageLines(file) : extractPdfLines(file),
+        timeoutMs
+      );
+
       const result = parseStatement(text);
       if (!result.recognized) {
         setMsg(
           isImage
             ? "We couldn't read the figures from this photo. Try a sharper, well-lit image of the summary page — or add the debt manually below."
-            : "We couldn't read the figures from this PDF — it may be scanned/image-only or password-protected. You can still add the debt manually below."
+            : "We couldn't read the figures from this PDF — it may be a scanned/image-only or password-protected statement. Try a photo of it instead, or add the debt manually below."
         );
         return;
       }
@@ -138,8 +161,17 @@ export default function DebtsPage() {
         setMsg(`Imported from ${from} — review the highlighted figures below, then Add debt.`);
       }
       window.scrollTo({ top: 0, behavior: "smooth" });
-    } catch {
-      setMsg("Couldn't read that file. For PDFs, remove any password; for photos, use a clear, well-lit image.");
+    } catch (err) {
+      // Surface the real reason (for support) while keeping a friendly message.
+      // eslint-disable-next-line no-console
+      console.error("Statement import failed:", err);
+      const reason = err instanceof Error ? err.message : String(err);
+      const timedOut = /timed out/i.test(reason);
+      setMsg(
+        timedOut
+          ? "That file took too long to read on this device. Try a smaller/single-page file or a photo — or add the debt manually below."
+          : "Couldn't read that file. If it's a password-protected PDF, remove the password; otherwise try a photo of the statement, or add the debt manually below."
+      );
     } finally {
       setPdfBusy(false);
     }
