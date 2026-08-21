@@ -8,6 +8,7 @@ import { CurrencyProvider } from "@/lib/currency/currency";
 import { DebtsProvider } from "@/lib/data/useDebts";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://almostdebtfree.com"),
   title: "GoodbyeDebt — Debt Payoff Optimizer",
   description:
     "Sequence and optimize payoff across all your debts. See exactly where every extra dollar should go to be debt-free faster.",
