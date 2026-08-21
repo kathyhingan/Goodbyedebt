@@ -213,6 +213,8 @@ export default function Home() {
             <p className="note">
               Same debts and {money(applied.extra)}/month extra, run under each strategy. Lower total
               interest and an earlier date are better.
+              {applied.extra === 0 &&
+                " With ₱0 extra the strategies come out nearly identical — add a monthly extra and Apply to see them separate."}
             </p>
             <table>
               <thead>
@@ -224,11 +226,18 @@ export default function Home() {
                 </tr>
               </thead>
               <tbody>
-                {comparison.rows.map((r) => {
-                  const best =
+                {comparison.rows.map((r, i) => {
+                  // Flag only the first (top-ranked) row at the lowest interest,
+                  // so ties don't badge multiple strategies.
+                  const isLowest =
                     !r.result.unpayable &&
                     comparison.bestInterest != null &&
                     Math.abs(r.result.totalInterestPaid - comparison.bestInterest) < 0.5;
+                  const firstLowestIdx = comparison.rows.findIndex(
+                    (x) => !x.result.unpayable && comparison.bestInterest != null &&
+                      Math.abs(x.result.totalInterestPaid - comparison.bestInterest) < 0.5
+                  );
+                  const best = isLowest && i === firstLowestIdx;
                   return (
                     <tr key={r.name}>
                       <td>
