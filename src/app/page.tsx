@@ -103,6 +103,15 @@ const css = `
 .gd-landing .lb-bio{font-size:13.5px; color:#5a5548; line-height:1.5;}
 .gd-landing .lb-cta{flex:0 0 auto; background:#3a9e5f; color:#fff; font-weight:800; font-size:13px; padding:12px 18px; border-radius:8px; white-space:nowrap; text-align:center;}
 @media(max-width:680px){.gd-landing .lb-card{flex-wrap:wrap;}.gd-landing .lb-cta{width:100%; order:3;}}
+.gd-landing .phase-grid{margin-top:56px; display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+@media(max-width:900px){.gd-landing .phase-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.gd-landing .phase-grid{grid-template-columns:1fr;}}
+.gd-landing .phase-card{background:var(--panel2); border:1px solid var(--line); border-radius:14px; padding:26px 22px;}
+.gd-landing .phase-num{font-family:'Anton',sans-serif; font-size:38px; color:var(--gold); opacity:0.5; line-height:1;}
+.gd-landing .phase-status{display:inline-block; margin:12px 0 10px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:var(--muted); border:1px solid var(--line); border-radius:100px; padding:4px 10px;}
+.gd-landing .phase-status.live{color:var(--ink); background:var(--green-bright); border-color:var(--green-bright);}
+.gd-landing .phase-card h3{font-size:18px; font-weight:800; margin-bottom:8px;}
+.gd-landing .phase-card p{font-size:14px; color:var(--muted); line-height:1.55;}
 .gd-landing .process-grid{margin-top:56px; display:grid; grid-template-columns:repeat(3,1fr); gap:32px;}
 @media(max-width:820px){.gd-landing .process-grid{grid-template-columns:1fr;}}
 .gd-landing .process-card .num{font-family:'Anton',sans-serif; font-size:52px; color:var(--gold); opacity:0.45; line-height:1;}
@@ -141,11 +150,12 @@ const css = `
 
 const body = `
 <header class="nav">
-  <div class="nav-banner">Free forever for the first 100 users. <strong>99 Founding Debt Slayers seats left.</strong></div>
+  <div class="nav-banner">Free forever for the first 100 users. <strong>98 Founding Debt Slayers seats left.</strong></div>
   <div class="nav-inner">
     <div class="logo"><span class="dot"></span>GOODBYE DEBT</div>
     <nav class="nav-links">
       <a href="#offer">The Offer</a>
+      <a href="#roadmap">Roadmap</a>
       <a href="#community">Community</a>
       <a href="#guarantee">Guarantee</a>
       <a href="#proof">Proof</a>
@@ -236,6 +246,41 @@ const body = `
       <div class="process-card"><div class="num">02</div><h3>Get your payoff order</h3><p>Goodbye Debt ranks every balance by what it's actually costing you and shows you exactly why.</p></div>
       <div class="process-card"><div class="num">03</div><h3>Follow the plan each cycle</h3><p>Pay what it tells you, tap it done, watch your debt-free date pull closer every month.</p></div>
     </div>
+  </div>
+</section>
+
+<section class="section" id="roadmap">
+  <div class="wrap">
+    <div class="kicker">The Roadmap</div>
+    <h2 class="display">This is just Phase 1. Here's where Goodbye Debt is going.</h2>
+    <p class="lede">You're joining at the ground floor. Every new member pushes us toward the next phase — more tools, more ways to get ahead of your debt for good.</p>
+    <div class="phase-grid">
+      <div class="phase-card">
+        <div class="phase-num">01</div>
+        <span class="phase-status live">Live now</span>
+        <h3>MVP &mdash; Kill Your Debt</h3>
+        <p>Debt tracking, the avalanche / snowball / hybrid payoff engine, CSV &amp; PDF statement import, the Debt Slayers community, and your profile &amp; journey timeline.</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">02</div>
+        <span class="phase-status">Next up</span>
+        <h3>Education</h3>
+        <p>Bite-sized money education built right into the app &mdash; so you don't just get out of debt, you learn how to stay out.</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">03</div>
+        <span class="phase-status">Planned</span>
+        <h3>Earning Opportunities</h3>
+        <p>Ways to bring in extra income and throw more at your balances, matched to your situation.</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">04</div>
+        <span class="phase-status">Planned</span>
+        <h3>Skill Development</h3>
+        <p>Level up the skills that grow your income for the long run &mdash; building on the earning opportunities from Phase 3.</p>
+      </div>
+    </div>
+    <p class="lede" style="margin-top:32px;">Each phase unlocks as the community grows. <a href="/login?mode=signup" style="color:var(--green-bright); font-weight:700;">Join free</a> and help us get there faster.</p>
   </div>
 </section>
 
