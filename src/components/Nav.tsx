@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 
 const LINKS = [
+  { href: "/roadmap", label: "Roadmap" },
   { href: "/plan", label: "Plan" },
   { href: "/debts", label: "Debts" },
   { href: "/calendar", label: "Calendar" },
