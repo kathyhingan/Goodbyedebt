@@ -14,14 +14,14 @@ export default function Home() {
   const money = (n: number) => format(n, { maximumFractionDigits: 0 });
   // Pending control values (what the user is editing).
   const [strategy, setStrategy] = useState<StrategyName>("avalanche");
-  const [extra, setExtra] = useState(300);
+  const [extra, setExtra] = useState(0);
   const [weight, setWeight] = useState(0.5);
 
   // Applied snapshot the plan is actually computed from. Clicking "Apply"
   // commits the pending values, so the recalculation is explicit.
   const [applied, setApplied] = useState<{ strategy: StrategyName; extra: number; weight: number }>({
     strategy: "avalanche",
-    extra: 300,
+    extra: 0,
     weight: 0.5,
   });
 
@@ -47,6 +47,16 @@ export default function Home() {
     [debts, applied]
   );
   const byId = useMemo(() => new Map(debts.map((d) => [d.accountId, d])), [debts]);
+  const totalMinimums = useMemo(
+    () => debts.reduce((s, d) => s + Math.max(0, d.minimumPayment), 0),
+    [debts]
+  );
+  // The honest "pay only each shrinking minimum, keep the freed cash" scenario,
+  // so the rollover assumption behind the headline is transparent.
+  const minimumsOnly = useMemo(
+    () => projectPayoff(debts, { name: "avalanche" }, { monthlyExtra: 0, rollover: false }),
+    [debts]
+  );
 
   // Side-by-side comparison of the strategies at the applied extra payment, so
   // the user can see which actually saves the most (or that they're close).
@@ -183,6 +193,19 @@ export default function Home() {
               Total repayment = what you owe today ({money(plan.startingBalance)}) plus the interest you&apos;ll
               pay clearing it under the {applied.strategy} plan.
             </p>
+            <div className="assumption">
+              <strong>How this timeline is calculated:</strong> it assumes you keep paying{" "}
+              <strong>{money(totalMinimums + applied.extra)}/month total</strong> the whole way — as each
+              debt clears, its freed-up minimum is rolled into the next debt (plus your {money(applied.extra)}{" "}
+              extra). {applied.extra === 0 ? "No extra beyond your minimums is added." : ""}
+              {!minimumsOnly.unpayable && (
+                <>
+                  {" "}If instead you pocket the freed-up cash and only pay each shrinking minimum, it takes{" "}
+                  <strong>{formatDuration(minimumsOnly.monthsToDebtFree)}</strong> and{" "}
+                  {money(minimumsOnly.totalInterestPaid)} in interest.
+                </>
+              )}
+            </div>
           </section>
 
           <section className="card">

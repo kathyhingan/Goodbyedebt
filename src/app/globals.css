@@ -98,6 +98,7 @@ a { color: var(--moss); }
 .install-close { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 1rem; padding: 6px 8px; }
 .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center; padding: 20px; z-index: 50; }
 .modal { background: var(--surface); border-radius: var(--radius); padding: 20px; max-width: 420px; width: 100%; }
+.assumption { margin-top: 10px; padding: 12px 14px; background: var(--money-soft); border-radius: var(--radius); font-size: 0.85rem; color: var(--ink); line-height: 1.5; }
 .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 .stat { background: var(--money-soft); border-radius: var(--radius); padding: 14px; }
 .stat .label { color: var(--muted); font-size: 0.8rem; margin-bottom: 4px; }
