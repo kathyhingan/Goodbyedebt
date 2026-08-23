@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { MemberProgress } from "@/components/MemberProgress";
 
 export const metadata: Metadata = { title: "Roadmap — GoodbyeDebt" };
 
@@ -58,7 +59,9 @@ export default function RoadmapPage() {
         next set of tools.
       </p>
 
-      <section className="card" style={{ background: "var(--money-soft)" }}>
+      <MemberProgress />
+
+      <section className="card">
         <h2 style={{ marginTop: 0, fontSize: "1.05rem" }}>How the phases unlock</h2>
         <div className="stat-grid">
           <div className="stat"><div className="label">Phase 1 → 2</div><div className="value">100</div><div className="label">members</div></div>
