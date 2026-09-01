@@ -124,6 +124,35 @@ export function projectPayoff(
   };
 }
 
+/**
+ * The debt's balance projected forward to `asOf`, compounding monthly interest
+ * (APR/12, honoring promo-rate expiry) for every full billing month elapsed
+ * since `lastUpdated`. This is what lets the running balance keep growing with
+ * interest month after month even when the user hasn't recorded a payment or
+ * uploaded a new statement — without it, a balance saved from a payment or CSV
+ * import would sit flat forever, understating what's actually owed.
+ */
+export function accruedBalance(debt: Debt, asOf: Date = new Date()): number {
+  let balance = Math.max(0, debt.balance);
+  if (balance <= 0 || !debt.lastUpdated) return balance;
+
+  const last = new Date(debt.lastUpdated);
+  const months = fullMonthsElapsed(last, asOf);
+  for (let m = 0; m < months; m++) {
+    const apr = effectiveApr(debt, m, last);
+    balance += balance * (apr / 100 / 12);
+  }
+  return round2(balance);
+}
+
+/** Number of full calendar months between two dates (0 if `to` is before `from`). */
+function fullMonthsElapsed(from: Date, to: Date): number {
+  let months =
+    (to.getFullYear() - from.getFullYear()) * 12 + (to.getMonth() - from.getMonth());
+  if (to.getDate() < from.getDate()) months -= 1;
+  return Math.max(0, months);
+}
+
 export interface SavingsComparison {
   plan: ProjectionResult;
   baseline: ProjectionResult;

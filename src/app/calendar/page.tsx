@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useDebts } from "@/lib/data/useDebts";
 import { usePayments } from "@/lib/data/usePayments";
 import { useCurrency } from "@/lib/currency/currency";
+import { accruedBalance } from "@/lib/engine";
 import { upcomingDueDates, addOneMonthISO } from "@/lib/reminders/dueDates";
 
 const fmt = (iso: string) =>
@@ -19,8 +20,11 @@ export default function CalendarPage() {
   const { add: addPayment } = usePayments();
   const { format } = useCurrency();
   const upcoming = useMemo(() => upcomingDueDates(debts, new Date(), 60), [debts]);
-  const byId = useMemo(() => new Map(debts.map((d) => [d.accountId, d])), [debts]);
-  const totalOwed = useMemo(() => debts.reduce((s, d) => s + Math.max(0, d.balance), 0), [debts]);
+  // Balances carried forward to today — interest keeps compounding monthly
+  // even if no payment or new statement has landed yet this cycle.
+  const asOfToday = useMemo(() => debts.map((d) => ({ ...d, balance: accruedBalance(d) })), [debts]);
+  const byId = useMemo(() => new Map(asOfToday.map((d) => [d.accountId, d])), [asOfToday]);
+  const totalOwed = useMemo(() => asOfToday.reduce((s, d) => s + Math.max(0, d.balance), 0), [asOfToday]);
 
   // Payment entry state, keyed by accountId.
   const [payingId, setPayingId] = useState<string | null>(null);
@@ -37,6 +41,9 @@ export default function CalendarPage() {
   }
 
   async function record(accountId: string, currentDue?: string) {
+    // `byId` already carries today's accrued balance (this month's interest
+    // included), so the payment is deducted from what's actually owed now —
+    // not from a stale figure frozen at the last statement or payment.
     const d = byId.get(accountId);
     if (!d) return;
     const paid = Math.max(0, Number(amount));

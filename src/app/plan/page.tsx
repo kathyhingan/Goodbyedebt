@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { StrategyName } from "@/lib/engine";
-import { projectPayoff, compareToMinimumsOnly } from "@/lib/engine";
+import { projectPayoff, compareToMinimumsOnly, accruedBalance } from "@/lib/engine";
 import { useDebts } from "@/lib/data/useDebts";
 import { useCurrency } from "@/lib/currency/currency";
 import { formatDuration, formatMonthYear } from "@/lib/format/duration";
@@ -28,25 +28,33 @@ export default function Home() {
   const dirty =
     applied.strategy !== strategy || applied.extra !== extra || applied.weight !== weight;
 
+  // Balances carried forward to today: interest keeps compounding monthly
+  // (APR/12) on top of whatever was last saved, so the plan doesn't understate
+  // what's owed just because no new statement or payment has landed this month.
+  const asOfToday = useMemo(
+    () => debts.map((d) => ({ ...d, balance: accruedBalance(d) })),
+    [debts]
+  );
+
   const plan = useMemo(
     () =>
       projectPayoff(
-        debts,
+        asOfToday,
         { name: applied.strategy, interestWeight: applied.weight },
         { monthlyExtra: applied.extra }
       ),
-    [debts, applied]
+    [asOfToday, applied]
   );
   const savings = useMemo(
     () =>
       compareToMinimumsOnly(
-        debts,
+        asOfToday,
         { name: applied.strategy, interestWeight: applied.weight },
         { monthlyExtra: applied.extra }
       ),
-    [debts, applied]
+    [asOfToday, applied]
   );
-  const byId = useMemo(() => new Map(debts.map((d) => [d.accountId, d])), [debts]);
+  const byId = useMemo(() => new Map(asOfToday.map((d) => [d.accountId, d])), [asOfToday]);
   const totalMinimums = useMemo(
     () => debts.reduce((s, d) => s + Math.max(0, d.minimumPayment), 0),
     [debts]
@@ -54,8 +62,8 @@ export default function Home() {
   // The honest "pay only each shrinking minimum, keep the freed cash" scenario,
   // so the rollover assumption behind the headline is transparent.
   const minimumsOnly = useMemo(
-    () => projectPayoff(debts, { name: "avalanche" }, { monthlyExtra: 0, rollover: false }),
-    [debts]
+    () => projectPayoff(asOfToday, { name: "avalanche" }, { monthlyExtra: 0, rollover: false }),
+    [asOfToday]
   );
 
   // Side-by-side comparison of the strategies at the applied extra payment, so
@@ -69,7 +77,7 @@ export default function Home() {
     const rows = names.map((s) => ({
       ...s,
       result: projectPayoff(
-        debts,
+        asOfToday,
         { name: s.name, interestWeight: applied.weight },
         { monthlyExtra: applied.extra }
       ),
@@ -78,7 +86,7 @@ export default function Home() {
     const bestInterest = payable.length ? Math.min(...payable.map((r) => r.result.totalInterestPaid)) : null;
     const bestMonths = payable.length ? Math.min(...payable.map((r) => r.result.monthsToDebtFree)) : null;
     return { rows, bestInterest, bestMonths };
-  }, [debts, applied]);
+  }, [asOfToday, applied]);
 
   return (
     <main className="container">

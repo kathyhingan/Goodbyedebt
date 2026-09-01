@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import type { Debt, DebtType } from "@/lib/engine";
+import { accruedBalance } from "@/lib/engine";
 import { useDebts } from "@/lib/data/useDebts";
 import { useCurrency } from "@/lib/currency/currency";
 import { parseDebtsCsv, type RowError } from "@/lib/csv/parse";
@@ -327,24 +328,40 @@ export default function DebtsPage() {
               <tr><th>Account</th><th>Balance</th><th>APR</th><th>Min</th><th>Due</th><th></th></tr>
             </thead>
             <tbody>
-              {debts.map((d) => (
-                <tr key={d.accountId}>
-                  <td><strong>{d.creditor || d.accountId}</strong><br /><span className="muted" style={{ fontSize: "0.75rem" }}>{d.accountId}</span></td>
-                  <td>{format(d.balance, { maximumFractionDigits: 0 })}</td>
-                  <td>{d.apr}%</td>
-                  <td>{format(d.minimumPayment, { maximumFractionDigits: 0 })}</td>
-                  <td>{d.dueDate ?? "—"}</td>
-                  <td>
-                    <div className="row-actions">
-                      <button type="button" onClick={() => edit(d)}>Edit</button>
-                      <button type="button" className="danger-btn" onClick={() => remove(d.accountId)}>Delete</button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
+              {debts.map((d) => {
+                const today = accruedBalance(d);
+                const grew = today - d.balance > 0.5;
+                return (
+                  <tr key={d.accountId}>
+                    <td><strong>{d.creditor || d.accountId}</strong><br /><span className="muted" style={{ fontSize: "0.75rem" }}>{d.accountId}</span></td>
+                    <td>
+                      {format(today, { maximumFractionDigits: 0 })}
+                      {grew && (
+                        <><br /><span className="muted" style={{ fontSize: "0.75rem" }}>
+                          {format(d.balance, { maximumFractionDigits: 0 })} last statement + interest since
+                        </span></>
+                      )}
+                    </td>
+                    <td>{d.apr}%</td>
+                    <td>{format(d.minimumPayment, { maximumFractionDigits: 0 })}</td>
+                    <td>{d.dueDate ?? "—"}</td>
+                    <td>
+                      <div className="row-actions">
+                        <button type="button" onClick={() => edit(d)}>Edit</button>
+                        <button type="button" className="danger-btn" onClick={() => remove(d.accountId)}>Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         )}
+        <p className="note" style={{ marginTop: 10 }}>
+          Balance shown includes interest accrued monthly (APR ÷ 12) since your last statement or
+          payment — it grows automatically each month until you record a payment or upload a new
+          statement. Editing a debt updates its stored balance directly.
+        </p>
       </section>
     </main>
   );

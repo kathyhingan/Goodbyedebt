@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import type { Debt } from "../types";
 import { prioritize } from "../strategies";
-import { projectPayoff, compareToMinimumsOnly } from "../projection";
+import { projectPayoff, compareToMinimumsOnly, accruedBalance } from "../projection";
 
 const START = new Date("2026-01-01T00:00:00Z");
 
@@ -102,5 +102,34 @@ describe("compareToMinimumsOnly", () => {
     expect(cmp.interestSaved).toBeGreaterThan(0);
     expect(cmp.monthsSaved).toBeGreaterThan(0);
     expect(cmp.baseline.totalInterestPaid).toBeGreaterThan(cmp.plan.totalInterestPaid);
+  });
+});
+
+describe("accruedBalance", () => {
+  it("leaves the balance unchanged with no lastUpdated timestamp", () => {
+    const d = debt({ accountId: "x", balance: 1000, apr: 24, lastUpdated: undefined });
+    expect(accruedBalance(d, new Date("2026-06-01T00:00:00Z"))).toBe(1000);
+  });
+
+  it("leaves the balance unchanged within the same billing month", () => {
+    const d = debt({ accountId: "x", balance: 1000, apr: 24, lastUpdated: "2026-01-05T00:00:00Z" });
+    expect(accruedBalance(d, new Date("2026-01-20T00:00:00Z"))).toBe(1000);
+  });
+
+  it("compounds one month of interest at APR/12 after a full month elapses", () => {
+    const d = debt({ accountId: "x", balance: 1000, apr: 24, lastUpdated: "2026-01-05T00:00:00Z" });
+    // 24%/12 = 2% monthly.
+    expect(accruedBalance(d, new Date("2026-02-05T00:00:00Z"))).toBeCloseTo(1020, 2);
+  });
+
+  it("compounds multiple elapsed months", () => {
+    const d = debt({ accountId: "x", balance: 1000, apr: 24, lastUpdated: "2026-01-05T00:00:00Z" });
+    const threeMonths = accruedBalance(d, new Date("2026-04-05T00:00:00Z"));
+    expect(threeMonths).toBeCloseTo(1000 * 1.02 ** 3, 2);
+  });
+
+  it("never accrues on a zero or negative balance", () => {
+    const d = debt({ accountId: "x", balance: 0, apr: 24, lastUpdated: "2026-01-05T00:00:00Z" });
+    expect(accruedBalance(d, new Date("2026-06-01T00:00:00Z"))).toBe(0);
   });
 });
