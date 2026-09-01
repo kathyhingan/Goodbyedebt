@@ -2,7 +2,8 @@
 
 import { useRef, useState } from "react";
 import type { Debt, DebtType } from "@/lib/engine";
-import { accruedBalance } from "@/lib/engine";
+import { accruedBalance, amortizeDebt } from "@/lib/engine";
+import { formatMonthYear } from "@/lib/format/duration";
 import { useDebts } from "@/lib/data/useDebts";
 import { useCurrency } from "@/lib/currency/currency";
 import { parseDebtsCsv, type RowError } from "@/lib/csv/parse";
@@ -57,6 +58,7 @@ export default function DebtsPage() {
   const [parsed, setParsed] = useState<ParsedStatement | null>(null);
   const [pendingTxns, setPendingTxns] = useState<StatementTxn[]>([]);
   const [pdfBusy, setPdfBusy] = useState(false);
+  const [scheduleFor, setScheduleFor] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const pdfRef = useRef<HTMLInputElement>(null);
 
@@ -347,6 +349,12 @@ export default function DebtsPage() {
                     <td>{d.dueDate ?? "—"}</td>
                     <td>
                       <div className="row-actions">
+                        <button
+                          type="button"
+                          onClick={() => setScheduleFor(scheduleFor === d.accountId ? null : d.accountId)}
+                        >
+                          {scheduleFor === d.accountId ? "Hide table" : "Table"}
+                        </button>
                         <button type="button" onClick={() => edit(d)}>Edit</button>
                         <button type="button" className="danger-btn" onClick={() => remove(d.accountId)}>Delete</button>
                       </div>
@@ -363,6 +371,71 @@ export default function DebtsPage() {
           statement. Editing a debt updates its stored balance directly.
         </p>
       </section>
+
+      {scheduleFor && (() => {
+        const d = debts.find((x) => x.accountId === scheduleFor);
+        if (!d) return null;
+        const schedule = amortizeDebt(d);
+        return (
+          <section className="card">
+            <h2 style={{ marginTop: 0, fontSize: "1.05rem" }}>
+              {d.creditor || d.accountId} — month-by-month at the minimum
+            </h2>
+            <p className="note">
+              Paying only the {format(d.minimumPayment, { maximumFractionDigits: 0 })} minimum each
+              month, from today&apos;s balance of {format(accruedBalance(d), { maximumFractionDigits: 0 })} —
+              no extra, no rollover from other debts, just this one account start to finish.
+            </p>
+            {schedule.unpayable && (
+              <p className="warn">
+                ⚠ The minimum payment doesn&apos;t cover a month&apos;s interest at {d.apr}% APR, so
+                this balance never reaches zero at this minimum — it needs to go up, or you need to
+                pay more than the minimum.
+              </p>
+            )}
+            {!schedule.unpayable && (
+              <div className="stat-grid" style={{ marginBottom: 12 }}>
+                <div className="stat">
+                  <div className="label">Months to zero</div>
+                  <div className="value">{schedule.monthsToPayoff}</div>
+                </div>
+                <div className="stat">
+                  <div className="label">Paid off by</div>
+                  <div className="value">{formatMonthYear(schedule.rows.at(-1)!.date)}</div>
+                </div>
+                <div className="stat">
+                  <div className="label">Total interest</div>
+                  <div className="value">{format(schedule.totalInterest, { maximumFractionDigits: 0 })}</div>
+                </div>
+              </div>
+            )}
+            <div style={{ overflowX: "auto" }}>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Month</th>
+                    <th style={{ textAlign: "right" }}>Starting balance</th>
+                    <th style={{ textAlign: "right" }}>Interest charged</th>
+                    <th style={{ textAlign: "right" }}>Payment</th>
+                    <th style={{ textAlign: "right" }}>Ending balance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {schedule.rows.map((r) => (
+                    <tr key={r.month}>
+                      <td>{formatMonthYear(r.date)}</td>
+                      <td style={{ textAlign: "right" }}>{format(r.startingBalance, { maximumFractionDigits: 0 })}</td>
+                      <td style={{ textAlign: "right" }}>{format(r.interest, { maximumFractionDigits: 0 })}</td>
+                      <td style={{ textAlign: "right" }}>{format(r.payment, { maximumFractionDigits: 0 })}</td>
+                      <td style={{ textAlign: "right" }}>{format(r.endingBalance, { maximumFractionDigits: 0 })}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        );
+      })()}
     </main>
   );
 }

@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import type { Debt } from "../types";
 import { prioritize } from "../strategies";
-import { projectPayoff, compareToMinimumsOnly, accruedBalance } from "../projection";
+import { projectPayoff, compareToMinimumsOnly, accruedBalance, amortizeDebt } from "../projection";
 
 const START = new Date("2026-01-01T00:00:00Z");
 
@@ -131,5 +131,44 @@ describe("accruedBalance", () => {
   it("never accrues on a zero or negative balance", () => {
     const d = debt({ accountId: "x", balance: 0, apr: 24, lastUpdated: "2026-01-05T00:00:00Z" });
     expect(accruedBalance(d, new Date("2026-06-01T00:00:00Z"))).toBe(0);
+  });
+});
+
+describe("amortizeDebt", () => {
+  it("reaches zero balance and matches total interest across the plan", () => {
+    const d = debt({ accountId: "card-a", balance: 1000, apr: 24, minimumPayment: 100 });
+    const schedule = amortizeDebt(d, START);
+    expect(schedule.unpayable).toBe(false);
+    expect(schedule.rows.length).toBeGreaterThan(0);
+    expect(schedule.rows.at(-1)!.endingBalance).toBe(0);
+    const sumInterest = schedule.rows.reduce((s, r) => s + r.interest, 0);
+    expect(sumInterest).toBeCloseTo(schedule.totalInterest, 1);
+  });
+
+  it("each row's ending balance feeds the next row's starting balance", () => {
+    const d = debt({ accountId: "card-a", balance: 1000, apr: 24, minimumPayment: 100 });
+    const schedule = amortizeDebt(d, START);
+    for (let i = 1; i < schedule.rows.length; i++) {
+      expect(schedule.rows[i].startingBalance).toBeCloseTo(schedule.rows[i - 1].endingBalance, 2);
+    }
+  });
+
+  it("flags unpayable when the minimum doesn't cover monthly interest", () => {
+    const d = debt({ accountId: "stuck", balance: 5000, apr: 36, minimumPayment: 50 });
+    const schedule = amortizeDebt(d, START);
+    expect(schedule.unpayable).toBe(true);
+  });
+
+  it("starts from today's accrued balance, not the stale stored one", () => {
+    const d = debt({
+      accountId: "card-a",
+      balance: 1000,
+      apr: 24,
+      minimumPayment: 100,
+      lastUpdated: "2026-01-05T00:00:00Z",
+    });
+    const asOf = new Date("2026-02-05T00:00:00Z");
+    const schedule = amortizeDebt(d, asOf);
+    expect(schedule.rows[0].startingBalance).toBeCloseTo(1020, 2);
   });
 });

@@ -153,6 +153,74 @@ function fullMonthsElapsed(from: Date, to: Date): number {
   return Math.max(0, months);
 }
 
+export interface AmortizationRow {
+  month: number;
+  date: string;
+  startingBalance: number;
+  interest: number;
+  payment: number;
+  endingBalance: number;
+}
+
+export interface AmortizationSchedule {
+  rows: AmortizationRow[];
+  totalInterest: number;
+  monthsToPayoff: number;
+  /** True when the minimum payment never covers a month's interest, so the balance never clears. */
+  unpayable: boolean;
+}
+
+const AMORTIZATION_CAP = 600; // 50-year cap for a single minimums-only debt.
+
+/**
+ * Month-by-month schedule for a single debt paid at its minimum payment only
+ * (no extra, no rollover from other debts) — "what happens if I just pay the
+ * minimum on this one," from today's accrued balance until it hits zero.
+ */
+export function amortizeDebt(debt: Debt, asOf: Date = new Date()): AmortizationSchedule {
+  let balance = accruedBalance(debt, asOf);
+  const rows: AmortizationRow[] = [];
+  let totalInterest = 0;
+  let unpayable = false;
+
+  let month = 0;
+  while (balance > 0.005) {
+    if (month >= AMORTIZATION_CAP) {
+      unpayable = true;
+      break;
+    }
+    const apr = effectiveApr(debt, month, asOf);
+    const interest = balance * (apr / 100 / 12);
+    const startingBalance = balance;
+    balance += interest;
+    const payment = Math.min(balance, Math.max(0, debt.minimumPayment));
+    balance -= payment;
+    totalInterest += interest;
+    month += 1;
+    rows.push({
+      month,
+      date: toISODate(addMonths(asOf, month)),
+      startingBalance: round2(startingBalance),
+      interest: round2(interest),
+      payment: round2(payment),
+      endingBalance: round2(balance),
+    });
+    // A payment that doesn't even cover interest means the balance can never
+    // shrink to zero — stop instead of looping to the cap needlessly.
+    if (payment <= interest + 0.005 && balance >= startingBalance - 0.005) {
+      unpayable = true;
+      break;
+    }
+  }
+
+  return {
+    rows,
+    totalInterest: round2(totalInterest),
+    monthsToPayoff: rows.length,
+    unpayable,
+  };
+}
+
 export interface SavingsComparison {
   plan: ProjectionResult;
   baseline: ProjectionResult;
