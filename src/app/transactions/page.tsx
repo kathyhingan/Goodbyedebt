@@ -7,6 +7,8 @@ import { usePayments } from "@/lib/data/usePayments";
 import { useStatementTxns } from "@/lib/data/useStatementTxns";
 import { useCurrency } from "@/lib/currency/currency";
 import type { Payment } from "@/lib/data/payments";
+import { accruedBalance } from "@/lib/engine";
+import { addOneMonthISO } from "@/lib/reminders/dueDates";
 
 const monthKey = (iso: string) => iso.slice(0, 7); // yyyy-mm
 const monthLabel = (key: string) =>
@@ -17,7 +19,7 @@ const dayLabel = (iso: string) =>
 const todayISO = () => new Date().toISOString().slice(0, 10);
 
 export default function TransactionsPage() {
-  const { debts } = useDebts();
+  const { debts, save: saveDebt } = useDebts();
   const { payments, loading, demo, add, remove } = usePayments();
   const { txns, remove: removeTxn } = useStatementTxns();
   const { format } = useCurrency();
@@ -89,6 +91,16 @@ export default function TransactionsPage() {
     setBusy(true);
     try {
       await add({ accountId, amount: value, paidOn: paidOn || todayISO(), note: note.trim() });
+      // A recorded payment must reduce the debt's balance and roll its due
+      // date forward too — this form used to only log the ledger entry,
+      // leaving the Debts list and Calendar showing a stale amount/date.
+      const d = debts.find((x) => x.accountId === accountId);
+      if (d) {
+        const currentBalance = accruedBalance(d);
+        const newBalance = Math.max(0, currentBalance - value);
+        const nextDue = d.dueDate ? addOneMonthISO(d.dueDate) : d.dueDate;
+        await saveDebt({ ...d, balance: newBalance, dueDate: nextDue, lastUpdated: new Date().toISOString() });
+      }
       setAmount("");
       setNote("");
       setMsg("Payment recorded.");
