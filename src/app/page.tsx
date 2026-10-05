@@ -36,6 +36,29 @@ const css = `
 .gd-landing .nav-cta{background:var(--green); color:#fff; font-weight:800; font-size:13px; padding:11px 20px; border-radius:100px; letter-spacing:0.3px; transition:transform .15s ease;}
 .gd-landing .nav-cta:hover{transform:scale(1.04);}
 @media(max-width:760px){.gd-landing .nav-links{display:none;}}
+.gd-landing .nav-mobile{display:none; position:relative;}
+.gd-landing .nav-mobile summary{list-style:none; cursor:pointer;}
+.gd-landing .nav-mobile summary::-webkit-details-marker{display:none;}
+.gd-landing .nav-toggle{display:inline-flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; width:38px; height:38px; background:none; border:1px solid var(--line); border-radius:8px;}
+.gd-landing .nav-toggle-bar{display:block; width:16px; height:2px; background:var(--text); border-radius:1px; transition:transform .15s ease, opacity .15s ease;}
+.gd-landing .nav-mobile[open] .nav-toggle-bar:nth-child(1){transform:translateY(6px) rotate(45deg);}
+.gd-landing .nav-mobile[open] .nav-toggle-bar:nth-child(2){opacity:0;}
+.gd-landing .nav-mobile[open] .nav-toggle-bar:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+.gd-landing .nav-mobile-panel{
+  position:absolute; right:0; top:calc(100% + 10px); min-width:230px; max-width:calc(100vw - 40px);
+  background:#0f1611; border:1px solid var(--line); border-radius:12px;
+  padding:8px; display:flex; flex-direction:column; gap:1px;
+  box-shadow:0 20px 40px -16px rgba(0,0,0,0.7); z-index:60;
+}
+.gd-landing .nav-mobile-panel a{padding:12px 14px; font-size:15px; font-weight:700; color:var(--text); border-radius:8px;}
+.gd-landing .nav-mobile-panel a:active, .gd-landing .nav-mobile-panel a:hover{background:rgba(255,255,255,0.06);}
+.gd-landing .nav-mobile-panel .nav-mobile-login{color:var(--muted); font-weight:600; border-top:1px solid var(--line); margin-top:6px; padding-top:14px;}
+.gd-landing .nav-mobile-panel .nav-mobile-cta{background:var(--green); color:#fff; text-align:center; margin-top:4px;}
+@media(max-width:760px){
+  .gd-landing .nav-mobile{display:block;}
+  .gd-landing .nav-inner{position:relative;}
+  .gd-landing .nav-login{display:none;}
+}
 .gd-landing .hero{padding:96px 0 64px; position:relative; background-color:var(--bg); background-image:radial-gradient(ellipse 900px 500px at 15% -10%, rgba(58,158,95,0.20), transparent 60%),radial-gradient(ellipse 700px 500px at 100% 0%, rgba(201,162,77,0.12), transparent 60%);}
 .gd-landing .eyebrow{display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); border:1px solid var(--red-dim); background:rgba(201,162,77,0.09); padding:7px 14px; border-radius:100px; margin-bottom:26px;}
 .gd-landing .eyebrow .pulse{width:7px; height:7px; border-radius:50%; background:var(--green-bright); box-shadow:0 0 8px var(--green-bright); animation:gdpulse 1.6s infinite;}
@@ -155,6 +178,7 @@ const body = `
     <div class="logo"><span class="dot"></span>GOODBYE DEBT</div>
     <nav class="nav-links">
       <a href="#offer">The Offer</a>
+      <a href="/guides">Guides</a>
       <a href="#roadmap">Roadmap</a>
       <a href="#community">Community</a>
       <a href="#guarantee">Guarantee</a>
@@ -165,6 +189,24 @@ const body = `
       <a href="/login" class="nav-login">Login</a>
       <a href="/login?mode=signup" class="nav-cta">Start Free &rarr;</a>
     </div>
+    <details class="nav-mobile">
+      <summary class="nav-toggle" aria-label="Menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </summary>
+      <div class="nav-mobile-panel">
+        <a href="#offer" onclick="this.closest('details').open=false">The Offer</a>
+        <a href="/guides">Guides</a>
+        <a href="#roadmap" onclick="this.closest('details').open=false">Roadmap</a>
+        <a href="#community" onclick="this.closest('details').open=false">Community</a>
+        <a href="#guarantee" onclick="this.closest('details').open=false">Guarantee</a>
+        <a href="#proof" onclick="this.closest('details').open=false">Proof</a>
+        <a href="#faq" onclick="this.closest('details').open=false">FAQ</a>
+        <a href="/login" class="nav-mobile-login">Login</a>
+        <a href="/login?mode=signup" class="nav-mobile-cta">Start Free &rarr;</a>
+      </div>
+    </details>
   </div>
 </header>
 
