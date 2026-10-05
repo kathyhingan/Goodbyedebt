@@ -1,5 +1,6 @@
 // AUTO-GENERATED from debt-app-seo-icm/03-content-strategy/output/articles/*.md.
-// Regenerate by re-running the parse script; do not hand-edit copy here.
+// Regenerate: python scripts/gen_articles.py <articles_dir> src/lib/content/articles.ts
+// Metadata (description, kicker, ctaLead, ctaSub) comes from meta.json in the articles dir.
 
 export interface GuideSection { heading: string; paragraphs: string[]; bullets?: string[] | null; numbered?: string[] | null; subheadings?: { text: string; paragraphs: string[] }[] | null; table?: { headers: string[]; rows: string[][] } | null; }
 export interface GuideFaq { q: string; a: string; }
@@ -14,7 +15,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "title": "Which Debt Should You Pay Off First? Snowball vs Avalanche for Filipino Debts",
     "description": "Avalanche vs snowball explained with real Philippine lender rates, and why the method only works once every debt is visible in one place.",
     "kicker": "Snowball vs avalanche",
-    "tldr": " Pick avalanche (highest interest first) to pay the least total interest. Pick snowball (smallest balance first) if you need quick wins to stay motivated. Either way, the method only works once you can see every debt side by side, which most people trying this by hand never actually get to.",
+    "tldr": "Pick avalanche (highest interest first) to pay the least total interest. Pick snowball (smallest balance first) if you need quick wins to stay motivated. Either way, the method only works once you can see every debt side by side, which most people trying this by hand never actually get to.",
     "sections": [
       {
         "heading": "The real problem is not the method, it is that you cannot see all your debts at once",
@@ -143,7 +144,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "title": "Is Debt Consolidation Worth It in the Philippines? What It Actually Costs",
     "description": "When a consolidation loan genuinely helps, when it quietly hurts, and what avalanche order gets you without a new loan.",
     "kicker": "What consolidation actually costs",
-    "tldr": " Debt consolidation only helps if the new loan's rate is clearly lower than what you are paying now, and you still qualify for that lower rate after your current debt is already counted against you. Often, running your existing debts through avalanche order gets you most of the same savings without taking on a new loan at all.",
+    "tldr": "Debt consolidation only helps if the new loan's rate is clearly lower than what you are paying now, and you still qualify for that lower rate after your current debt is already counted against you. Often, running your existing debts through avalanche order gets you most of the same savings without taking on a new loan at all.",
     "sections": [
       {
         "heading": "What debt consolidation actually is",
@@ -286,7 +287,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "title": "Can You Go to Jail for Unpaid Debt in the Philippines?",
     "description": "The constitutional ban on debt imprisonment, the three real criminal exceptions, and what collectors cannot legally do.",
     "kicker": "The real law, explained calmly",
-    "tldr": " No. The 1987 Constitution directly bans imprisonment for ordinary debt. You can only face criminal charges if separate conduct is involved, mainly a bounced check or proven fraud at the time you got the loan, not simply being unable to pay it back later.",
+    "tldr": "No. The 1987 Constitution directly bans imprisonment for ordinary debt. You can only face criminal charges if separate conduct is involved, mainly a bounced check or proven fraud at the time you got the loan, not simply being unable to pay it back later.",
     "sections": [
       {
         "heading": "The one sentence that settles this",
@@ -378,10 +379,10 @@ export const ARTICLE_LIST: GuideArticleData[] = [
   },
   {
     "slug": "ipon-challenge",
-    "title": "Ipon Challenge Philippines: Which Savings Challenge Actually Works",
+    "title": "Ipon Challenge Philippines: Which Savings Challenge Actually Works (and What to Do If You Also Have Debt)",
     "description": "Every ipon challenge variant compared honestly, where each one fails, and why challenge money belongs in the payoff plan.",
     "kicker": "Savings challenges plus the debt question",
-    "tldr": " Savings challenges work because they convert a vague goal into a specific, weekly, countable action, and the flat-amount weekly variant is the most sustainable. If you also carry debt, challenge money aimed at a 2 to 15 percent a month loan balance does more good than the same money parked in savings, so the challenge and the payoff plan need to be the same plan.",
+    "tldr": "Savings challenges work because they convert a vague goal into a specific, weekly, countable action, and the flat-amount weekly variant is the most sustainable. If you also carry debt, challenge money aimed at a 2 to 15 percent a month loan balance does more good than the same money parked in savings, so the challenge and the payoff plan need to be the same plan.",
     "sections": [
       {
         "heading": "Why savings challenges work when ordinary saving fails",
@@ -515,7 +516,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "title": "Pag-IBIG Home Loan Requirements: The Full Checklist",
     "description": "Who qualifies, how much you can actually borrow, the full document checklist, and where the Pag-IBIG loan belongs in your payoff priority.",
     "kicker": "Requirements, rates, documents",
-    "tldr": " You need at least 24 monthly Pag-IBIG contributions, to be under 65 at application, proof of income matched to your employment type, and property documents for the home itself. Rates run roughly 3 to 9.75 percent depending on your repricing term, and your actual loanable amount depends on your income and the property's appraisal, not the published ceiling alone.",
+    "tldr": "You need at least 24 monthly Pag-IBIG contributions, to be under 65 at application, proof of income matched to your employment type, and property documents for the home itself. Rates run roughly 3 to 9.75 percent depending on your repricing term, and your actual loanable amount depends on your income and the property's appraisal, not the published ceiling alone.",
     "sections": [
       {
         "heading": "Who qualifies, before anything else",
@@ -650,7 +651,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "title": "BillEase Loan: Interest Rate, Requirements, and How It Compares",
     "description": "What BillEase costs, the zero percent catch, and where it sits against cards, app loans, and government loans.",
     "kicker": "3.49 percent a month",
-    "tldr": " BillEase charges 3.49 percent a month on its standard cash loan and buy-now-pay-later plans, with a 0 percent option at select partner merchants. That puts it in the middle of the Philippine BNPL field: cheaper than GCash GCredit or Tala, more expensive than a bank loan or a government salary loan.",
+    "tldr": "BillEase charges 3.49 percent a month on its standard cash loan and buy-now-pay-later plans, with a 0 percent option at select partner merchants. That puts it in the middle of the Philippine BNPL field: cheaper than GCash GCredit or Tala, more expensive than a bank loan or a government salary loan.",
     "sections": [
       {
         "heading": "What BillEase actually offers",
@@ -844,7 +845,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "title": "How to Become Debt-Free in the Philippines: A Realistic Timeline",
     "description": "What actually moves your debt-free date, month by month, and why the extra peso matters more than the method.",
     "kicker": "18 to 36 months",
-    "tldr": " Most Filipinos carrying a mix of credit card, app loan, and government debt can realistically be debt-free in 18 to 36 months with a consistent payoff order and steady extra payments. The timeline depends far more on how much extra you can pay each month than on which method you pick, and seeing your actual date beats guessing at one.",
+    "tldr": "Most Filipinos carrying a mix of credit card, app loan, and government debt can realistically be debt-free in 18 to 36 months with a consistent payoff order and steady extra payments. The timeline depends far more on how much extra you can pay each month than on which method you pick, and seeing your actual date beats guessing at one.",
     "sections": [
       {
         "heading": "Why \"how long will this take\" rarely gets a straight answer",
@@ -954,7 +955,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "title": "Cashalo Loan Application: Step-by-Step Guide",
     "description": "Documents, timeline, and why the headline daily rate understates the real cost of a CashaLoan.",
     "kicker": "Requirements plus real cost",
-    "tldr": " Apply through the Cashalo app with one valid government ID, proof of income, and a bank or e-wallet account matching your registered mobile number. Approval commonly arrives within a day, with funds released up to 3 business days after that, and the real cost depends on reading the combined interest and service fee structure, not just the headline rate.",
+    "tldr": "Apply through the Cashalo app with one valid government ID, proof of income, and a bank or e-wallet account matching your registered mobile number. Approval commonly arrives within a day, with funds released up to 3 business days after that, and the real cost depends on reading the combined interest and service fee structure, not just the headline rate.",
     "sections": [
       {
         "heading": "What you need before you start",
@@ -1114,7 +1115,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "title": "Do You Need to File Bankruptcy in the Philippines? Read This First",
     "description": "FRIA's 500,000-peso threshold, the two real tracks, and why most consumer debt has a faster, quieter path.",
     "kicker": "Probably not",
-    "tldr": " Probably not, for most credit card, app loan, or personal loan debt. The closest Philippine equivalent, under the Financial Rehabilitation and Insolvency Act, is built for debts of at least 500,000 pesos and requires a court case, a lawyer, and public notice. Most people in debt have a faster, cheaper path: a real payoff plan or direct negotiation with creditors.",
+    "tldr": "Probably not, for most credit card, app loan, or personal loan debt. The closest Philippine equivalent, under the Financial Rehabilitation and Insolvency Act, is built for debts of at least 500,000 pesos and requires a court case, a lawyer, and public notice. Most people in debt have a faster, cheaper path: a real payoff plan or direct negotiation with creditors.",
     "sections": [
       {
         "heading": "There is no simple \"declare bankruptcy\" button in Philippine law",
@@ -1233,7 +1234,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "title": "Tala vs GCash GCredit: Which Costs You More?",
     "description": "GCredit's published rate against Tala's own disclosed effective monthly rate, with a worked 10,000-peso example.",
     "kicker": "11 to 12 percent vs 4.15 percent",
-    "tldr": " GCredit charges a published 4.15 percent a month. Tala's own disclosures put its effective monthly rate at 11 to 12 percent, before a late fee. For most borrowers, GCredit is roughly a third of Tala's monthly cost, and the gap is big enough that it should decide which balance gets paid off first, not just where you borrow next.",
+    "tldr": "GCredit charges a published 4.15 percent a month. Tala's own disclosures put its effective monthly rate at 11 to 12 percent, before a late fee. For most borrowers, GCredit is roughly a third of Tala's monthly cost, and the gap is big enough that it should decide which balance gets paid off first, not just where you borrow next.",
     "sections": [
       {
         "heading": "The two structures, side by side",
@@ -1380,7 +1381,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "title": "Should I Get a Personal Loan to Pay Off My Credit Card?",
     "description": "The rate math is nearly a wash between the two good options; the decision turns on which behavior risk you can manage.",
     "kicker": "Three conditions",
-    "tldr": " It only makes sense if the personal loan's rate is clearly below your card's effective rate, and you are honest with yourself about not using the card again after it is paid off. For a single card, the loan saves real money but creates a real risk: the card refreshes while the loan sits there, and now you owe both.",
+    "tldr": "It only makes sense if the personal loan's rate is clearly below your card's effective rate, and you are honest with yourself about not using the card again after it is paid off. For a single card, the loan saves real money but creates a real risk: the card refreshes while the loan sits there, and now you owe both.",
     "sections": [
       {
         "heading": "Why this question comes up at all",
@@ -1528,7 +1529,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "title": "How to Read Your Credit Card Statement (and What 3% Monthly Interest Actually Means)",
     "description": "The BSP rate cap, the minimum payment trap in real numbers, and the added charges that push costs past 3 percent a month.",
     "kicker": "The 3 percent question",
-    "tldr": " The number that matters is your effective monthly rate: up to 2 percent a month under the current BSP cap on the outstanding balance, with separate charges that can push the true cost toward 3 percent or more. Statement reading is finding three things: the rate, the minimum payment due, and the due date.",
+    "tldr": "The number that matters is your effective monthly rate: up to 2 percent a month under the current BSP cap on the outstanding balance, with separate charges that can push the true cost toward 3 percent or more. Statement reading is finding three things: the rate, the minimum payment due, and the due date.",
     "sections": [
       {
         "heading": "The three things to find on every statement",
@@ -1648,7 +1649,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "title": "Tala vs Home Credit vs BillEase vs Cashalo: The Full Lender Comparison",
     "description": "Every major Philippine lender converted to the same unit and ranked cheapest to most expensive, with the worked payoff example.",
     "kicker": "All four, same unit",
-    "tldr": " On a 20,000 peso loan over 30 days, effective monthly costs run cheapest first: BillEase at 3.49 percent a month, Home Credit around 2.8 to 4.4 percent effective, Tala's disclosed effective monthly rate at 11 to 12 percent, and Cashalo's combined daily structure highest of the four. Comparing total repayment, not headline rates, makes the order stick.",
+    "tldr": "On a 20,000 peso loan over 30 days, effective monthly costs run cheapest first: BillEase at 3.49 percent a month, Home Credit around 2.8 to 4.4 percent effective, Tala's disclosed effective monthly rate at 11 to 12 percent, and Cashalo's combined daily structure highest of the four. Comparing total repayment, not headline rates, makes the order stick.",
     "sections": [
       {
         "heading": "The one rule that makes lender comparison work",
@@ -1803,7 +1804,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "title": "Juggling Multiple Loan App Installments? How to Tell Which One Is Actually Hurting You Most",
     "description": "Convert every installment plan to the same unit, rank them, and find the balance actually draining the most money.",
     "kicker": "The same-unit conversion",
-    "tldr": " Convert every installment plan to the same unit, total repayment over its own term or effective monthly cost, then rank them. The loudest bill is rarely the most expensive one: installment plans with promotional headlines often hide the highest effective rates behind small per-installment amounts that look manageable.",
+    "tldr": "Convert every installment plan to the same unit, total repayment over its own term or effective monthly cost, then rank them. The loudest bill is rarely the most expensive one: installment plans with promotional headlines often hide the highest effective rates behind small per-installment amounts that look manageable.",
     "sections": [
       {
         "heading": "Why the loudest bill is usually not the most expensive debt",
@@ -1905,5 +1906,5 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     ],
     "ctaLead": "See your own payoff order, free",
     "ctaSub": "Add your real debts and see your avalanche-ordered plan, your projected debt-free date, and the interest you would save. No bank linking, manual entry or a CSV, and nothing to pay before you see the numbers."
-  }
+  },
 ];
