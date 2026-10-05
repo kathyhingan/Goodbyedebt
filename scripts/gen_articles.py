@@ -191,6 +191,8 @@ def main() -> None:
             "ctaLead": m["ctaLead"],
             "ctaSub": m["ctaSub"],
         }
+        if m.get("resource"):
+            entry["resource"] = m["resource"]
         entries.append(entry)
 
     def esc(s: str) -> str:
@@ -203,9 +205,11 @@ def main() -> None:
     out.append("")
     out.append("export interface GuideSection { heading: string; paragraphs: string[]; bullets?: string[] | null; numbered?: string[] | null; subheadings?: { text: string; paragraphs: string[] }[] | null; table?: { headers: string[]; rows: string[][] } | null; }")
     out.append("export interface GuideFaq { q: string; a: string; }")
+    out.append("export interface GuideResource { label: string; blurb: string; href: string; cta: string; }")
     out.append("export interface GuideArticleData {")
     out.append("  slug: string; title: string; description: string; kicker: string; tldr: string;")
     out.append("  sections: GuideSection[]; faq: GuideFaq[]; ctaLead: string; ctaSub: string;")
+    out.append("  resource?: GuideResource | null;")
     out.append("}")
     out.append("")
     out.append("export const ARTICLE_LIST: GuideArticleData[] = [")

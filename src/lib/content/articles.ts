@@ -4,9 +4,11 @@
 
 export interface GuideSection { heading: string; paragraphs: string[]; bullets?: string[] | null; numbered?: string[] | null; subheadings?: { text: string; paragraphs: string[] }[] | null; table?: { headers: string[]; rows: string[][] } | null; }
 export interface GuideFaq { q: string; a: string; }
+export interface GuideResource { label: string; blurb: string; href: string; cta: string; }
 export interface GuideArticleData {
   slug: string; title: string; description: string; kicker: string; tldr: string;
   sections: GuideSection[]; faq: GuideFaq[]; ctaLead: string; ctaSub: string;
+  resource?: GuideResource | null;
 }
 
 export const ARTICLE_LIST: GuideArticleData[] = [
@@ -397,7 +399,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "The main variants, honestly compared",
         "paragraphs": [
-          "The 52-week challenge. Save a set amount in week 1, increase it by a fixed step every week, and finish with a larger amount 52 weeks later. The classic version starts at 50 pesos and steps up 50 pesos a week, ending at 2,600 pesos in week 52 for a total of 68,900 pesos. The honest weakness: the back half of the year carries the heavy deposits, right when holiday spending peaks in the Philippines, and a missed week or two in the heavy zone is where most attempts die. The common fix is to run it in reverse (heaviest deposits first, while motivation is fresh) or to shuffle the order and cross off whichever weekly amount fits that week's budget.",
+          "The 52-week challenge. Save a set amount in week 1, increase it by a fixed step every week, and finish with a larger amount 52 weeks later. The classic version starts at 50 pesos and steps up 50 pesos a week, ending at 2,600 pesos in week 52 for a total of 68,900 pesos. The honest weakness: the back half of the year carries the heavy deposits, right when holiday spending peaks in the Philippines, and a missed week or two in the heavy zone is where most attempts die. The common fix is to run it in reverse (heaviest deposits first, while motivation is fresh) or to shuffle the order and cross off whichever weekly amount fits that week's budget. The printable tracker in the download above lays the whole 52 weeks out on one page, with a box to tick each week, a flat-weekly version for your own amount, and space to write your missed-week rule before you need it, so the shuffling does not have to happen in your head.",
           "The flat-amount weekly challenge. Pick one amount you can genuinely sustain, say 500 pesos a week, and deposit it every single week without variation. A year of that is 26,000 pesos. The honest strength: it is the most survivable variant, because the amount never grows past what your budget already proved it can carry. The honest weakness: it builds less than the stepped versions, and it produces no escalating sense of momentum.",
           "The fixed-target challenges (10k, 20k, 50k). Pick a target and a deadline, then work backward to a weekly or biweekly amount: 10,000 pesos in 25 weeks is 400 pesos a week; 20,000 in a year is about 385. These are the most motivating variants because the target is a concrete number, and they fail for the same reason ordinary saving fails if the derived weekly amount was never realistic for the actual budget.",
           "The no-spend challenge. A week or a month with a defined list of banned spending categories, where the money not spent gets counted and moved to savings on every defined day. As a permanent habit it is not sustainable, but as a one-month jolt that funds the first deposit of a real plan, it works, because it finds money that already exists in the budget rather than requiring new money.",
@@ -509,7 +511,13 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       }
     ],
     "ctaLead": "See your own payoff order, free",
-    "ctaSub": "Add your real debts and see your avalanche-ordered plan, your projected debt-free date, and the interest you would save. No bank linking, manual entry or a CSV, and nothing to pay before you see the numbers."
+    "ctaSub": "Add your real debts and see your avalanche-ordered plan, your projected debt-free date, and the interest you would save. No bank linking, manual entry or a CSV, and nothing to pay before you see the numbers.",
+    "resource": {
+      "label": "Free printable",
+      "blurb": "The 52-week tracker on one printable page: every week's amount, a box to tick, a blank version for your own weekly figure, and a space to write your missed-week rule before you need it.",
+      "href": "/guides/ipon-challenge-chart.pdf",
+      "cta": "Download the tracker (PDF)"
+    }
   },
   {
     "slug": "pag-ibig-home-loan-requirements",

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ipon Challenge Tracker | Goodbye Debt</title>
+<style>
+  @page { size: A4 portrait; margin: 12mm; }
+  :root{
+    --ink:#141f16; --muted:#5c6b60; --line:#c9d3c6; --green:#1f7a45; --gold:#8a6a1f;
+    --soft:#f1f6f0;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; padding:18px 20px 40px; background:#fff; color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:11.5px; line-height:1.45;
+  }
+  h1{ font-size:20px; margin:0 0 2px; letter-spacing:0.2px; }
+  h2{ font-size:13.5px; margin:18px 0 6px; text-transform:uppercase; letter-spacing:0.6px; color:var(--green); }
+  .brand{ display:flex; align-items:baseline; gap:6px; font-weight:800; color:var(--green); font-size:13px; }
+  .brand span{ color:#1f9d55; }
+  .head{ border-bottom:2px solid var(--green); padding-bottom:8px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:flex-end; gap:12px; }
+  .head .meta{ color:var(--muted); font-size:10.5px; text-align:right; }
+  p{ margin:0 0 8px; }
+  .lede{ color:var(--muted); }
+  .grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:4px; }
+  .cell{ border:1px solid var(--line); border-radius:5px; padding:4px 6px; display:flex; justify-content:space-between; align-items:center; gap:4px; background:var(--soft); }
+  .cell .wk{ color:var(--muted); font-size:9.5px; font-weight:700; letter-spacing:0.3px; }
+  .cell .amt{ font-weight:800; font-size:11.5px; }
+  .cell .box{ width:12px; height:12px; border:1.4px solid var(--muted); border-radius:2px; flex:0 0 auto; }
+  .blank .amt{ color:#9aa79a; }
+  .write{ border-bottom:1px solid var(--muted); display:inline-block; min-width:96px; height:13px; }
+  .row{ display:flex; gap:14px; flex-wrap:wrap; align-items:flex-end; margin:8px 0 4px; }
+  .field{ font-size:11px; }
+  .field b{ color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:0.4px; font-size:9.5px; display:block; margin-bottom:2px; }
+  .total{ background:var(--soft); border:1px solid var(--line); border-radius:8px; padding:8px 10px; margin-top:8px; font-size:11px; }
+  .total strong{ color:var(--green); }
+  .rule{ border:1.5px solid var(--gold); border-radius:8px; padding:8px 10px; margin-top:10px; font-size:11px; }
+  .rule b{ color:var(--gold); text-transform:uppercase; letter-spacing:0.5px; font-size:9.5px; display:block; margin-bottom:3px; }
+  footer{ border-top:1px solid var(--line); margin-top:14px; padding-top:6px; color:var(--muted); font-size:9.5px; display:flex; justify-content:space-between; gap:10px; }
+  .page-break{ break-before:page; page-break-before:always; }
+  @media print{ body{ padding:0; } .noprint{ display:none; } }
+  .noprint{ background:var(--soft); border:1px solid var(--line); border-radius:8px; padding:8px 10px; margin-bottom:12px; font-size:11px; }
+</style>
+</head>
+<body>
+
+<div class="noprint">
+  <strong>To print this:</strong> use your browser's print option (Ctrl+P or Cmd+P) and choose A4, portrait. Or download the PDF at <strong>almostdebtfree.com/guides/ipon-challenge-chart.pdf</strong>.
+</div>
+
+<div class="head">
+  <div>
+    <div class="brand">GOODBYE<span>DEBT</span></div>
+    <h1>Ipon Challenge Tracker</h1>
+    <p class="lede" style="margin:2px 0 0;">52 weeks, one page, one visible count. Print it, stick it somewhere you will see it, and cross off each week.</p>
+  </div>
+  <div class="meta">
+    almostdebtfree.com<br>
+    Free payoff planner, no bank linking
+  </div>
+</div>
+
+<h2>The classic 52-week stepped challenge (50 peso step)</h2>
+<p class="lede">Week 1 is 50 pesos, and each week adds another 50. Tick the box when the amount is in. The running total lands at 68,900 pesos by week 52.</p>
+<div class="grid">
+  <div class="cell"><span class="wk">WK 1</span><span class="amt">50</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 2</span><span class="amt">100</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 3</span><span class="amt">150</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 4</span><span class="amt">200</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 5</span><span class="amt">250</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 6</span><span class="amt">300</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 7</span><span class="amt">350</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 8</span><span class="amt">400</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 9</span><span class="amt">450</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 10</span><span class="amt">500</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 11</span><span class="amt">550</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 12</span><span class="amt">600</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 13</span><span class="amt">650</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 14</span><span class="amt">700</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 15</span><span class="amt">750</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 16</span><span class="amt">800</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 17</span><span class="amt">850</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 18</span><span class="amt">900</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 19</span><span class="amt">950</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 20</span><span class="amt">1,000</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 21</span><span class="amt">1,050</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 22</span><span class="amt">1,100</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 23</span><span class="amt">1,150</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 24</span><span class="amt">1,200</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 25</span><span class="amt">1,250</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 26</span><span class="amt">1,300</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 27</span><span class="amt">1,350</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 28</span><span class="amt">1,400</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 29</span><span class="amt">1,450</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 30</span><span class="amt">1,500</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 31</span><span class="amt">1,550</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 32</span><span class="amt">1,600</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 33</span><span class="amt">1,650</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 34</span><span class="amt">1,700</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 35</span><span class="amt">1,750</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 36</span><span class="amt">1,800</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 37</span><span class="amt">1,850</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 38</span><span class="amt">1,900</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 39</span><span class="amt">1,950</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 40</span><span class="amt">2,000</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 41</span><span class="amt">2,050</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 42</span><span class="amt">2,100</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 43</span><span class="amt">2,150</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 44</span><span class="amt">2,200</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 45</span><span class="amt">2,250</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 46</span><span class="amt">2,300</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 47</span><span class="amt">2,350</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 48</span><span class="amt">2,400</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 49</span><span class="amt">2,450</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 50</span><span class="amt">2,500</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 51</span><span class="amt">2,550</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 52</span><span class="amt">2,600</span><span class="box"></span></div>
+</div>
+
+<div class="total">
+  <strong>Week 52 total: 68,900 pesos.</strong> Heavy deposits land in the last quarter, which is the holiday season. If that is where your attempts usually die, flip the sheet and run it in reverse instead: start at 2,600 in week 1 while motivation is fresh.
+</div>
+
+<div class="rule">
+  <b>My rule for a missed week</b>
+  Make it up partially next week, never abandon the count. Write the rule here so the decision is already made: <span class="write" style="min-width:280px;"></span>
+</div>
+
+<footer>
+  <span>Goodbye Debt. See the math before you decide anything.</span>
+  <span>almostdebtfree.com/guides/ipon-challenge</span>
+</footer>
+
+<!-- ============================ PAGE 2 ============================ -->
+<div class="page-break"></div>
+
+<div class="head">
+  <div>
+    <div class="brand">GOODBYE<span>DEBT</span></div>
+    <h1>Your Own Numbers</h1>
+    <p class="lede" style="margin:2px 0 0;">The stepped 50-peso version is just one shape. Write your own weekly amount, or work backward from a target you actually care about.</p>
+  </div>
+  <div class="meta">
+    almostdebtfree.com<br>
+    Free payoff planner, no bank linking
+  </div>
+</div>
+
+<h2>Option A: flat weekly tracker (the most survivable)</h2>
+<div class="row">
+  <div class="field"><b>My weekly amount</b>P <span class="write"></span></div>
+  <div class="field"><b>52-week total</b>P <span class="write"></span></div>
+</div>
+<div class="grid blank">
+  <div class="cell"><span class="wk">WK 1</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 2</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 3</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 4</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 5</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 6</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 7</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 8</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 9</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 10</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 11</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 12</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 13</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 14</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 15</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 16</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 17</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 18</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 19</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 20</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 21</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 22</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 23</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 24</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 25</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 26</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 27</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 28</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 29</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 30</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 31</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 32</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 33</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 34</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 35</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 36</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 37</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 38</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 39</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 40</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 41</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 42</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 43</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 44</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 45</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 46</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 47</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 48</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 49</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 50</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 51</span><span class="amt">____</span><span class="box"></span></div>
+  <div class="cell"><span class="wk">WK 52</span><span class="amt">____</span><span class="box"></span></div>
+</div>
+
+<h2>Option B: work backward from a target</h2>
+<div class="row">
+  <div class="field"><b>My target</b>P <span class="write"></span></div>
+  <div class="field"><b>Weeks to get there</b><span class="write" style="min-width:60px;"></span></div>
+  <div class="field"><b>Weekly amount (target divided by weeks)</b>P <span class="write"></span></div>
+</div>
+<p class="lede" style="margin-top:6px;">Worked examples: 10,000 pesos in 25 weeks is 400 pesos a week. 20,000 pesos in a year is about 385 pesos a week. If the weekly figure looks impossible against your real budget, the target is the thing to change, not your rent.</p>
+
+<h2>If you also have debt, this sheet has one more job</h2>
+<p>Challenge money sitting in savings while a Tala loan, a GCredit draw, a BillEase installment, or a card balance costs you 2 to 15 percent a month loses money every month it sits. Once a small starter buffer exists, the weekly deposit belongs at the top of your payoff order instead.</p>
+<div class="row">
+  <div class="field"><b>My starter buffer amount</b>P <span class="write"></span></div>
+  <div class="field"><b>Balance this week's deposit goes to</b><span class="write" style="min-width:200px;"></span></div>
+</div>
+
+<div class="rule">
+  <b>Where this sheet goes next</b>
+  Add your real debts to the free planner and it shows your avalanche order, your debt-free date, and the interest the weekly deposit saves. Nothing to pay before you see the numbers: almostdebtfree.com/plan
+</div>
+
+<footer>
+  <span>Goodbye Debt. See the math before you decide anything.</span>
+  <span>almosdebtfree.com/guides/ipon-challenge</span>
+</footer>
+
+</body>
+</html>

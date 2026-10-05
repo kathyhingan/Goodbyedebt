@@ -55,6 +55,10 @@ const css = `
 .gd-guides .article-wrap h1{font-family:'Anton',sans-serif; text-transform:uppercase; letter-spacing:0.5px; line-height:1.05; font-size:clamp(30px,4.4vw,48px); margin:0; color:var(--text);}
 .gd-guides .tldr{margin-top:28px; border:2px solid var(--gold); background:linear-gradient(135deg, rgba(201,162,77,0.10), transparent); border-radius:14px; padding:22px 24px; font-size:15.5px; line-height:1.65; color:#e5e0d3;}
 .gd-guides .tldr strong{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:8px;}
+.gd-guides .resource-card{margin-top:20px; background:var(--panel2); border:1px solid var(--line); border-left:4px solid var(--green-bright); border-radius:14px; padding:20px 22px;}
+.gd-guides .resource-label{display:inline-block; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:var(--gold); border:1px solid var(--line); border-radius:100px; padding:4px 10px; margin-bottom:12px;}
+.gd-guides .resource-blurb{margin:0 0 16px; font-size:14.5px; line-height:1.6; color:#d8d3c5;}
+.gd-guides .resource-card .btn-primary{font-size:14px; padding:14px 22px;}
 .gd-guides .article-body{margin-top:16px;}
 .gd-guides .article-body h2{font-family:'Anton',sans-serif; text-transform:uppercase; letter-spacing:0.5px; font-size:clamp(20px,2.6vw,26px); line-height:1.25; color:var(--green-bright); margin:44px 0 14px;}
 .gd-guides .article-body h3{font-family:'Anton',sans-serif; text-transform:uppercase; letter-spacing:0.5px; font-size:clamp(17px,2.2vw,21px); color:var(--text); margin:28px 0 10px;}
@@ -150,6 +154,15 @@ export default function GuideArticle({ params }: { params: Params }) {
           <strong>Short answer</strong>
           {article.tldr}
         </div>
+        {article.resource ? (
+          <div className="resource-card">
+            <span className="resource-label">{article.resource.label}</span>
+            <p className="resource-blurb">{article.resource.blurb}</p>
+            <a href={article.resource.href} className="btn-primary" download>
+              {article.resource.cta}
+            </a>
+          </div>
+        ) : null}
         <div className="article-body">
           {article.sections.map((s) => (
             <section key={s.heading}>
