@@ -6,6 +6,7 @@ import { isSupabaseConfigured } from "@/lib/supabase/config";
 
 const LINKS = [
   { href: "/", label: "Plan" },
+  { href: "/guides", label: "Guides" },
   { href: "/debts", label: "Debts" },
   { href: "/calendar", label: "Calendar" },
   { href: "/settings", label: "Settings" },
