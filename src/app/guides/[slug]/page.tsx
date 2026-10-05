@@ -63,6 +63,13 @@ const css = `
 .gd-guides .article-body li{line-height:1.7; margin-bottom:10px; font-size:15.5px; color:#d8d3c5;}
 .gd-guides .article-body li::marker{color:var(--gold);}
 .gd-guides .article-body strong{color:var(--text);}
+.gd-guides .table-scroll{margin:20px 0 24px; overflow-x:auto; -webkit-overflow-scrolling:touch; border:1px solid var(--line); border-radius:12px;}
+.gd-guides .table-scroll table{width:100%; border-collapse:collapse; font-size:13px; min-width:460px;}
+.gd-guides .table-scroll th{font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:var(--gold); text-align:left; padding:10px 12px; background:var(--panel2); border-bottom:1px solid var(--line);}
+.gd-guides .table-scroll td{text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); color:#d8d3c5; line-height:1.5; vertical-align:top;}
+.gd-guides .table-scroll tr:last-child td{border-bottom:none;}
+.gd-guides .table-scroll tr:nth-child(even) td{background:rgba(20,31,22,0.5);}
+.gd-guides .table-scroll td:first-child{color:var(--text); font-weight:700;}
 .gd-guides .faq-block{margin-top:56px; border-top:1px solid var(--line); padding-top:40px;}
 .gd-guides .faq-block h2{font-family:'Anton',sans-serif; text-transform:uppercase; letter-spacing:0.5px; font-size:clamp(20px,2.6vw,26px); color:var(--green-bright); margin:0 0 8px;}
 .gd-guides .faq-item{border-bottom:1px solid var(--line); padding:20px 0;}
@@ -163,6 +170,28 @@ export default function GuideArticle({ params }: { params: Params }) {
                     <li key={i}>{b}</li>
                   ))}
                 </ol>
+              ) : null}
+              {s.table ? (
+                <div className="table-scroll">
+                  <table>
+                    <thead>
+                      <tr>
+                        {s.table.headers.map((h, i) => (
+                          <th key={i}>{h}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {s.table.rows.map((row, i) => (
+                        <tr key={i}>
+                          {row.map((cell, j) => (
+                            <td key={j}>{cell}</td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               ) : null}
               {s.subheadings
                 ? s.subheadings.map((sh) => (

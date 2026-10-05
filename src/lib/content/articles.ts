@@ -1,7 +1,7 @@
 // AUTO-GENERATED from debt-app-seo-icm/03-content-strategy/output/articles/*.md.
 // Regenerate by re-running the parse script; do not hand-edit copy here.
 
-export interface GuideSection { heading: string; paragraphs: string[]; bullets?: string[] | null; numbered?: string[] | null; subheadings?: { text: string; paragraphs: string[] }[] | null; }
+export interface GuideSection { heading: string; paragraphs: string[]; bullets?: string[] | null; numbered?: string[] | null; subheadings?: { text: string; paragraphs: string[] }[] | null; table?: { headers: string[]; rows: string[][] } | null; }
 export interface GuideFaq { q: string; a: string; }
 export interface GuideArticleData {
   slug: string; title: string; description: string; kicker: string; tldr: string;
@@ -33,7 +33,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
           "Avalanche means: pay the minimum on every debt, then throw every extra peso at whichever debt has the highest interest rate. Once that one is gone, move to the next highest rate. Repeat.",
           "Here is why rate order matters so much in the Philippines specifically. Monthly rates on common Filipino debts are not close to each other the way they might be in a country where everyone borrows from a bank. A rough, commonly cited range looks like this:",
           "(These are commonly published ranges, not a guarantee of what any specific account charges you today. Check your own statement. Rates change and vary by lender and by borrower.)",
-          "Look at that spread. A Tala loan at roughly 5 percent a month is not slightly more expensive than an SSS salary loan at roughly 0.8 percent a month, it is roughly six times more expensive, every single month, for as long as the balance sits there. If you have both and you are putting extra money toward the SSS loan because it feels responsible to pay the \"official\" one first, the Tala balance is quietly costing you far more while you do that.",
+          "Look at that spread. A Tala loan at 11 to 12 percent a month effective is not slightly more expensive than an SSS salary loan at roughly 0.8 percent a month, it is more than ten times more expensive, every single month, for as long as the balance sits there. If you have both and you are putting extra money toward the SSS loan because it feels responsible to pay the \"official\" one first, the Tala balance is quietly costing you far more while you do that.",
           "Avalanche says: ignore which one feels more official, which one is smaller, or which one sent the scariest text this week. Rank every debt by its actual monthly rate, and send every extra peso to the top of that list. Mathematically, this is the method that gets you to zero debt for the least total interest paid, full stop."
         ],
         "bullets": [
@@ -42,7 +42,8 @@ export const ARTICLE_LIST: GuideArticleData[] = [
           "Bank personal loan: around 1.5 to 2 percent a month",
           "Credit card (BSP cap): up to 2 percent a month on the unpaid balance",
           "Home Credit, BillEase, Cashalo type installment loans: often 3 to 4 percent a month",
-          "GCash GCredit, Tala, and similar app loans: often 4 to 5 percent a month"
+          "GCash GCredit: about 4.15 percent a month",
+          "Tala: 11 to 12 percent a month effective, per its own published disclosure"
         ],
         "numbered": null,
         "subheadings": null
@@ -159,7 +160,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
         "paragraphs": [
           "Here is what consolidation is actually competing against. Commonly cited monthly rate ranges on debt Filipinos typically carry:",
           "(These are commonly published ranges, not guaranteed figures for any specific account. Lenders set their own rates and they move over time. Check your actual statement before deciding.)",
-          "Now look at what a consolidation loan is realistically priced at: a bank personal loan, which sits at roughly 14 to 18 percent a year. If your current mix of debt is mostly credit cards at 24 percent and app loans at 4 to 5 percent a month, consolidating into a 14 to 18 percent personal loan is a real, meaningful savings. If your current mix is mostly an SSS salary loan and a Pag-IBIG loan, both already under 11 percent, consolidating them into a personal loan at 14 to 18 percent would make your situation worse, not better. People do this by accident more often than you would expect, because the pitch (\"one payment, lower rate\") sounds universally true when it is actually conditional on what you already owe."
+          "Now look at what a consolidation loan is realistically priced at: a bank personal loan, which sits at roughly 14 to 18 percent a year. If your current mix of debt is mostly credit cards at 24 percent and app loans at 4 to 15 percent a month depending on the lender, consolidating into a 14 to 18 percent personal loan is a real, meaningful savings. If your current mix is mostly an SSS salary loan and a Pag-IBIG loan, both already under 11 percent, consolidating them into a personal loan at 14 to 18 percent would make your situation worse, not better. People do this by accident more often than you would expect, because the pitch (\"one payment, lower rate\") sounds universally true when it is actually conditional on what you already owe."
         ],
         "bullets": [
           "SSS salary loan or SSS Conso-Loan: roughly 10 percent a year",
@@ -167,7 +168,8 @@ export const ARTICLE_LIST: GuideArticleData[] = [
           "Bank personal loan (the usual consolidation product): roughly 14 to 18 percent a year",
           "Credit card: capped by the BSP at 2 percent a month, which is 24 percent a year",
           "BNPL and installment apps (Home Credit, BillEase, Cashalo): typically 3 to 4 percent a month, well above 24 percent annualized",
-          "GCash GCredit, Tala, and similar app loans: often 4 to 5 percent a month"
+          "GCash GCredit: about 4.15 percent a month",
+          "Tala: 11 to 12 percent a month effective, per its own published disclosure"
         ],
         "numbered": null,
         "subheadings": null
@@ -185,13 +187,37 @@ export const ARTICLE_LIST: GuideArticleData[] = [
           "A real risk, well documented in how people actually use consolidation loans: the old credit cards get paid off, then slowly used again, because the card is still open and the temptation is still there. Now you have the new consolidation loan AND a refreshed credit card balance. This is the single most common way consolidation makes things worse instead of better."
         ],
         "numbered": null,
-        "subheadings": null
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Your situation",
+            "Does consolidation help?"
+          ],
+          "rows": [
+            [
+              "Mostly credit card and app loan debt, and you qualify for 14 to 18 percent",
+              "Yes, a real and meaningful savings"
+            ],
+            [
+              "Mostly an SSS or Pag-IBIG loan already under 11 percent a year",
+              "No, folding cheap debt into a pricier blended rate costs you more"
+            ],
+            [
+              "Cannot qualify for a rate lower than what you already pay",
+              "No, avalanche order or a restructuring call is the realistic path"
+            ],
+            [
+              "Planning to keep the old cards in your wallet after the loan pays them off",
+              "Do not consolidate until that changes; the refreshed card is how consolidation backfires"
+            ]
+          ]
+        }
       },
       {
         "heading": "What avalanche order gets you without a new loan",
         "paragraphs": [
           "Here is the comparison nobody selling a consolidation loan will walk you through: running your existing debts in avalanche order, highest rate first, with no new loan, no credit check, and no risk of refreshing a paid-off card.",
-          "Take a representative mix: a Tala loan at roughly 5 percent a month, a credit card at 2 percent a month (the BSP cap), and an SSS salary loan at under 1 percent a month. Avalanche order means every extra peso goes to the Tala loan first, specifically because it is costing you roughly five times more per month than the SSS loan. Once it is cleared, the freed-up payment rolls into the credit card. The SSS loan, already cheap, gets paid down last, on schedule.",
+          "Take a representative mix: a Tala loan at 11 to 12 percent a month effective, a credit card at 2 percent a month (the BSP cap), and an SSS salary loan at under 1 percent a month. Avalanche order means every extra peso goes to the Tala loan first, specifically because it is costing you roughly five times more per month than the SSS loan. Once it is cleared, the freed-up payment rolls into the credit card. The SSS loan, already cheap, gets paid down last, on schedule.",
           "Compare the result: a consolidation loan at 14 to 18 percent replacing all three accounts would mean paying 14 to 18 percent on money that was costing you under 1 percent a month (the SSS loan) for the entire life of the new loan. Avalanche order never does that. It only ever concentrates extra payment on the most expensive balance, and leaves the cheap debt exactly where it is, cheap.",
           "This is not an argument that consolidation never makes sense. When most of your balance really is sitting in high-rate revolving debt (cards, BNPL, app loans) and you can genuinely qualify for a meaningfully lower consolidation rate, it can be the right call. The point is that \"I have multiple debts\" is not, by itself, a reason to consolidate. \"My debts are mostly high-rate and I can get approved for something clearly lower\" is the actual reason, and most people never check whether that is true for their specific numbers before applying."
         ],
@@ -202,9 +228,9 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "Running the actual numbers on a real example",
         "paragraphs": [
-          "Take a reader with three debts: a 150,000 peso credit card balance at the BSP-capped 2 percent a month, a 60,000 peso Tala-style app loan at 5 percent a month, and a 100,000 peso SSS salary loan at under 1 percent a month, total debt 310,000 pesos. Two paths, assuming 15,000 pesos a month available above minimums:",
+          "Take a reader with three debts: a 150,000 peso credit card balance at the BSP-capped 2 percent a month, a 60,000 peso Tala-style app loan at 11 to 12 percent a month effective, and a 100,000 peso SSS salary loan at under 1 percent a month, total debt 310,000 pesos. Two paths, assuming 15,000 pesos a month available above minimums:",
           "Path one, a consolidation loan at 16 percent a year (roughly 1.33 percent a month), replacing all three: the blended rate on the new loan is a flat 1.33 percent a month on the full 310,000. That is a clear improvement over the credit card and the app loan's rates, but it is more than the SSS loan's own rate, meaning the 100,000 pesos that used to cost under 1 percent a month now costs 1.33 percent a month for the life of the new loan, a real increase on that portion.",
-          "Path two, avalanche order with no new loan: the 15,000 pesos a month goes entirely to the Tala-style loan first, since 5 percent a month is by far the most expensive balance. Once it clears, the freed payment rolls to the credit card. The SSS loan continues at its own low rate the whole time, untouched by any new, higher blended rate.",
+          "Path two, avalanche order with no new loan: the 15,000 pesos a month goes entirely to the Tala-style loan first, since its rate is by far the most expensive. Once it clears, the freed payment rolls to the credit card. The SSS loan continues at its own low rate the whole time, untouched by any new, higher blended rate.",
           "The exact total interest difference depends on your real payoff timeline, which is the entire reason to run your own numbers rather than someone else's example. But the direction of the comparison holds for almost anyone in a similar mix: consolidating a cheap government loan into a pricier blended rate works against you, even while the same consolidation genuinely helps the expensive app loan and card balance it is also absorbing."
         ],
         "bullets": null,
@@ -378,7 +404,41 @@ export const ARTICLE_LIST: GuideArticleData[] = [
         ],
         "bullets": null,
         "numbered": null,
-        "subheadings": null
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Challenge",
+            "How it works",
+            "Where it fails",
+            "Best for"
+          ],
+          "rows": [
+            [
+              "52-week stepped",
+              "Start small, step up weekly; the classic 50 peso step totals 68,900 pesos",
+              "Heavy deposits land on the holiday months",
+              "Building the most, with discipline"
+            ],
+            [
+              "Flat weekly",
+              "One sustainable amount, every week, no variation",
+              "Builds less than the stepped versions",
+              "First-timers and irregular income"
+            ],
+            [
+              "Fixed target",
+              "Work backward from a target and deadline",
+              "Fails if the derived weekly amount was never realistic",
+              "Concrete-goal savers"
+            ],
+            [
+              "No-spend month",
+              "Ban spending categories, bank the difference",
+              "Not sustainable as a permanent habit",
+              "Funding the first deposit of a real plan"
+            ]
+          ]
+        }
       },
       {
         "heading": "Where the challenges fail, and how to survive the failure point",
@@ -630,10 +690,60 @@ export const ARTICLE_LIST: GuideArticleData[] = [
           "Credit card: capped by the BSP at 2 percent a month",
           "BillEase: 3.49 percent a month (standard), 4.16 percent on EasyPace",
           "Cashalo: a combined daily interest and service fee structure that, in a published worked example, worked out to roughly 15 percent of the principal over a 90 day term, higher in effective monthly terms than the headline rate suggests",
-          "GCash GCredit and Tala: commonly cited around 4 to 5 percent a month"
+          "GCash GCredit: 4.15 percent a month, published",
+          "Tala: 11 to 12 percent a month effective, per its own disclosure"
         ],
         "numbered": null,
-        "subheadings": null
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Lender product",
+            "Monthly rate",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "SSS or Pag-IBIG salary loan",
+              "Under 1 percent",
+              "The cheapest money in the list"
+            ],
+            [
+              "Bank personal loan",
+              "About 1.2 to 1.5 percent",
+              "Requires an application and a credit check"
+            ],
+            [
+              "Credit card",
+              "Up to 2 percent (BSP cap)",
+              "Cheaper than BillEase if you revolve a balance"
+            ],
+            [
+              "Home Credit cash loan",
+              "About 2.8 percent effective",
+              "Varies by product and term"
+            ],
+            [
+              "BillEase",
+              "3.49 percent (4.16 on EasyPace)",
+              "Published, consistent, one number"
+            ],
+            [
+              "GCredit",
+              "4.15 percent, published",
+              "Pricier than BillEase"
+            ],
+            [
+              "Cashalo",
+              "Daily rates, up to about 15 percent effective",
+              "Highest of the group in the published example"
+            ],
+            [
+              "Tala",
+              "11 to 12 percent effective, own disclosure",
+              "Priciest mainstream app loan"
+            ]
+          ]
+        }
       },
       {
         "heading": "The zero percent option, and what it actually requires",
@@ -670,7 +780,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "If BillEase is one of several things you owe",
         "paragraphs": [
-          "The comparison that actually matters is not \"is BillEase a fair lender,\" it clearly is a licensed, mainstream option, but \"where does a 3.49 percent monthly balance rank against everything else I currently owe.\" If you also carry a Tala loan at roughly 5 percent a month and an SSS salary loan at under 1 percent, the honest priority order sends extra payment to Tala first, keeps BillEase on its normal schedule in the middle, and lets the SSS loan ride at minimum payments since it is already the cheapest money you have. Most people juggling three or four of these accounts are guessing at that order from memory, usually prioritizing whichever bill feels most urgent that week rather than whichever one is actually costing the most."
+          "The comparison that actually matters is not \"is BillEase a fair lender,\" it clearly is a licensed, mainstream option, but \"where does a 3.49 percent monthly balance rank against everything else I currently owe.\" If you also carry a Tala loan at 11 to 12 percent a month effective and an SSS salary loan at under 1 percent, the honest priority order sends extra payment to Tala first, keeps BillEase on its normal schedule in the middle, and lets the SSS loan ride at minimum payments since it is already the cheapest money you have. Most people juggling three or four of these accounts are guessing at that order from memory, usually prioritizing whichever bill feels most urgent that week rather than whichever one is actually costing the most."
         ],
         "bullets": null,
         "numbered": null,
@@ -883,7 +993,36 @@ export const ARTICLE_LIST: GuideArticleData[] = [
         ],
         "bullets": null,
         "numbered": null,
-        "subheadings": null
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Charge",
+            "Rate",
+            "On a 2,000 peso loan over 90 days"
+          ],
+          "rows": [
+            [
+              "Daily interest",
+              "About 0.2 percent a day",
+              "About 360 pesos"
+            ],
+            [
+              "Daily service fee",
+              "About 0.3 percent a day",
+              "About 540 pesos"
+            ],
+            [
+              "Combined interest and fees",
+              "",
+              "About 900 pesos"
+            ],
+            [
+              "Total repayment",
+              "",
+              "About 2,900 pesos"
+            ]
+          ]
+        }
       },
       {
         "heading": "Common application mistakes, and how to avoid them",
@@ -1106,7 +1245,51 @@ export const ARTICLE_LIST: GuideArticleData[] = [
         ],
         "bullets": null,
         "numbered": null,
-        "subheadings": null
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "",
+            "GCash GCredit",
+            "Tala"
+          ],
+          "rows": [
+            [
+              "Monthly rate",
+              "4.1529 percent, published",
+              "11 to 12 percent effective, per Tala's own disclosure"
+            ],
+            [
+              "How it is charged",
+              "Flat monthly rate on the amount drawn",
+              "One-time processing fee (3.99 to 11.99 percent of principal) plus a daily service fee (0.21 to 0.43 percent a day)"
+            ],
+            [
+              "Term",
+              "Monthly, renew as needed",
+              "15 to 61 days"
+            ],
+            [
+              "Credit limit",
+              "Set by your GScore",
+              "1,000 to 25,000 pesos, grows with on-time repayment"
+            ],
+            [
+              "Late fee",
+              "None beyond interest",
+              "5 percent of the outstanding balance"
+            ],
+            [
+              "Rate rises if you pay late",
+              "No",
+              "Yes, your next loan prices at the higher end"
+            ],
+            [
+              "15,000 balance for one month",
+              "About 623 pesos",
+              "About 1,650 to 1,800 pesos"
+            ]
+          ]
+        }
       },
       {
         "heading": "What the comparison actually shows",
@@ -1252,7 +1435,39 @@ export const ARTICLE_LIST: GuideArticleData[] = [
         ],
         "bullets": null,
         "numbered": null,
-        "subheadings": null
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Path",
+            "Monthly payment",
+            "Time to clear 120,000",
+            "Total interest",
+            "Main risk"
+          ],
+          "rows": [
+            [
+              "Personal loan at 15 percent a year",
+              "About 4,150 pesos",
+              "36 months, fixed",
+              "About 30,000 pesos",
+              "The card refreshes while the loan runs"
+            ],
+            [
+              "Pay the card directly",
+              "5,000 pesos",
+              "About 26 months",
+              "About 27,000 pesos",
+              "No fixed deadline; needs discipline"
+            ],
+            [
+              "Minimum payments only",
+              "About 3,000 pesos",
+              "Well over 6 years",
+              "About 100,000 pesos",
+              "Decades of interest on the same balance"
+            ]
+          ]
+        }
       },
       {
         "heading": "The restructuring call, in more detail",
@@ -1471,7 +1686,46 @@ export const ARTICLE_LIST: GuideArticleData[] = [
           "Tala, its own disclosed 11 to 12 percent effective monthly, roughly 2,200 to 2,400 pesos on the same balance.",
           "Cashalo, roughly 15 percent effective monthly in the published worked example, roughly 3,000 pesos on the same balance, at the top of this category's legal ceiling."
         ],
-        "subheadings": null
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Lender",
+            "Pricing structure",
+            "Effective monthly cost",
+            "Cost on 20,000 for a month",
+            "Rate type"
+          ],
+          "rows": [
+            [
+              "BillEase",
+              "Flat rate on the declining balance",
+              "3.49 percent",
+              "About 700 pesos",
+              "Published"
+            ],
+            [
+              "Home Credit",
+              "Add-on charges, vary by product and term",
+              "About 2.8 to 4.4 percent",
+              "About 560 to 880 pesos",
+              "Offer screen"
+            ],
+            [
+              "Tala",
+              "Processing fee plus daily service fee",
+              "11 to 12 percent (own disclosure)",
+              "About 2,200 to 2,400 pesos",
+              "Personalized"
+            ],
+            [
+              "Cashalo",
+              "Daily interest plus daily service fee",
+              "Up to about 15 percent",
+              "Up to about 3,000 pesos",
+              "Personalized"
+            ]
+          ]
+        }
       },
       {
         "heading": "What this means for your payoff order",
