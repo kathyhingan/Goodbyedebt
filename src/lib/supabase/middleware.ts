@@ -4,8 +4,8 @@ import { SUPABASE_ANON_KEY, SUPABASE_URL, isSupabaseConfigured } from "./config"
 
 /** Routes that require an authenticated session. */
 const PROTECTED = ["/roadmap", "/plan", "/debts", "/calendar", "/transactions", "/community", "/profile", "/settings"];
-/** Public routes: the marketing landing page ("/") plus auth. */
-const PUBLIC = ["/", "/login", "/auth"];
+/** Public routes: the marketing landing page, the guides, plus auth. */
+const PUBLIC = ["/", "/guides", "/login", "/auth"];
 
 /** Refreshes the Supabase session cookie and gates protected routes. */
 export async function updateSession(request: NextRequest) {
@@ -35,8 +35,16 @@ export async function updateSession(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   const path = request.nextUrl.pathname;
-  // "/" must match exactly (every path starts with "/"); others match by prefix.
-  const isPublic = path === "/" || ["/login", "/auth"].some((p) => path.startsWith(p));
+  // "/" must match exactly (every path starts with "/"); /guides is public
+  // marketing content; SEO metadata routes must stay crawlable; login/auth
+  // match by prefix.
+  const isPublic =
+    path === "/" ||
+    path === "/guides" ||
+    path.startsWith("/guides/") ||
+    path.startsWith("/sitemap.xml") ||
+    path.startsWith("/robots.txt") ||
+    ["/login", "/auth"].some((p) => path.startsWith(p));
 
   if (!user && !isPublic) {
     const url = request.nextUrl.clone();
