@@ -20,8 +20,9 @@ export function Nav() {
   const path = usePathname();
   const [open, setOpen] = useState(false);
 
-  // Hide the app nav on the public marketing landing page and the auth screen.
-  if (path === "/" || path === "/login") return null;
+  // Hide the app nav on public marketing pages (landing, guides, auth);
+  // those pages carry their own dark header/footer.
+  if (path === "/" || path === "/login" || path === "/guides" || path.startsWith("/guides/")) return null;
 
   return (
     <nav className="nav">
