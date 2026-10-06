@@ -17,6 +17,17 @@ import {
   type Invitation,
 } from "@/lib/data/coach";
 
+/** Supabase/Postgrest errors carry a .message but aren't always a strict
+ * `instanceof Error` — check structurally so the real database message
+ * always reaches the screen instead of falling back to a generic one. */
+function describeError(e: unknown, fallback: string): string {
+  if (e && typeof e === "object" && "message" in e && typeof (e as { message: unknown }).message === "string") {
+    const msg = (e as { message: string }).message;
+    return msg || fallback;
+  }
+  return fallback;
+}
+
 export default function CoachPage() {
   const [loading, setLoading] = useState(true);
   const [org, setOrg] = useState<Organization | null>(null);
@@ -46,7 +57,7 @@ export default function CoachPage() {
         setInvites(i);
       }
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Failed to load.");
+      setError(describeError(e, "Failed to load."));
     } finally {
       setLoading(false);
     }
@@ -66,7 +77,7 @@ export default function CoachPage() {
       setPracticeName("");
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Couldn't create your practice.");
+      setError(describeError(err, "Couldn't create your practice."));
     } finally {
       setBusy(false);
     }
@@ -84,7 +95,7 @@ export default function CoachPage() {
       setInviteEmail("");
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Couldn't send that invite.");
+      setError(describeError(err, "Couldn't send that invite."));
     } finally {
       setBusy(false);
     }

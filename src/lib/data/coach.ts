@@ -78,13 +78,22 @@ export async function createOrganization(
 ): Promise<Organization> {
   const { data: userData } = await supabase.auth.getUser();
   if (!userData.user) throw new Error("Not signed in.");
-  const { data, error } = await supabase
+  // Plain insert — no .select().single() chained onto it. Chaining one asks
+  // Postgres to hand the new row straight back (RETURNING), and RLS checks
+  // that against the SELECT policy (is_org_member) *before* the AFTER INSERT
+  // bootstrap trigger (which makes the creator a member) has finished. The
+  // creator isn't a member yet at that instant, so the RETURNING clause gets
+  // rejected and the whole insert errors out — even though the row itself
+  // would otherwise be created fine. Insert first, then re-fetch in a
+  // separate query once the trigger has had a chance to run.
+  const { error: insertError } = await supabase
     .from("organizations")
-    .insert({ name, owner_user_id: userData.user.id })
-    .select("*")
-    .single();
-  if (error) throw error;
-  return rowToOrg(data as OrgRow);
+    .insert({ name, owner_user_id: userData.user.id });
+  if (insertError) throw insertError;
+
+  const org = await getMyOrganization(supabase);
+  if (!org) throw new Error("Practice created, but couldn't load it back — refresh the page.");
+  return org;
 }
 
 /** Active + removed clients linked to this org, with a readable name. */

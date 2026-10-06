@@ -32,8 +32,8 @@ export default function CoachClientDetailPage() {
       setPayments(p);
     } catch (e) {
       setError(
-        e instanceof Error
-          ? e.message
+        e && typeof e === "object" && "message" in e && typeof (e as { message: unknown }).message === "string"
+          ? (e as { message: string }).message
           : "Couldn't load this client. You may no longer be connected to them."
       );
     } finally {
