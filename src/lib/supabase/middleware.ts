@@ -3,9 +3,9 @@ import { NextResponse, type NextRequest } from "next/server";
 import { SUPABASE_ANON_KEY, SUPABASE_URL, isSupabaseConfigured } from "./config";
 
 /** Routes that require an authenticated session. */
-const PROTECTED = ["/roadmap", "/plan", "/debts", "/calendar", "/transactions", "/community", "/profile", "/settings"];
+const PROTECTED = ["/roadmap", "/plan", "/debts", "/calendar", "/transactions", "/community", "/profile", "/settings", "/coach"];
 /** Public routes: the marketing landing page, the guides, plus auth. */
-const PUBLIC = ["/", "/guides", "/login", "/auth"];
+const PUBLIC = ["/", "/guides", "/login", "/auth", "/invite"];
 
 /** Refreshes the Supabase session cookie and gates protected routes. */
 export async function updateSession(request: NextRequest) {
@@ -42,6 +42,7 @@ export async function updateSession(request: NextRequest) {
     path === "/" ||
     path === "/guides" ||
     path.startsWith("/guides/") ||
+    path.startsWith("/invite") ||
     path.startsWith("/sitemap.xml") ||
     path.startsWith("/robots.txt") ||
     ["/login", "/auth"].some((p) => path.startsWith(p));
