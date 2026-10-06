@@ -4,6 +4,7 @@ export const metadata: Metadata = {
   title: "Goodbye Debt: See Your Payoff Plan Free",
   description:
     "Goodbye Debt tells you exactly which debt to attack first, how much to pay where each cycle, and the date you'll be free. No bank linking required.",
+  alternates: { canonical: "/" },
 };
 
 const css = `

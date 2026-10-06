@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { ARTICLE_LIST } from "@/lib/content/articles";
 
-const BASE_URL = "https://almostdebtfree.com";
+const BASE_URL = "https://www.almostdebtfree.com";
 
 export const dynamic = "static";
 
