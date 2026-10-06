@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Space_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { InstallPrompt } from "@/components/InstallPrompt";
@@ -6,6 +7,28 @@ import { StatementReminder } from "@/components/StatementReminder";
 import { ServiceWorkerManager } from "@/components/ServiceWorkerManager";
 import { CurrencyProvider } from "@/lib/currency/currency";
 import { DebtsProvider } from "@/lib/data/useDebts";
+
+// Type system per the GoodbyeDebt design spec:
+// Space Grotesk for display/headings, IBM Plex Sans for body, IBM Plex Mono
+// for figures (money and percentages only).
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
+const plexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-body",
+  display: "swap",
+});
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.almostdebtfree.com"),
@@ -21,7 +44,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#3f6b4c",
+  themeColor: "#4338ca",
   width: "device-width",
   initialScale: 1,
 };
@@ -33,7 +56,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${spaceGrotesk.variable} ${plexSans.variable} ${plexMono.variable}`}>
         <CurrencyProvider>
           <DebtsProvider>
             <Nav />

@@ -4,8 +4,8 @@
   "description": "Sequence and optimize payoff across all your debts.",
   "start_url": "/plan",
   "display": "standalone",
-  "background_color": "#f4f6f1",
-  "theme_color": "#3f6b4c",
+  "background_color": "#f6f5fb",
+  "theme_color": "#4338ca",
   "icons": [
     {
       "src": "/icons/icon-192.png",

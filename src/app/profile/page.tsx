@@ -97,9 +97,24 @@ export default function ProfilePage() {
       {demo && <div className="banner">Demo mode — profile changes aren&apos;t saved.</div>}
       <p className="tagline">Build your <strong>Debt Slayer</strong> profile. Nothing is public until you turn it on.</p>
 
+      {/* Paid-off ring — the Member app's own-progress visual (accent color). */}
+      <section className="card">
+        <div className="ring-row">
+          <div className="progress-ring" style={{ "--pct": percent } as React.CSSProperties}>
+            <span className="ring-value">{percent}%</span>
+          </div>
+          <div>
+            <div className="label">Paid off</div>
+            <p className="note" style={{ margin: "4px 0 0" }}>
+              of your {format(form.originalTotalDebt, { maximumFractionDigits: 0 })} starting balance
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Current stats */}
       <div className="stat-grid" style={{ marginBottom: 16 }}>
-        <div className="stat"><div className="label">Paid off</div><div className="value">{percent}%</div></div>
+        <div className="stat"><div className="label">Debts tracked</div><div className="value">{debts.length}</div></div>
         <div className="stat"><div className="label">Remaining</div><div className="value">{Math.max(0, Math.round((100 - percent) * 10) / 10)}%</div></div>
         <div className="stat"><div className="label">Projected debt-free</div><div className="value" style={{ fontSize: "1rem" }}>{projection && !projection.unpayable ? projection.debtFreeDate : "—"}</div></div>
         <div className="stat"><div className="label">Current balance</div><div className="value" style={{ fontSize: "1rem" }}>{format(currentTotal, { maximumFractionDigits: 0 })}</div></div>
@@ -190,7 +205,7 @@ export default function ProfilePage() {
             </button>
           </>
         ) : confirmingPublic ? (
-          <div className="banner" style={{ background: "#eef6ef", borderColor: "#cfe3d3" }}>
+          <div className="banner banner-success">
             <p style={{ margin: "0 0 10px" }}>
               Your debt percentage, country, story, photo, and any support links will be visible to
               <strong> everyone</strong> using the app. You can turn this off anytime.
