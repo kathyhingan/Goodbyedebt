@@ -24,7 +24,9 @@ export interface OrgClient {
   status: "active" | "removed";
   addedAt: string;
   displayName: string;
-  email: string | null;
+  email: string;
+  totalBalance: number;
+  debtCount: number;
 }
 
 export interface Invitation {
@@ -96,42 +98,34 @@ export async function createOrganization(
   return org;
 }
 
-/** Active + removed clients linked to this org, with a readable name. */
+/** Active + removed clients linked to this org, with email, display name,
+ * and a quick debt total — all from one security-definer RPC (see
+ * supabase/migrations/0007_coach_roster_summary.sql) so the roster doesn't
+ * need a round trip per client. */
 export async function listClients(
   supabase: SupabaseClient,
   orgId: string
 ): Promise<OrgClient[]> {
-  const { data, error } = await supabase
-    .from("organization_clients")
-    .select("org_id, client_user_id, status, added_at")
-    .eq("org_id", orgId)
-    .order("added_at", { ascending: false });
+  const { data, error } = await supabase.rpc("get_my_clients", { check_org_id: orgId });
   if (error) throw error;
   const rows = (data ?? []) as {
-    org_id: string;
     client_user_id: string;
     status: "active" | "removed";
     added_at: string;
+    email: string;
+    display_name: string;
+    total_balance: number | string;
+    debt_count: number;
   }[];
-  if (rows.length === 0) return [];
-
-  // Best-effort display name from the client's public profile; falls back to
-  // a short ID if they've never set one (profiles row is created on first
-  // Profile tab visit, not at signup).
-  const ids = rows.map((r) => r.client_user_id);
-  const { data: profileRows } = await supabase
-    .from("profiles")
-    .select("user_id, display_name")
-    .in("user_id", ids);
-  const nameById = new Map((profileRows ?? []).map((p: { user_id: string; display_name: string }) => [p.user_id, p.display_name]));
-
   return rows.map((r) => ({
-    orgId: r.org_id,
+    orgId,
     clientUserId: r.client_user_id,
     status: r.status,
     addedAt: r.added_at,
-    displayName: nameById.get(r.client_user_id) || `Client ${r.client_user_id.slice(0, 8)}`,
-    email: null,
+    displayName: r.display_name || r.email,
+    email: r.email,
+    totalBalance: Number(r.total_balance),
+    debtCount: r.debt_count,
   }));
 }
 

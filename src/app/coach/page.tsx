@@ -28,6 +28,8 @@ function describeError(e: unknown, fallback: string): string {
   return fallback;
 }
 
+const money = (n: number) => `$${n.toLocaleString(undefined, { maximumFractionDigits: 0 })}`;
+
 export default function CoachPage() {
   const [loading, setLoading] = useState(true);
   const [org, setOrg] = useState<Organization | null>(null);
@@ -265,9 +267,17 @@ export default function CoachPage() {
         ) : (
           activeClients.map((c) => (
             <div key={c.clientUserId} className="timeline-item">
-              <Link href={`/coach/clients/${c.clientUserId}`} style={{ fontWeight: 700 }}>
-                {c.displayName}
-              </Link>
+              <div>
+                <Link href={`/coach/clients/${c.clientUserId}`} style={{ fontWeight: 700 }}>
+                  {c.displayName}
+                </Link>
+                <div className="muted" style={{ fontSize: "0.85rem" }}>{c.email}</div>
+                <div className="note" style={{ marginTop: 2 }}>
+                  {c.debtCount === 0
+                    ? "No debts added yet"
+                    : `${money(c.totalBalance)} across ${c.debtCount} debt${c.debtCount === 1 ? "" : "s"}`}
+                </div>
+              </div>
               <button className="danger-btn" onClick={() => handleRemove(c.clientUserId)} disabled={busy}>
                 Remove
               </button>
