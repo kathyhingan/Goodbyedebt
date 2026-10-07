@@ -98,10 +98,39 @@ describe("projectPayoff", () => {
 
 describe("compareToMinimumsOnly", () => {
   it("shows positive interest and time saved for a funded plan", () => {
-    const cmp = compareToMinimumsOnly(sample, { name: "avalanche" }, { startDate: START, monthlyExtra: 400 });
+    // Local fixture, not the shared `sample` — sample's card-a (5000 @
+    // 24.99%, minimum 100) carries ~104.125/month interest, i.e. its own
+    // minimum already doesn't cover it; compareToMinimumsOnly's baseline
+    // forces rollover off, so there's nothing to rescue it and the
+    // minimums-only run never converges. That's a real, separate case
+    // (covered below), not what "a funded plan" should mean here — this
+    // fixture keeps every minimum comfortably above its own interest so
+    // the comparison is actually well-defined.
+    const funded: Debt[] = [
+      debt({ accountId: "card-a", balance: 5000, apr: 24.99, minimumPayment: 150 }),
+      debt({ accountId: "card-b", balance: 2000, apr: 12.5, minimumPayment: 50 }),
+      debt({ accountId: "loan-c", balance: 8000, apr: 7.0, minimumPayment: 200 }),
+    ];
+    const cmp = compareToMinimumsOnly(funded, { name: "avalanche" }, { startDate: START, monthlyExtra: 400 });
+    expect(cmp.baseline.unpayable).toBe(false);
     expect(cmp.interestSaved).toBeGreaterThan(0);
     expect(cmp.monthsSaved).toBeGreaterThan(0);
     expect(cmp.baseline.totalInterestPaid).toBeGreaterThan(cmp.plan.totalInterestPaid);
+  });
+
+  it("reports 0, not an astronomical diff, when the minimums-only baseline can't amortize", () => {
+    // A debt whose own minimum doesn't cover its own interest: 500,000 at 36%
+    // APR accrues 15,000/month; a 5,000 minimum falls short by 10,000/month,
+    // so the minimums-only (no extra, no rollover) baseline run never
+    // converges and would otherwise compound for the full 1200-month cap.
+    // Even with enough extra to make the actual PLAN payable, the baseline
+    // comparison must not leak that blown-up number into interestSaved.
+    const extreme = [debt({ accountId: "gcash", balance: 500_000, apr: 36, minimumPayment: 5_000 })];
+    const cmp = compareToMinimumsOnly(extreme, { name: "avalanche" }, { startDate: START, monthlyExtra: 10_000 });
+    expect(cmp.baseline.unpayable).toBe(true);
+    expect(cmp.interestSaved).toBe(0);
+    expect(cmp.monthsSaved).toBe(0);
+    expect(Number.isFinite(cmp.interestSaved)).toBe(true);
   });
 });
 

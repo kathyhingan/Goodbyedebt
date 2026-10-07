@@ -243,6 +243,17 @@ export function compareToMinimumsOnly(
     monthlyExtra: 0,
     rollover: false,
   });
+  // When the minimums-only baseline itself can't amortize (some debt's own
+  // minimum doesn't cover its own monthly interest), its balance compounds
+  // upward for the full 1200-month cap instead of converging, and
+  // baseline.totalInterestPaid comes back astronomical (observed: >10^20)
+  // rather than a real total. Diffing against that isn't "a big savings
+  // number" — it's not a number at all, since minimums alone never pay the
+  // debt off in the first place. Report 0 rather than a meaningless diff;
+  // callers must check `baseline.unpayable` before treating these as real.
+  if (baseline.unpayable) {
+    return { plan, baseline, interestSaved: 0, monthsSaved: 0 };
+  }
   return {
     plan,
     baseline,

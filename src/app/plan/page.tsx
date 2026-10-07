@@ -191,7 +191,16 @@ export default function PlanPage() {
                 </div>
                 <div className="card tight" style={{ margin: 0 }}>
                   <div className="caption muted">Interest saved vs. minimums</div>
-                  <div className="figure-lg">{money(savings.interestSaved)}</div>
+                  {savings.baseline.unpayable ? (
+                    <>
+                      <div className="figure-lg">N/A</div>
+                      <div className="caption muted" style={{ marginTop: 2 }}>
+                        Minimums alone never clear this — not a number to diff against.
+                      </div>
+                    </>
+                  ) : (
+                    <div className="figure-lg">{money(savings.interestSaved)}</div>
+                  )}
                 </div>
                 <div className="card tight" style={{ margin: 0 }}>
                   <div className="caption muted">Projected debt-free</div>
