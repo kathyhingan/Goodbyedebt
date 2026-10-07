@@ -4,9 +4,11 @@ import { rowToDebt, type DebtRow } from "./mapping";
 
 /**
  * Data-access layer for the coach/client white-label feature. Backed by
- * Supabase with RLS (see supabase/migrations/0006_coach_client_layer.sql).
+ * Supabase with RLS (see supabase/migrations/0006_coach_client_layer.sql and
+ * 0008_platform_roles_admin.sql).
  * Phase 1: coaches get read-only access to linked clients' data — no write
- * paths here by design.
+ * paths here by design. Practices start 'pending' and only an approved
+ * (status='active') practice can invite clients or read their data.
  */
 
 export interface Organization {
@@ -15,6 +17,8 @@ export interface Organization {
   ownerUserId: string;
   brandColor: string | null;
   logoUrl: string | null;
+  /** 'pending' until the superadmin approves; 'suspended' blocks the coach features. */
+  status: "pending" | "active" | "suspended";
   createdAt: string;
 }
 
@@ -44,6 +48,7 @@ interface OrgRow {
   owner_user_id: string;
   brand_color: string | null;
   logo_url: string | null;
+  status: "pending" | "active" | "suspended";
   created_at: string;
 }
 
@@ -54,6 +59,7 @@ function rowToOrg(row: OrgRow): Organization {
     ownerUserId: row.owner_user_id,
     brandColor: row.brand_color,
     logoUrl: row.logo_url,
+    status: row.status ?? "pending",
     createdAt: row.created_at,
   };
 }

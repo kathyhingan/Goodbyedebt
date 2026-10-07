@@ -258,9 +258,43 @@ td.money, td .money, .figure-cell { font-family: var(--font-fig); font-weight: 6
 .nav-signout { margin-left: 4px; }
 .link-btn { background: none; border: none; color: var(--ink-muted); cursor: pointer; font-size: 13px; padding: 6px 8px; }
 
+/* Avatar + user menu (desktop): the secondary links live here, keeping the
+   main row short (Plan, Debts, Calendar, role links only). */
+.nav-user { position: relative; flex-shrink: 0; }
+.nav-avatar {
+  width: 34px; height: 34px; padding: 0;
+  border-radius: var(--radius-full);
+  background: var(--primary-bg); color: var(--primary-strong);
+  border: 1px solid var(--border);
+  font-family: var(--font-fig); font-weight: 600; font-size: 12px;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+.nav-avatar:hover { border-color: var(--primary); }
+.nav-user-panel {
+  display: none;
+  position: absolute; right: 0; top: calc(100% + 10px);
+  min-width: 210px;
+  background: var(--surface-raised); border: 1px solid var(--border);
+  border-radius: var(--radius-md); box-shadow: var(--shadow-lg);
+  padding: 8px; z-index: 60;
+  flex-direction: column; gap: 1px;
+}
+.nav-user-panel.open { display: flex; }
+.nav-user-panel a { padding: 10px 12px; border-radius: var(--radius-sm); text-decoration: none; color: var(--ink); font-weight: 500; font-size: 14px; }
+.nav-user-panel a:hover { background: var(--surface-sunken); }
+.nav-user-panel a.active { background: var(--primary-bg); color: var(--primary-strong); font-weight: 600; }
+.nav-user-panel .nav-signout { margin: 6px 0 0; border-top: 1px solid var(--border); padding-top: 8px; }
+
+/* Desktop: the hamburger panel's secondary group is hidden (it lives in the
+   avatar menu instead). Mobile: avatar is hidden, hamburger carries all. */
+.nav-secondary-group { display: none; }
+
 /* Mobile: collapse the tabs into a hamburger dropdown (vertical list). */
 @media (max-width: 760px) {
   .nav-toggle { display: block; }
+  .nav-user { display: none; }
+  .nav-secondary-group { display: flex; flex-direction: column; gap: 2px; border-top: 1px solid var(--border); margin-top: 6px; padding-top: 6px; }
   .nav-links {
     display: none;
     position: absolute; left: 0; right: 0; top: 100%;

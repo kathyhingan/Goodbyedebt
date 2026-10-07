@@ -3,7 +3,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { SUPABASE_ANON_KEY, SUPABASE_URL, isSupabaseConfigured } from "./config";
 
 /** Routes that require an authenticated session. */
-const PROTECTED = ["/roadmap", "/plan", "/debts", "/calendar", "/transactions", "/community", "/profile", "/settings", "/coach"];
+const PROTECTED = ["/roadmap", "/plan", "/debts", "/calendar", "/transactions", "/community", "/profile", "/settings", "/coach", "/admin"];
 /** Public routes: the marketing landing page, the guides, plus auth. */
 const PUBLIC = ["/", "/guides", "/login", "/auth", "/invite"];
 

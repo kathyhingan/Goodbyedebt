@@ -183,12 +183,53 @@ export default function CoachPage() {
             </p>
           )}
         </section>
+        <section className="card">
+          <p className="note" style={{ margin: 0 }}>
+            New practices start in review. You can set up while you wait, but inviting clients and
+            seeing their plans unlock once the platform team approves your practice — usually within
+            a day or two.
+          </p>
+        </section>
       </main>
     );
   }
 
   const activeClients = clients.filter((c) => c.status === "active");
   const pendingInvites = invites.filter((i) => i.status === "pending");
+
+  // Pending or suspended: show status, not the working dashboard. A pending
+  // practice can't invite (RLS blocks it) and its roster reads as empty via
+  // get_my_clients; saying so plainly beats showing a dashboard that can't act.
+  if (org.status !== "active") {
+    return (
+      <main className="container" style={{ maxWidth: 480 }}>
+        <div className="brand">
+          <h1>{org.name}</h1>
+        </div>
+        <p className="tagline">Your coaching practice on Goodbye Debt.</p>
+        <section className="card">
+          <div style={{ marginBottom: 8 }}>
+            {org.status === "pending" ? (
+              <span className="chip chip-warning">in review</span>
+            ) : (
+              <span className="chip chip-danger">suspended</span>
+            )}
+          </div>
+          {org.status === "pending" ? (
+            <p style={{ margin: 0 }}>
+              Your practice is waiting for platform approval. Inviting clients and seeing their
+              plans unlock once it's approved — usually within a day or two.
+            </p>
+          ) : (
+            <p style={{ margin: 0 }}>
+              This practice has been suspended. Your clients keep their own data and accounts. If
+              you think this is a mistake, contact the platform team.
+            </p>
+          )}
+        </section>
+      </main>
+    );
+  }
 
   return (
     <main className="container">
