@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import type { Debt, DebtType } from "@/lib/engine";
 import { accruedBalance, amortizeDebt } from "@/lib/engine";
 import { formatMonthYear } from "@/lib/format/duration";
@@ -13,6 +13,7 @@ import { extractPdfLines } from "@/lib/pdf/read";
 import { extractImageLines } from "@/lib/ocr/image";
 import { parseStatement, extractTransactions, statementToDebt, type ParsedStatement, type StatementTxn } from "@/lib/pdf/statement";
 import { useStatementTxns } from "@/lib/data/useStatementTxns";
+import { findDuplicateGroups, mergedBalance, type MergeBalanceMode } from "@/lib/data/duplicates";
 
 const EMPTY: Debt = {
   accountId: "",
@@ -48,7 +49,7 @@ function download(name: string, text: string) {
 }
 
 export default function DebtsPage() {
-  const { debts, loading, demo, save, bulkSave, remove } = useDebts();
+  const { debts, loading, demo, save, bulkSave, remove, merge } = useDebts();
   const { addMany: addTxns } = useStatementTxns();
   const { format } = useCurrency();
   const [form, setForm] = useState<Debt>(EMPTY);
@@ -59,8 +60,17 @@ export default function DebtsPage() {
   const [pendingTxns, setPendingTxns] = useState<StatementTxn[]>([]);
   const [pdfBusy, setPdfBusy] = useState(false);
   const [scheduleFor, setScheduleFor] = useState<string | null>(null);
+  const [mergeFor, setMergeFor] = useState<string | null>(null);
+  const [mergeKeep, setMergeKeep] = useState<string>("");
+  const [mergeMode, setMergeMode] = useState<MergeBalanceMode>("largest");
+  const [mergeBusy, setMergeBusy] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
   const pdfRef = useRef<HTMLInputElement>(null);
+
+  // Debts that look like the same real account — shown as a review prompt,
+  // never merged automatically. Being wrong here silently changes the user's
+  // total, so the decision stays with them.
+  const dupeGroups = useMemo(() => findDuplicateGroups(debts), [debts]);
 
   const set = <K extends keyof Debt>(k: K, v: Debt[K]) => setForm((f) => ({ ...f, [k]: v }));
 
@@ -110,6 +120,34 @@ export default function DebtsPage() {
           ? `Couldn't delete that debt: ${err.message}`
           : "Couldn't delete that debt. It's still there, please try again."
       );
+    }
+  }
+
+  function startMerge(group: { accountIds: string[] }) {
+    setMsg(null);
+    setMergeFor(group.accountIds.join("|"));
+    // Default to keeping the id that looks like a real card number (bdo-1032
+    // over "BDO"), so re-uploading that statement later still matches.
+    const preferred = group.accountIds.find((id) => /\d{3,}/.test(id)) ?? group.accountIds[0];
+    setMergeKeep(preferred);
+    setMergeMode("largest");
+  }
+
+  async function confirmMerge(group: { accountIds: string[] }) {
+    const rows = debts.filter((d) => group.accountIds.includes(d.accountId));
+    const newBalance = mergedBalance(rows, mergeMode);
+    setMergeBusy(true);
+    setMsg(null);
+    try {
+      await merge(mergeKeep, group.accountIds, newBalance);
+      setMsg(
+        `Merged ${group.accountIds.length} entries into ${mergeKeep}. Balance set to ${format(newBalance, { maximumFractionDigits: 0 })}.`
+      );
+      setMergeFor(null);
+    } catch (err) {
+      setMsg(err instanceof Error ? `Couldn't merge: ${err.message}` : "Couldn't merge those entries. Please try again.");
+    } finally {
+      setMergeBusy(false);
     }
   }
 
@@ -335,6 +373,91 @@ export default function DebtsPage() {
           </div>
         )}
       </section>
+
+      {dupeGroups.length > 0 && (
+        <section className="card">
+          <h2 style={{ marginTop: 0, fontSize: "1.05rem" }}>Possible duplicate accounts</h2>
+          <p className="note">
+            These entries share a creditor name and APR, which usually means the same account was
+            imported twice (once per statement). Merging keeps one entry and moves the other's
+            payment history onto it. Nothing changes until you confirm.
+          </p>
+          {dupeGroups.map((g) => {
+            const rows = debts.filter((d) => g.accountIds.includes(d.accountId));
+            const key = g.accountIds.join("|");
+            const open = mergeFor === key;
+            const largest = mergedBalance(rows, "largest");
+            const sum = mergedBalance(rows, "sum");
+            return (
+              <div key={g.key} style={{ border: "1px solid var(--border)", borderRadius: "var(--radius-md)", padding: 12, marginBottom: 10 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
+                  <strong>{g.label}</strong>
+                  <span className="muted">
+                    {rows.length} entries · {format(sum, { maximumFractionDigits: 0 })} combined
+                    {sum > largest ? ` · counted as ${format(largest, { maximumFractionDigits: 0 })} if merged` : ""}
+                  </span>
+                </div>
+                <ul className="note" style={{ margin: "8px 0" }}>
+                  {rows.map((r) => (
+                    <li key={r.accountId}>
+                      <code>{r.accountId}</code> · {format(r.balance, { maximumFractionDigits: 0 })} ·{" "}
+                      {r.apr}% · min {format(r.minimumPayment, { maximumFractionDigits: 0 })}
+                      {r.dueDate ? ` · due ${r.dueDate}` : ""}
+                    </li>
+                  ))}
+                </ul>
+
+                {!open ? (
+                  <button type="button" onClick={() => startMerge(g)}>Review and merge</button>
+                ) : (
+                  <div style={{ marginTop: 6 }}>
+                    <label htmlFor={`keep-${g.key}`}>Keep</label>
+                    <select
+                      id={`keep-${g.key}`}
+                      value={mergeKeep}
+                      onChange={(e) => setMergeKeep(e.target.value)}
+                      style={{ marginBottom: 10, width: "100%", maxWidth: 320 }}
+                    >
+                      {g.accountIds.map((id) => (
+                        <option key={id} value={id}>{id}</option>
+                      ))}
+                    </select>
+
+                    <div className="row-actions" style={{ flexWrap: "wrap", marginBottom: 8 }}>
+                      <button
+                        type="button"
+                        className={mergeMode === "largest" ? "primary" : ""}
+                        onClick={() => setMergeMode("largest")}
+                      >
+                        Keep largest ({format(largest, { maximumFractionDigits: 0 })})
+                      </button>
+                      <button
+                        type="button"
+                        className={mergeMode === "sum" ? "primary" : ""}
+                        onClick={() => setMergeMode("sum")}
+                      >
+                        Sum all ({format(sum, { maximumFractionDigits: 0 })})
+                      </button>
+                    </div>
+                    <p className="note" style={{ marginTop: 0 }}>
+                      {mergeMode === "largest"
+                        ? "Right for monthly statements of one card: the newer statement already includes the older one, so adding them would double-count your debt."
+                        : "Only if these really are separate balances on the same account."}
+                    </p>
+
+                    <div className="row-actions">
+                      <button type="button" className="primary" disabled={mergeBusy} onClick={() => void confirmMerge(g)}>
+                        {mergeBusy ? "Merging..." : "Confirm merge"}
+                      </button>
+                      <button type="button" disabled={mergeBusy} onClick={() => setMergeFor(null)}>Cancel</button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </section>
+      )}
 
       <section className="card">
         <h2 style={{ marginTop: 0, fontSize: "1.05rem" }}>Tracked debts ({debts.length})</h2>

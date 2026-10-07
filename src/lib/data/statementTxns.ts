@@ -68,3 +68,21 @@ export async function deleteTransaction(supabase: SupabaseClient, id: string): P
   const { error } = await supabase.from("statement_transactions").delete().eq("id", id);
   if (error) throw error;
 }
+
+/**
+ * Re-points statement line items to keep-account — same reason as
+ * reassignPayments: they belong to the real account, and orphaning them under a
+ * deleted account id would silently drop them from spending history.
+ */
+export async function reassignTransactions(
+  supabase: SupabaseClient,
+  fromAccountId: string,
+  toAccountId: string
+): Promise<void> {
+  if (fromAccountId === toAccountId) return;
+  const { error } = await supabase
+    .from("statement_transactions")
+    .update({ account_id: toAccountId })
+    .eq("account_id", fromAccountId);
+  if (error) throw error;
+}

@@ -59,3 +59,22 @@ export async function deletePayment(supabase: SupabaseClient, id: string): Promi
   const { error } = await supabase.from("payments").delete().eq("id", id);
   if (error) throw error;
 }
+
+/**
+ * Re-points payment history from one account id to another. Used when
+ * consolidating a duplicate debt: the payments were made against the real
+ * account, so they must follow the account id being kept, or the merged debt's
+ * paid-off progress (and the portfolio leaderboard) drops back toward zero.
+ */
+export async function reassignPayments(
+  supabase: SupabaseClient,
+  fromAccountId: string,
+  toAccountId: string
+): Promise<void> {
+  if (fromAccountId === toAccountId) return;
+  const { error } = await supabase
+    .from("payments")
+    .update({ account_id: toAccountId })
+    .eq("account_id", fromAccountId);
+  if (error) throw error;
+}

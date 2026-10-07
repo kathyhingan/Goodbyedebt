@@ -5,6 +5,8 @@ import type { Debt } from "../engine/types";
 import { isSupabaseConfigured } from "../supabase/config";
 import { createClient } from "../supabase/client";
 import { listDebts, upsertDebt, upsertDebts, deleteDebt } from "./debts";
+import { reassignPayments } from "./payments";
+import { reassignTransactions } from "./statementTxns";
 import { loadProfile, updateProgress } from "./profile";
 
 // Demo data used only when the backend isn't configured yet, so the UI is
@@ -23,6 +25,7 @@ export interface UseDebts {
   save: (debt: Debt) => Promise<void>;
   bulkSave: (debts: Debt[]) => Promise<void>;
   remove: (accountId: string) => Promise<void>;
+  merge: (keepAccountId: string, removeAccountIds: string[], newBalance?: number) => Promise<void>;
   reload: () => Promise<void>;
 }
 
@@ -162,9 +165,67 @@ export function DebtsProvider({ children }: { children: React.ReactNode }) {
     [demo, reload]
   );
 
+  /**
+   * Consolidates duplicate debts for the same real account into one row.
+   * Keeps `keepAccountId`, re-points that account's payments and statement
+   * line items from each removed id, then deletes the duplicates.
+   *
+   * Each history re-point is independent and best-effort: if one fails (say a
+   * table isn't reachable), the merge still completes rather than aborting
+   * partway with some rows deleted and some not. The duplicates are removed
+   * last, so a failure before that leaves the data unmerged but intact.
+   */
+  const merge = useCallback(
+    async (keepAccountId: string, removeAccountIds: string[], newBalance?: number) => {
+      const targets = removeAccountIds.filter((id) => id && id !== keepAccountId);
+      if (targets.length === 0) return;
+
+      // Drop the duplicates and, when a merged balance is supplied, carry it
+      // onto the kept row so the on-screen total drops immediately.
+      setDebts((prev) =>
+        prev
+          .filter((d) => !targets.includes(d.accountId))
+          .map((d) =>
+            d.accountId === keepAccountId && newBalance != null
+              ? { ...d, balance: newBalance, lastUpdated: new Date().toISOString() }
+              : d
+          )
+      );
+      if (demo) return;
+
+      const supabase = createClient();
+      try {
+        // History first, balance second, deletion last — a failure before the
+        // delete leaves the data unmerged but intact.
+        for (const from of targets) {
+          await reassignPayments(supabase, from, keepAccountId).catch(() => {});
+          await reassignTransactions(supabase, from, keepAccountId).catch(() => {});
+        }
+        if (newBalance != null) {
+          const keep = debts.find((d) => d.accountId === keepAccountId);
+          if (keep) {
+            await upsertDebt(supabase, await currentUserId(), {
+              ...keep,
+              balance: newBalance,
+              lastUpdated: new Date().toISOString(),
+            });
+          }
+        }
+        for (const from of targets) {
+          await deleteDebt(supabase, from);
+        }
+        await reload();
+      } catch (e) {
+        await reload(); // server truth wins; the un-merged rows come back
+        throw e;
+      }
+    },
+    [demo, reload, debts]
+  );
+
   const value = useMemo(
-    () => ({ debts, loading, error, demo, save, bulkSave, remove, reload }),
-    [debts, loading, error, demo, save, bulkSave, remove, reload]
+    () => ({ debts, loading, error, demo, save, bulkSave, remove, merge, reload }),
+    [debts, loading, error, demo, save, bulkSave, remove, merge, reload]
   );
 
   return <DebtsContext.Provider value={value}>{children}</DebtsContext.Provider>;
