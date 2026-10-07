@@ -99,6 +99,13 @@ export async function updateProgress(
   currentTotalDebt: number,
   originalTotalDebt: number
 ): Promise<void> {
+  // Refuse to persist a zero current total. A page can call this before its
+  // debts query resolves (current = 0), and because percentPaidOff() treats a
+  // zero current against a real original as fully paid, writing that 0 makes
+  // the dashboard later report "100% paid off" for a user who owes it all.
+  // There is no legitimate state where a user with a non-zero baseline has a
+  // zero current total and we'd want that recorded.
+  if (currentTotalDebt <= 0) return;
   const percent = percentPaidOff(originalTotalDebt, currentTotalDebt);
   const { error } = await supabase
     .from("profiles")

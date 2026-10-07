@@ -36,10 +36,10 @@ function resizeImage(file: File, max = 256): Promise<string> {
 }
 
 export default function ProfilePage() {
-  const { debts } = useDebts();
+  const { debts, loading: debtsLoading } = useDebts();
   const { format } = useCurrency();
   const currentTotal = useMemo(() => debts.reduce((s, d) => s + Math.max(0, d.balance), 0), [debts]);
-  const { profile, loading, demo, save } = useProfile(currentTotal);
+  const { profile, loading, demo, save } = useProfile(currentTotal, !debtsLoading);
 
   const [form, setForm] = useState<Profile | null>(null);
   const [msg, setMsg] = useState<string | null>(null);

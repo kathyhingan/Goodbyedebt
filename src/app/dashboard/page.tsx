@@ -40,8 +40,7 @@ export default function DashboardPage() {
 
   const asOfToday = useMemo(() => debts.map((d) => ({ ...d, balance: accruedBalance(d) })), [debts]);
   const totalRemaining = useMemo(() => asOfToday.reduce((s, d) => s + Math.max(0, d.balance), 0), [asOfToday]);
-  const { profile } = useProfile(totalRemaining);
-  const percent = profile ? percentPaidOff(profile.originalTotalDebt, profile.currentTotalDebt) : 0;
+  const { profile } = useProfile(totalRemaining, !loading);
 
   // "Ahead of plan" = the real benefit of rolling each cleared debt's minimum
   // into the next one, vs. just paying each debt's own shrinking minimum
@@ -53,6 +52,17 @@ export default function DashboardPage() {
     const baseline = projectPayoff(asOfToday, { name: "avalanche" }, { monthlyExtra: 0, rollover: false });
     return { plan, baseline };
   }, [asOfToday]);
+
+  // Percent paid off is computed from the LIVE total remaining, not from
+  // profile.currentTotalDebt. That synced field is written separately and can
+  // drift (or hold a stale 0 from a load that raced the debts query) — which
+  // is exactly how this card rendered "100% paid off" next to ₱4.9M still
+  // owed. Only the baseline comes from the profile; the current figure is
+  // whatever the debt list actually says right now.
+  const originalDebt = profile && profile.originalTotalDebt > 0
+    ? profile.originalTotalDebt
+    : planVsBaseline?.plan.startingBalance ?? 0;
+  const percent = percentPaidOff(originalDebt, totalRemaining);
 
   const thisYear = useMemo(() => paidThisYear(payments), [payments]);
   const lastYear = useMemo(() => paidLastYear(payments), [payments]);

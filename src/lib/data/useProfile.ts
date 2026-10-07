@@ -37,8 +37,16 @@ export interface UseProfile {
 
 /** Loads/saves the current user's profile, seeding a default (with today's
  * debt total as the baseline) on first use. `currentTotalDebt` keeps the synced
- * progress fields current. */
-export function useProfile(currentTotalDebt: number): UseProfile {
+ * progress fields current.
+ *
+ * `ready` gates the initial load: on a page that renders before the debts
+ * query resolves, `currentTotalDebt` is still 0 on the first render. Loading
+ * the profile then persists that 0 as the user's current total via
+ * updateProgress, which against a real (non-zero) baseline reads as 100%
+ * paid off for someone who owes the full amount. Only load once the caller
+ * has real data.
+ */
+export function useProfile(currentTotalDebt: number, ready = true): UseProfile {
   const demo = !isSupabaseConfigured;
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(!demo);
@@ -48,6 +56,7 @@ export function useProfile(currentTotalDebt: number): UseProfile {
       setProfile((p) => p ?? defaultProfile(currentTotalDebt));
       return;
     }
+    if (!ready) return; // debts haven't loaded — nothing trustworthy to sync yet
     setLoading(true);
     try {
       const supabase = createClient();
@@ -75,7 +84,7 @@ export function useProfile(currentTotalDebt: number): UseProfile {
       setLoading(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [demo]);
+  }, [demo, ready]);
 
   useEffect(() => {
     void reload();
