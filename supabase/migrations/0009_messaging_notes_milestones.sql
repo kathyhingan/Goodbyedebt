@@ -171,6 +171,13 @@ create policy "milestones_insert_own" on public.milestones
 -- get_my_clients with the same columns plus status fields the Overview
 -- roster and Analytics both need, so there's one source of truth for "is
 -- this client on track."
+--
+-- DROP first, deliberately: this version adds OUT columns, and CREATE OR
+-- REPLACE cannot change a function's return type (Postgres error 42P13).
+-- Dropping also drops the function's grants, so the grant from 0007 is
+-- re-issued right after.
+drop function if exists public.get_my_clients(uuid);
+
 create or replace function public.get_my_clients(check_org_id uuid)
 returns table (
   client_user_id uuid,
@@ -220,6 +227,9 @@ as $$
     )
   order by oc.added_at desc;
 $$;
+
+-- Re-issued because the DROP above removed the grant from 0007.
+grant execute on function public.get_my_clients(uuid) to authenticated;
 
 -- Portfolio-wide stats for the Analytics tab. "Avg. time to on-track" from
 -- the original design mock isn't derivable (no stored "became on track"
