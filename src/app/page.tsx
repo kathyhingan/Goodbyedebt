@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FoundingSeats } from "@/components/FoundingSeats";
 
 export const metadata: Metadata = {
   title: "Goodbye Debt: See Your Payoff Plan Free",
@@ -174,7 +175,7 @@ const css = `
 
 const body = `
 <header class="nav">
-  <div class="nav-banner">Free forever for the first 100 users. <strong>98 Founding Debt Slayers seats left.</strong></div>
+  <div class="nav-banner">Free forever for the first 100 users. <strong><span id="gd-seats-left">100</span> Founding Debt Slayers seats left.</strong></div>
   <div class="nav-inner">
     <div class="logo"><span class="dot"></span>GOODBYE DEBT</div>
     <nav class="nav-links">
@@ -404,6 +405,7 @@ export default function LandingPage() {
     <div className="gd-landing">
       <style dangerouslySetInnerHTML={{ __html: css }} />
       <div dangerouslySetInnerHTML={{ __html: body }} />
+      <FoundingSeats />
     </div>
   );
 }

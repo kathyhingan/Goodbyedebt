@@ -12,12 +12,13 @@ import { getCoachNote, saveCoachNote, sendMessage, getMyMilestones, describeMile
 import { formatMonthYear } from "@/lib/format/duration";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { DEMO_CLIENTS, DEMO_CLIENT_DEBTS, DEMO_CLIENT_PAYMENTS, DEMO_MILESTONES } from "@/lib/data/coachDemo";
-
-const money = (n: number) => `$${n.toLocaleString(undefined, { maximumFractionDigits: 0 })}`;
+import { useCurrency } from "@/lib/currency/currency";
 
 export default function CoachClientDetailPage() {
   const { org } = useCoachOrg();
   const router = useRouter();
+  const { format } = useCurrency();
+  const money = (n: number) => format(n, { maximumFractionDigits: 0 });
   const params = useParams<{ clientId: string }>();
   const clientId = params.clientId;
   const [loading, setLoading] = useState(true);

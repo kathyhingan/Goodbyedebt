@@ -13,6 +13,7 @@ import {
   type AdminMember,
   type PlatformStats,
 } from "@/lib/data/admin";
+import { useCurrency } from "@/lib/currency/currency";
 
 function describeError(e: unknown, fallback: string): string {
   if (e && typeof e === "object" && "message" in e && typeof (e as { message: unknown }).message === "string") {
@@ -21,7 +22,6 @@ function describeError(e: unknown, fallback: string): string {
   return fallback;
 }
 
-const money = (n: number) => `$${n.toLocaleString(undefined, { maximumFractionDigits: 0 })}`;
 const shortDate = (iso: string) => {
   try {
     return new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
@@ -37,6 +37,8 @@ function statusChip(status: AdminCoach["status"]) {
 }
 
 export default function AdminPage() {
+  const { format } = useCurrency();
+  const money = (n: number) => format(n, { maximumFractionDigits: 0 });
   const [loading, setLoading] = useState(true);
   const [admin, setAdmin] = useState(false);
   const [error, setError] = useState<string | null>(null);

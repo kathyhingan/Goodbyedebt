@@ -16,6 +16,7 @@ import {
   type OrgClient,
 } from "@/lib/data/coach";
 import { DEMO_CLIENTS } from "@/lib/data/coachDemo";
+import { useCurrency } from "@/lib/currency/currency";
 
 const DEMO_STATS: PortfolioStats = {
   totalReduced: 8640,
@@ -35,10 +36,10 @@ const DEMO_MONTHLY: MonthlyAmount[] = [
   { monthLabel: "Oct", amount: 8640 },
 ];
 
-const money = (n: number) => `$${n.toLocaleString(undefined, { maximumFractionDigits: 0 })}`;
-
 export default function CoachAnalyticsPage() {
   const { org } = useCoachOrg();
+  const { format } = useCurrency();
+  const money = (n: number) => format(n, { maximumFractionDigits: 0 });
   const [loading, setLoading] = useState(true);
   const [stats, setStats] = useState<PortfolioStats | null>(null);
   const [monthly, setMonthly] = useState<MonthlyAmount[]>([]);

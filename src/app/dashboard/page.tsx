@@ -21,6 +21,7 @@ import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { getMyCoachLink } from "@/lib/data/coach";
 import { listThread, getMyMilestones, recordMilestones, describeMilestone, type Message, type MilestoneRow } from "@/lib/data/messaging";
+import { LogPaymentModal } from "@/components/LogPaymentModal";
 
 const SWATCHES = ["var(--primary)", "var(--accent)", "var(--success)", "var(--warning-ink)"];
 
@@ -64,6 +65,7 @@ export default function DashboardPage() {
   const [coachLink, setCoachLink] = useState<{ orgId: string; orgName: string } | null>(null);
   const [lastMsg, setLastMsg] = useState<Message | null>(null);
   const [milestones, setMilestones] = useState<MilestoneRow[]>([]);
+  const [payOpen, setPayOpen] = useState(false);
 
   useEffect(() => {
     if (!isSupabaseConfigured) return;
@@ -130,7 +132,7 @@ export default function DashboardPage() {
       {demo && <div className="banner">Demo mode — showing sample data.</div>}
 
       <section className="card">
-        <div className="hero">
+        <div className="dash-hero">
           <div className="progress-ring lg" style={{ "--pct": percent } as React.CSSProperties}>
             <div className="ring-stack">
               <span className="figure-lg">{percent}%</span>
@@ -156,9 +158,14 @@ export default function DashboardPage() {
               </p>
             )}
             <div className="gd-row" style={{ display: "flex", gap: 12, marginTop: 12 }}>
-              <Link href="/calendar" className="primary" style={{ display: "inline-block", padding: "10px 18px", borderRadius: "var(--radius-md)", background: "var(--primary)", color: "var(--on-primary)", textDecoration: "none", fontWeight: 600, fontSize: 13 }}>
+              <button
+                type="button"
+                className="primary"
+                onClick={() => setPayOpen(true)}
+                style={{ padding: "10px 18px", borderRadius: "var(--radius-md)", fontWeight: 600, fontSize: 13 }}
+              >
                 Log a payment
-              </Link>
+              </button>
               <Link href="/debts" style={{ display: "inline-block", padding: "10px 18px", borderRadius: "var(--radius-md)", border: "1px solid var(--border-strong)", color: "var(--ink)", textDecoration: "none", fontWeight: 600, fontSize: 13 }}>
                 Upload statement
               </Link>
@@ -263,6 +270,8 @@ export default function DashboardPage() {
           </section>
         )}
       </div>
+
+      <LogPaymentModal open={payOpen} onClose={() => setPayOpen(false)} />
     </main>
   );
 }

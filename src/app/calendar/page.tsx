@@ -7,6 +7,7 @@ import { usePayments } from "@/lib/data/usePayments";
 import { useCurrency } from "@/lib/currency/currency";
 import { accruedBalance } from "@/lib/engine";
 import { upcomingDueDates, addOneMonthISO, nextDueDate } from "@/lib/reminders/dueDates";
+import { LogPaymentModal } from "@/components/LogPaymentModal";
 
 const fmt = (iso: string) =>
   new Date(iso + "T00:00:00").toLocaleDateString("en-US", {
@@ -37,6 +38,7 @@ export default function CalendarPage() {
 
   // Month grid navigation — current month by default.
   const [monthOffset, setMonthOffset] = useState(0);
+  const [logOpen, setLogOpen] = useState(false);
   const gridMonth = useMemo(() => {
     const d = new Date();
     d.setDate(1);
@@ -209,7 +211,17 @@ export default function CalendarPage() {
       </div>
 
       <section className="card">
-        <div className="heading-sm" style={{ marginBottom: 10 }}>Upcoming</div>
+        <div className="gd-row gd-between" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
+          <span className="heading-sm">Upcoming</span>
+          <button
+            type="button"
+            className="primary"
+            style={{ padding: "8px 14px", fontSize: 13 }}
+            onClick={() => setLogOpen(true)}
+          >
+            + Log a transaction
+          </button>
+        </div>
         {loading ? (
           <p className="muted">Loading…</p>
         ) : upcoming.length === 0 ? (
@@ -279,6 +291,8 @@ export default function CalendarPage() {
         devices without push support, this calendar is your reminder — no notification is ever a
         hard blocker (SOW §10).
       </p>
+
+      <LogPaymentModal open={logOpen} onClose={() => setLogOpen(false)} />
     </main>
   );
 }
