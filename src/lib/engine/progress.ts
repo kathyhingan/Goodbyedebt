@@ -115,6 +115,43 @@ export function onTimeMonthsThisYear(
 export const MILESTONE_THRESHOLDS = [25, 50, 75, 100] as const;
 export const STREAK_THRESHOLDS = [3, 6, 9, 12, 18, 24] as const;
 
+export interface InterestShortfall {
+  accountId: string;
+  /** This debt's own monthly interest at its current balance and APR. */
+  monthlyInterest: number;
+  minimumPayment: number;
+  /** monthlyInterest - minimumPayment; always positive when this debt is listed. */
+  shortfall: number;
+}
+
+/**
+ * Debts whose OWN minimum payment doesn't cover their OWN monthly interest
+ * at today's balance. This is usually the exact, debt-level cause behind
+ * projectPayoff's blanket `unpayable` flag — but not the only possible one:
+ * a plan can also hit the 1200-month cap just from being extremely slow
+ * (every minimum covers its own interest, but only barely, so the balance
+ * shrinks at a crawl). Callers should check for that case separately rather
+ * than assume an empty result here means the plan isn't actually unpayable.
+ * When this IS the cause, it gives numbers a person can act on directly —
+ * which account, what its real interest is, what the shortfall is — instead
+ * of a vague "at least one minimum doesn't cover its interest."
+ */
+export function interestShortfalls(debts: Debt[]): InterestShortfall[] {
+  return debts
+    .map((d) => {
+      const monthlyInterest = Math.round(Math.max(0, d.balance) * (d.apr / 100 / 12) * 100) / 100;
+      const minimumPayment = Math.max(0, d.minimumPayment);
+      return {
+        accountId: d.accountId,
+        monthlyInterest,
+        minimumPayment,
+        shortfall: Math.round((monthlyInterest - minimumPayment) * 100) / 100,
+      };
+    })
+    .filter((x) => x.shortfall > 0.005)
+    .sort((a, b) => b.shortfall - a.shortfall);
+}
+
 export type DetectedMilestone =
   | { kind: "debt_threshold"; accountId: string; threshold: number }
   | { kind: "streak"; threshold: number };

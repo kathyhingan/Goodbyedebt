@@ -6,6 +6,7 @@ import {
   paidThisYear,
   paidLastYear,
   detectCurrentMilestones,
+  interestShortfalls,
 } from "../progress";
 import type { Debt } from "../types";
 import type { Payment } from "../../data/payments";
@@ -114,5 +115,35 @@ describe("detectCurrentMilestones", () => {
   it("flags no debt thresholds when nothing's been paid", () => {
     const found = detectCurrentMilestones([debt()], []);
     expect(found.filter((m) => m.kind === "debt_threshold")).toHaveLength(0);
+  });
+});
+
+describe("interestShortfalls", () => {
+  it("flags a debt whose minimum is below its own monthly interest", () => {
+    // ₱500,000 at 36% APR accrues 500000 * 0.36/12 = ₱15,000/month.
+    const d = debt({ accountId: "gcash", balance: 500_000, apr: 36, minimumPayment: 5_000 });
+    const [s] = interestShortfalls([d]);
+    expect(s.monthlyInterest).toBeCloseTo(15_000, 2);
+    expect(s.shortfall).toBeCloseTo(10_000, 2);
+  });
+
+  it("does not flag a debt whose minimum covers its interest", () => {
+    // Same balance/APR, but a minimum above the ₱15,000 interest.
+    const d = debt({ accountId: "gcash", balance: 500_000, apr: 36, minimumPayment: 20_000 });
+    expect(interestShortfalls([d])).toHaveLength(0);
+  });
+
+  it("is independent per debt — a healthy debt never appears", () => {
+    const bad = debt({ accountId: "gcash", balance: 500_000, apr: 36, minimumPayment: 5_000 });
+    const fine = debt({ accountId: "maya", balance: 6_000, apr: 3, minimumPayment: 200 });
+    const found = interestShortfalls([bad, fine]);
+    expect(found.map((s) => s.accountId)).toEqual(["gcash"]);
+  });
+
+  it("sorts worst shortfall first", () => {
+    const small = debt({ accountId: "a", balance: 10_000, apr: 24, minimumPayment: 150 }); // interest 200, short 50
+    const large = debt({ accountId: "b", balance: 500_000, apr: 36, minimumPayment: 5_000 }); // short 10,000
+    const found = interestShortfalls([small, large]);
+    expect(found.map((s) => s.accountId)).toEqual(["b", "a"]);
   });
 });

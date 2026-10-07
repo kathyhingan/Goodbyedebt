@@ -17,8 +17,10 @@ export {
   paidThisYear,
   paidLastYear,
   detectCurrentMilestones,
+  interestShortfalls,
   MILESTONE_THRESHOLDS,
   STREAK_THRESHOLDS,
   type DebtProgress,
   type DetectedMilestone,
+  type InterestShortfall,
 } from "./progress";

@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { StrategyName } from "@/lib/engine";
-import { projectPayoff, compareToMinimumsOnly, accruedBalance, perDebtProgress } from "@/lib/engine";
+import { projectPayoff, compareToMinimumsOnly, accruedBalance, perDebtProgress, interestShortfalls } from "@/lib/engine";
 import { useDebts } from "@/lib/data/useDebts";
 import { usePayments } from "@/lib/data/usePayments";
 import { useCurrency } from "@/lib/currency/currency";
@@ -71,6 +71,7 @@ export default function PlanPage() {
     [asOfToday, applied]
   );
   const byId = useMemo(() => new Map(asOfToday.map((d) => [d.accountId, d])), [asOfToday]);
+  const shortfalls = useMemo(() => interestShortfalls(asOfToday), [asOfToday]);
   const progressByAccount = useMemo(
     () => new Map(perDebtProgress(asOfToday, payments).map((p) => [p.accountId, p])),
     [asOfToday, payments]
@@ -168,8 +169,18 @@ export default function PlanPage() {
               <div className="payoff-hero warn-hero">
                 <div className="payoff-lead">Debt-free date can&apos;t be reached</div>
                 <div className="payoff-sub">
-                  At the current extra payment, at least one balance never clears. Increase your
-                  monthly extra to see a payoff timeline.
+                  {shortfalls.length > 0 ? (
+                    <>
+                      At today&apos;s balance, {shortfalls.length === 1 ? "this debt's minimum doesn't" : "these debts' minimums don't"} cover
+                      {" "}{shortfalls.length === 1 ? "its own" : "their own"} monthly interest, so the balance grows no matter how the extra
+                      {" "}is directed — raise the minimum or add enough extra to close the gap below.
+                    </>
+                  ) : (
+                    <>
+                      Every minimum covers its own interest, but barely — at this extra payment it would take over
+                      100 years to clear. Increase your monthly extra to see a realistic payoff timeline.
+                    </>
+                  )}
                 </div>
               </div>
             ) : (
@@ -212,8 +223,19 @@ export default function PlanPage() {
                 </div>
               );
             })}
-            {plan.unpayable && (
-              <p className="warn">⚠ At least one minimum payment doesn&apos;t cover its interest — increase the extra payment.</p>
+            {plan.unpayable && shortfalls.length > 0 && (
+              <div style={{ marginTop: 4 }}>
+                {shortfalls.map((s) => {
+                  const d = byId.get(s.accountId);
+                  return (
+                    <p className="warn" key={s.accountId} style={{ marginTop: 6 }}>
+                      ⚠ {d?.creditor || s.accountId}: minimum {money(s.minimumPayment)} vs.{" "}
+                      {money(s.monthlyInterest)}/month interest at {d?.apr}% APR — short by{" "}
+                      <strong>{money(s.shortfall)}/month</strong>.
+                    </p>
+                  );
+                })}
+              </div>
             )}
           </section>
 
