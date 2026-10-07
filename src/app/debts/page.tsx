@@ -95,6 +95,24 @@ export default function DebtsPage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
+  async function handleDelete(d: Debt) {
+    setMsg(null);
+    if (!window.confirm(`Delete ${d.creditor || d.accountId}? This can't be undone.`)) return;
+    try {
+      await remove(d.accountId);
+      setMsg(`Deleted ${d.creditor || d.accountId}.`);
+    } catch (err) {
+      // Surface this — remove() already resynced to server truth on failure,
+      // so the row reappearing is expected; without this message it just
+      // looks like deleting silently did nothing.
+      setMsg(
+        err instanceof Error
+          ? `Couldn't delete that debt: ${err.message}`
+          : "Couldn't delete that debt. It's still there, please try again."
+      );
+    }
+  }
+
   async function onCsv(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -356,7 +374,7 @@ export default function DebtsPage() {
                           {scheduleFor === d.accountId ? "Hide table" : "Table"}
                         </button>
                         <button type="button" onClick={() => edit(d)}>Edit</button>
-                        <button type="button" className="danger-btn" onClick={() => remove(d.accountId)}>Delete</button>
+                        <button type="button" className="danger-btn" onClick={() => void handleDelete(d)}>Delete</button>
                       </div>
                     </td>
                   </tr>

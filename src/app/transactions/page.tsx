@@ -35,6 +35,7 @@ export default function TransactionsPage() {
   const [note, setNote] = useState("");
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
+  const [deleteMsg, setDeleteMsg] = useState<string | null>(null);
 
   const total = useMemo(() => payments.reduce((s, p) => s + p.amount, 0), [payments]);
   const thisMonthTotal = useMemo(() => {
@@ -111,6 +112,33 @@ export default function TransactionsPage() {
     }
   }
 
+  // Both delete buttons below used to fire-and-forget (no await, no .catch).
+  // That hid every failure: the underlying hooks don't optimistically update
+  // the real-backend path, so a failed delete left the row sitting right
+  // there with zero feedback — indistinguishable from the button not doing
+  // anything at all, which is exactly what "delete doesn't work" looks like.
+  async function handleDeletePayment(p: Payment) {
+    setDeleteMsg(null);
+    if (!window.confirm(`Delete this ${format(p.amount, { maximumFractionDigits: 0 })} payment?`)) return;
+    try {
+      await remove(p.id!);
+      setDeleteMsg("Payment deleted.");
+    } catch (err) {
+      setDeleteMsg(err instanceof Error ? `Couldn't delete that payment: ${err.message}` : "Couldn't delete that payment. Please try again.");
+    }
+  }
+
+  async function handleDeleteTxn(id: string) {
+    setDeleteMsg(null);
+    if (!window.confirm("Delete this transaction?")) return;
+    try {
+      await removeTxn(id);
+      setDeleteMsg("Transaction deleted.");
+    } catch (err) {
+      setDeleteMsg(err instanceof Error ? `Couldn't delete that transaction: ${err.message}` : "Couldn't delete that transaction. Please try again.");
+    }
+  }
+
   return (
     <main className="container">
       <h1 style={{ color: "var(--moss)" }}>Transactions</h1>
@@ -167,6 +195,7 @@ export default function TransactionsPage() {
 
       <section className="card">
         <h2 style={{ marginTop: 0, fontSize: "1.05rem" }}>History</h2>
+        {deleteMsg && <p className="note" style={{ marginBottom: 10 }}>{deleteMsg}</p>}
         {loading ? (
           <p className="muted">Loading…</p>
         ) : payments.length === 0 ? (
@@ -193,7 +222,7 @@ export default function TransactionsPage() {
                         <td style={{ textAlign: "right" }}>{format(p.amount, { maximumFractionDigits: 0 })}</td>
                         <td>
                           {p.id && (
-                            <button type="button" className="danger-btn" onClick={() => remove(p.id!)}>Delete</button>
+                            <button type="button" className="danger-btn" onClick={() => void handleDeletePayment(p)}>Delete</button>
                           )}
                         </td>
                       </tr>
@@ -215,6 +244,7 @@ export default function TransactionsPage() {
           Line items read from your uploaded statements. Upload more on the{" "}
           <Link href="/debts">Debts</Link> page to build spending history.
         </p>
+        {deleteMsg && <p className="note" style={{ marginBottom: 10 }}>{deleteMsg}</p>}
 
         {txns.length === 0 ? (
           <p className="muted">No statement transactions yet — upload a PDF statement to populate this.</p>
@@ -263,7 +293,7 @@ export default function TransactionsPage() {
                           {t.direction === "credit" ? "+" : ""}{format(t.amount, { maximumFractionDigits: 0 })}
                         </td>
                         <td>
-                          {t.id && <button type="button" className="danger-btn" onClick={() => removeTxn(t.id!)}>Delete</button>}
+                          {t.id && <button type="button" className="danger-btn" onClick={() => void handleDeleteTxn(t.id!)}>Delete</button>}
                         </td>
                       </tr>
                     ))}

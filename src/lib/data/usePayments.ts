@@ -67,6 +67,10 @@ export function usePayments(): UsePayments {
         setPayments((prev) => prev.filter((p) => p.id !== id));
         return;
       }
+      // No optimistic update on this path, so a failure here is even more
+      // confusing than the debts page's version was: with nothing catching
+      // it, the button just does nothing visible at all, with no feedback
+      // either way. Surface it so the caller can tell the user.
       await deletePayment(createClient(), id);
       await reload();
     },

@@ -128,18 +128,36 @@ export function DebtsProvider({ children }: { children: React.ReactNode }) {
         return [...byId.values()];
       });
       if (demo) return;
-      await upsertDebts(createClient(), await currentUserId(), incoming);
-      await reload();
+      try {
+        await upsertDebts(createClient(), await currentUserId(), incoming);
+        await reload();
+      } catch (e) {
+        await reload(); // revert to server truth on failure
+        throw e;
+      }
     },
     [demo, reload]
   );
 
   const remove = useCallback(
     async (accountId: string) => {
+      // Optimistic removal so the row disappears immediately — but if the
+      // actual delete fails server-side (expired session, transient error,
+      // anything), this must not be the only thing that happens: without
+      // the catch below, the promise just rejects unseen (the Delete button
+      // doesn't await or .catch() it), the row LOOKS gone, and then silently
+      // reappears on the next reload/focus because it was never actually
+      // deleted. Resync to server truth on failure, same as save()/bulkSave,
+      // and rethrow so the caller can tell the user it didn't work.
       setDebts((prev) => prev.filter((d) => d.accountId !== accountId));
       if (demo) return;
-      await deleteDebt(createClient(), accountId);
-      await reload();
+      try {
+        await deleteDebt(createClient(), accountId);
+        await reload();
+      } catch (e) {
+        await reload();
+        throw e;
+      }
     },
     [demo, reload]
   );

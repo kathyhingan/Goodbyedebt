@@ -80,6 +80,9 @@ export function useStatementTxns(): UseStatementTxns {
         setTxns((prev) => prev.filter((t) => t.id !== id));
         return;
       }
+      // Same as usePayments: no optimistic update to revert here, so the
+      // rejection already propagates naturally — the actual fix is making
+      // sure the caller awaits and surfaces it instead of firing-and-forgetting.
       await deleteTransaction(createClient(), id);
       await reload();
     },
