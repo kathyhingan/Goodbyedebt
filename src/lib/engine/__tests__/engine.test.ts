@@ -128,9 +128,31 @@ describe("compareToMinimumsOnly", () => {
     const extreme = [debt({ accountId: "gcash", balance: 500_000, apr: 36, minimumPayment: 5_000 })];
     const cmp = compareToMinimumsOnly(extreme, { name: "avalanche" }, { startDate: START, monthlyExtra: 10_000 });
     expect(cmp.baseline.unpayable).toBe(true);
+    expect(cmp.comparable).toBe(false);
     expect(cmp.interestSaved).toBe(0);
     expect(cmp.monthsSaved).toBe(0);
     expect(Number.isFinite(cmp.interestSaved)).toBe(true);
+  });
+
+  it("reports 0, not a blown-up total, when the baseline converges but takes decades", () => {
+    // A second, distinct way this goes wrong (seen live, on a real account,
+    // right after the fix above shipped): a debt whose minimum DOES clear
+    // its own interest, so unpayable stays false and the simulation
+    // genuinely finishes before the 1200-month cap — but with no rollover
+    // to help, it takes hundreds of months, each compounding interest on a
+    // still-large balance, so totalInterestPaid is still enormous, just not
+    // infinite.
+    // 50,000 @ 6% APR accrues 250/month interest; a 255 minimum only
+    // clears it by 789 months (well past any reasonable horizon) — picked
+    // with a wide buffer either side so the exact month count isn't
+    // float-sensitive, only that it lands past the 600-month cutoff.
+    const slow = [debt({ accountId: "slow-card", balance: 50_000, apr: 6, minimumPayment: 255 })];
+    const cmp = compareToMinimumsOnly(slow, { name: "avalanche" }, { startDate: START, monthlyExtra: 2_000 });
+    expect(cmp.baseline.unpayable).toBe(false); // genuinely converges...
+    expect(cmp.baseline.monthsToDebtFree).toBeGreaterThan(600); // ...just absurdly slowly
+    expect(cmp.comparable).toBe(false);
+    expect(cmp.interestSaved).toBe(0);
+    expect(cmp.monthsSaved).toBe(0);
   });
 });
 

@@ -226,6 +226,22 @@ export interface SavingsComparison {
   baseline: ProjectionResult;
   interestSaved: number;
   monthsSaved: number;
+  /**
+   * False when the minimums-only baseline isn't a meaningful number to
+   * diff against — interestSaved/monthsSaved are 0 and not meaningful
+   * when this is false. Two distinct ways that happens, both seen in
+   * production on real accounts:
+   *  1. The baseline genuinely never converges (some debt's own minimum
+   *     doesn't cover its own interest) -> baseline.unpayable, capped at
+   *     MAX_MONTHS, totalInterestPaid comes back astronomical.
+   *  2. The baseline DOES converge — unpayable stays false — but only
+   *     after hundreds of months with no rollover to rescue it. That's
+   *     still a real, finite number, but a multi-decade solo-minimum
+   *     payoff isn't a plan anyone is actually comparing against, and it
+   *     still compounds into a huge total interest figure that reads as
+   *     broken rather than informative.
+   */
+  comparable: boolean;
 }
 
 /**
@@ -243,22 +259,20 @@ export function compareToMinimumsOnly(
     monthlyExtra: 0,
     rollover: false,
   });
-  // When the minimums-only baseline itself can't amortize (some debt's own
-  // minimum doesn't cover its own monthly interest), its balance compounds
-  // upward for the full 1200-month cap instead of converging, and
-  // baseline.totalInterestPaid comes back astronomical (observed: >10^20)
-  // rather than a real total. Diffing against that isn't "a big savings
-  // number" — it's not a number at all, since minimums alone never pay the
-  // debt off in the first place. Report 0 rather than a meaningless diff;
-  // callers must check `baseline.unpayable` before treating these as real.
-  if (baseline.unpayable) {
-    return { plan, baseline, interestSaved: 0, monthsSaved: 0 };
+  // Same reasonable-horizon line amortizeDebt already draws (50 years) —
+  // past that, a minimums-only baseline isn't a comparison, financially
+  // meaningless either way, whether it's technically infinite or just
+  // technically finite-but-absurd.
+  const comparable = !baseline.unpayable && baseline.monthsToDebtFree <= AMORTIZATION_CAP;
+  if (!comparable) {
+    return { plan, baseline, interestSaved: 0, monthsSaved: 0, comparable: false };
   }
   return {
     plan,
     baseline,
     interestSaved: round2(baseline.totalInterestPaid - plan.totalInterestPaid),
     monthsSaved: baseline.monthsToDebtFree - plan.monthsToDebtFree,
+    comparable: true,
   };
 }
 

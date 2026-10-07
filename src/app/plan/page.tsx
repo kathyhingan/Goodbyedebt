@@ -189,17 +189,19 @@ export default function PlanPage() {
                   <div className="caption muted">Total remaining</div>
                   <div className="figure-lg">{money(plan.startingBalance)}</div>
                 </div>
-                <div className="card tight" style={{ margin: 0 }}>
+                <div className="card tight" style={{ margin: 0, minWidth: 0 }}>
                   <div className="caption muted">Interest saved vs. minimums</div>
-                  {savings.baseline.unpayable ? (
+                  {savings.comparable ? (
+                    <div className="figure-lg">{money(savings.interestSaved)}</div>
+                  ) : (
                     <>
                       <div className="figure-lg">N/A</div>
                       <div className="caption muted" style={{ marginTop: 2 }}>
-                        Minimums alone never clear this — not a number to diff against.
+                        {savings.baseline.unpayable
+                          ? "Minimums alone never clear this, so there's no number to diff against."
+                          : "Minimums alone would take decades here, so there's no meaningful number to diff against."}
                       </div>
                     </>
-                  ) : (
-                    <div className="figure-lg">{money(savings.interestSaved)}</div>
                   )}
                 </div>
                 <div className="card tight" style={{ margin: 0 }}>
