@@ -182,6 +182,161 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 600; letter-spacing: -0
 }
 .ring-row { display: flex; align-items: center; gap: var(--space-16); }
 
+/* Large ring variant (Member Dashboard hero, Coach Client Detail) + a
+   stacked figure/caption label ("62%" / "paid off") instead of one line. */
+.progress-ring.lg { --ring-size: 148px; --ring-width: 14px; }
+.progress-ring .ring-stack { grid-area: 1 / 1; position: relative; text-align: center; font-family: var(--font-fig); }
+.progress-ring .ring-stack .figure, .progress-ring .ring-stack .figure-lg { display: block; }
+
+/* Dashboard hero: ring + headline figure side by side, stacking on mobile. */
+.hero { display: grid; grid-template-columns: 148px 1fr; gap: var(--space-24); align-items: center; }
+@media (max-width: 640px) {
+  .hero { grid-template-columns: 1fr; text-align: center; }
+  .hero .progress-ring { margin: 0 auto; }
+}
+
+/* A second bar-fill color for contexts that must NOT use accent — the Coach
+   console never spends accent (spec: "the Coach console never uses accent
+   at all"), so roster/analytics bars are primary-colored. */
+.progress-fill.primary { background: var(--primary); }
+
+/* ===========================================================================
+   Shared row/list primitives (debt rows, transaction rows, activity logs)
+   =========================================================================== */
+.dot-swatch { width: 10px; height: 10px; border-radius: var(--radius-full); flex: none; display: inline-block; }
+.logrow { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.logrow:last-child { border-bottom: none; }
+.logdot { width: 8px; height: 8px; border-radius: var(--radius-full); margin-top: 6px; flex: none; background: var(--primary); }
+
+/* Generic small avatar — initials circle, used in rosters/threads/logs/inbox.
+   Distinct from .nav-avatar (account menu trigger) and .slayer-avatar
+   (Community leaderboard, which supports photos). */
+.avatar { width: 32px; height: 32px; border-radius: var(--radius-full); background: var(--primary); color: var(--on-primary); display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-head); font-weight: 700; font-size: 12px; flex: none; }
+.avatar.alt { background: var(--accent); color: var(--on-accent); }
+.avatar.sm { width: 26px; height: 26px; font-size: 11px; }
+
+/* ===========================================================================
+   Segmented control (Plan: Avalanche / Snowball / Hybrid)
+   =========================================================================== */
+.seg { display: inline-flex; background: var(--surface-sunken); border-radius: var(--radius-full); padding: 3px; gap: 2px; }
+.seg-opt { padding: 7px 16px; border-radius: var(--radius-full); font-family: var(--font-ui); font-size: 12px; font-weight: 600; color: var(--ink-muted); background: none; border: none; cursor: pointer; }
+.seg-opt.is-active { background: var(--surface-raised); color: var(--ink); box-shadow: var(--shadow-sm); }
+
+/* ===========================================================================
+   Plan: ranked payoff list + timeline
+   =========================================================================== */
+.planrow { display: grid; grid-template-columns: auto 1fr 90px 100px 60px; align-items: center; gap: var(--space-16); padding: var(--space-16) 0; border-bottom: 1px solid var(--border); }
+.planrow:last-child { border-bottom: none; }
+.rank { width: 24px; height: 24px; border-radius: var(--radius-full); background: var(--surface-sunken); color: var(--ink-muted); display: flex; align-items: center; justify-content: center; font-family: var(--font-fig); font-size: 11px; font-weight: 600; flex: none; }
+.rank.next { background: var(--primary); color: var(--on-primary); }
+.tl-row { display: flex; align-items: center; gap: var(--space-12); padding: 6px 0; }
+.tl { flex: 1; display: flex; align-items: center; height: 32px; border-radius: var(--radius-sm); overflow: hidden; background: var(--surface-sunken); }
+.tl span { height: 100%; display: flex; align-items: center; padding: 0 10px; font-family: var(--font-fig); font-size: 11px; font-weight: 600; color: var(--on-primary); background: var(--primary); white-space: nowrap; }
+.tl.is-last span { background: var(--success); }
+
+/* ===========================================================================
+   Calendar: month grid + week strip (mobile)
+   =========================================================================== */
+.cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+.cal-h { text-align: center; font-family: var(--font-ui); font-size: 11px; font-weight: 600; color: var(--ink-faint); padding-bottom: 6px; }
+.cal-cell { aspect-ratio: 1 / 0.82; border-radius: var(--radius-sm); background: var(--surface-sunken); padding: 8px; position: relative; font-family: var(--font-fig); font-size: 12px; color: var(--ink-muted); }
+.cal-cell.has-due { background: var(--warning-bg); color: var(--warning-ink); font-weight: 600; }
+.cal-cell.is-paid { background: var(--success-bg); color: var(--success-ink); font-weight: 600; }
+.cal-cell.is-today { outline: 2px solid var(--primary); outline-offset: -2px; }
+.cal-dot { position: absolute; bottom: 6px; right: 6px; width: 6px; height: 6px; border-radius: var(--radius-full); background: currentColor; }
+.cal-legend { display: flex; gap: var(--space-16); margin-top: var(--space-12); }
+.cal-legend-item { display: flex; align-items: center; gap: 8px; }
+
+.week-strip { display: flex; gap: 8px; overflow-x: auto; }
+.week-day { flex: 1; min-width: 42px; text-align: center; padding: 10px 4px; border-radius: var(--radius-sm); background: var(--surface-sunken); font-family: var(--font-ui); }
+.week-day.is-due { background: var(--warning-bg); color: var(--warning-ink); }
+.week-day.is-today { outline: 2px solid var(--primary); outline-offset: -2px; }
+
+/* ===========================================================================
+   Messaging — thread + composer (My Coach, Coach Messages)
+   =========================================================================== */
+.thread { display: flex; flex-direction: column; padding: var(--space-16) 0; overflow-y: auto; }
+.msg { max-width: 78%; padding: 10px 14px; border-radius: var(--radius-md); margin-bottom: 10px; font-family: var(--font-ui); font-size: 13px; line-height: 1.45; }
+.msg.them { background: var(--surface-sunken); color: var(--ink); border-bottom-left-radius: 4px; }
+.msg.me { background: var(--primary); color: var(--on-primary); margin-left: auto; border-bottom-right-radius: 4px; }
+.msg-time { display: block; margin-top: 3px; font-size: 10px; opacity: 0.7; }
+.composer { display: flex; gap: 10px; padding: 12px 0 0; border-top: 1px solid var(--border); margin-top: auto; }
+.composer input { flex: 1; border: 1px solid var(--border); border-radius: var(--radius-full); padding: 10px 16px; font-family: var(--font-ui); font-size: 13px; }
+
+/* Coach Messages: 3-pane layout (inbox / thread / schedule) */
+.layout3 { display: grid; grid-template-columns: 260px 1.4fr 240px; gap: 0; border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; background: var(--surface-raised); box-shadow: var(--shadow-sm); min-height: 520px; }
+.inbox { border-right: 1px solid var(--border); overflow-y: auto; }
+.inbox-item { display: flex; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--border); cursor: pointer; text-align: left; width: 100%; background: none; border-left: 3px solid transparent; }
+.inbox-item.is-active { background: var(--surface-sunken); border-left-color: var(--primary); }
+.inbox-item:hover:not(.is-active) { background: var(--surface-sunken); opacity: 0.7; }
+.inbox-body { flex: 1; min-width: 0; }
+.inbox-body .name { font-weight: 600; font-size: 13px; }
+.inbox-body .preview { font-size: 12px; color: var(--ink-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.unread-dot { width: 7px; height: 7px; border-radius: var(--radius-full); background: var(--primary); margin-left: auto; margin-top: 6px; flex: none; }
+.thread-col { display: flex; flex-direction: column; min-width: 0; }
+.thread-head { padding: 14px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+.thread-col .thread { flex: 1; padding: 16px 20px; }
+.thread-col .composer { padding: 10px 16px; margin: 0; }
+.sched { padding: 16px; border-left: 1px solid var(--border); overflow-y: auto; }
+.sched-item { padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.sched-item:last-child { border-bottom: none; }
+.sched-item .when { font-family: var(--font-fig); font-weight: 600; font-size: 12px; color: var(--primary); }
+
+/* ===========================================================================
+   Coach console: badge, roster, client card, client-detail back link
+   =========================================================================== */
+.badge-coach { font-family: var(--font-ui); font-size: 11px; font-weight: 600; color: var(--primary); background: var(--primary-bg); padding: 3px 9px; border-radius: var(--radius-full); white-space: nowrap; }
+.roster-row { display: grid; grid-template-columns: 1.8fr 1fr 120px 130px auto; align-items: center; gap: var(--space-16); padding: var(--space-16) 0; border-bottom: 1px solid var(--border); }
+.roster-row:last-child { border-bottom: none; }
+.roster-row.is-head { padding-bottom: var(--space-12); }
+.client-card { display: flex; align-items: center; gap: 10px; padding: var(--space-12) 0; border-bottom: 1px solid var(--border); }
+.client-card:last-child { border-bottom: none; }
+.back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-muted); font-family: var(--font-ui); font-size: 12px; font-weight: 600; margin-bottom: 14px; text-decoration: none; }
+.back-link:hover { color: var(--primary); }
+textarea.note-field { width: 100%; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface-sunken); padding: 10px; font-family: var(--font-ui); font-size: 13px; color: var(--ink); resize: vertical; min-height: 80px; }
+
+/* ===========================================================================
+   Analytics: monthly bars + status stack bar
+   =========================================================================== */
+.bars { display: flex; align-items: flex-end; gap: 14px; height: 140px; }
+.bars .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; justify-content: flex-end; }
+.bars .bar-fill { width: 100%; border-radius: var(--radius-sm) var(--radius-sm) 2px 2px; background: var(--primary); min-height: 2px; }
+.stackbar { display: flex; height: 14px; border-radius: var(--radius-full); overflow: hidden; width: 100%; }
+.stackbar .seg-success { background: var(--success); }
+.stackbar .seg-warning { background: var(--warning, #d97706); }
+.stackbar .seg-danger { background: var(--danger); }
+.legend-row { display: flex; gap: var(--space-16); margin-top: var(--space-12); flex-wrap: wrap; }
+.legend-row .it { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-muted); }
+.legend-row .sw { width: 8px; height: 8px; border-radius: var(--radius-full); flex: none; }
+
+/* ===========================================================================
+   Achievement list (member's own + coach-visible milestones). Named
+   "achievement" rather than reusing .milestone — that class already means
+   the small horizontal dot-strip on Community/Profile; this is a different
+   shape (icon-pin + title + date, in a vertical list).
+   =========================================================================== */
+.achievement { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 14px; }
+.achievement:last-child { margin-bottom: 0; }
+.achievement-pin { width: 22px; height: 22px; border-radius: var(--radius-full); background: var(--success-bg); color: var(--success-ink); display: flex; align-items: center; justify-content: center; flex: none; font-size: 12px; font-weight: 700; }
+.achievement-pin.projected { background: var(--primary-bg); color: var(--primary-strong); }
+.achievement-title { font-size: 13px; font-weight: 600; color: var(--ink); }
+.achievement-date { font-size: 12px; color: var(--ink-muted); }
+
+/* ===========================================================================
+   Generic 2-column page layout (Dashboard, Calendar, Client Detail, My
+   Coach). Ratio varies per page — set via inline style on the element.
+   =========================================================================== */
+.grid2 { display: grid; gap: var(--space-24); align-items: start; }
+@media (max-width: 860px) {
+  .grid2 { grid-template-columns: 1fr !important; }
+  .layout3 { grid-template-columns: 1fr !important; min-height: 0; }
+  .layout3 .sched { border-left: none; border-top: 1px solid var(--border); }
+  .planrow { grid-template-columns: auto 1fr 70px; }
+  .planrow .plan-rate, .planrow .plan-bar-cell { display: none; }
+  .roster-row { grid-template-columns: 1fr auto; }
+  .roster-row .roster-bar-cell, .roster-row .roster-active-cell { display: none; }
+}
+
 @media (max-width: 640px) {
   .slayer { flex-wrap: wrap; gap: 12px; }
   .slayer-rank { width: auto; }
@@ -215,6 +370,17 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 600; letter-spacing: -0
 .assumption { margin-top: 10px; padding: 12px 14px; background: var(--surface-sunken); border-radius: var(--radius-md); font-size: 13px; color: var(--ink); line-height: 1.5; }
 
 .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+/* Column-count variants — collapse on narrow screens. Inline grid styles
+   would override any media query, so density is set through these classes. */
+.stat-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.stat-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-16); }
+@media (max-width: 760px) {
+  .stat-grid.cols-3, .stat-grid.cols-4, .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 460px) {
+  .stat-grid.cols-3, .stat-grid.cols-4, .grid-3 { grid-template-columns: 1fr; }
+}
 .stat { background: var(--surface-sunken); border-radius: var(--radius-md); padding: 14px; }
 .stat .label { color: var(--ink-muted); font-size: 12px; font-weight: 600; letter-spacing: 0.2px; margin-bottom: 4px; }
 .stat .value { font-family: var(--font-fig); font-weight: 600; font-size: 22px; line-height: 26px; color: var(--ink); }
@@ -327,6 +493,19 @@ td.money, td .money, .figure-cell { font-family: var(--font-fig); font-weight: 6
 }
 .danger-btn { background: none; border: 1px solid var(--border); color: var(--danger-ink); border-radius: var(--radius-sm); cursor: pointer; padding: 4px 10px; font-weight: 600; }
 .danger-btn:hover { background: var(--danger-bg); border-color: var(--danger); }
+
+/* Coach console's own top bar (replaces the member Nav on /coach/* routes) —
+   badge-coach pill + Overview/Clients/Analytics/Messages tab strip. */
+.console-topbar { background: var(--surface-raised); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
+.console-topbar-inner { max-width: 1100px; margin: 0 auto; padding: 10px 16px; display: flex; align-items: center; gap: var(--space-16); flex-wrap: wrap; }
+.console-tabs { display: flex; align-items: center; gap: var(--space-8); }
+.console-tabs a { padding: 8px 12px; border-radius: var(--radius-sm); text-decoration: none; color: var(--ink-muted); font-weight: 600; font-size: 13px; }
+.console-tabs a.active { background: var(--primary-bg); color: var(--primary-strong); }
+@media (max-width: 760px) {
+  .console-topbar-inner { gap: var(--space-8); }
+  .console-tabs { order: 3; width: 100%; overflow-x: auto; }
+  .console-tabs a { white-space: nowrap; }
+}
 
 /* Status chips — the closed vocabulary. Color is never the only signal: the
    chip always carries a word. */

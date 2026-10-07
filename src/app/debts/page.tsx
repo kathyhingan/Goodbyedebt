@@ -181,8 +181,8 @@ export default function DebtsPage() {
   }
 
   return (
-    <main className="container">
-      <h1 style={{ color: "var(--moss)" }}>Your debts</h1>
+    <main className="container" style={{ maxWidth: 1040 }}>
+      <div className="brand"><h1>Your debts</h1></div>
       {demo && <div className="banner">Demo mode — changes are not saved. Connect the backend to persist.</div>}
 
       <section className="card">

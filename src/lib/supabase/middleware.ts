@@ -3,7 +3,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { SUPABASE_ANON_KEY, SUPABASE_URL, isSupabaseConfigured } from "./config";
 
 /** Routes that require an authenticated session. */
-const PROTECTED = ["/roadmap", "/plan", "/debts", "/calendar", "/transactions", "/community", "/profile", "/settings", "/coach", "/admin"];
+const PROTECTED = ["/dashboard", "/roadmap", "/plan", "/debts", "/calendar", "/transactions", "/community", "/my-coach", "/profile", "/settings", "/coach", "/admin"];
 /** Public routes: the marketing landing page, the guides, plus auth. */
 const PUBLIC = ["/", "/guides", "/login", "/auth", "/invite"];
 
@@ -57,7 +57,7 @@ export async function updateSession(request: NextRequest) {
   // Logged-in users skip the landing/login pages and go straight to the app.
   if (user && (path === "/login" || path === "/")) {
     const url = request.nextUrl.clone();
-    url.pathname = "/plan";
+    url.pathname = "/dashboard";
     url.search = "";
     return NextResponse.redirect(url);
   }

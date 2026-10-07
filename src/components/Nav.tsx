@@ -5,34 +5,37 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
-import { getMyOrganization } from "@/lib/data/coach";
+import { getMyOrganization, getMyCoachLink } from "@/lib/data/coach";
 
 /**
- * Member app navigation, matching the design system's clean pattern:
- * a short primary row (Plan, Debts, Calendar) and an avatar menu carrying
- * everything else, per-role.
+ * Member app navigation. Primary row is every core, everyday destination —
+ * Kathy's call: Dashboard (new landing), Plan and Community both get their
+ * own place, Debts stays its own page (the original design folded debts
+ * into Dashboard/Plan with no standalone nav item — we deviate on purpose).
+ * "My Coach" (a member's own connection to their assigned coach) joins the
+ * primary row only once they actually have one.
  *
- * Deliberate deviations from the design mockup, flagged not hidden:
- * - The design's first item is "Dashboard" — that page doesn't exist yet
- *   (the payoff overview at /plan doubles as it), so the primary row leads
- *   with "Plan". When the MemberDashboard ships, it takes this slot.
- * - The design's "Coach" item is the member's coach-connection surface,
- *   which isn't built; "Coach" here only appears for users who own a
- *   practice (their console lives at /coach). A member with no coach sees
- *   no Coach item at all.
- * - The design's bell icon has no notifications center behind it yet
- *   (due-date reminders surface in Calendar), so there's no bell.
+ * Role destinations — the Coach console and Admin — live in the avatar menu,
+ * not the primary row: they're not everyday member navigation, and the Coach
+ * console has its own full-width tab chrome once you're inside it (see
+ * src/app/coach/layout.tsx), so Nav hides entirely on /coach/* routes.
+ *
+ * Naming note: the design mockup called the member's own coach-chat screen
+ * "Coach" and the practice-owner's console also "Coach" — two different
+ * audiences, same word. Resolved here as "My Coach" (member) vs. "Coach
+ * console" (practice owner) so they're never ambiguous in the UI.
  */
 
 const PRIMARY = [
+  { href: "/dashboard", label: "Dashboard" },
   { href: "/plan", label: "Plan" },
   { href: "/debts", label: "Debts" },
   { href: "/calendar", label: "Calendar" },
+  { href: "/community", label: "Community" },
 ];
 
 const SECONDARY = [
   { href: "/transactions", label: "Transactions" },
-  { href: "/community", label: "Community" },
   { href: "/guides", label: "Guides" },
   { href: "/roadmap", label: "Roadmap" },
   { href: "/profile", label: "Profile" },
@@ -46,10 +49,10 @@ export function Nav() {
   const [initials, setInitials] = useState<string | null>(null);
   const [isCoach, setIsCoach] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [hasCoach, setHasCoach] = useState(false);
 
-  // Who's signed in: initials for the avatar, plus role flags for which
-  // links exist at all (Coach only for practice owners, Admin only for
-  // the superadmin). Best-effort — never blocks the nav.
+  // Who's signed in: initials for the avatar, plus role/relationship flags
+  // for which links exist at all. Best-effort — never blocks the nav.
   useEffect(() => {
     if (!isSupabaseConfigured) return;
     let cancelled = false;
@@ -62,13 +65,15 @@ export function Nav() {
         const parts = prefix.split(/[._-]+/).filter(Boolean);
         const ini = ((parts[0]?.[0] ?? "m") + (parts[1]?.[0] ?? "")).toUpperCase();
         setInitials(ini || "M");
-        const [admin, org] = await Promise.all([
+        const [admin, org, coachLink] = await Promise.all([
           supabase.rpc("is_platform_admin"),
           getMyOrganization(supabase),
+          getMyCoachLink(supabase),
         ]);
         if (cancelled) return;
         setIsAdmin(Boolean(admin.data));
         setIsCoach(Boolean(org));
+        setHasCoach(Boolean(coachLink));
       } catch {
         /* never block the nav on this */
       }
@@ -78,13 +83,22 @@ export function Nav() {
     };
   }, []);
 
-  // Hide the app nav on public marketing pages (landing, guides, auth);
-  // those pages carry their own dark header/footer.
-  if (path === "/" || path === "/login" || path === "/guides" || path.startsWith("/guides/")) return null;
+  // Hide on public marketing pages (their own dark header/footer) and on the
+  // whole Coach console (it has its own chrome — see coach/layout.tsx).
+  if (
+    path === "/" ||
+    path === "/login" ||
+    path === "/guides" ||
+    path.startsWith("/guides/") ||
+    path.startsWith("/coach")
+  ) {
+    return null;
+  }
 
-  const roleLinks = [
-    ...PRIMARY,
-    ...(isCoach ? [{ href: "/coach", label: "Coach" }] : []),
+  const primaryLinks = [...PRIMARY, ...(hasCoach ? [{ href: "/my-coach", label: "My Coach" }] : [])];
+  const secondaryLinks = [
+    ...SECONDARY,
+    ...(isCoach ? [{ href: "/coach", label: "Coach console" }] : []),
     ...(isAdmin ? [{ href: "/admin", label: "Admin" }] : []),
   ];
 
@@ -92,9 +106,7 @@ export function Nav() {
     <Link
       key={l.href}
       href={l.href}
-      className={
-        path === l.href || (l.href === "/coach" && path.startsWith("/coach/")) ? "active" : ""
-      }
+      className={path === l.href ? "active" : ""}
       onClick={() => {
         setOpen(false);
         setUserOpen(false);
@@ -103,8 +115,6 @@ export function Nav() {
       {l.label}
     </Link>
   );
-
-  const secondaryLinks = SECONDARY.map(renderLink);
 
   const signOutForm = isSupabaseConfigured ? (
     <form action="/auth/signout" method="post" className="nav-signout">
@@ -115,18 +125,17 @@ export function Nav() {
   return (
     <nav className="nav">
       <div className="nav-inner">
-        <Link href="/plan" className="nav-brand" onClick={() => setOpen(false)}>
+        <Link href="/dashboard" className="nav-brand" onClick={() => setOpen(false)}>
           Goodbye<span>Debt</span>
         </Link>
 
-        {/* Primary role links (desktop) / hamburger panel (mobile) */}
         <div className={`nav-links ${open ? "open" : ""}`}>
-          {roleLinks.map(renderLink)}
+          {primaryLinks.map(renderLink)}
           {/* Secondary items live in the avatar menu on desktop; the mobile
               hamburger panel carries them too (rendered from the same array,
               hidden on desktop by CSS). */}
           <div className="nav-secondary-group">
-            {secondaryLinks}
+            {secondaryLinks.map(renderLink)}
             {signOutForm}
           </div>
         </div>
@@ -141,7 +150,6 @@ export function Nav() {
           {open ? "✕" : "☰"}
         </button>
 
-        {/* Avatar + user menu (desktop only; mobile uses the hamburger) */}
         {initials && (
           <div className="nav-user">
             <button
@@ -154,7 +162,7 @@ export function Nav() {
               {initials}
             </button>
             <div className={`nav-user-panel ${userOpen ? "open" : ""}`}>
-              {secondaryLinks}
+              {secondaryLinks.map(renderLink)}
               {signOutForm}
             </div>
           </div>

@@ -8,8 +8,8 @@ import { isSupabaseConfigured } from "@/lib/supabase/config";
 /**
  * Where each role lands after signing in (when the login didn't come from a
  * specific redirect): superadmin -> /admin, active coach -> /coach, member
- * -> /plan. Checked against the live database at sign-in, not a claim in
- * the session, so a role change takes effect on the next login.
+ * -> /dashboard. Checked against the live database at sign-in, not a claim
+ * in the session, so a role change takes effect on the next login.
  */
 async function homeForRole(): Promise<string> {
   try {
@@ -21,12 +21,12 @@ async function homeForRole(): Promise<string> {
   } catch {
     /* fall through to the member default */
   }
-  return "/plan";
+  return "/dashboard";
 }
 
 function LoginForm() {
   const params = useSearchParams();
-  const redirect = params.get("redirect") || "/plan";
+  const redirect = params.get("redirect") || "/dashboard";
   const [mode, setMode] = useState<"signin" | "signup">(
     params.get("mode") === "signup" ? "signup" : "signin"
   );
@@ -52,7 +52,7 @@ function LoginForm() {
         // the user straight into the app. If confirmation is on, there's no
         // session yet, so fall back to the check-your-email prompt.
         if (data.session) {
-          const home = redirect !== "/plan" ? redirect : await homeForRole();
+          const home = redirect !== "/dashboard" ? redirect : await homeForRole();
           window.location.assign(home);
         } else {
           setMsg("Check your email to confirm your account, then sign in.");
@@ -60,7 +60,7 @@ function LoginForm() {
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
-        const home = redirect !== "/plan" ? redirect : await homeForRole();
+        const home = redirect !== "/dashboard" ? redirect : await homeForRole();
         window.location.assign(home);
       }
     } catch (err) {

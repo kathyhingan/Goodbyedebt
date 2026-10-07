@@ -31,6 +31,47 @@ export interface OrgClient {
   email: string;
   totalBalance: number;
   debtCount: number;
+  /** Cumulative missed cycles across their debts (a due_date sitting in the
+   * past means that many monthly cycles were never advanced — see the RPC
+   * comment in 0009_messaging_notes_milestones.sql). 0 = nothing overdue. */
+  missedCount: number;
+  /** Days until their nearest upcoming due date, or null if none/all overdue. */
+  daysUntilDue: number | null;
+}
+
+/** Danger (missed payments) > warning (due within a week) > success —
+ * the sort/status order the design spec requires everywhere a roster shows
+ * urgency ("needs attention" always sorts danger -> warning -> success). */
+export type ClientUrgency = "danger" | "warning" | "success";
+
+export function clientUrgency(c: Pick<OrgClient, "missedCount" | "daysUntilDue">): ClientUrgency {
+  if (c.missedCount > 0) return "danger";
+  if (c.daysUntilDue != null && c.daysUntilDue <= 7) return "warning";
+  return "success";
+}
+
+export function clientStatusLabel(c: Pick<OrgClient, "missedCount" | "daysUntilDue">): string {
+  if (c.missedCount > 0) return `${c.missedCount} missed payment${c.missedCount === 1 ? "" : "s"}`;
+  if (c.daysUntilDue != null && c.daysUntilDue <= 7) return "Due soon";
+  return "On track";
+}
+
+/**
+ * Roster sort the design spec requires wherever a list shows urgency:
+ * danger -> warning -> success first, then worse-off first within a tier
+ * (more missed cycles, or a sooner due date). One implementation so Overview
+ * and Analytics can't drift apart.
+ */
+export function sortByUrgency<T extends Pick<OrgClient, "missedCount" | "daysUntilDue">>(rows: T[]): T[] {
+  const order = { danger: 0, warning: 1, success: 2 } as const;
+  return [...rows].sort((a, b) => {
+    const ua = clientUrgency(a);
+    const ub = clientUrgency(b);
+    if (order[ua] !== order[ub]) return order[ua] - order[ub];
+    if (ua === "danger") return b.missedCount - a.missedCount;
+    if (ua === "warning") return (a.daysUntilDue ?? 99) - (b.daysUntilDue ?? 99);
+    return 0;
+  });
 }
 
 export interface Invitation {
@@ -122,6 +163,8 @@ export async function listClients(
     display_name: string;
     total_balance: number | string;
     debt_count: number;
+    missed_count: number;
+    days_until_due: number | null;
   }[];
   return rows.map((r) => ({
     orgId,
@@ -132,6 +175,8 @@ export async function listClients(
     email: r.email,
     totalBalance: Number(r.total_balance),
     debtCount: r.debt_count,
+    missedCount: r.missed_count ?? 0,
+    daysUntilDue: r.days_until_due ?? null,
   }));
 }
 
@@ -267,4 +312,46 @@ export async function listPaymentsForClient(
     paidOn: r.paid_on,
     note: r.note ?? "",
   }));
+}
+
+// ---------------------------------------------------------------------------
+// Portfolio analytics (Coach console, Analytics tab)
+// ---------------------------------------------------------------------------
+
+export interface PortfolioStats {
+  totalReduced: number;
+  activeThisWeek: number;
+  activeTotal: number;
+  avgProgress: number;
+  onTrackCount: number;
+  dueSoonCount: number;
+  atRiskCount: number;
+}
+
+export async function getPortfolioStats(supabase: SupabaseClient, orgId: string): Promise<PortfolioStats | null> {
+  const { data, error } = await supabase.rpc("get_portfolio_stats", { check_org_id: orgId });
+  if (error) throw error;
+  const r = (data ?? [])[0] as Record<string, unknown> | undefined;
+  if (!r) return null;
+  return {
+    totalReduced: Number(r.total_reduced ?? 0),
+    activeThisWeek: Number(r.active_this_week ?? 0),
+    activeTotal: Number(r.active_total ?? 0),
+    avgProgress: Number(r.avg_progress ?? 0),
+    onTrackCount: Number(r.on_track_count ?? 0),
+    dueSoonCount: Number(r.due_soon_count ?? 0),
+    atRiskCount: Number(r.at_risk_count ?? 0),
+  };
+}
+
+export interface MonthlyAmount {
+  monthLabel: string;
+  amount: number;
+}
+
+export async function getPortfolioMonthly(supabase: SupabaseClient, orgId: string): Promise<MonthlyAmount[]> {
+  const { data, error } = await supabase.rpc("get_portfolio_monthly", { check_org_id: orgId });
+  if (error) throw error;
+  const rows = (data ?? []) as Record<string, unknown>[];
+  return rows.map((r) => ({ monthLabel: r.month_label as string, amount: Number(r.amount ?? 0) }));
 }

@@ -6,7 +6,7 @@ import { useDebts } from "@/lib/data/useDebts";
 import { usePayments } from "@/lib/data/usePayments";
 import { useCurrency } from "@/lib/currency/currency";
 import { accruedBalance } from "@/lib/engine";
-import { upcomingDueDates, addOneMonthISO } from "@/lib/reminders/dueDates";
+import { upcomingDueDates, addOneMonthISO, nextDueDate } from "@/lib/reminders/dueDates";
 
 const fmt = (iso: string) =>
   new Date(iso + "T00:00:00").toLocaleDateString("en-US", {
@@ -15,9 +15,11 @@ const fmt = (iso: string) =>
     day: "numeric",
   });
 
+const WEEKDAY_HEADS = ["S", "M", "T", "W", "T", "F", "S"];
+
 export default function CalendarPage() {
   const { debts, loading, demo, save } = useDebts();
-  const { add: addPayment } = usePayments();
+  const { payments, add: addPayment } = usePayments();
   const { format } = useCurrency();
   const upcoming = useMemo(() => upcomingDueDates(debts, new Date(), 60), [debts]);
   // Balances carried forward to today — interest keeps compounding monthly
@@ -32,6 +34,66 @@ export default function CalendarPage() {
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
   const [paidIds, setPaidIds] = useState<Set<string>>(new Set());
+
+  // Month grid navigation — current month by default.
+  const [monthOffset, setMonthOffset] = useState(0);
+  const gridMonth = useMemo(() => {
+    const d = new Date();
+    d.setDate(1);
+    d.setMonth(d.getMonth() + monthOffset);
+    return d;
+  }, [monthOffset]);
+
+  // Which calendar days (this grid month) have a due date or a recorded
+  // payment — computed from the real due-date recurrence + payment history,
+  // not placeholder data.
+  const dueDays = useMemo(() => {
+    const set = new Set<number>();
+    const y = gridMonth.getFullYear();
+    const m = gridMonth.getMonth();
+    for (const d of debts) {
+      if (!d.dueDate) continue;
+      // Check the recurrence for this specific grid month (not just "today").
+      const probe = new Date(y, m, 1);
+      const next = nextDueDate(d.dueDate, probe);
+      if (next.getFullYear() === y && next.getMonth() === m) set.add(next.getDate());
+    }
+    return set;
+  }, [debts, gridMonth]);
+
+  const paidDays = useMemo(() => {
+    const set = new Set<number>();
+    const y = gridMonth.getFullYear();
+    const m = gridMonth.getMonth();
+    for (const p of payments) {
+      const d = new Date(p.paidOn + "T00:00:00");
+      if (d.getFullYear() === y && d.getMonth() === m) set.add(d.getDate());
+    }
+    return set;
+  }, [payments, gridMonth]);
+
+  const todayMarker = useMemo(() => {
+    const t = new Date();
+    return t.getFullYear() === gridMonth.getFullYear() && t.getMonth() === gridMonth.getMonth() ? t.getDate() : -1;
+  }, [gridMonth]);
+
+  const gridCells = useMemo(() => {
+    const y = gridMonth.getFullYear();
+    const m = gridMonth.getMonth();
+    const firstDow = new Date(y, m, 1).getDay();
+    const daysInMonth = new Date(y, m + 1, 0).getDate();
+    const prevDays = new Date(y, m, 0).getDate();
+    const cells: { day: number; inMonth: boolean }[] = [];
+    for (let i = firstDow - 1; i >= 0; i--) cells.push({ day: prevDays - i, inMonth: false });
+    for (let d = 1; d <= daysInMonth; d++) cells.push({ day: d, inMonth: true });
+    while (cells.length % 7 !== 0) cells.push({ day: cells.length - (firstDow + daysInMonth) + 1, inMonth: false });
+    return cells;
+  }, [gridMonth]);
+
+  const recentPayments = useMemo(
+    () => [...payments].sort((a, b) => (a.paidOn < b.paidOn ? 1 : -1)).slice(0, 8),
+    [payments]
+  );
 
   function startPaying(accountId: string) {
     const d = byId.get(accountId);
@@ -76,8 +138,8 @@ export default function CalendarPage() {
   }
 
   return (
-    <main className="container">
-      <h1 style={{ color: "var(--moss)" }}>Upcoming due dates</h1>
+    <main className="container" style={{ maxWidth: 1040 }}>
+      <div className="brand"><h1>Calendar</h1></div>
       {demo && <div className="banner">Demo mode — payments update the plan on-screen but are not saved.</div>}
       <p className="tagline">
         Every account&apos;s next payment, soonest first. Mark each one paid to keep your plan and
@@ -85,15 +147,69 @@ export default function CalendarPage() {
       </p>
 
       {!loading && debts.length > 0 && (
-        <div className="stat" style={{ marginBottom: 16 }}>
+        <div className="stat" style={{ marginBottom: 16, maxWidth: 280 }}>
           <div className="label">Total owed across all accounts</div>
           <div className="value">{format(totalOwed, { maximumFractionDigits: 0 })}</div>
         </div>
       )}
 
-      {msg &&<p className="note" style={{ color: "var(--moss)", fontWeight: 600 }}>{msg}</p>}
+      {msg && <p className="note" style={{ color: "var(--success-ink)", fontWeight: 600 }}>{msg}</p>}
+
+      <div className="grid2" style={{ gridTemplateColumns: "1.6fr 1fr" }}>
+        <section className="card">
+          <div className="gd-row gd-between" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+            <span className="heading-sm">
+              {gridMonth.toLocaleDateString("en-US", { month: "long", year: "numeric" })}
+            </span>
+            <div style={{ display: "flex", gap: 6 }}>
+              <button type="button" className="link-btn" style={{ border: "1px solid var(--border)", borderRadius: "var(--radius-sm)" }} onClick={() => setMonthOffset((v) => v - 1)}>‹</button>
+              <button type="button" className="link-btn" style={{ border: "1px solid var(--border)", borderRadius: "var(--radius-sm)" }} onClick={() => setMonthOffset((v) => v + 1)}>›</button>
+            </div>
+          </div>
+          <div className="cal">
+            {WEEKDAY_HEADS.map((w, i) => <div className="cal-h" key={i}>{w}</div>)}
+            {gridCells.map((c, i) => {
+              const hasDue = c.inMonth && dueDays.has(c.day);
+              const isPaid = c.inMonth && paidDays.has(c.day);
+              const isToday = c.inMonth && c.day === todayMarker;
+              const cls = ["cal-cell"];
+              if (hasDue) cls.push("has-due");
+              else if (isPaid) cls.push("is-paid");
+              if (isToday) cls.push("is-today");
+              return (
+                <div key={i} className={cls.join(" ")} style={{ opacity: c.inMonth ? 1 : 0.35 }}>
+                  {c.day}
+                  {(hasDue || isPaid) && <span className="cal-dot" />}
+                </div>
+              );
+            })}
+          </div>
+          <div className="cal-legend">
+            <div className="cal-legend-item"><span className="cal-dot" style={{ position: "static", color: "var(--warning-ink)" }} /> <span className="caption muted">Payment due</span></div>
+            <div className="cal-legend-item"><span className="cal-dot" style={{ position: "static", color: "var(--success-ink)" }} /> <span className="caption muted">Paid</span></div>
+          </div>
+        </section>
+
+        <section className="card">
+          <div className="heading-sm" style={{ marginBottom: 10 }}>Recent transactions</div>
+          {recentPayments.length === 0 ? (
+            <p className="note">No payments recorded yet.</p>
+          ) : (
+            recentPayments.map((p, i) => (
+              <div className="timeline-item" key={p.id ?? i}>
+                <div>
+                  <div className="body-sm">{byId.get(p.accountId)?.creditor || p.accountId}</div>
+                  <div className="caption muted">{fmt(p.paidOn)}</div>
+                </div>
+                <span className="figure">{format(p.amount, { maximumFractionDigits: 0 })}</span>
+              </div>
+            ))
+          )}
+        </section>
+      </div>
 
       <section className="card">
+        <div className="heading-sm" style={{ marginBottom: 10 }}>Upcoming</div>
         {loading ? (
           <p className="muted">Loading…</p>
         ) : upcoming.length === 0 ? (

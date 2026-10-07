@@ -3,13 +3,29 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { StrategyName } from "@/lib/engine";
-import { projectPayoff, compareToMinimumsOnly, accruedBalance } from "@/lib/engine";
+import { projectPayoff, compareToMinimumsOnly, accruedBalance, perDebtProgress } from "@/lib/engine";
 import { useDebts } from "@/lib/data/useDebts";
+import { usePayments } from "@/lib/data/usePayments";
 import { useCurrency } from "@/lib/currency/currency";
 import { formatDuration, formatMonthYear } from "@/lib/format/duration";
 
-export default function Home() {
+const STRATEGIES: { name: StrategyName; label: string }[] = [
+  { name: "avalanche", label: "Avalanche" },
+  { name: "snowball", label: "Snowball" },
+  { name: "hybrid", label: "Hybrid" },
+];
+
+/** "Jun 2026" projected payoff date for a debt, from months-from-today. */
+function payoffMonthLabel(monthsFromNow: number): string {
+  const d = new Date();
+  d.setDate(1);
+  d.setMonth(d.getMonth() + Math.round(monthsFromNow));
+  return d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+}
+
+export default function PlanPage() {
   const { debts, loading, demo } = useDebts();
+  const { payments } = usePayments();
   const { format } = useCurrency();
   const money = (n: number) => format(n, { maximumFractionDigits: 0 });
   // Pending control values (what the user is editing).
@@ -55,6 +71,10 @@ export default function Home() {
     [asOfToday, applied]
   );
   const byId = useMemo(() => new Map(asOfToday.map((d) => [d.accountId, d])), [asOfToday]);
+  const progressByAccount = useMemo(
+    () => new Map(perDebtProgress(asOfToday, payments).map((p) => [p.accountId, p])),
+    [asOfToday, payments]
+  );
   const totalMinimums = useMemo(
     () => debts.reduce((s, d) => s + Math.max(0, d.minimumPayment), 0),
     [debts]
@@ -69,12 +89,7 @@ export default function Home() {
   // Side-by-side comparison of the strategies at the applied extra payment, so
   // the user can see which actually saves the most (or that they're close).
   const comparison = useMemo(() => {
-    const names: { name: StrategyName; label: string }[] = [
-      { name: "avalanche", label: "Avalanche" },
-      { name: "snowball", label: "Snowball" },
-      { name: "hybrid", label: "Hybrid" },
-    ];
-    const rows = names.map((s) => ({
+    const rows = STRATEGIES.map((s) => ({
       ...s,
       result: projectPayoff(
         asOfToday,
@@ -84,16 +99,15 @@ export default function Home() {
     }));
     const payable = rows.filter((r) => !r.result.unpayable);
     const bestInterest = payable.length ? Math.min(...payable.map((r) => r.result.totalInterestPaid)) : null;
-    const bestMonths = payable.length ? Math.min(...payable.map((r) => r.result.monthsToDebtFree)) : null;
-    return { rows, bestInterest, bestMonths };
+    return { rows, bestInterest };
   }, [asOfToday, applied]);
 
   return (
-    <main className="container">
+    <main className="container" style={{ maxWidth: 1040 }}>
       <div className="brand">
-        <h1>Goodbye<span>Debt</span></h1>
+        <h1>Your payoff plan</h1>
       </div>
-      <p className="tagline">One plan. Every debt. See exactly where each extra dollar should go.</p>
+      <p className="tagline">Ordered by what saves you the most — every extra dollar, sequenced.</p>
 
       {demo && (
         <div className="banner">
@@ -111,35 +125,41 @@ export default function Home() {
       ) : (
         <>
           <section className="card">
-            <div className="controls">
-              <div>
-                <label htmlFor="strategy">Strategy</label>
-                <select id="strategy" value={strategy} onChange={(e) => setStrategy(e.target.value as StrategyName)}>
-                  <option value="avalanche">Avalanche (lowest interest)</option>
-                  <option value="snowball">Snowball (quick wins)</option>
-                  <option value="hybrid">Hybrid (custom)</option>
-                </select>
+            <div className="gd-row gd-between" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12, marginBottom: 14 }}>
+              <div className="seg" role="group" aria-label="Strategy">
+                {STRATEGIES.map((s) => (
+                  <button
+                    key={s.name}
+                    type="button"
+                    className={`seg-opt ${strategy === s.name ? "is-active" : ""}`}
+                    onClick={() => setStrategy(s.name)}
+                  >
+                    {s.label}
+                  </button>
+                ))}
               </div>
-              <div>
-                <label htmlFor="extra">Extra / month</label>
-                <input id="extra" type="number" min={0} step={25} value={extra}
-                  onChange={(e) => setExtra(Math.max(0, Number(e.target.value)))} style={{ width: 110 }} />
-              </div>
-              {strategy === "hybrid" && (
+              <div className="controls" style={{ margin: 0 }}>
                 <div>
-                  <label htmlFor="weight">Interest ↔ speed ({weight.toFixed(2)})</label>
-                  <input id="weight" type="range" min={0} max={1} step={0.05} value={weight}
-                    onChange={(e) => setWeight(Number(e.target.value))} />
+                  <label htmlFor="extra">Extra / month</label>
+                  <input id="extra" type="number" min={0} step={25} value={extra}
+                    onChange={(e) => setExtra(Math.max(0, Number(e.target.value)))} style={{ width: 110 }} />
                 </div>
-              )}
-              <div style={{ alignSelf: "end" }}>
-                <button type="button" className="primary" onClick={() => setApplied({ strategy, extra, weight })} disabled={!dirty}>
-                  {dirty ? "Apply" : "✓ Applied"}
-                </button>
+                <div style={{ alignSelf: "end" }}>
+                  <button type="button" className="primary" onClick={() => setApplied({ strategy, extra, weight })} disabled={!dirty}>
+                    {dirty ? "Apply" : "✓ Applied"}
+                  </button>
+                </div>
               </div>
             </div>
+            {strategy === "hybrid" && (
+              <div style={{ marginBottom: 14 }}>
+                <label htmlFor="weight">Interest ↔ speed ({weight.toFixed(2)})</label>
+                <input id="weight" type="range" min={0} max={1} step={0.05} value={weight}
+                  onChange={(e) => setWeight(Number(e.target.value))} style={{ width: "100%", maxWidth: 320 }} />
+              </div>
+            )}
             {dirty && (
-              <p className="note" style={{ marginTop: 8 }}>
+              <p className="note" style={{ marginTop: -4, marginBottom: 14 }}>
                 You changed the {applied.strategy !== strategy ? "strategy" : "inputs"} — click <strong>Apply</strong> to recalculate the plan.
               </p>
             )}
@@ -153,27 +173,80 @@ export default function Home() {
                 </div>
               </div>
             ) : (
-              <div className="payoff-hero">
-                <div className="payoff-lead">
-                  You&apos;ll be debt-free in <strong>{formatDuration(plan.monthsToDebtFree)}</strong>
+              <div className="grid-3" style={{ marginBottom: 20 }}>
+                <div className="card tight" style={{ margin: 0 }}>
+                  <div className="caption muted">Total remaining</div>
+                  <div className="figure-lg">{money(plan.startingBalance)}</div>
                 </div>
-                <div className="payoff-sub">
-                  On track to clear every balance by <strong>{formatMonthYear(plan.debtFreeDate)}</strong>
-                  {" — "}paying about {money(plan.totalInterestPaid)} in total interest along the way.
+                <div className="card tight" style={{ margin: 0 }}>
+                  <div className="caption muted">Interest saved vs. minimums</div>
+                  <div className="figure-lg">{money(savings.interestSaved)}</div>
+                </div>
+                <div className="card tight" style={{ margin: 0 }}>
+                  <div className="caption muted">Projected debt-free</div>
+                  <div className="figure-lg">{formatMonthYear(plan.debtFreeDate)}</div>
                 </div>
               </div>
             )}
 
-            <div className="stat-grid">
-              <div className="stat"><div className="label">Debt-free date</div><div className="value">{plan.debtFreeDate}</div></div>
-              <div className="stat"><div className="label">Months to debt-free</div><div className="value">{plan.monthsToDebtFree}</div></div>
-              <div className="stat"><div className="label">Interest saved vs. minimums</div><div className="value">{money(savings.interestSaved)}</div></div>
-              <div className="stat"><div className="label">Time saved</div><div className="value">{savings.monthsSaved} mo</div></div>
-            </div>
+            {/* Ranked payoff list — rank badge, % paid bar, rate, balance */}
+            {plan.order.map((id, i) => {
+              const d = byId.get(id);
+              if (!d) return null;
+              const prog = progressByAccount.get(id);
+              return (
+                <div className="planrow" key={id}>
+                  <span className={`rank ${i === 0 ? "next" : ""}`}>{i + 1}</span>
+                  <div style={{ minWidth: 0 }}>
+                    <div className="body" style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                      {d.creditor || d.accountId}
+                      {d.dueDate && <span className="caption muted" style={{ marginLeft: 8 }}>due {d.dueDate}</span>}
+                    </div>
+                    <div className="progress-track" style={{ marginTop: 6 }}>
+                      <div className="progress-fill primary" style={{ width: `${prog?.percentPaid ?? 0}%` }} />
+                    </div>
+                  </div>
+                  <span className="body-sm muted plan-rate">{d.apr}%</span>
+                  <span className="figure">{money(d.balance)}</span>
+                  <span className="body-sm muted" style={{ textAlign: "right" }}>{prog?.percentPaid ?? 0}%</span>
+                </div>
+              );
+            })}
             {plan.unpayable && (
               <p className="warn">⚠ At least one minimum payment doesn&apos;t cover its interest — increase the extra payment.</p>
             )}
           </section>
+
+          {!plan.unpayable && (
+            <section className="card">
+              <h2 style={{ marginTop: 0, fontSize: "1.05rem" }}>Payoff timeline</h2>
+              {/* Chronological order — which debt actually clears soonest —
+                  not priority-rank order. The avalanche/snowball "order" is
+                  where extra dollars go, which isn't necessarily the order
+                  debts finish in once rollover redirects freed minimums. */}
+              {[...plan.perDebt]
+                .sort((a, b) => a.monthsToPayoff - b.monthsToPayoff)
+                .map((pd) => {
+                  const d = byId.get(pd.accountId);
+                  if (!d) return null;
+                  const isLast = Math.round(pd.monthsToPayoff) >= Math.round(plan.monthsToDebtFree);
+                  const widthPct = Math.max(8, Math.min(100, (pd.monthsToPayoff / Math.max(1, plan.monthsToDebtFree)) * 100));
+                  return (
+                    <div className="tl-row" key={pd.accountId}>
+                      <span className="body-sm" style={{ width: 160, flexShrink: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                        {d.creditor || d.accountId}
+                      </span>
+                      <div className={`tl ${isLast ? "is-last" : ""}`} style={{ width: `${widthPct}%` }}>
+                        <span>
+                          {isLast ? "debt-free " : "paid off "}
+                          {payoffMonthLabel(pd.monthsToPayoff)}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+            </section>
+          )}
 
           <section className="card">
             <h2 style={{ marginTop: 0, fontSize: "1.1rem" }}>Debt totals</h2>
@@ -254,7 +327,7 @@ export default function Home() {
                       </td>
                       <td>{r.result.unpayable ? "—" : r.result.debtFreeDate}</td>
                       <td>{r.result.unpayable ? "—" : formatDuration(r.result.monthsToDebtFree)}</td>
-                      <td style={{ textAlign: "right", fontWeight: best ? 700 : 400, color: best ? "var(--moss)" : undefined }}>
+                      <td style={{ textAlign: "right", fontWeight: best ? 700 : 400, color: best ? "var(--primary)" : undefined }}>
                         {r.result.unpayable ? "—" : money(r.result.totalInterestPaid)}
                       </td>
                     </tr>
@@ -274,32 +347,6 @@ export default function Home() {
                   : `Snowball costs about ${money(-diff)} less interest here — unusual, and usually means increasing the extra will favor Avalanche.`;
               })()}
             </p>
-          </section>
-
-          <section className="card">
-            <h2 style={{ marginTop: 0, fontSize: "1.1rem" }}>
-              This cycle&apos;s plan <span className="muted" style={{ fontWeight: 400, fontSize: "0.85rem" }}>· {applied.strategy}</span>
-            </h2>
-            <table>
-              <thead>
-                <tr><th>Priority</th><th>Account</th><th>Balance</th><th>APR</th><th>Due</th></tr>
-              </thead>
-              <tbody>
-                {plan.order.map((id, i) => {
-                  const d = byId.get(id)!;
-                  return (
-                    <tr key={id}>
-                      <td className={i === 0 ? "priority" : ""}>{i === 0 ? "★ Extra here" : `#${i + 1}`}</td>
-                      <td>{d.creditor}</td>
-                      <td>{money(d.balance)}</td>
-                      <td>{d.apr}%</td>
-                      <td>{d.dueDate ?? "—"}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-            <p className="note">Pay every minimum on time, then send your {money(applied.extra)} extra to the ★ account.</p>
           </section>
         </>
       )}
