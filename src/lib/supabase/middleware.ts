@@ -41,6 +41,7 @@ export async function updateSession(request: NextRequest) {
   const isPublic =
     path === "/" ||
     path === "/guides" ||
+    path === "/for-coaches" ||
     path.startsWith("/guides/") ||
     path.startsWith("/invite") ||
     path.startsWith("/sitemap.xml") ||

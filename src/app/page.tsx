@@ -183,6 +183,7 @@ const body = `
       <a href="/guides">Guides</a>
       <a href="#roadmap">Roadmap</a>
       <a href="#community">Community</a>
+      <a href="/for-coaches">For Coaches</a>
       <a href="#guarantee">Guarantee</a>
       <a href="#proof">Proof</a>
       <a href="#faq">FAQ</a>
@@ -202,6 +203,7 @@ const body = `
         <a href="/guides">Guides</a>
         <a href="#roadmap" onclick="this.closest('details').open=false">Roadmap</a>
         <a href="#community" onclick="this.closest('details').open=false">Community</a>
+        <a href="/for-coaches">For Coaches</a>
         <a href="#guarantee" onclick="this.closest('details').open=false">Guarantee</a>
         <a href="#proof" onclick="this.closest('details').open=false">Proof</a>
         <a href="#faq" onclick="this.closest('details').open=false">FAQ</a>
