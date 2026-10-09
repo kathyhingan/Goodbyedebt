@@ -20,7 +20,7 @@ export async function updateSession(request: NextRequest) {
       getAll() {
         return request.cookies.getAll();
       },
-      setAll(cookiesToSet) {
+      setAll(cookiesToSet: { name: string; value: string; options?: Record<string, unknown> }[]) {
         cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value));
         response = NextResponse.next({ request });
         cookiesToSet.forEach(({ name, value, options }) =>
@@ -35,6 +35,16 @@ export async function updateSession(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   const path = request.nextUrl.pathname;
+
+  // API routes are exempt from the login redirect. Stripe's webhook server
+  // has no login session, and the middleware's redirect-to-/login turned
+  // every webhook delivery into a 307 to the login page — payments would
+  // never be recorded. Each route under /api does its own auth/validation
+  // internally (the webhook verifies Stripe's signature; checkout validates
+  // its input and reads the session itself), so the page-level gate is
+  // redundant there, not a security layer.
+  if (path.startsWith("/api/")) return response;
+
   // "/" must match exactly (every path starts with "/"); /guides is public
   // marketing content; SEO metadata routes must stay crawlable; login/auth
   // match by prefix.
