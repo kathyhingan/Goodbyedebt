@@ -7,6 +7,7 @@ import { StatementReminder } from "@/components/StatementReminder";
 import { ServiceWorkerManager } from "@/components/ServiceWorkerManager";
 import { CurrencyProvider } from "@/lib/currency/currency";
 import { DebtsProvider } from "@/lib/data/useDebts";
+import { ConfirmProvider } from "@/components/ConfirmDialog";
 
 // Type system per the GoodbyeDebt design spec:
 // Space Grotesk for display/headings, IBM Plex Sans for body, IBM Plex Mono
@@ -59,11 +60,13 @@ export default function RootLayout({
       <body className={`${spaceGrotesk.variable} ${plexSans.variable} ${plexMono.variable}`}>
         <CurrencyProvider>
           <DebtsProvider>
-            <Nav />
-            <StatementReminder />
-            {children}
-            <InstallPrompt />
-            <ServiceWorkerManager />
+            <ConfirmProvider>
+              <Nav />
+              <StatementReminder />
+              {children}
+              <InstallPrompt />
+              <ServiceWorkerManager />
+            </ConfirmProvider>
           </DebtsProvider>
         </CurrencyProvider>
       </body>

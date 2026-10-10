@@ -6,6 +6,7 @@ import { useDebts } from "@/lib/data/useDebts";
 import { usePayments } from "@/lib/data/usePayments";
 import { useStatementTxns } from "@/lib/data/useStatementTxns";
 import { useCurrency } from "@/lib/currency/currency";
+import { confirmAction } from "@/components/ConfirmDialog";
 import type { Payment } from "@/lib/data/payments";
 import { accruedBalance } from "@/lib/engine";
 import { addOneMonthISO } from "@/lib/reminders/dueDates";
@@ -112,14 +113,21 @@ export default function TransactionsPage() {
     }
   }
 
-  // Both delete buttons below used to fire-and-forget (no await, no .catch).
-  // That hid every failure: the underlying hooks don't optimistically update
-  // the real-backend path, so a failed delete left the row sitting right
-  // there with zero feedback — indistinguishable from the button not doing
-  // anything at all, which is exactly what "delete doesn't work" looks like.
+  // Both delete handlers use the in-app ConfirmDialog, not window.confirm:
+  // the native dialog dies silently once a browser's "prevent additional
+  // dialogs" check has been toggled, which reads as the button doing nothing.
+  // They also await the call and surface real success/failure messages — the
+  // underlying hooks don't optimistically update the real-backend path, so a
+  // failed delete would otherwise leave the row sitting there with no
+  // feedback at all.
   async function handleDeletePayment(p: Payment) {
     setDeleteMsg(null);
-    if (!window.confirm(`Delete this ${format(p.amount, { maximumFractionDigits: 0 })} payment?`)) return;
+    const ok = await confirmAction({
+      title: "Delete this payment?",
+      body: `The ${format(p.amount, { maximumFractionDigits: 0 })} payment will be removed from your history. The debt's balance is not changed.`,
+      confirmLabel: "Delete",
+    });
+    if (!ok) return;
     try {
       await remove(p.id!);
       setDeleteMsg("Payment deleted.");
@@ -130,7 +138,12 @@ export default function TransactionsPage() {
 
   async function handleDeleteTxn(id: string) {
     setDeleteMsg(null);
-    if (!window.confirm("Delete this transaction?")) return;
+    const ok = await confirmAction({
+      title: "Delete this transaction?",
+      body: "The line item will be removed from your spending history.",
+      confirmLabel: "Delete",
+    });
+    if (!ok) return;
     try {
       await removeTxn(id);
       setDeleteMsg("Transaction deleted.");

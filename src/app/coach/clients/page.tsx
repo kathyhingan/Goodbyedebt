@@ -5,6 +5,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { useCoachOrg } from "@/lib/data/coachOrgContext";
+import { confirmAction } from "@/components/ConfirmDialog";
 import {
   listClients,
   listInvitations,
@@ -99,7 +100,15 @@ export default function CoachClientsPage() {
   }
 
   async function handleRemove(clientUserId: string) {
-    if (!window.confirm("Remove this client from your roster? They keep their own data and account.")) return;
+    // In-app confirm (ConfirmDialog), not window.confirm — the native dialog
+    // dies silently once a browser's "prevent additional dialogs" check is
+    // toggled, which reads as the button doing nothing.
+    const ok = await confirmAction({
+      title: "Remove this client?",
+      body: "They keep their own data and account; only the coach link is removed. You can re-invite them anytime.",
+      confirmLabel: "Remove",
+    });
+    if (!ok) return;
     setBusy(true);
     try {
       await removeClient(createClient(), org.id, clientUserId);

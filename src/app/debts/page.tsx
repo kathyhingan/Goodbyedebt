@@ -13,6 +13,7 @@ import { extractPdfLines } from "@/lib/pdf/read";
 import { extractImageLines } from "@/lib/ocr/image";
 import { parseStatement, extractTransactions, statementToDebt, type ParsedStatement, type StatementTxn } from "@/lib/pdf/statement";
 import { useStatementTxns } from "@/lib/data/useStatementTxns";
+import { confirmAction } from "@/components/ConfirmDialog";
 import { findDuplicateGroups, mergedBalance, type MergeBalanceMode } from "@/lib/data/duplicates";
 
 const EMPTY: Debt = {
@@ -107,7 +108,16 @@ export default function DebtsPage() {
 
   async function handleDelete(d: Debt) {
     setMsg(null);
-    if (!window.confirm(`Delete ${d.creditor || d.accountId}? This can't be undone.`)) return;
+    // In-app confirm (ConfirmDialog), not window.confirm: the native dialog
+    // dies silently when a browser's "prevent additional dialogs" check has
+    // been toggled (every future confirm() returns false, no dialog shown),
+    // which reads exactly like the button doing nothing.
+    const ok = await confirmAction({
+      title: `Delete ${d.creditor || d.accountId}?`,
+      body: "This removes the debt from your account and can't be undone. Its payment history stays in your Transactions record.",
+      confirmLabel: "Delete",
+    });
+    if (!ok) return;
     try {
       await remove(d.accountId);
       setMsg(`Deleted ${d.creditor || d.accountId}.`);
