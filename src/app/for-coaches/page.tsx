@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PLANS, FOUNDING_COACH_CAP, type PlanId } from "@/lib/billing/plans";
 import { ForCoachesCta } from "@/components/ForCoachesCta";
+import { CheckoutSuccess } from "@/components/CheckoutSuccess";
 
 export const metadata: Metadata = {
   title: "GoodbyeDebt for Coaches: run every client's payoff plan in one place",
@@ -120,6 +121,7 @@ export default function ForCoachesPage() {
             Founding lifetime access for the first {FOUNDING_COACH_CAP} practices, then subscription.
           </p>
           <ForCoachesCta plans={PLANS.map((p) => p.id as PlanId)} />
+          <CheckoutSuccess />
           <div className="fc-tiers">
             {PLANS.map((p) => (
               <div className={`fc-tier ${p.highlight ? "fc-tier-hi" : ""}`} key={p.id}>
