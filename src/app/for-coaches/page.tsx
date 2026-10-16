@@ -39,6 +39,8 @@ export default function ForCoachesPage() {
         </div>
       </header>
 
+      <CheckoutSuccess />
+
       <section className="fc-hero">
         <div className="fc-wrap">
           <div className="fc-eyebrow"><span className="fc-pulse" />For finance coaching practices</div>
@@ -121,7 +123,6 @@ export default function ForCoachesPage() {
             Founding lifetime access for the first {FOUNDING_COACH_CAP} practices, then subscription.
           </p>
           <ForCoachesCta plans={PLANS.map((p) => p.id as PlanId)} />
-          <CheckoutSuccess />
           <div className="fc-tiers">
             {PLANS.map((p) => (
               <div className={`fc-tier ${p.highlight ? "fc-tier-hi" : ""}`} key={p.id}>
