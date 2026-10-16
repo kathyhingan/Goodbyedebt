@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
-import { getMyOrganization, createOrganization, type Organization } from "@/lib/data/coach";
+import { getMyOrganization, createOrganization, claimPendingCoachBilling, type Organization } from "@/lib/data/coach";
 import { CoachOrgProvider } from "@/lib/data/coachOrgContext";
 import { DEMO_ORG } from "@/lib/data/coachDemo";
 
@@ -40,6 +40,7 @@ export default function CoachLayout({ children }: { children: React.ReactNode })
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [practiceName, setPracticeName] = useState("");
+  const [claimedPlan, setClaimedPlan] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     if (!isSupabaseConfigured) {
@@ -67,8 +68,21 @@ export default function CoachLayout({ children }: { children: React.ReactNode })
     setBusy(true);
     setError(null);
     try {
-      await createOrganization(createClient(), practiceName.trim());
+      const newOrg = await createOrganization(createClient(), practiceName.trim());
       setPracticeName("");
+      // Any payment made before this practice existed (the common order for
+      // a coach who pays before signing up) is sitting in
+      // coach_billing_pending — claim it now that there's a practice to
+      // attach it to. A failure here must never block the practice itself
+      // from being created; surface nothing and let /admin catch it.
+      try {
+        const result = await claimPendingCoachBilling(createClient(), newOrg.id);
+        if (result.claimed > 0) {
+          setClaimedPlan(result.plans[0] ?? "paid");
+        }
+      } catch {
+        // Non-fatal — Kathy can link it manually from /admin if this ever fails.
+      }
       await load();
     } catch (err) {
       setError(describeError(err, "Couldn't create your practice."));
@@ -156,6 +170,11 @@ export default function CoachLayout({ children }: { children: React.ReactNode })
       <main className="container" style={{ maxWidth: 480 }}>
         <div className="brand"><h1>{org.name}</h1></div>
         <p className="tagline">Your coaching practice on Goodbye Debt.</p>
+        {claimedPlan && (
+          <section className="card" style={{ borderColor: "var(--gold, #c9a24d)" }}>
+            <p style={{ margin: 0, fontWeight: 700 }}>✓ Your {claimedPlan} payment is now linked to this practice.</p>
+          </section>
+        )}
         <section className="card">
           <div style={{ marginBottom: 8 }}>
             {org.status === "pending" ? (

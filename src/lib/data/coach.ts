@@ -145,6 +145,31 @@ export async function createOrganization(
   return org;
 }
 
+/**
+ * Checks coach_billing_pending for any payment made under the current
+ * user's email (or Supabase user id) and links it onto the practice they
+ * just created — the fix for the real-world order of events: a coach pays
+ * BEFORE they have an account at all (Stripe Checkout never requires a
+ * login), so the webhook has no practice to attach the payment to yet and
+ * parks it in coach_billing_pending. This is what actually makes good on
+ * the checkout success page's "your purchase is linked to your practice
+ * automatically" promise — without this, every single payment made before
+ * signup would sit orphaned until manually linked in /admin.
+ *
+ * Security-definer RPC (see supabase/migrations/0011), scoped so a user can
+ * only claim their OWN pending payments onto an org they actually own.
+ */
+export async function claimPendingCoachBilling(
+  supabase: SupabaseClient,
+  orgId: string
+): Promise<{ claimed: number; plans: string[] }> {
+  const { data, error } = await supabase.rpc("claim_pending_coach_billing", { org: orgId });
+  if (error) throw error;
+  const result = data as { ok: boolean; claimed?: number; plans?: string[]; error?: string };
+  if (!result.ok) return { claimed: 0, plans: [] };
+  return { claimed: result.claimed ?? 0, plans: result.plans ?? [] };
+}
+
 /** Active + removed clients linked to this org, with email, display name,
  * and a quick debt total — all from one security-definer RPC (see
  * supabase/migrations/0007_coach_roster_summary.sql) so the roster doesn't
