@@ -98,7 +98,12 @@ export function Nav() {
   const primaryLinks = [...PRIMARY, ...(hasCoach ? [{ href: "/my-coach", label: "My Coach" }] : [])];
   const secondaryLinks = [
     ...SECONDARY,
-    ...(isCoach ? [{ href: "/coach", label: "Coach console" }] : []),
+    // Always reachable, not just once a practice already exists — a fresh
+    // signup with no org yet would otherwise have NO path to /coach
+    // anywhere in the UI at all (the exact dead end Kathy hit: paid, signed
+    // up, landed on the member dashboard, no way back to set up her
+    // practice without typing the URL from memory).
+    { href: "/coach", label: isCoach ? "Coach console" : "Become a coach" },
     ...(isAdmin ? [{ href: "/admin", label: "Admin" }] : []),
   ];
 

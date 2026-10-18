@@ -75,7 +75,7 @@ function CheckoutSuccessInner() {
               same email you paid with, and your purchase is linked to your practice automatically.
             </p>
             <div className="fc-ctas" style={{ marginTop: 18 }}>
-              <Link href="/login?mode=signup" className="fc-btn-primary">
+              <Link href="/login?mode=signup&redirect=/coach" className="fc-btn-primary">
                 Create your coach account &rarr;
               </Link>
             </div>
