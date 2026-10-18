@@ -4,30 +4,23 @@ import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
+import { homeForRole } from "@/lib/auth/homeForRole";
 
-/**
- * Where each role lands after signing in (when the login didn't come from a
- * specific redirect): superadmin -> /admin, active coach -> /coach, member
- * -> /dashboard. Checked against the live database at sign-in, not a claim
- * in the session, so a role change takes effect on the next login.
- */
-async function homeForRole(): Promise<string> {
-  try {
-    const supabase = createClient();
-    const admin = await supabase.rpc("is_platform_admin");
-    if (admin.data) return "/admin";
-    const coach = await supabase.rpc("is_active_coach");
-    if (coach.data) return "/coach";
-  } catch {
-    /* fall through to the member default */
-  }
-  return "/dashboard";
-}
+const LINK_BTN: React.CSSProperties = {
+  marginTop: 12,
+  fontSize: 14,
+  background: "none",
+  border: "none",
+  padding: 0,
+  color: "var(--primary)",
+  textDecoration: "underline",
+  cursor: "pointer",
+};
 
 function LoginForm() {
   const params = useSearchParams();
   const redirect = params.get("redirect") || "/dashboard";
-  const [mode, setMode] = useState<"signin" | "signup">(
+  const [mode, setMode] = useState<"signin" | "signup" | "forgot">(
     params.get("mode") === "signup" ? "signup" : "signin"
   );
   const [email, setEmail] = useState("");
@@ -45,7 +38,16 @@ function LoginForm() {
     setBusy(true);
     const supabase = createClient();
     try {
-      if (mode === "signup") {
+      if (mode === "forgot") {
+        // Same message whether or not the email is registered — matches the
+        // "Invalid credentials" sign-in error already doing this, so neither
+        // screen lets someone fish for which emails have accounts.
+        const { error } = await supabase.auth.resetPasswordForEmail(email, {
+          redirectTo: `${window.location.origin}/reset-password`,
+        });
+        if (error) throw error;
+        setMsg("If an account exists for that email, a reset link is on its way. Check your inbox.");
+      } else if (mode === "signup") {
         const { data, error } = await supabase.auth.signUp({ email, password });
         if (error) throw error;
         // With email confirmation off, signUp returns an active session — send
@@ -75,25 +77,29 @@ function LoginForm() {
       <div className="brand">
         <h1>Goodbye<span>Debt</span></h1>
       </div>
-      <p className="tagline">Sign in to your plan.</p>
+      <p className="tagline">
+        {mode === "forgot" ? "Reset your password." : "Sign in to your plan."}
+      </p>
 
       <section className="card">
-        <div className="controls" style={{ marginBottom: 16 }}>
-          <button
-            type="button"
-            className={mode === "signin" ? "primary" : ""}
-            onClick={() => setMode("signin")}
-          >
-            Sign in
-          </button>
-          <button
-            type="button"
-            className={mode === "signup" ? "primary" : ""}
-            onClick={() => setMode("signup")}
-          >
-            Create account
-          </button>
-        </div>
+        {mode !== "forgot" && (
+          <div className="controls" style={{ marginBottom: 16 }}>
+            <button
+              type="button"
+              className={mode === "signin" ? "primary" : ""}
+              onClick={() => { setMode("signin"); setMsg(null); }}
+            >
+              Sign in
+            </button>
+            <button
+              type="button"
+              className={mode === "signup" ? "primary" : ""}
+              onClick={() => { setMode("signup"); setMsg(null); }}
+            >
+              Create account
+            </button>
+          </div>
+        )}
 
         <form onSubmit={submit}>
           <label htmlFor="email">Email</label>
@@ -105,20 +111,50 @@ function LoginForm() {
             onChange={(e) => setEmail(e.target.value)}
             style={{ width: "100%", marginBottom: 12 }}
           />
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            required
-            minLength={8}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            style={{ width: "100%", marginBottom: 16 }}
-          />
+          {mode !== "forgot" && (
+            <>
+              <label htmlFor="password">Password</label>
+              <input
+                id="password"
+                type="password"
+                required
+                minLength={8}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                style={{ width: "100%", marginBottom: 16 }}
+              />
+            </>
+          )}
           <button type="submit" className="primary" disabled={busy} style={{ width: "100%" }}>
-            {busy ? "…" : mode === "signup" ? "Create account" : "Sign in"}
+            {busy
+              ? "…"
+              : mode === "forgot"
+                ? "Send reset link"
+                : mode === "signup"
+                  ? "Create account"
+                  : "Sign in"}
           </button>
         </form>
+
+        {mode === "signin" && (
+          <button
+            type="button"
+            style={LINK_BTN}
+            onClick={() => { setMode("forgot"); setMsg(null); }}
+          >
+            Forgot password?
+          </button>
+        )}
+        {mode === "forgot" && (
+          <button
+            type="button"
+            style={LINK_BTN}
+            onClick={() => { setMode("signin"); setMsg(null); }}
+          >
+            &larr; Back to sign in
+          </button>
+        )}
+
         {msg && <p className="note" style={{ marginTop: 12 }}>{msg}</p>}
       </section>
     </main>
