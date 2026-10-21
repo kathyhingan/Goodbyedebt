@@ -41,6 +41,14 @@ export default function CoachLayout({ children }: { children: React.ReactNode })
   const [busy, setBusy] = useState(false);
   const [practiceName, setPracticeName] = useState("");
   const [claimedPlan, setClaimedPlan] = useState<string | null>(null);
+  const [userOpen, setUserOpen] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  // Close the account menu whenever the route changes, so it never stays
+  // open across tab switches.
+  useEffect(() => {
+    setUserOpen(false);
+  }, [pathname]);
 
   const load = useCallback(async () => {
     if (!isSupabaseConfigured) {
@@ -50,7 +58,16 @@ export default function CoachLayout({ children }: { children: React.ReactNode })
     setLoading(true);
     setError(null);
     try {
-      setOrg(await getMyOrganization(createClient()));
+      const supabase = createClient();
+      setOrg(await getMyOrganization(supabase));
+      // Role flag for the account menu (Admin link). Best effort: a failure
+      // here must never block the console from loading.
+      try {
+        const { data } = await supabase.rpc("is_platform_admin");
+        setIsAdmin(Boolean(data));
+      } catch {
+        setIsAdmin(false);
+      }
     } catch (e) {
       setError(describeError(e, "Failed to load your practice."));
     } finally {
@@ -161,6 +178,9 @@ export default function CoachLayout({ children }: { children: React.ReactNode })
             a day or two.
           </p>
         </section>
+        <p style={{ marginTop: 12 }}>
+          <Link href="/dashboard">Back to my dashboard</Link>
+        </p>
       </main>
     );
   }
@@ -195,6 +215,9 @@ export default function CoachLayout({ children }: { children: React.ReactNode })
             </p>
           )}
         </section>
+        <p style={{ marginTop: 12 }}>
+          <Link href="/dashboard">Back to my dashboard</Link>
+        </p>
       </main>
     );
   }
@@ -217,8 +240,23 @@ export default function CoachLayout({ children }: { children: React.ReactNode })
               );
             })}
           </div>
-          <div className="avatar" style={{ marginLeft: "auto" }} title={org.name}>
-            {org.name.slice(0, 2).toUpperCase()}
+          <div className="nav-user" style={{ marginLeft: "auto" }}>
+            <button
+              type="button"
+              className="nav-avatar"
+              aria-label="Account menu"
+              aria-expanded={userOpen}
+              onClick={() => setUserOpen((v) => !v)}
+            >
+              {org.name.slice(0, 2).toUpperCase()}
+            </button>
+            <div className={`nav-user-panel ${userOpen ? "open" : ""}`}>
+              <Link href="/dashboard">My dashboard</Link>
+              {isAdmin && <Link href="/admin">Admin</Link>}
+              <form action="/auth/signout" method="post" className="nav-signout">
+                <button type="submit" className="link-btn">Sign out</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
