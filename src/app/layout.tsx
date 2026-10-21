@@ -33,7 +33,7 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.almostdebtfree.com"),
-  title: "GoodbyeDebt — Debt Payoff Optimizer",
+  title: "GoodbyeDebt: Debt Payoff Optimizer",
   description:
     "Sequence and optimize payoff across all your debts. See exactly where every extra dollar should go to be debt-free faster.",
   manifest: "/manifest.webmanifest",

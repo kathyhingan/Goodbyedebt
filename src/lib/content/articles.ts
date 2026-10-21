@@ -43,7 +43,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
           "SSS salary loan: around 0.8 to 1 percent a month",
           "Pag-IBIG Multi-Purpose Loan: around 0.85 to 1 percent a month",
           "Bank personal loan: around 1.5 to 2 percent a month",
-          "Credit card (BSP cap): up to 2 percent a month on the unpaid balance",
+          "Credit card (BSP cap): up to 3 percent a month on the unpaid balance",
           "Home Credit, BillEase, Cashalo type installment loans: often 3 to 4 percent a month",
           "GCash GCredit: about 4.15 percent a month",
           "Tala: 11 to 12 percent a month effective, per its own published disclosure"
@@ -163,14 +163,14 @@ export const ARTICLE_LIST: GuideArticleData[] = [
         "paragraphs": [
           "Here is what consolidation is actually competing against. Commonly cited monthly rate ranges on debt Filipinos typically carry:",
           "(These are commonly published ranges, not guaranteed figures for any specific account. Lenders set their own rates and they move over time. Check your actual statement before deciding.)",
-          "Now look at what a consolidation loan is realistically priced at: a bank personal loan, which sits at roughly 14 to 18 percent a year. If your current mix of debt is mostly credit cards at 24 percent and app loans at 4 to 15 percent a month depending on the lender, consolidating into a 14 to 18 percent personal loan is a real, meaningful savings. If your current mix is mostly an SSS salary loan and a Pag-IBIG loan, both already under 11 percent, consolidating them into a personal loan at 14 to 18 percent would make your situation worse, not better. People do this by accident more often than you would expect, because the pitch (\"one payment, lower rate\") sounds universally true when it is actually conditional on what you already owe."
+          "Now look at what a consolidation loan is realistically priced at: a bank personal loan, which sits at roughly 14 to 18 percent a year. If your current mix of debt is mostly credit cards at 36 percent and app loans at 4 to 15 percent a month depending on the lender, consolidating into a 14 to 18 percent personal loan is a real, meaningful savings. If your current mix is mostly an SSS salary loan and a Pag-IBIG loan, both already under 11 percent, consolidating them into a personal loan at 14 to 18 percent would make your situation worse, not better. People do this by accident more often than you would expect, because the pitch (\"one payment, lower rate\") sounds universally true when it is actually conditional on what you already owe."
         ],
         "bullets": [
           "SSS salary loan or SSS Conso-Loan: roughly 10 percent a year",
           "Pag-IBIG Multi-Purpose Loan: roughly 10 to 10.5 percent a year",
           "Bank personal loan (the usual consolidation product): roughly 14 to 18 percent a year",
-          "Credit card: capped by the BSP at 2 percent a month, which is 24 percent a year",
-          "BNPL and installment apps (Home Credit, BillEase, Cashalo): typically 3 to 4 percent a month, well above 24 percent annualized",
+          "Credit card: capped by the BSP at 3 percent a month, which is 36 percent a year",
+          "BNPL and installment apps (Home Credit, BillEase, Cashalo): typically 3 to 4 percent a month, at or above the card's cap on an annualized basis",
           "GCash GCredit: about 4.15 percent a month",
           "Tala: 11 to 12 percent a month effective, per its own published disclosure"
         ],
@@ -220,7 +220,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
         "heading": "What avalanche order gets you without a new loan",
         "paragraphs": [
           "Here is the comparison nobody selling a consolidation loan will walk you through: running your existing debts in avalanche order, highest rate first, with no new loan, no credit check, and no risk of refreshing a paid-off card.",
-          "Take a representative mix: a Tala loan at 11 to 12 percent a month effective, a credit card at 2 percent a month (the BSP cap), and an SSS salary loan at under 1 percent a month. Avalanche order means every extra peso goes to the Tala loan first, specifically because it is costing you roughly five times more per month than the SSS loan. Once it is cleared, the freed-up payment rolls into the credit card. The SSS loan, already cheap, gets paid down last, on schedule.",
+          "Take a representative mix: a Tala loan at 11 to 12 percent a month effective, a credit card at 3 percent a month (the BSP cap), and an SSS salary loan at under 1 percent a month. Avalanche order means every extra peso goes to the Tala loan first, specifically because it is costing you roughly five times more per month than the SSS loan. Once it is cleared, the freed-up payment rolls into the credit card. The SSS loan, already cheap, gets paid down last, on schedule.",
           "Compare the result: a consolidation loan at 14 to 18 percent replacing all three accounts would mean paying 14 to 18 percent on money that was costing you under 1 percent a month (the SSS loan) for the entire life of the new loan. Avalanche order never does that. It only ever concentrates extra payment on the most expensive balance, and leaves the cheap debt exactly where it is, cheap.",
           "This is not an argument that consolidation never makes sense. When most of your balance really is sitting in high-rate revolving debt (cards, BNPL, app loans) and you can genuinely qualify for a meaningfully lower consolidation rate, it can be the right call. The point is that \"I have multiple debts\" is not, by itself, a reason to consolidate. \"My debts are mostly high-rate and I can get approved for something clearly lower\" is the actual reason, and most people never check whether that is true for their specific numbers before applying."
         ],
@@ -231,7 +231,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "Running the actual numbers on a real example",
         "paragraphs": [
-          "Take a reader with three debts: a 150,000 peso credit card balance at the BSP-capped 2 percent a month, a 60,000 peso Tala-style app loan at 11 to 12 percent a month effective, and a 100,000 peso SSS salary loan at under 1 percent a month, total debt 310,000 pesos. Two paths, assuming 15,000 pesos a month available above minimums:",
+          "Take a reader with three debts: a 150,000 peso credit card balance at the BSP-capped 3 percent a month, a 60,000 peso Tala-style app loan at 11 to 12 percent a month effective, and a 100,000 peso SSS salary loan at under 1 percent a month, total debt 310,000 pesos. Two paths, assuming 15,000 pesos a month available above minimums:",
           "Path one, a consolidation loan at 16 percent a year (roughly 1.33 percent a month), replacing all three: the blended rate on the new loan is a flat 1.33 percent a month on the full 310,000. That is a clear improvement over the credit card and the app loan's rates, but it is more than the SSS loan's own rate, meaning the 100,000 pesos that used to cost under 1 percent a month now costs 1.33 percent a month for the life of the new loan, a real increase on that portion.",
           "Path two, avalanche order with no new loan: the 15,000 pesos a month goes entirely to the Tala-style loan first, since its rate is by far the most expensive. Once it clears, the freed payment rolls to the credit card. The SSS loan continues at its own low rate the whole time, untouched by any new, higher blended rate.",
           "The exact total interest difference depends on your real payoff timeline, which is the entire reason to run your own numbers rather than someone else's example. But the direction of the comparison holds for almost anyone in a similar mix: consolidating a cheap government loan into a pricier blended rate works against you, even while the same consolidation genuinely helps the expensive app loan and card balance it is also absorbing."
@@ -696,7 +696,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
           "SSS salary loan or Pag-IBIG Multi-Purpose Loan: under 1 percent a month",
           "Bank personal loan: roughly 1.2 to 1.5 percent a month",
           "Home Credit cash loan: commonly cited around 2.8 percent a month",
-          "Credit card: capped by the BSP at 2 percent a month",
+          "Credit card: capped by the BSP at 3 percent a month",
           "BillEase: 3.49 percent a month (standard), 4.16 percent on EasyPace",
           "Cashalo: a combined daily interest and service fee structure that, in a published worked example, worked out to roughly 15 percent of the principal over a 90 day term, higher in effective monthly terms than the headline rate suggests",
           "GCash GCredit: 4.15 percent a month, published",
@@ -807,7 +807,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "BillEase for everyday spending versus a credit card",
         "paragraphs": [
-          "A common use of BillEase is not borrowing a lump sum at all, it is splitting purchases at partner merchants into installments instead of putting them on a card. Compared at the same balance: a credit card is capped at 2 percent a month on an unpaid revolving balance, below BillEase's 3.49 percent, so revolving a balance costs more on BillEase than on a card. The counterweight: BillEase's installment plans have a fixed end date, and a card balance can sit for years if you pay minimums, which is the trap covered elsewhere in this series. The honest comparison for a one-off purchase you will clear inside a few months: the card's 2 percent is cheaper if you actually clear it, and a 0 percent BillEase partner offer beats both if the balance is genuinely cleared inside the grace window. For someone carrying balances long term, neither product is cheap, which is the point of ranking everything you owe by its real rate instead of by which product feels more official."
+          "A common use of BillEase is not borrowing a lump sum at all, it is splitting purchases at partner merchants into installments instead of putting them on a card. Compared at the same balance: a credit card is capped at 3 percent a month on an unpaid revolving balance, below BillEase's 3.49 percent, so revolving a balance still costs more on BillEase than on a card, though at the cap the gap is under half a point a month. The counterweight: BillEase's installment plans have a fixed end date, and a card balance can sit for years if you pay minimums, which is the trap covered elsewhere in this series. The honest comparison for a one-off purchase you will clear inside a few months: the card's 2 percent is cheaper if you actually clear it, and a 0 percent BillEase partner offer beats both if the balance is genuinely cleared inside the grace window. For someone carrying balances long term, neither product is cheap, which is the point of ranking everything you owe by its real rate instead of by which product feels more official."
         ],
         "bullets": null,
         "numbered": null,
@@ -842,7 +842,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       },
       {
         "q": "If I have a BillEase balance and a credit card, which should I pay off first?",
-        "a": "Compare the two rates directly. A standard Philippine credit card is capped at 2 percent a month by the BSP, below BillEase's 3.49 percent, so in most cases the BillEase balance is the more expensive one to clear first, not the card."
+        "a": "Compare the two rates directly. A standard Philippine credit card is capped at 3 percent a month by the BSP, just under BillEase's 3.49 percent, so the BillEase balance is still the more expensive one to clear first, though at the cap the gap is narrow, about half a point a month."
       }
     ],
     "ctaLead": "See your own payoff order, free",
@@ -1342,7 +1342,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "If you owe both plus other debts, the full picture",
         "paragraphs": [
-          "The Tala-versus-GCredit comparison usually sits inside a larger mix, and the honest version of this article covers that too. Take a reader with a 12,000 peso Tala loan, a 9,000 peso GCredit balance, a 40,000 peso credit card at the 2 percent cap, and an SSS salary loan at under 1 percent, with 10,000 pesos a month available above minimums. Avalanche order after converting every balance to the same unit: the Tala loan, at its disclosed 11 to 12 percent effective monthly rate, gets every extra peso first, despite being neither the largest balance nor the loudest bill. GCredit is second, the card third, and the SSS loan rides at minimums as the cheapest money in the plan. A snowball order would clear the GCredit 9,000 first for the quick win, and the cost of that choice is roughly 1,000 pesos a month in avoidable interest while the Tala balance sits, every month it sits, which is the clearest possible illustration of why rate order beats balance order at these rate gaps.",
+          "The Tala-versus-GCredit comparison usually sits inside a larger mix, and the honest version of this article covers that too. Take a reader with a 12,000 peso Tala loan, a 9,000 peso GCredit balance, a 40,000 peso credit card at the 3 percent cap, and an SSS salary loan at under 1 percent, with 10,000 pesos a month available above minimums. Avalanche order after converting every balance to the same unit: the Tala loan, at its disclosed 11 to 12 percent effective monthly rate, gets every extra peso first, despite being neither the largest balance nor the loudest bill. GCredit is second, the card third, and the SSS loan rides at minimums as the cheapest money in the plan. A snowball order would clear the GCredit 9,000 first for the quick win, and the cost of that choice is roughly 1,000 pesos a month in avoidable interest while the Tala balance sits, every month it sits, which is the clearest possible illustration of why rate order beats balance order at these rate gaps.",
           "The exception that actually changes the order: a GCredit balance inside its billing cycle that can be cleared interest free, or a Tala loan small enough to clear in one payment before meaningful service fees accrue. Tala charges only for the days you hold the balance, so a balance cleared within days costs a fraction of the monthly equivalent, which is why the honest answer always starts with your own numbers rather than a general ranking."
         ],
         "bullets": null,
@@ -1389,12 +1389,12 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "title": "Should I Get a Personal Loan to Pay Off My Credit Card?",
     "description": "The rate math is nearly a wash between the two good options; the decision turns on which behavior risk you can manage.",
     "kicker": "Three conditions",
-    "tldr": "It only makes sense if the personal loan's rate is clearly below your card's effective rate, and you are honest with yourself about not using the card again after it is paid off. For a single card, the loan saves real money but creates a real risk: the card refreshes while the loan sits there, and now you owe both.",
+    "tldr": "Usually yes on the rate math, if you can qualify. A card's rate is capped at 3 percent a month, 36 percent a year, and a typical bank personal loan runs 14 to 18 percent a year, so the structured loan is far cheaper. The two conditions that actually decide it: qualifying for the loan, and keeping the card at zero afterward.",
     "sections": [
       {
         "heading": "Why this question comes up at all",
         "paragraphs": [
-          "A credit card at the BSP-capped 2 percent a month is 24 percent a year. A typical bank personal loan runs 14 to 18 percent a year. On the surface, moving a 100,000 peso card balance into a personal loan saves real money: roughly 500 to 800 pesos a month in interest, every month, for as long as that balance exists. That is the honest math behind the pitch, and it is real math, not a trick.",
+          "A credit card at the BSP cap of 3 percent a month is 36 percent a year. A typical bank personal loan runs 14 to 18 percent a year. On a 100,000 peso card balance, interest alone runs 3,000 pesos a month for as long as the balance lasts, while a three-year personal loan at 15 percent carries that same 100,000 balance for about 24,800 pesos in total interest and ends on a fixed date. That gap is the honest math behind the pitch, and at the current cap it is not a small gap.",
           "The reason it still fails for a lot of people has nothing to do with the rates. It has to do with what happens after."
         ],
         "bullets": null,
@@ -1404,7 +1404,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "The failure mode nobody in the pitch mentions",
         "paragraphs": [
-          "Here is the sequence that makes card-to-loan consolidation backfire: the loan pays off the card, the card's balance resets to zero, and the card is still open in your wallet. Then one month of overspending, or one emergency, and the card has a new balance again, at 24 percent a year, while the personal loan is still running its full term on the same money you already borrowed for once. Now you are paying interest on the same debt twice, through two products, and your total monthly obligations are higher than before you started.",
+          "Here is the sequence that makes card-to-loan consolidation backfire: the loan pays off the card, the card's balance resets to zero, and the card is still open in your wallet. Then one month of overspending, or one emergency, and the card has a new balance again, at 36 percent a year, while the personal loan is still running its full term on the same money you already borrowed for once. Now you are paying interest on the same debt twice, through two products, and your total monthly obligations are higher than before you started.",
           "This is not a hypothetical. It is the most common real-world outcome of card-to-loan consolidation, and it is the reason the honest answer to \"should I get a personal loan to pay off my credit card\" is conditional: the loan helps only if the card stays at zero afterward, and whether the card stays at zero is a behavior question, not a rate question."
         ],
         "bullets": null,
@@ -1415,11 +1415,11 @@ export const ARTICLE_LIST: GuideArticleData[] = [
         "heading": "The conditions under which it genuinely helps",
         "paragraphs": [
           "Three conditions, all of which need to be true at once:",
-          "All three conditions true: the loan saves real money and simplifies your bills into one payment. Any one of them false: you are taking on new credit to avoid a behavior problem, and the loan will likely make the situation worse within a year."
+          "All three conditions true: the loan saves real money, ends on a fixed date, and simplifies your bills into one payment. Any one of them false: you are taking on new credit to avoid a behavior problem, and the loan will likely make the situation worse within a year."
         ],
         "bullets": [
-          "The loan's rate is clearly below your card's effective rate. The BSP caps card rates at 2 percent a month (24 percent a year). A bank personal loan at 14 to 18 percent a year clears that bar. Anything quoted above that, including some online lending apps, does not.",
-          "You can actually qualify for that lower rate. A new loan application involves a credit check, and banks weigh your existing obligations. If your card is maxed and your income is tight, the rate you are offered may not be meaningfully lower than 24 percent, or you may be declined entirely.",
+          "The loan's rate is clearly below your card's rate. This one is nearly automatic now. The BSP caps card rates at 3 percent a month, 36 percent a year, under Circular No. 1165, s.2023, and 139 of the 141 Philippine cards with a published rate charge the full 3 percent. Any bank personal loan at 14 to 18 percent a year clears that bar by a wide margin. What does not clear it: many online lending apps, whose effective rates commonly land above the card's cap. If you saw the older 2 percent monthly cap quoted somewhere, that was the COVID-era ceiling, replaced in January 2023.",
+          "You can actually qualify for that lower rate. A new loan application involves a credit check, and banks weigh your existing obligations. If your card is maxed and your income is tight, you may be declined entirely, and qualification becomes the binding condition rather than the rate.",
           "The card stays at zero afterward. The only reliable ways to make this likely: close the card or stop carrying it, remove it from one-click checkout sites, and make sure your monthly budget genuinely has room for the loan payment on top of everything else. If none of those feel doable, the loan is not the fix, because the behavior it depends on is not there."
         ],
         "numbered": null,
@@ -1428,7 +1428,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "What to do instead if the conditions are not there",
         "paragraphs": [
-          "If you cannot qualify for a meaningfully lower rate, or you honestly do not trust yourself to keep the card at zero, two paths are more realistic than a new loan:",
+          "If the bank declines the loan, or you honestly do not trust yourself to keep the card at zero, two paths are more realistic than a new loan:",
           "Call your card issuer and ask about restructuring. Under BSP guidance, card issuers commonly offer hardship programs: a reduced rate, sometimes close to 0 percent for a fixed period, a frozen penalty, or a longer term. This does not require a new credit application or a new lender, does not add a loan payment to your budget, and does not leave you with a refreshed card. You have to call and ask specifically about restructuring or a hardship program; it is not offered automatically.",
           "Run your balances in avalanche order. If you have a card plus other debts, ranking everything by rate and sending every extra peso to the highest one minimizes total interest without a new loan, a new credit check, or the refresh risk at all. If the card is your only debt, a disciplined payoff plan plus a restructuring call covers the same ground."
         ],
@@ -1439,8 +1439,8 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "A worked example with the actual peso amounts",
         "paragraphs": [
-          "Concrete numbers make the conditions visible. Take a 120,000 peso credit card balance at the 2 percent monthly cap, 24 percent a year. Monthly interest alone: 2,400 pesos. Path one, a personal loan at 15 percent a year (1.25 percent a month) over 3 years: the monthly payment runs roughly 4,150 pesos, total repayment near 150,000 pesos, total interest near 30,000 pesos, and the card goes to zero the same week if you follow through. Path two, paying the card directly at 5,000 pesos a month: the balance clears in roughly 26 months, total interest near 27,000 pesos, slightly less than the loan because the declining balance compounds in your favor at the higher payment amount. Path three, minimum payments of roughly 3,000 pesos a month: the balance takes well over 6 years to clear and total interest runs near 100,000 pesos, more than three times either structured option.",
-          "Read those three paths honestly: the structured loan and the disciplined direct payoff land within a few thousand pesos of each other, and both beat minimum-only payments by roughly 70,000 pesos. The loan's real advantage is structure and a fixed end date; its real risk is the refreshed card. The direct payoff's real advantage is no new credit and no refresh risk; its real risk is discipline. Both risks are behavior risks, which is the entire point of this article: the rate math between the two good options is nearly a wash, and the decision turns on which behavior risk you can actually manage."
+          "Concrete numbers make the decision visible. Take a 120,000 peso credit card balance at the 3 percent monthly cap, 36 percent a year. The month's finance charge alone is 3,600 pesos. Path one, a personal loan at 15 percent a year over 3 years: the monthly payment runs about 4,160 pesos, total interest about 29,750 pesos, and the card goes to zero the same week and stays there under a fixed schedule. Path two, paying the card directly at 5,000 pesos a month: the balance clears in 44 months, and total interest runs about 95,300 pesos. Path three, a minimum-style payment of 3,000 pesos a month: the balance never clears, because 3,000 does not even cover the 3,600 peso monthly charge, so the debt grows by itself every month.",
+          "Read those three paths honestly, because the conclusion at the real cap is the opposite of what the retired 2 percent cap suggested. The structured loan is not roughly a wash with the disciplined direct payoff; it is about 65,600 pesos cheaper and it ends 8 months sooner. (The direct path's 44th payment is only about 370 pesos, which is why the exact total is 95,300 and not 100,000.) The direct payoff's remaining advantage is access: no application, no credit check, no new lender, and no refreshed card to resist. The loan's advantage is now decisive on both price and deadline. That makes the decision simpler than it used to be: if you can qualify and you can keep the card at zero, the loan wins on the numbers alone. If you cannot qualify, the direct payoff still works, but the payment has to clear the finance charge with real margin, and 3,000 pesos a month does not."
         ],
         "bullets": null,
         "numbered": null,
@@ -1456,24 +1456,24 @@ export const ARTICLE_LIST: GuideArticleData[] = [
           "rows": [
             [
               "Personal loan at 15 percent a year",
-              "About 4,150 pesos",
+              "About 4,160 pesos",
               "36 months, fixed",
-              "About 30,000 pesos",
+              "About 29,750 pesos",
               "The card refreshes while the loan runs"
             ],
             [
               "Pay the card directly",
               "5,000 pesos",
-              "About 26 months",
-              "About 27,000 pesos",
+              "44 months",
+              "About 95,300 pesos",
               "No fixed deadline; needs discipline"
             ],
             [
-              "Minimum payments only",
-              "About 3,000 pesos",
-              "Well over 6 years",
-              "About 100,000 pesos",
-              "Decades of interest on the same balance"
+              "Minimum-style payments",
+              "3,000 pesos",
+              "Never clears",
+              "Grows; the monthly charge alone is 3,600 pesos",
+              "The debt grows by itself"
             ]
           ]
         }
@@ -1491,7 +1491,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "The honest version of the decision",
         "paragraphs": [
-          "The decision is not \"loan or no loan.\" It is \"can I keep the card at zero after the loan pays it off.\" If yes, and the rate clears the bar, get the loan, pay off the card, and close or shelve the card the same week. If no, the loan is not the fix; a restructuring call and a payoff plan are, because they change the behavior instead of hiding it behind a new product."
+          "The decision is not \"loan or no loan.\" It is two questions: can I qualify, and can I keep the card at zero after the loan pays it off. If both answers are yes, the numbers at the current cap favor the loan clearly, about 65,600 pesos less interest on the 120,000 example with a fixed end date 8 months earlier. If either answer is no, the loan is not the fix; a restructuring call and a payoff plan are, because they change the behavior instead of hiding it behind a new product."
         ],
         "bullets": null,
         "numbered": null,
@@ -1510,7 +1510,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "faq": [
       {
         "q": "Is it smart to pay off a credit card with a personal loan?",
-        "a": "It can be, under three conditions at once: the loan's rate is clearly below your card's 24 percent a year effective rate, you can actually qualify for that lower rate, and you keep the card at zero afterward. Miss any one of the three and the loan usually makes things worse, not better."
+        "a": "It can be, under three conditions at once: the loan's rate is clearly below your card's 36 percent a year cap, you can actually qualify for that lower rate, and you keep the card at zero afterward. Miss any one of the three and the loan usually makes things worse, not better."
       },
       {
         "q": "Will a personal loan hurt my credit score?",
@@ -1522,7 +1522,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       },
       {
         "q": "What is the typical interest rate on a bank personal loan in the Philippines?",
-        "a": "Commonly 14 to 18 percent a year, well below the 24 percent a year cap on credit card rates, which is why card-to-loan consolidation can save real money when the other conditions are met."
+        "a": "Commonly 14 to 18 percent a year, well below the 36 percent a year cap on credit card rates, which is why card-to-loan consolidation saves real money at the current cap when the other conditions are met."
       },
       {
         "q": "What if I cannot qualify for a personal loan at a lower rate?",
@@ -1537,7 +1537,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "title": "How to Read Your Credit Card Statement (and What 3% Monthly Interest Actually Means)",
     "description": "The BSP rate cap, the minimum payment trap in real numbers, and the added charges that push costs past 3 percent a month.",
     "kicker": "The 3 percent question",
-    "tldr": "The number that matters is your effective monthly rate: up to 2 percent a month under the current BSP cap on the outstanding balance, with separate charges that can push the true cost toward 3 percent or more. Statement reading is finding three things: the rate, the minimum payment due, and the due date.",
+    "tldr": "The number that matters is your monthly rate: the BSP cap is 3 percent a month, 36 percent a year, and 139 of the 141 cards with a published rate charge the full 3 percent. Statement reading is finding three things: the rate, the minimum payment due, and the due date.",
     "sections": [
       {
         "heading": "The three things to find on every statement",
@@ -1546,23 +1546,23 @@ export const ARTICLE_LIST: GuideArticleData[] = [
         ],
         "bullets": null,
         "numbered": [
-          "The interest rate applied to your outstanding balance. Under the BSP's ceiling on credit card rates, the monthly interest rate on the outstanding balance is capped at 2 percent a month for unsecured cards. On a 50,000 peso balance, that is up to 1,000 pesos a month in interest alone, before any other charges.",
-          "The minimum payment due. This is the amount that keeps you out of delinquency but does almost nothing to reduce your balance. On a 50,000 peso balance, the minimum is commonly a small percentage of the balance plus fees and past-due amounts, often enough that interest alone eats most of it, meaning a minimum-only payer's balance barely moves for years.",
+          "The interest rate applied to your outstanding balance. Since January 2023, the BSP caps the monthly interest rate on a card's unpaid balance at 3 percent a month, 36 percent a year, under Circular No. 1165. On a 50,000 peso balance, that is up to 1,500 pesos a month in interest alone, before any other charges. Nearly every card in the market charges the full cap: 139 of the 141 Philippine cards with a published rate sit at 3 percent.",
+          "The minimum payment due. This is the amount that keeps you out of delinquency but does not necessarily reduce your balance at all. On a 50,000 peso balance, the minimum is commonly a small percentage of the balance plus fees and past-due amounts. At the 3 percent cap, that minimum can be smaller than the month's interest alone, meaning a minimum-only payer's balance grows instead of shrinking.",
           "The payment due date. Missing it adds a late payment fee, and a missed payment can also add the unpaid interest to the balance, compounding the cost. Payments are considered on time if received on or before the due date."
         ],
         "subheadings": null
       },
       {
-        "heading": "What the 2 percent monthly cap actually covers, and what it does not",
+        "heading": "What the 3 percent monthly cap actually covers, and what it does not",
         "paragraphs": [
-          "The BSP ceiling on the monthly interest rate for unsecured credit cards is 2 percent. That cap does not cover everything on the statement. Separate charges can sit on top of it:",
-          "This is why the real cost of a neglected card can reach the 3 percent a month figure people commonly cite: the capped 2 percent on the outstanding balance is the floor of the cost, not the ceiling, once fees and add-on charges are counted. A card balance at 3 percent a month doubles roughly every two years if untouched, and the interest alone on a 50,000 peso balance at 3 percent is 1,500 pesos a month, every month, for as long as the balance sits there."
+          "The BSP ceiling on the monthly interest rate for a credit card's unpaid balance is 3 percent, set by Circular No. 1165, s.2023, which replaced the 2 percent COVID-era cap in January 2023. The cap does not cover everything on the statement. Separate charges sit on top of it:",
+          "So the cap limits the interest charge on your balance, not the total cost of a neglected card. A balance at the full 3 percent a month doubles roughly every two years if untouched, and the interest alone on a 50,000 peso balance is 1,500 pesos a month, every month, for as long as the balance sits there."
         ],
         "bullets": [
-          "Late payment fees (capped separately, commonly a fixed peso minimum or a percentage of the unpaid amount, whichever applies)",
-          "Cash advance fees, commonly a percentage of the amount advanced",
-          "A monthly fee on the unpaid cash advance balance, up to 2 percent, separate from purchases",
-          "Annual membership fees (waived or not, depending on the card)"
+          "Late payment fees (capped separately, commonly a fixed peso amount or a percentage of the unpaid amount, whichever applies)",
+          "Annual membership fees (waived or not, depending on the card)",
+          "Cash advance interest at the same 3 percent monthly cap, plus a processing fee of at most 200 pesos per transaction, with no other fee allowed on the advance",
+          "Installment purchases converted on the card, capped at a monthly add-on rate of 1 percent"
         ],
         "numbered": null,
         "subheadings": null
@@ -1570,8 +1570,8 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "The minimum payment trap, in real numbers",
         "paragraphs": [
-          "Here is the arithmetic that makes minimum payments expensive. On a 50,000 peso balance at 2 percent a month interest, the monthly interest alone is 1,000 pesos. A common minimum payment formula is the greater of a small percentage of the balance or a flat minimum, commonly a few hundred pesos. If your minimum comes to 1,250 pesos, only 250 pesos of it touches the principal, while 1,000 goes to interest. At that pace, paying the same 1,250 every month, the balance falls by roughly 250 a month at first, and slower over time, meaning a 50,000 balance takes well over a decade to clear on minimum payments alone, assuming you never use the card again and never miss a payment.",
-          "That is the trap: the minimum payment is designed to keep the account current, not to get you out of debt. It protects your credit standing, but the balance barely moves and the interest keeps compounding. The honest framing: the minimum payment is the wrong target for anyone trying to become debt-free, and the right target is always the full statement balance or at least the balance plus this month's interest, not the minimum."
+          "Here is the arithmetic that makes minimum payments expensive, and at the current cap it is worse than most people assume. On a 50,000 peso balance at 3 percent a month interest, the monthly interest alone is 1,500 pesos. A common minimum payment formula is the greater of a small percentage of the balance or a flat minimum, commonly a few hundred pesos. If your minimum comes to 1,250 pesos, it is smaller than the month's 1,500 peso interest charge. The shortfall, 250 pesos this month, is added to the balance, and next month's interest is computed on the bigger number. At that pace the balance does not fall slowly; it rises by itself, before you spend a single peso on the card.",
+          "That is the trap in its sharpest form: a minimum payment below the month's interest is the point where the debt grows with no help from you. Issuers set minimums by formula, so the exact crossover point depends on your card, but the honest check takes one line: compare your minimum due with the finance charge on the same statement. If the minimum is smaller, the account is growing at zero spending. The right target is always the full statement balance or at least the balance plus this month's interest, not the minimum."
         ],
         "bullets": null,
         "numbered": null,
@@ -1580,7 +1580,8 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "The 3 percent question, answered directly",
         "paragraphs": [
-          "The H1 of this article promises an answer on the 3 percent monthly figure, so here it is plainly. A credit card cannot legally charge more than 2 percent a month on its unsecured outstanding balance under the current BSP ceiling. The 3 percent a month figure people commonly cite comes from the total cost of a neglected card: the capped 2 percent on the balance, plus late payment fees, plus any cash advance charges, plus the monthly fee on unpaid cash advance balances, which together push the all-in monthly cost past 3 percent for a card that is revolving, occasionally late, and occasionally used for cash advances. A card that is paid on time and never used for cash advances costs its actual rate, at or under 2 percent a month. A neglected card costs more than that, and the difference is entirely in the added charges, which is why reading the statement line by line matters more than memorizing the capped rate."
+          "The H1 of this article promises an answer on the 3 percent monthly figure, so here it is plainly. Three percent a month is the legal cap itself. Since January 2023, BSP Circular No. 1165 caps card interest on the unpaid balance at 3 percent a month, 36 percent a year, and 139 of the 141 Philippine cards with a published rate charge the full amount. If your statement's rate section shows 3 percent, that is the cap, not an anomaly and not a sign of a neglected card.",
+          "The 2 percent figure you may still see on comparison sites is the retired COVID-era ceiling under the older circular, replaced in January 2023 and quoted by pages that have not updated. What pushes a card's cost past 3 percent a month is not the interest rate; it is the added charges: late fees after a missed due date, the annual membership fee, and cash advance costs, where the processing fee is capped at 200 pesos per transaction but the advance itself accrues interest at the same 3 percent cap while it is outstanding. A card paid on time and never used for cash advances costs its rate, and at the full cap that rate is 3 percent a month. Which is why reading the statement line by line matters: the rate line tells you the interest; the other lines tell you what you are actually paying."
         ],
         "bullets": null,
         "numbered": null,
@@ -1589,7 +1590,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "The annual fee, the added charges, and what to question on your own statement",
         "paragraphs": [
-          "Two statement items deserve a closer look than most people give them. The annual membership fee, commonly 1,500 to 3,500 pesos depending on the card, is charged automatically and is often waivable: a call to the issuer, especially before renewal, commonly gets it waived or reduced for cardholders in good standing, something the statement itself never advertises. The added charges section (late fees, cash advance fees, and any monthly fee on unpaid cash advance balances) is worth checking line by line, because errors happen and because cash advance fees in particular are easy to forget: a 10,000 peso cash advance commonly carries a fee of 3 to 5 percent up front, roughly 300 to 500 pesos, before any interest at all, which is why using a cash advance for anything but a genuine emergency is usually the most expensive money on the whole card."
+          "Two statement items deserve a closer look than most people give them. The annual membership fee, commonly 1,500 to 3,500 pesos depending on the card, is charged automatically and is often waivable: a call to the issuer, especially before renewal, commonly gets it waived or reduced for cardholders in good standing, something the statement itself never advertises. The added charges section (late fees, cash advance fees and interest, anything outside the monthly finance charge) is worth checking line by line, because errors happen and because cash advance costs are easy to forget: the processing fee is capped at 200 pesos per transaction and no other fee is allowed on the advance, but the advance itself accrues interest at the same 3 percent monthly cap while outstanding, which is why using a cash advance for anything but a genuine emergency is usually the most expensive money on the whole card."
         ],
         "bullets": null,
         "numbered": null,
@@ -1602,8 +1603,8 @@ export const ARTICLE_LIST: GuideArticleData[] = [
         ],
         "bullets": null,
         "numbered": [
-          "Pay more than the minimum, every month, by a specific amount. Paying the minimum plus 2,000 pesos a month on that same 50,000 balance clears it in roughly two years instead of a decade, and total interest drops by more than half compared to minimum-only payments. The specific extra amount matters less than its existence: a fixed, repeatable amount you can sustain, not a different amount every month based on what is left over.",
-          "Stop using the card while you are paying it down. Every new purchase at 2 percent a month costs more than the same item on a debit card or cash. Every new purchase also resets the payoff math, because the balance you are attacking is now bigger again.",
+          "Pay more than the minimum, every month, by a specific amount. On that same 50,000 balance at the 3 percent cap, the minimum plus 2,000 pesos a month (about 3,250) clears it in roughly 21 months with about 18,000 pesos of total interest, and it is the smallest realistic version of a payoff payment: at 1,250 the balance grows instead of falling. The specific extra amount matters less than its existence: a fixed, repeatable amount you can sustain, not a different amount every month based on what is left over.",
+          "Stop using the card while you are paying it down. Every new purchase at 3 percent a month costs more than the same item on a debit card or cash. Every new purchase also resets the payoff math, because the balance you are attacking is now bigger again.",
           "Pay before the due date, every month, on time. This avoids late fees and keeps the account in good standing, which matters for your credit record and for any future restructuring conversation with the issuer."
         ],
         "subheadings": null
@@ -1611,7 +1612,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "If the card is one of several debts you owe",
         "paragraphs": [
-          "A card at 2 percent a month is usually not your most expensive debt in the Philippines, where app-based lending platforms commonly price at 4 to 15 percent a month depending on the lender. The honest priority order sends extra payment to the most expensive balance first (avalanche order), which often means a Tala or GCredit balance ahead of the card, with the card second and any low-rate government loan last. If you are juggling several accounts and are not sure which is actually costing you the most, that is a two minute check with real numbers, not a guess based on which bill feels most urgent this week."
+          "A card at 3 percent a month is usually not your most expensive debt in the Philippines, where app-based lending platforms commonly price at 4 to 15 percent a month depending on the lender. The honest priority order sends extra payment to the most expensive balance first (avalanche order), which often means a Tala or GCredit balance ahead of the card, with the card second and any low-rate government loan last. If you are juggling several accounts and are not sure which is actually costing you the most, that is a two minute check with real numbers, not a guess based on which bill feels most urgent this week."
         ],
         "bullets": null,
         "numbered": null,
@@ -1630,11 +1631,11 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "faq": [
       {
         "q": "Is credit card interest really capped at 2 percent a month in the Philippines?",
-        "a": "The BSP's ceiling on the monthly interest rate for unsecured credit cards is 2 percent a month on the outstanding balance. Separate charges, late fees, cash advance fees, and a monthly fee on unpaid cash advance balances are capped separately and sit on top of that cap, which is why a neglected card's real cost can reach 3 percent a month or more."
+        "a": "No, not anymore. Two percent a month was the COVID-era ceiling under the older circular; it was replaced in January 2023 by BSP Circular No. 1165, which caps the monthly rate on the unpaid balance at 3 percent, 36 percent a year. 139 of the 141 Philippine cards with a published rate charge the full 3 percent. What sits on top of the cap is fees, not interest: late fees, annual fees, and the cash advance processing fee capped at 200 pesos per transaction."
       },
       {
         "q": "What happens if I pay only the minimum due?",
-        "a": "The account stays current and out of delinquency, but on a 50,000 peso balance at 2 percent a month, most of the minimum goes to interest alone, so the balance barely moves and a minimum-only payer can stay in debt for well over a decade on the same balance."
+        "a": "The account stays current and out of delinquency, but at the 3 percent cap on a 50,000 peso balance, the monthly interest alone is 1,500 pesos. If your issuer's minimum formula lands below that, the balance grows at zero spending instead of slowly falling, so check the minimum against the finance charge on the same statement."
       },
       {
         "q": "Does paying before the due date reduce interest?",
@@ -1642,11 +1643,11 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       },
       {
         "q": "What is the minimum payment on a 50,000 peso balance?",
-        "a": "It depends on your issuer's formula, commonly the greater of a small percentage of the balance or a flat minimum. Whatever the exact figure, interest on that balance at 2 percent a month is up to 1,000 pesos a month alone, so a minimum near 1,250 pesos sends only about 250 pesos to principal."
+        "a": "It depends on your issuer's formula, commonly the greater of a small percentage of the balance or a flat minimum. Whatever the exact figure, interest on that balance at the 3 percent cap is 1,500 pesos a month alone, so a minimum near 1,250 pesos does not reach principal at all; the shortfall adds to the balance instead."
       },
       {
         "q": "Should I pay off my card or my Tala loan first?",
-        "a": "Compare effective monthly rates directly. A card is capped at 2 percent a month, below common app-based lender rates of 4 to 15 percent a month, so in most cases the app loan is the more expensive debt and gets the extra payment first, with the card second."
+        "a": "Compare effective monthly rates directly. A card is capped at 3 percent a month, below common app-based lender rates of 4 to 15 percent a month, so in most cases the app loan is the more expensive debt and gets the extra payment first, with the card second."
       }
     ],
     "ctaLead": "See your own payoff order, free",
@@ -1912,6 +1913,340 @@ export const ARTICLE_LIST: GuideArticleData[] = [
         "a": "Yes: Goodbye Debt's free plan shows your two most expensive balances in one view with your projected debt-free date, no bank linking and nothing to pay. If you are juggling four or five plans, the paid tier removes the limit and adds bulk CSV import for exactly that situation."
       }
     ],
+    "ctaLead": "See your own payoff order, free",
+    "ctaSub": "Add your real debts and see your avalanche-ordered plan, your projected debt-free date, and the interest you would save. No bank linking, manual entry or a CSV, and nothing to pay before you see the numbers."
+  },
+  {
+    "slug": "utang-sss-credit-card-kamag-anak",
+    "title": "Utang sa SSS, Credit Card, at Kamag-anak? Alin ang Babayaran Muna",
+    "description": "SSS loan, credit card, at kamag-anak utang: ang totoong presyo ng bawat isa, ang tamang payoff order, at ang tunay na maximum ng SSS salary loan ngayon.",
+    "kicker": "SSS, card, at kamag-anak",
+    "tldr": "I-rank ang tatlong utang ayon sa tunay na interest, hindi sa lakas ng kulit. Sa halimbawa sa ibaba: credit card muna (3 percent kada buwan), SSS salary loan pangalawa (8 percent kada taon), kamag-anak kahuli-hulihan (zero interest). Bayaran ang minimum sa lahat, at ang bawat sobrang piso, sa pinakamahal na utang.",
+    "sections": [
+      {
+        "heading": "Bakit delikado ang sundan ang lakas ng kulit",
+        "paragraphs": [
+          "Tatlong umutang sa iyo, tatlo rin ang magkaibang personalidad nila. Ang kamag-anak ay maaaring mag-text o magpaka-enggrande sa salu-salo, kaya siya ang palaging naririnig mo. Ang credit card ay tahimik: isang email kada buwan, isang statement na madaling ipagpaliban. Ang SSS salary loan, kung employed ka, ay hindi na nga humihingi sa iyo dahil kusa itong ibinabawas sa sahod.",
+          "Ang natural na instinto ay bayaran ang pinakamakulit. Ang problema: hindi pera ang pinakamakulit, at madalas ang pinakatahimik na utang ang siyang kumakain ng pinakamalaking pera kada buwan. Ang utang na may 3 percent kada buwan na finance charge ay hindi nagsisigaw, ngunit kada buwan na hindi ito bumababa ay may 900 pesos kang nawawala sa isang 30,000 na balance. Ang pag-order base sa ingay, sa damdamin, o sa pinakamalapit na due date ay isa sa pinakakaraniwang pagkakamali sa prioritization, at kaya ito ng isang simpleng ranking."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Ang tunay na halaga ng bawat utang",
+        "paragraphs": [
+          "Bago mag-rank, kilalanin muna ang bawat isa sa totoong presyo nito.",
+          "Ang credit card ang pinakamahal na utang sa listahan. Sa ilalim ng BSP Circular 1165 (s. 2023), ang interest o finance charge ng credit card ay may cap na 3 percent kada buwan, o 36 percent kada taon. At hindi ito teoretikal: sa 141 na Philippine card na may published rate, 139 ang siningil sa buong 3 percent. Sa 30,000 na balance, ang finance charge ay mga 900 pesos kada buwan. Ang mas malala, sa maraming card ay halos pantay o mas maliit pa ang minimum due kaysa finance charge: sa 50,000 na balance, ang buwanang singil ay mga 1,500 pesos habang ang karaniwang minimum na 1,250 ay hindi man lang nito natatakpan, kaya lumalaki ang utang kahit nagbabayad ka.",
+          "Ang SSS salary loan ay mura pero may sariling mga patakaran. 8 percent kada taon sa diminishing balance ang presyo nito para sa member na malinis ang record (tataas sa 10 percent kada taon kung nag-avail ka ng penalty condonation sa nakalipas na 5 taon), 24 na buwanang installment, may 1 percent na service fee na ibabawas sa proceeds, at may pro-rated na advance interest din na ibabawas. Ang isang maximum na one-month loan na 20,000 pesos ay mga 904.55 kada buwan sa loob ng 24 buwan, kabuuang mga 21,709, kaya mga 1,709 lang ang interest sa buong term. Sa parehong halaga, ang credit card ay maaaring umabot ng sampung libo o higit pa. Pero tandaan: mura ito habang current ka. Kapag lumagpas sa due date, may 10 percent kada taon na interest at 1 percent kada buwan na parusa ayon sa Circular 2025-004 coverage, at hindi ka makakapag-renew habang may past due na salary loan.",
+          "Ang kamag-anak ay zero interest pero walang kontrata. Walang statement, walang due date, walang naka-print na schedule. Ang interest nito sa pera ay zero, pero may iba itong gastos: lumalaki ang utang sa alaala hindi sa papel, at ang \"bayaran kita kapag may extra\" ay madalas hindi nangyayari. Ang utang na ito ang pinaka-stressful minsan kahit pinakamura sa math."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Ang rule: parehong yunit bago mag-rank",
+        "paragraphs": [
+          "Ang tatlong utang ay naka-price sa tatlong magkaibang yunit, kaya hindi sila diretsonag-pagtapat na mapagkukumpara. I-convert muna sa parehong yunit, ang effective na buwanang presyo:",
+          "Pagkatapos ng conversion, ang rule ay simple: bayaran ang minimum ng bawat utang para walang maging past due, at ang bawat sobrang piso ay ipadala sa tuktok ng ranking. Kapag natapos ang una, ang pondo nito ay lumilipat sa susunod, at ganito tuloy-tuloy hanggang matapos. Ito ang avalanche order, at ito ang nagpapababa ng kabuuang interest."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Utang",
+            "Presyo",
+            "Effective kada buwan"
+          ],
+          "rows": [
+            [
+              "Credit card",
+              "3 percent kada buwan na finance charge (BSP cap)",
+              "3 percent"
+            ],
+            [
+              "SSS salary loan",
+              "8 percent kada taon, diminishing",
+              "mga 0.67 percent"
+            ],
+            [
+              "Kamag-anak",
+              "walang interest",
+              "0 percent"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Worked example: 30,000 card, 20,000 SSS, 15,000 kamag-anak",
+        "paragraphs": [
+          "Ilagay natin sa totoong sitwasyon ang tatlo: 30,000 na credit card balance, 20,000 na natitira sa SSS salary loan, at 15,000 sa kamag-anak.",
+          "Ang SSS loan, kung employed ka, nagbabayad na sa sarili nito sa payroll deduction, kaya hindi ito ang tunay na laban. Ang tunay na laban ay credit card laban sa kamag-anak, at hindi ito malapitang laban.",
+          "Sa credit card na 30,000: kung 2,000 pesos kada buwan ang ilalagay mo, aabutin ito ng mga 21 na buwan at mga 10,456 pesos na interest. Kung kaya mong taasan sa 3,000, 13 buwan na lang at mga 6,203 pesos. Ang dagdag na 1,000 kada buwan ay pumapatay ng 8 buwan at mga 4,250 pesos ng interest, dahil bawat pisong pumapasok sa 3 percent kada buwan na utang ay kumikita sa iyo ng 36 percent kada taon sa naiwasang singil. Ang parehong piso sa SSS loan ay nag-iipon lang ng 8 percent kada taon, at sa kamag-anak ay zero.",
+          "At kung hindi uusad ang card: ang 900 pesos kada buwan na finance charge ay sisingilin habang hindi bumababa ang principal. Ito ang tahimik na sugal na hindi mo naririnig dahil walang kumukulit sa iyo tungkol dito.",
+          "Ang kamag-anak na 15,000, sa math, ay huli. Pero hindi nangangahulugang hindi ito babayaran. May paraan para maging totoong plano ito, at nasa susunod na mga seksyon iyon."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Mga SSS rule na nagpapabago ng plano",
+        "paragraphs": [
+          "Ilang detalye sa SSS side na madalas mali ang balita:",
+          "Magkano ang tunay na maximum. One-month loan: katumbas ng average ng iyong huling 12 posted Monthly Salary Credits, o hanggang 20,000 pesos. Two-month loan: dobleng iyon, o hanggang 40,000 pesos. Kailangan ng 36 posted contributions para sa one-month at 72 para sa two-month, na may 6 sa huling 12 buwan bago ka mag-apply. Ang kumakalat na 70,000 na maximum ay mali sa ilalim ng kasalukuyang rules: ang formula ay kumukuha lang ng MSC sa ilalim ng Regular Social Security Program, at ayon mismo sa SSS contribution page, ang MSC na lagpas 20,000 hanggang 35,000 ay napupunta sa MySSS Pension Booster (MPF) at hindi binibilang sa salary loan. Kaya 20,000 at 40,000 ang praktikal na ceiling ngayon.",
+          "Kung employed ka, hindi ikaw ang nagbabayad. Ang employer ang nagbabawas ng amortization sa payroll, at kung aalis ka sa trabaho, maaaring ibawas ang natitirang balance sa final pay mo. Ibig sabihin: hindi mo kontrolado ang pag-skip nito, na maganda, pero hindi rin ito ang utang na pwede mong dagdagan ng extra peso.",
+          "Kung nag-past due ito, lumalala ang presyo. 10 percent kada taon na interest at 1 percent kada buwan na parusa ang nakalista sa Circular 2025-004 coverage, saka haharangan pa ang pag-renew mo. Kaya kung may SSS loan ka na delayed, ang unang gawin ay ayusin ito, kahit hindi ito ang pinakamura sa papel, dahil ang parusa at ang hinarang na renewal ay totoong gastos din."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Kailan unahin ang kamag-anak kahit zero interest",
+        "paragraphs": [
+          "May dalawang totoong dahilan para ilagay ang kamag-anak sa unahan, at parehong lehitimo:",
+          "Una, ang presyo ng relasyon. Ang utang na walang schedule ay ang utang na hindi natatapos. Ang solusyon ay hindi ang pag-ignore, kundi ang pagbibigay dito ng nakasulat na schedule: halimbawa, 1,500 pesos kada kinsenas, tulad ng isang bill na may due date. Ang utang na may schedule ay natatapos; ang utang na \"kapag may extra\" ay hindi.",
+          "Pangalawa, ang snowball na panalo. Sa halimbawa natin, ang kamag-anak ang pinakamaliit (15,000). Kung unahin mo ito ng 5,000 kada buwan, mga 3 buwan lang at wala na. Ang presyo ng pag-detour na ito ay mga 2,700 pesos na finance charge ng card sa mga buwang iyon, dahil habang nasa kamag-anak ang extra piso, kumikita pa rin ang 3 percent na singil ng card. Iyon ang totoong halaga ng panalo at ng panatahimik ng pinaka-stressful na creditors mo, at ikaw lang ang makakapagdesisyon kung sulit ito. Ang Goodbye Debt ay may avalanche at snowball toggle para makita mo ang eksaktong pagkakaiba ng dalawang order sa sarili mong numero, hindi sa puro teorya.",
+          "Ang hindi pwede ay ang walang desisyon: ang utang na binabayaran \"kung kailan may pera\" ay ang utang na laging nandiyan."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Ang limitasyon ng free tier, sinabi nang tapat",
+        "paragraphs": [
+          "Ang sitwasyon sa artikulong ito ay tatlong utang, at ang libreng plano ng Goodbye Debt ay tumatakbo ng buong engine sa dalawang utang. Ang libreng plano pa rin ang nagpapakita ng dalawang pinakamahal mong balance, ng avalanche order sa pagitan nila, ng projected debt-free date mo, at ng totoong pagkakaiba ng interest ng isang consistent na order. Kung tatlo o higit pa ang utang mo, ang paid tier ang naka-design para eksakto sa sitwasyong iyon: inaalis ang two-debt limit, may snowball at custom hybrid strategy, at may bulk CSV import para maraming utang ang maipasok nang sabay-sabay.",
+          "Isang tapat na paalala din: walang bank linking ang app, kaya mano-mano ang pagpasok ng bawat utang mula sa statement o app ng bawat lender. Deliberate iyon, walang bank credentials sa third-party app, pero ang unang setup ay aabutin ng mga 15 hanggang 20 minuto sa isang tatlong-utang na sitwasyon. Isang beses lang iyon, hindi kada linggo."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Makita ang sarili mong payoff order",
+        "paragraphs": [
+          "Ipasok ang totoong halaga ng bawat utang, kasama ang totoong interest rate ng bawat isa, at ipapakita ng Goodbye Debt ang ranked order, ang projected debt-free date, at ang perang matitipid mo. Kung gusto mong makita ang pagkakaiba ng \"math muna\" at \"panalo muna\", nandiyan ang avalanche at snowball toggle. Walang bayad bago mo makita ang sarili mong numero."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Mga madalas itanong",
+        "paragraphs": [],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": [
+          {
+            "text": "Kamag-anak muna o credit card?:",
+            "paragraphs": [
+              "Sa math, credit card muna, dahil 3 percent kada buwan ang singil nito habang ang kamag-anak ay zero. Pero ang kamag-anak ay dapat may nakasulat na schedule at fixed na halaga kada sahod, hindi \"kapag may extra\", dahil ang utang na walang schedule ay hindi natatapos. Kung ang relasyon ang priority mo ngayon, ang snowball order ay totoong opsyon, at ang presyo nito ay makikita sa toggle."
+            ]
+          },
+          {
+            "text": "Magkano ang tunay na maximum na SSS salary loan?:",
+            "paragraphs": [
+              "Hanggang 20,000 pesos sa one-month loan at 40,000 pesos sa two-month loan sa ilalim ng kasalukuyang rules. Ang formula ay gumagamit lang ng MSC sa ilalim ng Regular SS Program na may 20,000 na ceiling; ang kontribusyon sa lagpas 20,000 ay napupunta sa MySSS Pension Booster at hindi binibilang. Kailangan ng 36 posted contributions para sa one-month at 72 para sa two-month."
+            ]
+          },
+          {
+            "text": "Ano ang mangyayari kung hindi mabayaran ang SSS salary loan?:",
+            "paragraphs": [
+              "Dadagdan ito ng 10 percent kada taon na interest at 1 percent kada buwan na parusa ayon sa Circular 2025-004 coverage, haharangan ang pag-renew mo hanggang mabayaran, at kung employed ka, maaaring singilin ang buong balance sa final pay mo kapag umalis ka sa trabaho. Kaya kung delayed ito, unahin ang pag-ayos nito."
+            ]
+          },
+          {
+            "text": "Bakit uunahin ang credit card kung zero interest ang utang sa kamag-anak?:",
+            "paragraphs": [
+              "Dahil ang zero interest na utang ay hindi lumalaki, pero ang 3 percent kada buwan na card ay lumalaki kada buwan na hindi ito nababawasan. Bawat pisong naiwasang singil sa card ay 36 percent kada taon na tipid. Ang kamag-anak ay may ibang presyo, ang relasyon, at iyon ang sinosolusyunan ng nakasulat na schedule, hindi ng paglalagay nito sa unahan ng math."
+            ]
+          },
+          {
+            "text": "Kaya ba ng libreng plano ang tatlong utang?:",
+            "paragraphs": [
+              "Ang libreng plano ay nagpapakita ng dalawang pinakamahal na balance at ng avalanche order sa pagitan nila, kasama ang debt-free date. Sa tatlong utang pataas, ang paid tier ang tugma: walang two-debt limit, may snowball at custom hybrid, at may bulk CSV import. Parehong may manual entry, walang bank linking."
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [],
+    "ctaLead": "See your own payoff order, free",
+    "ctaSub": "Add your real debts and see your avalanche-ordered plan, your projected debt-free date, and the interest you would save. No bank linking, manual entry or a CSV, and nothing to pay before you see the numbers."
+  },
+  {
+    "slug": "home-credit-sss-credit-card-plano",
+    "title": "Home Credit, SSS Loan, at Credit Card Utang: Paano Gumawa ng Isang Plano",
+    "description": "Home Credit cash loan, SSS salary loan, at credit card utang: ang totoong effective na presyo ng bawat isa, ang tamang payoff order, at ang Home Credit late ladder.",
+    "kicker": "Home Credit, SSS, at card",
+    "tldr": "I-convert muna ang tatlong utang sa iisang yunit, ang effective na halaga kada buwan, bago magdesisyon. Sa halimbawa sa ibaba: credit card muna (3 percent kada buwan), Home Credit pangalawa (2.91 percent effective sa ginamit na offer), SSS salary loan kahuli-hulihan (mga 0.67 percent). Pero hindi fixed ang order: sa average na Home Credit offer na 3.89 percent effective, pwede itong umaakyat sa unahan.",
+    "sections": [
+      {
+        "heading": "Bakit magkaiba ang hugis ng tatlong utang",
+        "paragraphs": [
+          "Hindi lang ang interest ang pinagkaiba ng tatlong ito. Iba rin ang hugis ng kada isa, at ang hugis ang nagdedetermina kung ano ang kaya mong kontrolin.",
+          "Ang Home Credit cash loan ay fixed na installment: isang halaga kada buwan, pare-pareho, hanggang matapos ang term. Hindi mo ito pwedeng bawasan ng pansamantala kapag masikip ang buwan, at hindi rin ito lumalaki habang current ka. Ang kapalit ng katiyakan: hindi rin ito pwedeng pahintuin nang walang kasunod na parusa, at makikita mo sa ibaba kung gaano kalaki ang mga parusang iyon.",
+          "Ang SSS salary loan, kung employed ka, ay ibinabawas mismo sa sahod mo. Hindi ikaw ang gumagawa ng bayad kada buwan, kaya hindi rin ito ang utang na pwede mong dagdagan ng extra piso. Ang kontrol mo dito ay nasa unahan: sa pag-apply at sa pag-iwas sa past due.",
+          "Ang credit card ang kabaligtaran ng Home Credit: revolving ito. Kaya mong bayaran ang buo at walang interest, o i-revolve at magdala ng 3 percent kada buwan na finance charge. Ito ang utang na kaya mong gawing maliit o gagawing laki, kaya nasa iyo ang desisyon, at kaya nito sirain ang plano kapag iniwan lang sa minimum."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Ang tunay na halaga ng bawat utang",
+        "paragraphs": [
+          "Ang credit card: 3 percent kada buwan, at hindi teoretikal iyon. Sa ilalim ng BSP Circular 1165 (s. 2023), ang finance charge ng credit card ay may cap na 3 percent kada buwan, o 36 percent kada taon. Sa 141 na Philippine card na may published rate, 139 ang siningil sa buong 3 percent. Sa 30,000 na balance, mga 900 pesos kada buwan ang finance charge. At ang mas mapanira pa: sa 50,000 na balance, mga 1,500 pesos kada buwan ang singil habang ang karaniwang minimum na 1,250 ay kulang dito, kaya lumalaki ang utang kahit nagbabayad ka ng minimum.",
+          "Ang Home Credit cash loan: maliit ang nakalagay na rate, pero may kasamang iba. Ang sariling Table of Fees and Charges ng Home Credit (updated as of October 2025) ay naglalista ng nominal interest rate na 1.49 hanggang 8.99 percent kada buwan, depende sa offer sa iyo, at isang average na 3.89 percent kada buwan na effective interest rate sa kabuuan. Ang unahan ng 1.49 ay ang pinakamababang offer, hindi ang karaniwan. May processing fee din na hanggang 500 pesos na ibabawas mismo sa proceeds, kaya ang 20,000 na loan ay mga 19,500 lang ang dating sa iyo. At may mga conditional charges na maaaring makasabit sa account: Loan Extra Care fee na hanggang 99 pesos kada buwan at Borrower Protection na hanggang 500 pesos kada buwan, depende sa mga produktong nakadugtong sa loan mo.",
+          "Ang SSS salary loan: ang pinakamura sa tatlo. 8 percent kada taon sa diminishing balance, 24 na buwanang installment, at may 1 percent na service fee na ibabawas sa proceeds. Ang maximum na one-month loan na 20,000 pesos ay mga 904.55 kada buwan sa loob ng 24 buwan, kabuuang mga 21,709, kaya mga 1,709 lang ang buong interest. I-convert sa buwanan, mga 0.67 percent kada buwan iyan bago pa ang kaunting epekto ng service fee. Kumpara sa 900 pesos kada buwan na finance charge ng 30,000 card, malayo ang agwat."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Ang rule: parehong yunit bago mag-rank",
+        "paragraphs": [
+          "Ang tatlong utang ay naka-price sa magkaibang paraan: ang card ay kada buwan sa outstanding balance, ang Home Credit ay fixed installment na may kasamang fees, ang SSS ay taunang rate na binabawas sa sahod. Hindi sila diretso magkatapat, kaya i-convert muna:",
+          "Ang overlap ang mahalagang kitaan: ang pinakamurang Home Credit offer ay mas mura pa sa card, pero ang average na offer na 3.89 percent effective ay mas mahal na. Kaya hindi pwede ang hula: ang offer screen mo mismo, o ang Loan Disclosure Statement mo, ang nagsasabi kung alin sa dalawa ang mas mahal sa iyo. Ang SSS, sa lahat ng makatotohanang senaryo, ay huli sa ranking.",
+          "Pagkatapos ng conversion, ang rule ay iisa: bayaran ang minimum ng lahat para walang maging past due, at ang bawat sobrang piso ay ipadala sa tuktok. Kapag natapos ang una, lumilipat ang pondo sa susunod, hanggang matapos. Ito ang avalanche order."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Utang",
+            "Presyo",
+            "Effective kada buwan"
+          ],
+          "rows": [
+            [
+              "Credit card",
+              "3 percent kada buwan na finance charge (BSP cap)",
+              "3 percent, bago pa ang mga fee"
+            ],
+            [
+              "Home Credit cash loan",
+              "1.49 hanggang 8.99 percent nominal, depende sa offer",
+              "mga 2.9 hanggang 3.9 percent sa tipikal na offer, kasama ang processing fee"
+            ],
+            [
+              "SSS salary loan",
+              "8 percent kada taon, diminishing",
+              "mga 0.67 percent"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Worked example: 30,000 card, 20,000 Home Credit, 20,000 SSS",
+        "paragraphs": [
+          "Ilagay natin sa isang totoong sitwasyon: 30,000 na credit card balance, 20,000 na natitira sa Home Credit cash loan, at 20,000 na SSS salary loan na binabawas sa sahod.",
+          "Ang SSS ay nagbabayad sa sarili nito sa payroll deduction, kaya wala ito sa tunay na laban. Ang laban ay card laban Home Credit.",
+          "Sa Home Credit na 20,000 sa 12 buwan sa 2.49 percent na nominal rate: mga 1,948.56 kada buwan, kabuuang mga 23,383, kaya mga 3,383 ang interest sa buong term. Idagdag ang 500 na processing fee na ibabawas sa proceeds at ang effective na halaga ay umaakyat sa mga 2.91 percent kada buwan. Sa kabilang panig, ang card na 30,000: kung 2,000 pesos kada buwan ang ilalagay mo, aabutin ito ng mga 21 na buwan at mga 10,456 pesos na interest sa 3 percent kada buwan na singil.",
+          "Dito lumalabas ang desisyon: sa halimbawang ito, ang extra piso ay napupunta sa card, dahil 3 percent ito laban sa 2.91 percent effective ng Home Credit offer. Pero ang agwat ay halos wala. Kung ang offer na natanggap mo ay nasa average na 3.89 percent effective, babaliktad ang order: Home Credit muna, card pangalawa. Ang parehong piso sa SSS ay nagtitipid lang ng 8 percent kada taon, kaya huli ito sa lahat ng senaryo.",
+          "May isa pang dahilan kung bakit delikado ang card na iwanan sa dulo: ang minimum na 1,250 sa 50,000 na balance ay hindi man lang natatakpan ng 1,500 na finance charge. Ang Home Credit na current ka ay hindi lumalaki; ang card na minimum lang ang binabayaran ay lumalaki kada buwan."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Mga Home Credit rule na nagpapabago ng plano",
+        "paragraphs": [
+          "Ang processing fee ay hindi dagdag sa utang, kural ito sa matatanggap mo. Hanggang 500 pesos, ibinabawas sa proceeds bago pa ito dumating sa iyo. Kaya ang totoong halaga ng loan ay hindi ang nakasulat na principal, kundi ang principal minus fee versus ang kabuuang binabayaran mo.",
+          "May bayad ang pag-bago ng isip. Full o partial early repayment: 300 pesos. Change due date: 300 pesos. Kung plano mong bayaran nang maaga, isama ang 300 sa computation; kahit may fee, ang matitipid na interest sa maagang pagsara ay karaniwang mas malaki pa rin.",
+          "Ang late ladder ay mabigat, at nagtatapos sa 40 percent. Ayon sa sariling disclosure table ng Home Credit: 5 araw na hindi pagbayad, hanggang 300 pesos; 30 araw, hanggang 700; 60 araw, hanggang 1,000; sa 90 araw na hindi pagbayad, termination fee na 40 percent ng outstanding principal; at bawat 120 araw hanggang 270 araw, dagdag na 2 percent ng outstanding principal. May 5,000 pesos pang attorney fee sa dulo. Ang mga \"hanggang\" na salita ay mahalaga, pero ang hugis ng ladder ay totoo: ang default na ito ay mas mabigat kaysa 1 percent kada buwan na parusa ng SSS loan.",
+          "Hindi pwedeng i-pause ang installment. Walang \"next month na lang\" na opsyon na walang kasamang parusa mula sa ladder sa itaas. Kaya kung napipinto ang kagipitan, ang card at ang kamag-anak ay mas pwedeng paggalawan pansamantala kaysa Home Credit, at iyan ay dapat isaalang-alang sa pagpapili ng order, hindi lang ang interest."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Mga SSS rule, maikli lang",
+        "paragraphs": [
+          "Tatlo lang ang kailangan mong tandaan dito, dahil may kumpletong artikulo na para sa SSS side. Una, kung employed ka, ang employer ang nagbabawas, kaya hindi mo ito kontrolado kada buwan. Pangalawa, ang tunay na maximum ngayon ay 20,000 sa one-month loan at 40,000 sa two-month, dahil ang formula ay kumukuha lang ng Monthly Salary Credit sa ilalim ng Regular SS Program na may 20,000 na ceiling; ang kumakalat na 70,000 ay mali. Pangatlo, kapag nag-past due ito, may 10 percent kada taon na interest at 1 percent kada buwan na parusa, at haharangan pa ang pag-renew mo. Kung may SSS loan kang delayed, ayusin muna iyon kahit hindi ito ang pinakamura sa papel."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Kailan unahin ang Home Credit kahit installment na nga ito",
+        "paragraphs": [
+          "Dalawang sitwasyon ang naglalagay sa Home Credit sa unahan kahit fixed installment ito.",
+          "Una, kung ang offer mo ay nasa average o mas mataas: 3.89 percent effective ay lumalagpas na sa 3 percent na cap ng card, at wala pang kasamang dagdag na fees ng card tulad ng cash advance fee o annual fee. Pangalawa, kung ang card mo ay nasa minimum-payment trap: ang balance na lumalaki kahit nagbabayad ka ay mas mapanira kaysa fixed installment na hindi lumalaki habang current ka. Sa ganyang sitwasyon, ang pagpapatahimik muna sa card ay pagtatanggol, hindi pagpapabinata ng plano.",
+          "Ang hindi pwede ay ang paglapag ng Home Credit sa dulo dahil lang may fixed at komportableng halaga ito kada buwan. Ang komportableng utang ay hindi laging ang murang utang."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Ang limitasyon ng free tier, sinabi nang tapat",
+        "paragraphs": [
+          "Tatlong utang ang sitwasyon ng artikulong ito, at ang libreng plano ng Goodbye Debt ay tumatakbo ng buong engine sa dalawang utang. Ang libreng plano pa rin ang nagpapakita ng dalawang pinakamahal mong balance, ng avalanche order sa pagitan nila, ng projected debt-free date mo, at ng pagkakaiba ng interest ng isang consistent na order. Sa tatlong utang pataas, ang paid tier ang tugma: walang two-debt limit, may snowball at custom hybrid strategy, at may bulk CSV import.",
+          "Tapat na paalala din: walang bank linking ang app, kaya mano-mano ang pagpasok ng bawat utang mula sa statement o offer screen ng bawat lender. Sa tatlong-utang na sitwasyon, mga 15 hanggang 20 minuto ang unang setup. Isang beses lang iyon."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Makita ang sarili mong payoff order",
+        "paragraphs": [
+          "Ipasok ang totoong halaga, totoong rate, at totoong buwanang bayad ng bawat utang, at ipapakita ng Goodbye Debt ang ranked order, ang projected debt-free date, at ang perang matitipid mo. Kung gusto mong makita ang dalawang order na magkatabi, nandiyan ang avalanche at snowball toggle. Walang bayad bago mo makita ang sarili mong numero."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Mga madalas itanong",
+        "paragraphs": [],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": [
+          {
+            "text": "Alin ang unahin: Home Credit o credit card?:",
+            "paragraphs": [
+              "I-depende sa effective na halaga ng dalawa, hindi sa hugis. Kalkulahin ang Home Credit offer mo kasama ang processing fee: kung nasa 2.9 percent effective ito, mukhang ang card ang unahin dahil 3 percent ito; kung nasa 3.9 percent, Home Credit muna. Ang SSS ay laging huli sa math. Ang card na nasa minimum-payment trap lamang ang ekssepsyon: unahin ito dahil lumalaki ito kahit nagbabayad ka."
+            ]
+          },
+          {
+            "text": "Bakit mataas ang effective ng Home Credit kahit maliit ang nakalagay na rate?:",
+            "paragraphs": [
+              "Dahil ang nakalagay na rate ay nominal at per offer, habang ang totoong presyo ay may kasamang processing fee na ibinabawas sa proceeds at mga conditional charges na maaaring makasabit sa account. Ang sariling disclosure ng Home Credit ang nagsasabi ng average: 3.89 percent kada buwan na effective. Kaya ang 1.49 na nakikita mo ay hindi ang binabayaran mo kada buwan sa kabuuan."
+            ]
+          },
+          {
+            "text": "Ano ang mangyayari kung hindi mabayaran ang Home Credit cash loan?:",
+            "paragraphs": [
+              "Sumusunod ito sa late ladder ng disclosure table nila: hanggang 300 pesos sa 5 araw, hanggang 700 sa 30 araw, hanggang 1,000 sa 60 araw, at termination fee na 40 percent ng outstanding principal sa 90 araw, na may dagdag na 2 percent bawat 120 araw hanggang 270 araw at 5,000 na attorney fee. Kaya kung alam mong may masisiraang buwan, kausapin sila bago pa tumama ang unang parusa, at ilayo ang plano sa ladder na iyan."
+            ]
+          },
+          {
+            "text": "Pwede ba bayaran nang maaga ang Home Credit cash loan?:",
+            "paragraphs": [
+              "Pwede, full o partial, sa 300 pesos na fee bawat request. Sa karamihan ng kaso, ang matitipid na interest sa maagang pagsara ay mas malaki pa rin kaysa 300, kaya kalkulahin ang dalawa bago magdesisyon. Ang bayad na ito ay isa sa mga dahilan kung bakit dapat totoong binabasa ang offer screen bago ang loan, hindi pagkatapos."
+            ]
+          },
+          {
+            "text": "Kaya ba ng libreng plano ang tatlong utang?:",
+            "paragraphs": [
+              "Ang libreng plano ay nagpapakita ng dalawang pinakamahal na balance at ng avalanche order sa pagitan nila, kasama ang debt-free date. Sa tatlong utang pataas, ang paid tier ang tugma: walang two-debt limit, may snowball at custom hybrid, at may bulk CSV import. Parehong may manual entry at walang bank linking."
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [],
     "ctaLead": "See your own payoff order, free",
     "ctaSub": "Add your real debts and see your avalanche-ordered plan, your projected debt-free date, and the interest you would save. No bank linking, manual entry or a CSV, and nothing to pay before you see the numbers."
   },

@@ -299,19 +299,19 @@ const body = `
   <div class="wrap">
     <div class="kicker">The Roadmap</div>
     <h2 class="display">This is just Phase 1. Here's where Goodbye Debt is going.</h2>
-    <p class="lede">You're joining at the ground floor. Every new member pushes us toward the next phase — more tools, more ways to get ahead of your debt for good.</p>
+    <p class="lede">You're joining at the ground floor. Every new member pushes us toward the next phase: more tools, more ways to get ahead of your debt for good.</p>
     <div class="phase-grid">
       <div class="phase-card">
         <div class="phase-num">01</div>
         <span class="phase-status live">Live now</span>
-        <h3>MVP &mdash; Kill Your Debt</h3>
+        <h3>MVP: Kill Your Debt</h3>
         <p>Debt tracking, the avalanche / snowball / hybrid payoff engine, CSV &amp; PDF statement import, the Debt Slayers community, and your profile &amp; journey timeline.</p>
       </div>
       <div class="phase-card">
         <div class="phase-num">02</div>
         <span class="phase-status">Next up</span>
         <h3>Education</h3>
-        <p>Bite-sized money education built right into the app &mdash; so you don't just get out of debt, you learn how to stay out.</p>
+        <p>Bite-sized money education built right into the app, so you don't just get out of debt, you learn how to stay out.</p>
       </div>
       <div class="phase-card">
         <div class="phase-num">03</div>
@@ -323,7 +323,7 @@ const body = `
         <div class="phase-num">04</div>
         <span class="phase-status">Planned</span>
         <h3>Skill Development</h3>
-        <p>Level up the skills that grow your income for the long run &mdash; building on the earning opportunities from Phase 3.</p>
+        <p>Level up the skills that grow your income for the long run, building on the earning opportunities from Phase 3.</p>
       </div>
     </div>
     <p class="lede" style="margin-top:32px;">Each phase unlocks as the community grows. <a href="/login?mode=signup" style="color:var(--green-bright); font-weight:700;">Join free</a> and help us get there faster.</p>
@@ -397,7 +397,6 @@ const body = `
   <div class="wrap">
     <div class="logo"><span class="dot"></span>GOODBYE DEBT</div>
     <div>&copy; 2026 Goodbye Debt. All rights reserved.</div>
-    <div style="margin-top:8px;">Developed and designed by <a href="https://malayapublishing.com" style="color:var(--gold); font-weight:700;">Malaya Publishing</a></div>
   </div>
 </footer>
 `;

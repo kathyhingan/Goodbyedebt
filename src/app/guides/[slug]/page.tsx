@@ -115,7 +115,6 @@ const footerHtml = `
   <div class="wrap">
     <div class="footer-logo"><span class="dot"></span>GOODBYE DEBT</div>
     <div>&copy; 2026 Goodbye Debt. All rights reserved.</div>
-    <div style="margin-top:8px;">Developed and designed by <a href="https://malayapublishing.com" style="color:var(--gold); font-weight:700;">Malaya Publishing</a></div>
   </div>
 </footer>
 `;
