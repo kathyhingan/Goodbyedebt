@@ -97,6 +97,10 @@ export async function POST(request: NextRequest) {
   bodyParams.set("success_url", `${origin}/for-coaches?checkout=success&plan=${plan.id}`);
   bodyParams.set("cancel_url", `${origin}/for-coaches?checkout=cancelled`);
   bodyParams.set("client_reference_id", plan.id);
+  // Let buyers enter Stripe promotion codes at checkout (coupons are created
+  // in the Stripe dashboard). First use: a $48-off coupon for a $1 live smoke
+  // test of the monthly plan without paying the full $49.
+  bodyParams.set("allow_promotion_codes", "true");
   if (supabaseUserId) {
     bodyParams.set("metadata[supabase_user_id]", supabaseUserId);
   }
