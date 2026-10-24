@@ -99,7 +99,7 @@ function runStrategy(debts: Debt[], strategy: Strategy, extra: number): Strategy
   };
 }
 
-export default function PayoffCalculatorEmbed() {
+export default function PayoffCalculatorEmbed({ slug = "which-debt-to-pay-off-first" }: { slug?: string }) {
   const [rows, setRows] = useState<RowState[]>(DEFAULT_ROWS);
   const [extra, setExtra] = useState("2000");
   // Gated by default so the static prerender ships the gate, never the
@@ -345,7 +345,10 @@ export default function PayoffCalculatorEmbed() {
             real debts, and see your full plan, your exact debt-free date, and what
             every extra peso saves you.
           </p>
-          <a className="calc-gate-cta" href="/login?mode=signup">
+          <a
+            className="calc-gate-cta"
+            href={`/login?mode=signup&utm_source=blog&utm_medium=payoff-calculator&utm_campaign=${slug}`}
+          >
             Create my free account &rarr;
           </a>
           <p className="calc-disclaimer">

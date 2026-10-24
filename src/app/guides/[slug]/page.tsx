@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ARTICLE_LIST as articles } from "@/lib/content/articles";
 import PayoffCalculatorEmbed from "@/components/guides/PayoffCalculatorEmbed";
+import { FoundingSeats } from "@/components/FoundingSeats";
 
 // The flagship guide's whole differentiator (content calendar, article 1):
 // the payoff calculator embedded in-page, not just linked out. Rendered right
@@ -100,7 +101,7 @@ const css = `
 
 const navHtml = `
 <header class="nav">
-  <div class="nav-banner">Free forever for the first 100 users. <strong>98 Founding Debt Slayers seats left.</strong></div>
+  <div class="nav-banner">Free forever for the first 100 users. <strong><span id="gd-seats-left">86</span> Founding Debt Slayers seats left.</strong></div>
   <div class="nav-inner">
     <a href="/" class="logo"><span class="dot"></span>GOODBYE DEBT</a>
     <nav class="nav-links">
@@ -134,6 +135,7 @@ export default function GuideArticle({ params }: { params: Params }) {
       <div className="gd-guides">
         <style dangerouslySetInnerHTML={{ __html: css }} />
         <div dangerouslySetInnerHTML={{ __html: navHtml }} />
+        <FoundingSeats />
         <div className="article-wrap">
           <h1>Guide not found</h1>
           <p style={{ marginTop: 16, color: "#8b9a83", fontSize: 15 }}>
@@ -153,6 +155,7 @@ export default function GuideArticle({ params }: { params: Params }) {
     <div className="gd-guides">
       <style dangerouslySetInnerHTML={{ __html: css }} />
       <div dangerouslySetInnerHTML={{ __html: navHtml }} />
+      <FoundingSeats />
       <div className="article-wrap">
         <span className="article-kicker">{article.kicker}</span>
         <h1>{article.title}</h1>
@@ -223,7 +226,7 @@ export default function GuideArticle({ params }: { params: Params }) {
                   ))
                 : null}
               {slug === CALCULATOR_SLUG && s.heading === CALCULATOR_ANCHOR_HEADING ? (
-                <PayoffCalculatorEmbed />
+                <PayoffCalculatorEmbed slug={slug} />
               ) : null}
             </section>
           ))}
@@ -240,7 +243,10 @@ export default function GuideArticle({ params }: { params: Params }) {
         <div className="article-cta">
           <div className="lead">{article.ctaLead}</div>
           <div className="sub">{article.ctaSub}</div>
-          <Link href="/login?mode=signup" className="btn-primary">
+          <Link
+            href={`/login?mode=signup&utm_source=blog&utm_medium=guide&utm_campaign=${slug}`}
+            className="btn-primary"
+          >
             Start Free. See Your Plan &rarr;
           </Link>
         </div>

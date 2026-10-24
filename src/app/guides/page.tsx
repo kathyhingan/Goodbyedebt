@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ARTICLE_LIST as articles } from "@/lib/content/articles";
+import { FoundingSeats } from "@/components/FoundingSeats";
 
 export const metadata: Metadata = {
   title: "Debt Payoff Guides for Filipino Debts | Goodbye Debt",
@@ -94,7 +95,7 @@ const css = `
 
 const navHtml = `
 <header class="nav">
-  <div class="nav-banner">Free forever for the first 100 users. <strong>98 Founding Debt Slayers seats left.</strong></div>
+  <div class="nav-banner">Free forever for the first 100 users. <strong><span id="gd-seats-left">86</span> Founding Debt Slayers seats left.</strong></div>
   <div class="nav-inner">
     <a href="/" class="logo"><span class="dot"></span>GOODBYE DEBT</a>
     <nav class="nav-links">
@@ -170,6 +171,7 @@ export default function GuidesIndex() {
     <div className="gd-guides">
       <style dangerouslySetInnerHTML={{ __html: css }} />
       <div dangerouslySetInnerHTML={{ __html: navHtml }} />
+      <FoundingSeats />
 
       <section className="guides-hero">
         <div className="wrap">
@@ -181,12 +183,15 @@ export default function GuidesIndex() {
             guesses.
           </h1>
           <p className="hero-sub">
-            14 guides built on real Philippine lender rates: snowball vs avalanche, every major
-            lender converted to the same unit, what the law actually says about unpaid debt, and
-            the card mechanics nobody explains plainly.
+            {articles.length} guides built on real Philippine lender rates: snowball vs avalanche,
+            every major lender converted to the same unit, what the law actually says about unpaid
+            debt, and the card mechanics nobody explains plainly.
           </p>
           <div className="hero-ctas">
-            <Link href="/login?mode=signup" className="btn-primary">
+            <Link
+              href="/login?mode=signup&utm_source=blog&utm_medium=guides-hub&utm_campaign=guides-index"
+              className="btn-primary"
+            >
               Start Free. See Your Plan &rarr;
             </Link>
             <span className="hero-note">
