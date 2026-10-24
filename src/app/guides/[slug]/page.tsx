@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ARTICLE_LIST as articles } from "@/lib/content/articles";
+import PayoffCalculatorEmbed from "@/components/guides/PayoffCalculatorEmbed";
+
+// The flagship guide's whole differentiator (content calendar, article 1):
+// the payoff calculator embedded in-page, not just linked out. Rendered right
+// after the section whose heading matches this anchor.
+const CALCULATOR_SLUG = "which-debt-to-pay-off-first";
+const CALCULATOR_ANCHOR_HEADING = "See your own plan, not an example";
 
 type Params = { slug: string };
 
@@ -215,6 +222,9 @@ export default function GuideArticle({ params }: { params: Params }) {
                     </div>
                   ))
                 : null}
+              {slug === CALCULATOR_SLUG && s.heading === CALCULATOR_ANCHOR_HEADING ? (
+                <PayoffCalculatorEmbed />
+              ) : null}
             </section>
           ))}
         </div>

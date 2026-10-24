@@ -89,6 +89,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "See your own plan, not an example",
         "paragraphs": [
+          "You do not have to take any of that on faith, either: the calculator below runs right here on this page. It comes preloaded with the three example debts from the sections above, and you can edit the balances, rates, and payments, add a fourth debt, and watch both orders recompute instantly. Nothing you type is saved or sent anywhere; it is a quick sandbox for seeing your own situation instead of imagining it.",
           "This is the part most articles cannot do and Goodbye Debt was built specifically to do: add your real debts, in the free plan if you have two or fewer, and see your actual avalanche-ordered payoff plan in the time it takes to read this far. No bank linking. Manual entry or a CSV if you already have your balances in a spreadsheet. No card required, and nothing to pay, before you see the plan.",
           "What you get on the free plan: the full avalanche engine running on your two biggest debts, your projected debt-free date, and the real interest difference between your current plan and doing nothing differently. That is the entire point of \"see the math before you decide anything\": the numbers come first, every time, and what you do with them after that is up to you."
         ],
