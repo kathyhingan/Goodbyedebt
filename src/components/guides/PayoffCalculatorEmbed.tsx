@@ -1,11 +1,15 @@
 "use client";
 
 /**
- * In-guide debt payoff calculator (no signup, client-side).
+ * In-guide debt payoff calculator (signup-gated, client-side).
+ *
+ * Kathy's rule: readers must sign up to use it. Server render and anonymous
+ * visitors get the signup gate; only a confirmed session flips the embed to
+ * the calculator, and the flip happens client-side after the auth check.
  *
  * Runs the real Goodbye Debt projection engine (src/lib/engine) on editable
- * example debts so a reader can see avalanche vs snowball on numbers like
- * theirs without leaving the article. This is a sandbox: nothing is saved.
+ * example debts so a signed-in reader can see avalanche vs snowball on numbers
+ * like theirs without leaving the article. This is a sandbox: nothing is saved.
  * A saved plan on the reader's real debts starts in the app's free plan.
  *
  * Rates are entered the way Philippine lenders quote them (percent per
@@ -13,7 +17,9 @@
  * engine (x12). Amounts are pesos.
  */
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { createClient } from "@/lib/supabase/client";
+import { isSupabaseConfigured } from "@/lib/supabase/config";
 import {
   compareToMinimumsOnly,
   prioritize,
@@ -96,6 +102,25 @@ function runStrategy(debts: Debt[], strategy: Strategy, extra: number): Strategy
 export default function PayoffCalculatorEmbed() {
   const [rows, setRows] = useState<RowState[]>(DEFAULT_ROWS);
   const [extra, setExtra] = useState("2000");
+  // Gated by default so the static prerender ships the gate, never the
+  // calculator. Only a verified signed-in session unlocks it.
+  const [unlocked, setUnlocked] = useState(false);
+
+  useEffect(() => {
+    if (!isSupabaseConfigured) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const { data } = await createClient().auth.getUser();
+        if (!cancelled && data.user) setUnlocked(true);
+      } catch {
+        /* any auth failure stays gated */
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const debts = useMemo(
     () => rows.map((r, i) => toDebt(r, i)).filter((d) => d.balance > 0),
@@ -151,6 +176,9 @@ export default function PayoffCalculatorEmbed() {
 .gd-calc .calc-cta{display:inline-block; margin-top:18px; background:var(--green); color:#fff; font-weight:800; font-size:13.5px; padding:12px 20px; border-radius:100px; letter-spacing:0.3px;}
 .gd-calc .calc-cta:hover{transform:scale(1.03);}
 .gd-calc .calc-disclaimer{font-size:11.5px; color:var(--muted); margin-top:14px; line-height:1.5;}
+.gd-calc .calc-gate-cta{display:inline-block; margin-top:16px; background:var(--green); color:#fff; font-weight:800; font-size:13.5px; padding:12px 20px; border-radius:100px; letter-spacing:0.3px; text-decoration:none;}
+.gd-calc .calc-gate-cta:hover{transform:scale(1.03);}
+.gd-calc .calc-gate-cta + .calc-disclaimer a, .gd-calc .calc-disclaimer a{color:var(--green-bright);}
 @media(max-width:639px){
   .gd-calc .calc-row{grid-template-columns:1fr 1fr; }
   .gd-calc .calc-row .calc-cred{grid-column:1 / -1;}
@@ -161,6 +189,8 @@ export default function PayoffCalculatorEmbed() {
 `,
         }}
       />
+      {unlocked ? (
+        <>
       <div className="calc-kicker">Try it right here</div>
       <p className="calc-title">See both orders on your own numbers</p>
       <p className="calc-sub">
@@ -295,8 +325,8 @@ export default function PayoffCalculatorEmbed() {
         </p>
       ) : null}
 
-      <a className="calc-cta" href="/login?mode=signup">
-        Save the real plan, start free &rarr;
+      <a className="calc-cta" href="/dashboard">
+        Open your plan in the app &rarr;
       </a>
 
       <p className="calc-disclaimer">
@@ -304,6 +334,26 @@ export default function PayoffCalculatorEmbed() {
         monthly interest math, not your actual statements. Nothing you enter here is
         saved or sent anywhere. Your rates may differ; check your own loan terms.
       </p>
+        </>
+      ) : (
+        <div>
+          <div className="calc-kicker">For Debt Slayers</div>
+          <p className="calc-title">Create a free account to run the calculator</p>
+          <p className="calc-sub">
+            The payoff calculator runs on the same engine as the app, on numbers you
+            type in. It lives inside your free Goodbye Debt account: sign up, add your
+            real debts, and see your full plan, your exact debt-free date, and what
+            every extra peso saves you.
+          </p>
+          <a className="calc-gate-cta" href="/login?mode=signup">
+            Create my free account &rarr;
+          </a>
+          <p className="calc-disclaimer">
+            Free forever for the first 100 founding members. Already have an account?{" "}
+            <a href="/login">Sign in</a> and the calculator unlocks on this page.
+          </p>
+        </div>
+      )}
     </div>
   );
 }
