@@ -85,9 +85,12 @@ export function Nav() {
 
   // Hide on public marketing pages (their own dark header/footer) and on the
   // whole Coach console (it has its own chrome — see coach/layout.tsx).
+  // /for-coaches is a public sales page with its own header: showing the
+  // member nav above it read as a signed-in dashboard to logged-out visitors.
   if (
     path === "/" ||
     path === "/login" ||
+    path === "/for-coaches" ||
     path === "/guides" ||
     path.startsWith("/guides/") ||
     path.startsWith("/coach")
