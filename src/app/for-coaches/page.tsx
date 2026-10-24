@@ -202,6 +202,10 @@ export default function ForCoachesPage() {
         <div className="fc-wrap">
           <div className="fc-logo" style={{ justifyContent: "center" }}><span className="fc-dot" />GOODBYE DEBT</div>
           <p>
+            Questions, bugs, or feedback?{" "}
+            <a href="mailto:support@almostdebtfree.com">support@almostdebtfree.com</a>
+          </p>
+          <p>
             <Link href="/">For individuals</Link> · <Link href="/guides">Guides</Link> ·{" "}
             <Link href="/login">Login</Link>
           </p>

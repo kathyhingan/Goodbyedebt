@@ -116,6 +116,7 @@ const footerHtml = `
 <footer>
   <div class="wrap">
     <div class="logo"><span class="dot"></span>GOODBYE DEBT</div>
+    <div>Questions, bugs, or feedback? <a href="mailto:support@almostdebtfree.com">support@almostdebtfree.com</a></div>
     <div>&copy; 2026 Goodbye Debt. All rights reserved.</div>
   </div>
 </footer>
