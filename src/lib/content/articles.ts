@@ -537,7 +537,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
           "You are an active Pag-IBIG Fund member with at least 24 monthly contributions. These do not need to be consecutive, and if you are short, you can pay the gap as a lump sum to reach 24.",
           "You made at least one contribution within the 6 months before you apply.",
           "You are not over 65 at the time of application, and the loan must mature before you turn 70. A 45 year old applicant, for example, tops out at a 25 year term.",
-          "You have no existing Pag-IBIG housing loan that was foreclosed, cancelled, bought back, or voluntarily surrendered, and no other Pag-IBIG loan currently in default."
+          "You have no existing Pag-IBIG housing loan that was foreclosed, cancelled, bought back, or voluntarily surrendered, and no other Pag-IBIG loan currently in default. Pag-IBIG also requires that you have no short-term loan (multi-purpose loan) in arrears at the time of application, and that any existing housing loan where you are a borrower or co-borrower is current."
         ],
         "numbered": null,
         "subheadings": null
@@ -545,35 +545,88 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "How much you can actually borrow",
         "paragraphs": [
-          "Here is where the published numbers genuinely disagree, worth saying plainly rather than picking one and hoping it is right. Several sources describe the overall program ceiling as 6,000,000 pesos. At least one more recent source describes a 2026 increase to 10,000,000 pesos for the standard program. Treat the lower figure, 6 million, as the safer planning number until you confirm directly with Pag-IBIG what applies to your specific loan type and the date you apply, since program ceilings and promotional terms change and the sources checked here do not agree.",
-          "Separately from the ceiling, your actual approved amount is the lowest of three things:",
+          "The published ceiling is 10,000,000 pesos per member, raised from the long-standing 6,000,000 peso limit under the 2026 program update tied to the government's Expanded Pambansang Pabahay para sa Pilipino (4PH) Program, and documented in Pag-IBIG Fund Circular No. 491. You can also add up to two co-borrowers, whose incomes combine with yours when Pag-IBIG computes capacity to pay. Treat the circulars Pag-IBIG publishes at the time you apply as the binding figures, not any single article, including this one, because program ceilings and promotional terms do change.",
+          "Separately from the ceiling, your actual approved amount is the lowest of four things:",
+          "On capacity to pay, the standard rule Pag-IBIG applies is that your monthly amortization should not exceed 35 percent of your gross monthly income, the figure used in Pag-IBIG's own borrower orientation materials and loanable-amount tables. Some program variants and secondary calculators apply a lower band on larger loans, and the number Pag-IBIG's evaluators compute for your specific application is the one that binds. Plan around 35 percent until your Notice of Approval confirms what was applied to your case.",
           "Pag-IBIG sends its own appraiser, and that appraised value is commonly lower than the price you agreed to pay the seller or developer. The gap between the loan Pag-IBIG approves and the price you owe the seller is cash you need to cover yourself, on top of transfer taxes and fees."
         ],
         "bullets": null,
         "numbered": [
+          "Your actual need: the purchase price, construction cost, or the outstanding balance you are refinancing.",
           "The amount you ask for.",
-          "A percentage of the property's appraised value (not the selling price), commonly 95 percent for properties under 2.5 million pesos, 90 percent above that, and lower for a lot purchased without a house.",
-          "Your repayment capacity, meaning your monthly amortization has to fit within a set share of your gross monthly income. Sources here also disagree on the exact percentage, seen variously as 30, 35, and 40 percent depending on the program and the source. Plan conservatively around 30 to 35 percent of gross monthly income until your specific Notice of Approval confirms the figure Pag-IBIG applied to your case."
+          "Your loanable amount based on capacity to pay, meaning your monthly amortization has to fit within the share of your gross monthly income that Pag-IBIG allows (the standard rule is below).",
+          "The loan-to-appraised-value ratio: a percentage of the property's appraised value (not the selling price), commonly near 95 percent for lower-priced properties and lower above that, and lower still for a lot purchased without a house."
         ],
         "subheadings": null
       },
       {
         "heading": "Interest rates, and why the number you see online often is not your number",
         "paragraphs": [
-          "Pag-IBIG prices its housing loan by repricing period: the shorter the period you lock in, the lower your starting rate, but the rate can move at the end of that period. Commonly cited 2026 figures for the standard program:",
-          "Two subsidized tracks exist underneath that standard schedule, with limited eligibility and slots: a roughly 3 percent rate for socialized housing (commonly a house and lot priced up to 950,000 pesos, or a qualifying condo up to about 2 million), fixed for the first 3 to 5 years, and a promotional rate around 4.5 percent for non-socialized loans up to about 1.8 million pesos, fixed for 3 years. Both are limited-slot programs with income caps, so do not assume you qualify until you check directly."
+          "Pag-IBIG prices its housing loan by repricing period: the shorter the period you lock in, the lower your starting rate, but the rate can move at the end of that period. The published schedule, valid for applications until December 31, 2026 under the Expanded 4PH promotional rates:",
+          "The promotional 4.5 and 5.75 percent rates hold for the first three years and apply to applications received until December 31, 2026; after the fixed period the loan reprices at the schedule for the repricing period you chose. The 3 percent socialized rate is a subsidized, slot-capped program with income qualifications, so do not assume you qualify until Pag-IBIG confirms it."
         ],
-        "bullets": [
-          "1 year repricing: around 5.75 percent per year",
-          "3 year repricing: around 6.25 percent per year",
-          "5 year repricing: around 6.5 to 6.75 percent per year",
-          "10 year repricing: around 7.125 to 7.75 percent per year",
-          "15 year repricing: around 7.75 to 8.75 percent per year",
-          "20 year repricing: around 8.5 to 9.25 percent per year",
-          "30 year repricing: around 9.75 percent per year"
-        ],
+        "bullets": null,
         "numbered": null,
-        "subheadings": null
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Rate option",
+            "Interest rate",
+            "Applies to"
+          ],
+          "rows": [
+            [
+              "Socialized (subsidized)",
+              "3 percent",
+              "Eligible socialized housing borrowers: house and lot priced up to 950,000 pesos, or a qualifying condo up to 1.8 million pesos"
+            ],
+            [
+              "Promotional, first 3 years fixed",
+              "4.5 percent",
+              "Loans above the socialized price ceilings, up to 4.9 million pesos"
+            ],
+            [
+              "Promotional, first 3 years fixed",
+              "5.75 percent",
+              "Loans above 4.9 million pesos, up to the 10 million peso ceiling"
+            ],
+            [
+              "Regular, 3-year repricing",
+              "6.25 percent",
+              "Any loan, chosen instead of the promo"
+            ],
+            [
+              "Regular, 5-year repricing",
+              "6.5 percent",
+              "Any loan"
+            ],
+            [
+              "Regular, 10-year repricing",
+              "7.125 percent",
+              "Any loan"
+            ],
+            [
+              "Regular, 15-year repricing",
+              "7.75 percent",
+              "Any loan"
+            ],
+            [
+              "Regular, 20-year repricing",
+              "8.5 percent",
+              "Any loan"
+            ],
+            [
+              "Regular, 25-year repricing",
+              "9.125 percent",
+              "Any loan"
+            ],
+            [
+              "Regular, 30-year repricing",
+              "9.75 percent",
+              "Any loan"
+            ]
+          ]
+        }
       },
       {
         "heading": "Documents you need, organized by the thing that actually changes: your income proof",
@@ -605,7 +658,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "A worked example of the actual monthly payment",
         "paragraphs": [
-          "Numbers make this concrete. A 1,800,000 peso loan at the roughly 4.5 percent promotional rate, fixed for 3 years, over a 20 year term, runs an estimated monthly amortization around 11,400 pesos, before mortgage redemption insurance. The same amount at a standard 6.25 percent rate over the same term runs closer to 13,500 to 14,200 pesos a month. That difference, roughly 2,000 to 2,800 pesos every month for the life of the promotional period, is exactly why confirming which rate bracket actually applies to your loan amount and chosen repricing period matters more than the headline number on any single page you read, including this one."
+          "Numbers make this concrete. A 1,800,000 peso loan at the 4.5 percent promotional rate, fixed for 3 years, over a 20 year term, runs an estimated monthly amortization around 11,400 pesos, before mortgage redemption insurance and the other loan charges. The same loan at the standard 6.25 percent three-year repricing rate runs around 13,200 pesos a month. That difference, roughly 1,800 pesos every month during the promotional period, is exactly why confirming which rate bracket actually applies to your loan amount and chosen repricing period matters more than the headline number on any single page you read, including this one."
         ],
         "bullets": null,
         "numbered": null,
@@ -641,7 +694,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       },
       {
         "q": "Is the lowest advertised rate the rate I will actually get?",
-        "a": "Usually not. The lowest published rates belong to limited, slot-capped socialized or promotional programs with income ceilings. Most standard borrowers land on the regular repricing schedule, commonly in the 5.75 to 6.5 percent range depending on the repricing period chosen."
+        "a": "Usually not. The lowest published rates belong to limited, slot-capped socialized or promotional programs with income ceilings and application windows (the current one runs until December 31, 2026). Most standard borrowers land on the regular repricing schedule, 6.25 percent on a 3-year fixing up to 6.5 percent on a 5-year fixing, unless their loan amount and eligibility put them in the promotional or socialized brackets."
       },
       {
         "q": "Should I pay off other debts before applying for a Pag-IBIG housing loan?",
