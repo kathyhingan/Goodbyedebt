@@ -156,6 +156,8 @@ const groupMeta: {
       "cashalo-application",
       "pag-ibig-home-loan-requirements",
       "multiple-loan-app-installments",
+      "utang-sss-credit-card-kamag-anak",
+      "home-credit-sss-credit-card-plano",
     ],
   },
   {
