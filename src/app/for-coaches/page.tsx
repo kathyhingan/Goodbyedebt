@@ -8,6 +8,20 @@ export const metadata: Metadata = {
   title: "GoodbyeDebt for Coaches: run every client's payoff plan in one place",
   description:
     "The debt-payoff engine your coaching practice needs: every client's plan, progress, and payments in one console. Founding lifetime access for the first 25 practices.",
+  openGraph: {
+    type: "website",
+    siteName: "Goodbye Debt",
+    url: "https://www.almostdebtfree.com/for-coaches",
+    title: "GoodbyeDebt for Coaches: run every client's payoff plan in one place",
+    description:
+      "The debt-payoff engine your coaching practice needs: every client's plan, progress, and payments in one console. Founding lifetime access for the first 25 practices.",
+  },
+  twitter: {
+    card: "summary",
+    title: "GoodbyeDebt for Coaches: run every client's payoff plan in one place",
+    description:
+      "The debt-payoff engine your coaching practice needs: every client's plan, progress, and payments in one console. Founding lifetime access for the first 25 practices.",
+  },
 };
 
 /**

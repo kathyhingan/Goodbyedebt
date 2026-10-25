@@ -37,6 +37,25 @@ export const metadata: Metadata = {
   title: "GoodbyeDebt: Debt Payoff Optimizer",
   description:
     "Sequence and optimize payoff across all your debts. See exactly where every extra dollar should go to be debt-free faster.",
+  // Sitewide social-card defaults. Pages that define their own metadata still
+  // inherit this openGraph block unless they set their own. No og:image yet:
+  // the site has no approved brand image asset, and a 404 preview image is
+  // worse than none. See debt-app-seo-icm og-image proposal (staged, Kathy
+  // approval gate).
+  openGraph: {
+    type: "website",
+    siteName: "Goodbye Debt",
+    url: "https://www.almostdebtfree.com",
+    title: "Goodbye Debt: See Your Payoff Plan Free",
+    description:
+      "Goodbye Debt tells you exactly which debt to attack first, how much to pay where each cycle, and the date you'll be free. No bank linking required.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Goodbye Debt: See Your Payoff Plan Free",
+    description:
+      "Goodbye Debt tells you exactly which debt to attack first, how much to pay where each cycle, and the date you'll be free. No bank linking required.",
+  },
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,

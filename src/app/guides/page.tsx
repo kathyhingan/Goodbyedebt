@@ -8,6 +8,20 @@ export const metadata: Metadata = {
   description:
     "Practical debt payoff guides built around real Philippine lenders and real rates: snowball vs avalanche, consolidation, credit card statements, app loans, and which debt to pay first.",
   alternates: { canonical: "./" },
+  openGraph: {
+    type: "website",
+    siteName: "Goodbye Debt",
+    url: "https://www.almostdebtfree.com/guides",
+    title: "Debt Payoff Guides for Filipino Debts | Goodbye Debt",
+    description:
+      "Practical debt payoff guides built around real Philippine lenders and real rates: snowball vs avalanche, consolidation, credit card statements, app loans, and which debt to pay first.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Debt Payoff Guides for Filipino Debts | Goodbye Debt",
+    description:
+      "Practical debt payoff guides built around real Philippine lenders and real rates: snowball vs avalanche, consolidation, credit card statements, app loans, and which debt to pay first.",
+  },
 };
 
 const css = `

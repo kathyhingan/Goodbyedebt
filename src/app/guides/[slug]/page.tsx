@@ -28,6 +28,18 @@ export async function generateMetadata({
     title: `${article.title} | Goodbye Debt`,
     description: article.description,
     alternates: { canonical: `./` },
+    openGraph: {
+      type: "article",
+      siteName: "Goodbye Debt",
+      title: article.title,
+      description: article.description,
+      url: `https://www.almostdebtfree.com/guides/${slug}`,
+    },
+    twitter: {
+      card: "summary",
+      title: article.title,
+      description: article.description,
+    },
   };
 }
 
@@ -258,10 +270,40 @@ export default function GuideArticle({ params }: { params: Params }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: faqJsonLd(article) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: articleJsonLd(article) }}
+        />
       </div>
       <div dangerouslySetInnerHTML={{ __html: footerHtml }} />
     </div>
   );
+}
+
+function articleJsonLd(article: (typeof articles)[number]): string {
+  // No dates or image on purpose: the article data carries no publish dates
+  // and the site has no approved image asset yet. Omitting those fields is
+  // correct; inventing them is not.
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: article.title,
+    description: article.description,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.almostdebtfree.com/guides/${article.slug}`,
+    },
+    author: {
+      "@type": "Organization",
+      name: "Goodbye Debt",
+      url: "https://www.almostdebtfree.com",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Goodbye Debt",
+      url: "https://www.almostdebtfree.com",
+    },
+  });
 }
 
 function faqJsonLd(article: (typeof articles)[number]): string {
