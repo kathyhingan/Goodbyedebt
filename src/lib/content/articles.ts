@@ -2304,4 +2304,121 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "ctaLead": "See your own payoff order, free",
     "ctaSub": "Add your real debts and see your avalanche-ordered plan, your projected debt-free date, and the interest you would save. No bank linking, manual entry or a CSV, and nothing to pay before you see the numbers."
   },
+  {
+    "slug": "goodbye-debt-is-live",
+    "title": "Goodbye Debt Is Live: Start Your Payoff Plan in 20 Minutes",
+    "description": "Goodbye Debt is live. Add every debt, see your avalanche and snowball payoff orders with real debt-free dates, and keep unlimited tracking free forever as a founding member.",
+    "kicker": "We are live",
+    "tldr": "Goodbye Debt is now open to everyone. Add every debt you carry, and the calculator ranks them by real cost, shows your avalanche and snowball orders side by side, and projects your debt-free date. The first 100 people to join keep unlimited debt tracking free forever. Setup takes about twenty minutes.",
+    "sections": [
+      {
+        "heading": "What launched, exactly",
+        "paragraphs": [
+          "Goodbye Debt started as a spreadsheet problem. Every debt payoff article says the same thing, rank your debts and pay them in order, and then leaves you alone with a calculator, a notebook, and six different apps that each show you one piece of the picture. The app that just launched is the thing we wished existed when we were doing it by hand: you enter every debt once, and the payoff plan maintains itself from that day forward.",
+          "Here is what is in the box on day one:",
+          "None of this required a bank connection, which was a deliberate choice we will come back to below."
+        ],
+        "bullets": [
+          "A payoff calculator that takes every debt you carry, its balance, and its actual monthly interest rate, and builds your plan from the real numbers instead of from memory.",
+          "Avalanche and snowball side by side. You see the payoff order each method produces, the projected debt-free date for each, and the total interest each one costs you. No debating the methods in the abstract, you just look at what your own numbers say.",
+          "A payments log. Every payment you record updates your progress percentage, recalculates the plan, and moves your debt-free date. When you pay off an account, it closes out of the plan and the extra money rolls forward automatically.",
+          "Debt Slayers, the community. Private by default, ranked by percentage paid off rather than peso amounts, so someone clearing 20,000 pesos of utang stands next to someone clearing 50,000 dollars of cards, and both are just people hitting their numbers.",
+          "Install it as an app. On a phone or desktop you can add Goodbye Debt to your home screen and it runs like a native app, including offline, because a payoff plan you cannot open at the bank line is a plan you will stop updating."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "What the calculator does with your numbers",
+        "paragraphs": [
+          "The core of the app is the same math from our guide on which debt to pay off first, but running on your accounts instead of examples.",
+          "You enter each debt with three things: a name, the current balance, and the interest rate as a monthly rate. That last detail matters in the Philippines specifically. Credit cards here quote a monthly rate on the unpaid balance, commonly up to 3 percent a month under the BSP cap. Lending apps like Tala publish effective monthly rates in the 11 to 12 percent range. Government loans sit under 1 percent a month. When your plan is built on monthly rates, the ranking between a GCredit balance and an SSS salary loan is obvious in a way that annual-rate comparisons constantly hide.",
+          "Once your debts are in, the calculator produces three things you can act on immediately:",
+          "If the two methods disagree on your numbers, you will see exactly how much the disagreement is worth in pesos. Sometimes it is hundreds of pesos. On app-loan-heavy stacks it can be more than ten times that. Either way you decide with the figure in front of you, and you can switch methods whenever life changes, because the plan is a live calculation, not a document."
+        ],
+        "bullets": null,
+        "numbered": [
+          "Your payoff order. Avalanche (highest monthly rate first) and snowball (smallest balance first) each get their own ordered list, and each debt shows what it is costing you per month while it waits in line.",
+          "Your projected debt-free date. Both methods get one, based on what you can put toward debt every month above the minimums.",
+          "Your savings line. The total interest each method would charge you between now and zero, so the cost of picking the comfortable order instead of the cheap order is a number, not a feeling."
+        ],
+        "subheadings": null
+      },
+      {
+        "heading": "Your first twenty minutes, step by step",
+        "paragraphs": [
+          "Signing up takes an email and a password. No card details, no bank linking, no application. After that, here is the setup sequence that gets you to a real plan:",
+          "From there the maintenance cost is one minute per payment. That is the entire ongoing workload of a Goodbye Debt plan, and it is the reason the notebook method falls apart around month three while this does not."
+        ],
+        "bullets": null,
+        "numbered": [
+          "Gather your statements. One statement or app screen per debt is enough. You need three figures from each: the current balance, the monthly interest rate, and the minimum payment. If a lender only quotes an annual rate, divide it by 12 for an estimate and correct it later from the statement.",
+          "Add each debt. Name it the way you think about it, \"BDO card\" beats a fourteen-digit account number, and enter the balance, the monthly rate, and the minimum. The free plan runs the full engine on up to two debts, which is enough to see exactly how the calculator behaves before you commit an evening to data entry.",
+          "Set your monthly amount. This is the money you can put toward all debts combined, minimums included. The calculator spreads it in your chosen order and everything downstream, dates, savings, payoff order, flows from this one figure. Honest in, honest out.",
+          "Read the two plans. Look at the avalanche date and the snowball date, then the interest lines under each. Pick the one you will actually follow. The mathematically cheapest plan you abandon in month two is more expensive than the slightly pricier plan you stick to for two years.",
+          "Log your first payment. Even if it is this month's minimums, record it. Your progress percentage starts moving and the plan starts recalculating, which is the habit that carries the whole thing."
+        ],
+        "subheadings": null
+      },
+      {
+        "heading": "Why the first 100 members keep it free forever",
+        "paragraphs": [
+          "The app is freemium. The free plan runs the complete prioritization engine on up to two debts with no card required. Beyond two debts, every strategy mode, and CSV import, a paid tier applies.",
+          "The first 100 people to create an account skip that entirely. Founding members get unlimited debt tracking free forever, no upgrade, no expiration, regardless of what the paid tier costs later. The counter on the homepage always shows how many founding seats are left, and there is no waiting list and no referral trick behind it. When the counter hits zero, it hits zero.",
+          "Why run it this way? Because a payoff tool is only useful if it is still around in the year your plan takes to finish, and the founding model is how a small product pays for staying alive without charging the people who took a chance on it first. You are not user forty thousand to us. You are one of the hundred the whole thing was built with."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "What your data looks like on our side",
+        "paragraphs": [
+          "The design rule is that your paperwork stays yours.",
+          "Statements and screenshots are read in your browser. When you use the statement import, the PDF or photo is processed on your device and only the figures you confirm, a balance, a rate, a minimum, are saved. The file itself never uploads.",
+          "Your debts are visible to you alone. Accounts are isolated at the database level, your data is encrypted in transit and at rest, and there is no shared or staff-side view of what you owe.",
+          "The community never sees amounts. A Debt Slayers profile is private by default. If you opt in, what becomes public is your display name, your country, your story if you write one, and your percentage paid off. Never your balances, never your lender names, never your payment history. You can switch it off any time and the leaderboard updates within a day."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "What Goodbye Debt will not do for you",
+        "paragraphs": [
+          "It is worth being plain about the edges of the tool, because trust compounds and overpromising spends it.",
+          "Goodbye Debt does not negotiate with lenders. It cannot settle a debt, lower a rate, or stop collection calls. If you need a restructuring conversation with a bank, that conversation is yours to have, and the calculator's job is to make sure you walk into it knowing exactly what the debt costs you per month.",
+          "It is not a lender and does not refer you to one. There is no loan product behind the app and no lead-selling arrangement behind the free plan. The business model is a subscription for people with more than two debts, not brokering your data to finance companies.",
+          "It is not licensed financial advice. The math is standard debt payoff arithmetic, avalanche and snowball, applied to your inputs. For situations involving foreclosure risk, bankruptcy, or legal action, the right move is a licensed counselor or attorney, and the app will still be here doing the arithmetic when that is sorted."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "Is it really free?",
+        "a": "The free plan runs the full prioritization engine on up to two debts, no card required and no trial clock. The first 100 accounts, the founding members, get unlimited debt tracking free forever. The paid tier only comes into play for more than two debts, every strategy mode, and CSV import, and founding members never see it."
+      },
+      {
+        "q": "What happens when the 100 founding seats run out?",
+        "a": "New signups after that get the free two-debt plan and can upgrade to the paid tier when they need more. Founding members keep everything they have at no cost, permanently. The homepage counter is the live source of truth for seats remaining."
+      },
+      {
+        "q": "Does it work outside the Philippines?",
+        "a": "Yes. Enter debts in whatever currency you carry them, pesos, dollars, pounds, and the engine works the same, because percentage math does not care where you live. The community leaderboard already has slayers from the Philippines, the United States, and the United Kingdom, ranked by percent paid off so the comparison is fair across currencies."
+      },
+      {
+        "q": "Do I have to connect my bank account?",
+        "a": "No. There is no bank linking anywhere in the app, by design. You enter debts by hand from your statements, or read a statement PDF or photo in your browser and confirm the figures it finds. On the paid tier you can import a CSV instead. Nothing in the app ever asks for your bank credentials."
+      },
+      {
+        "q": "What if I only know my interest rate as an annual number?",
+        "a": "Use the monthly rate printed on your statement when it shows one, which credit cards in the Philippines always do. If a lender only quotes annual, dividing by 12 gives a workable estimate, and you can refine it the next time the statement arrives. The ranking between debts rarely flips over a small estimate error, and the plan recalculates whenever you correct a figure."
+      }
+    ],
+    "ctaLead": "Claim a founding seat, free forever",
+    "ctaSub": "The first 100 members get unlimited debt tracking free forever, no upgrade and no expiration. Add your debts, see both payoff plans with real dates, and start your progress percentage tonight."
+  },
 ];
