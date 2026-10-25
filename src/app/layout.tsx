@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Space_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
@@ -50,6 +51,11 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+// GA4 measurement ID. Hardcoded fallback lets a deploy ship without touching
+// Vercel env vars; NEXT_PUBLIC_GA_ID overrides it if that ever changes.
+// Property created 2026-10-25 under the Kathleen Google account (Finance industry).
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-E2YSVGPHY4";
+
 export default function RootLayout({
   children,
 }: {
@@ -66,6 +72,18 @@ export default function RootLayout({
               {children}
               <InstallPrompt />
               <ServiceWorkerManager />
+              <Script
+                src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+                strategy="afterInteractive"
+              />
+              <Script id="ga4-init" strategy="afterInteractive">
+                {`
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${GA_MEASUREMENT_ID}');
+                `}
+              </Script>
             </ConfirmProvider>
           </DebtsProvider>
         </CurrencyProvider>
