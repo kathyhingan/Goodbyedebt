@@ -777,7 +777,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
             ],
             [
               "Credit card",
-              "Up to 2 percent (BSP cap)",
+              "Up to 3 percent a month (BSP cap)",
               "Cheaper than BillEase if you revolve a balance"
             ],
             [
@@ -861,7 +861,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "BillEase for everyday spending versus a credit card",
         "paragraphs": [
-          "A common use of BillEase is not borrowing a lump sum at all, it is splitting purchases at partner merchants into installments instead of putting them on a card. Compared at the same balance: a credit card is capped at 3 percent a month on an unpaid revolving balance, below BillEase's 3.49 percent, so revolving a balance still costs more on BillEase than on a card, though at the cap the gap is under half a point a month. The counterweight: BillEase's installment plans have a fixed end date, and a card balance can sit for years if you pay minimums, which is the trap covered elsewhere in this series. The honest comparison for a one-off purchase you will clear inside a few months: the card's 2 percent is cheaper if you actually clear it, and a 0 percent BillEase partner offer beats both if the balance is genuinely cleared inside the grace window. For someone carrying balances long term, neither product is cheap, which is the point of ranking everything you owe by its real rate instead of by which product feels more official."
+          "A common use of BillEase is not borrowing a lump sum at all, it is splitting purchases at partner merchants into installments instead of putting them on a card. Compared at the same balance: a credit card is capped at 3 percent a month on an unpaid revolving balance, below BillEase's 3.49 percent, so revolving a balance still costs more on BillEase than on a card, though at the cap the gap is under half a point a month. The counterweight: BillEase's installment plans have a fixed end date, and a card balance can sit for years if you pay minimums, which is the trap covered elsewhere in this series. The honest comparison for a one-off purchase you will clear inside a few months: the card's 3 percent monthly cap is cheaper if you actually clear it, and a 0 percent BillEase partner offer beats both if the balance is genuinely cleared inside the grace window. For someone carrying balances long term, neither product is cheap, which is the point of ranking everything you owe by its real rate instead of by which product feels more official."
         ],
         "bullets": null,
         "numbered": null,
