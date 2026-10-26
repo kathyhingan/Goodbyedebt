@@ -2421,4 +2421,204 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "ctaLead": "Claim a founding seat, free forever",
     "ctaSub": "The first 100 members get unlimited debt tracking free forever, no upgrade and no expiration. Add your debts, see both payoff plans with real dates, and start your progress percentage tonight."
   },
+  {
+    "slug": "pagibig-billease-bank-loan",
+    "title": "Pag-IBIG Loan Plus BillEase Plus a Bank Loan: One Payoff Plan",
+    "description": "Pag-IBIG MPL, BillEase, and a bank personal loan in one payoff plan: the real converted rates, a worked three-loan example, and the order that saves the most interest.",
+    "kicker": "Pag-IBIG, BillEase, at bank loan",
+    "tldr": "Put all three on one unit first, the effective monthly cost. In the worked example below the order is BillEase at 3.49 percent a month, then the Pag-IBIG MPL at 1.4583 percent a month on a diminishing balance, about 17.5 percent a year, then the bank loan at 15 percent a year. A bank loan at 17.5 percent or higher flips the last two.",
+    "sections": [
+      {
+        "heading": "The trap: a government loan is not automatically the cheapest money",
+        "paragraphs": [
+          "The instinct says the government loan goes last because government money is always the cheapest. For the Pag-IBIG Multi-Purpose Loan that instinct is wrong, and it is wrong by a measurable margin.",
+          "The MPL is published as a 10.5 percent a year rate. The number that actually gets charged is different: Pag-IBIG's own application form (HQP-SLF-065, current version dated 10/2026) states the loan carries interest of 1.4583 percent per month, including the grace period, based on a diminishing balance method. Run that monthly figure forward and it lands at about 17.5 percent a year, which is the equivalence Pag-IBIG has published on this loan for years: 10.5 percent per annum, equivalent to 17.5 percent on a diminishing balance.",
+          "Now put that next to the other two legs. A bank personal loan in the Philippines typically runs 14 to 18 percent a year. That means a Pag-IBIG MPL sits inside the bank loan range, not below it. At 14 percent the bank loan is cheaper than the MPL. At 18 percent the MPL is cheaper. And BillEase, at 3.49 percent a month, is more expensive than both by a wide margin, about 51 percent a year effective once the monthly charge compounds.",
+          "The genuinely cheap government money is elsewhere. An SSS salary loan runs 8 percent a year. A Pag-IBIG Calamity Loan, when your area has a declared state of calamity, is being announced at 5.95 percent a year, roughly a third of the MPL's cost. The MPL is a flexible, useful loan, but a cheap one it is not.",
+          "So the ranking for these three is not \"government first\" or \"bank last\". It is a conversion problem, and the conversion is four lines of arithmetic."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The real price of each of the three debts",
+        "paragraphs": [
+          "Pag-IBIG Multi-Purpose Loan. You borrow against your own savings, up to 90 percent of your Total Accumulated Value, subject to the lowest of three tests: the amount you asked for, your entitlement, and capacity to pay, which means the amortization cannot push your net take-home pay below the floor set by the General Appropriations Act or your company policy. Terms run one, two, or three years. There is a two month grace period before the first payment, but the form is explicit that interest runs during the grace period, so the loan is not free while it waits. Amortization is normally taken straight from your salary through your employer, which is the structural detail that changes how you run the payoff plan below. Miss a payment and the penalty is 1/20 of 1 percent of the unpaid amount for every day of delay, about 1.5 percent a month, higher than the loan's own monthly interest. The Calamity Loan is a separate program on the same savings base, up to 80 percent of Total Accumulated Value, at the lower 5.95 percent rate when a calamity window is open.",
+          "BillEase. A standard cash loan or buy-now-pay-later plan runs 3.49 percent a month on the declining balance, with an EasyPace option up to 24 months at 4.16 percent a month. There is a 0 percent offer at select partner merchants, and it is real, but it is conditional: the balance has to be cleared inside the grace structure, commonly 3 or 6 months, and if it is not, the standard 3.49 percent applies retroactively from the first installment. Read that last clause twice before you count on the 0 percent headline.",
+          "Bank personal loan. Commonly 14 to 18 percent a year, charged monthly on the declining balance, so about 1.17 to 1.5 percent a month. It requires a credit check and an application, and banks weigh your existing obligations, so qualification is a live condition, not a formality. The upside of the product is a fixed amortization with a defined end date, which is exactly what a revolving balance never has."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The rule: one unit before any ranking",
+        "paragraphs": [
+          "The three debts quote themselves differently. The MPL quotes a monthly rate on a diminishing balance. BillEase quotes a monthly rate. The bank quotes an annual rate. Before anything gets ranked, convert everything to the effective monthly cost on the outstanding balance.",
+          "Here is what one peso of balance costs over a single year on each of them:",
+          "The table is the whole method. Every extra peso earns the most by going to the row with the highest annual cost. Most people carry some version of this mix and rank it by which lender sounds most official or which bill arrived most recently, and that habit is expensive in exactly the rows where the numbers are furthest apart."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Debt",
+            "Quoted as",
+            "About this much a year per 1,000 pesos"
+          ],
+          "rows": [
+            [
+              "BillEase standard",
+              "3.49 percent a month",
+              "About 509 pesos"
+            ],
+            [
+              "Bank personal loan",
+              "18 percent a year",
+              "About 180 pesos"
+            ],
+            [
+              "Pag-IBIG Multi-Purpose Loan",
+              "10.5 percent a year, 1.4583 percent a month diminishing",
+              "About 175 pesos"
+            ],
+            [
+              "Bank personal loan",
+              "15 percent a year",
+              "About 150 pesos"
+            ],
+            [
+              "Bank personal loan",
+              "14 percent a year",
+              "About 140 pesos"
+            ],
+            [
+              "SSS salary loan",
+              "8 percent a year",
+              "About 80 pesos"
+            ],
+            [
+              "Pag-IBIG Calamity Loan",
+              "5.95 percent a year",
+              "About 60 pesos"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Worked example: 100,000 MPL, 20,000 BillEase, 120,000 bank loan",
+        "paragraphs": [
+          "Three debts: a 100,000 peso Pag-IBIG MPL on the two year term at 1.4583 percent a month, a 20,000 peso BillEase balance at 3.49 percent a month, and a 120,000 peso bank personal loan at 15 percent a year over three years.",
+          "Run each one on its own schedule first. The MPL amortizes at about 4,968 pesos a month, and the total interest across the two years is about 19,240 pesos. The bank loan amortizes at about 4,160 pesos a month, with total interest of about 29,750 pesos across its three years. The BillEase balance, paid at 2,500 pesos a month with no extra money, clears in about 10 months and costs roughly 3,870 pesos in interest over that span. Minimum payments across all three are about 11,628 pesos a month.",
+          "Now add 1,000 pesos a month of extra money and run the plan twice, once in the converted order and once with the extra peso sent to the bank loan first, which is the order instinct tends to pick:",
+          "Read that honestly, including the part that tempers the usual avalanche sermon. On this specific mix the order is worth about 1,650 pesos against the instinct order and about 1,300 pesos against an even split, real money, but not a transformation. The reason is that BillEase carries the highest rate but the smallest balance, so the amount of money sitting at 3.49 percent is limited. The order becomes decisive when the expensive balance is the big one, which is the common case for someone with a large app loan or a revolving card balance.",
+          "The second reading is the more useful one. The 1,000 pesos is not doing the same work against each balance. At BillEase it avoids about 509 pesos a year in interest, at the MPL about 175, at the bank loan 150 at a 15 percent rate. That is where the flip lives: if your own bank loan is priced at 17.5 percent a year or higher, it costs more per peso than the MPL, and the order becomes BillEase, then the bank loan, then the MPL. At 14 or 15 percent, the MPL is the one that waits. Nothing about the lenders changed; only the numbers you were actually quoted."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Order of the extra 1,000 a month",
+            "Months to clear all three",
+            "Total interest"
+          ],
+          "rows": [
+            [
+              "BillEase, then MPL, then bank loan",
+              "About 22",
+              "About 39,960 pesos"
+            ],
+            [
+              "MPL, then BillEase, then bank loan",
+              "About 22",
+              "About 40,720 pesos"
+            ],
+            [
+              "Bank loan, then MPL, then BillEase",
+              "About 22",
+              "About 41,610 pesos"
+            ],
+            [
+              "Split evenly across all three",
+              "About 23",
+              "About 41,280 pesos"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "The Pag-IBIG rules that change the plan",
+        "paragraphs": [
+          "The payment mostly comes out of your salary, and you do not steer it monthly. The amortization is remitted through your employer. That means the MPL is not the loan you feed extra pesos into, even when its rate justifies attention: your room to move is on the BillEase and bank loan side. Run the plan accordingly. The MPL pays itself on schedule, and the extra money goes where you can actually direct it.",
+          "The grace period is not free. Interest runs at 1.4583 percent a month during the two month grace, so the balance is not standing still before the first payment. Budget for the full amortization from the start rather than treating the grace period as money saved.",
+          "The late penalty outruns the loan. 1/20 of 1 percent per day of delay is about 1.5 percent a month on the unpaid amount, more than the loan's own monthly rate. Skipping the MPL to fund a higher-rate balance is a losing trade the moment it becomes habitual, because penalties at that rate can put the MPL back at the top of the ranking.",
+          "The aggregate cap shapes what you can borrow. MPL and Calamity Loan are separate programs and you can hold both, but combined short-term loans cannot exceed 90 percent of your Total Accumulated Value, and the loanable amount is reduced by any existing MPL, Calamity Loan, or HELPs balance. That matters for planning: if you are already borrowing against savings, the next loan you qualify for may be smaller than the headline suggests.",
+          "The Calamity Loan is the version of this money worth waiting for. Same savings base, 5.95 percent a year when a calamity window is declared for your area, and it can run 24 or 36 months. If you have an MPL at 1.4583 percent a month and your area opens a calamity window, the honest arithmetic says the cheaper program is worth the paperwork."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The BillEase and bank rules that change the plan",
+        "paragraphs": [
+          "On BillEase, the 0 percent offer is a deadline, not a discount. It works only if the full balance clears inside the grace structure, and the standard 3.49 percent applies retroactively from the first installment if it does not. If you are unsure whether your cash flow can clear it in the window, the standard plan's flat, predictable rate is easier to plan around than a 0 percent offer that can revert to worse terms than the standard plan.",
+          "On BillEase, the longer term is not the cheaper term. EasyPace at 4.16 percent over up to 24 months lowers the monthly bite and raises the total interest. Both facts are true at once, and which one matters depends on whether the constraint this month is cash flow or total cost.",
+          "On the bank loan, qualification is the binding condition. The rate only exists if you are approved at it. If your existing obligations already crowd your income, the honest answer may be restructuring the card side rather than a new loan, and the restructuring conversation with your issuer costs nothing to have. This decision has a full walkthrough in the personal loan guide on this site, and the three conditions it sets (rate clearly below what you are replacing, real qualification at that rate, and the replaced balance staying at zero afterward) apply just as much when the thing being replaced is a BillEase balance.",
+          "On the bank loan, a fixed end date is the product's real feature. Against the MPL the rate gap is a few tenths of a point in either direction depending on what you are quoted; against BillEase the gap is enormous. What the loan adds beyond rate is a schedule that ends, which a BNPL balance on a rolling top-up never has."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "How to run all three in one plan",
+        "paragraphs": [
+          "Pay the minimum on all three every month. This is not optional and it is not the place to be clever: the MPL's penalty rate and the bank loan's late fees both make a missed minimum more expensive than any ordering gain from the money you were late with.",
+          "Then send every remaining peso to the highest row in the converted table, which in most versions of this mix is BillEase, followed by whichever of the MPL and the bank loan carries the higher real cost. When the top balance clears, its whole payment rolls to the next one, not back into spending. In the worked example that is what turns the 2,500 pesos BillEase was absorbing into accelerated progress on the MPL and the bank loan, and it is the step people most often skip.",
+          "Two rules override the ranking. Never let the MPL go past due, because its daily penalty is the most expensive money in the plan. And never let a cleared BNPL balance refill, because a plan that reopens a paid balance has not made progress, it has just rearranged it.",
+          "The free Goodbye Debt plan runs the full engine on up to two debts, forever, no bank linking, manual entry or a CSV import. Three debts and up is where the paid tier comes in: no two-debt limit, a snowball order and a custom hybrid alongside the avalanche, and bulk CSV import. In this mix that is the difference between ranking two of the three and seeing the real order across all of them."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "See your own order in two minutes",
+        "paragraphs": [
+          "The three loans in this article are placeholders for the three you actually hold. Enter your own balance and monthly rate for each, and the plan reports the order, the projected debt-free date, and the interest difference between the converted order and the one instinct picks. Manual entry or a CSV import, no bank linking, and nothing to pay before you see the numbers."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "Which of the three debts should I pay first?",
+        "a": "The one with the highest effective monthly cost, which in most versions of this mix is BillEase at 3.49 percent a month. The exception to check before you assume: your own bank loan rate. At 17.5 percent a year or higher, the bank loan outranks the Pag-IBIG MPL, and the order below BillEase changes."
+      },
+      {
+        "q": "Is a Pag-IBIG Multi-Purpose Loan cheaper than a bank personal loan?",
+        "a": "Not automatically. The MPL charges 1.4583 percent a month on a diminishing balance, which is about 17.5 percent a year, and bank personal loans commonly run 14 to 18 percent a year. A bank loan at 14 percent is cheaper than the MPL; one at 18 percent is not. The cheap government loan in the Philippines is the SSS salary loan at 8 percent a year, or a Pag-IBIG Calamity Loan at 5.95 percent when a calamity window is open, not the MPL."
+      },
+      {
+        "q": "Can I have a Pag-IBIG MPL, a Calamity Loan, and a housing loan at the same time?",
+        "a": "Generally yes. The MPL, Calamity Loan, and HELPs programs are treated as separate and distinct, and you can hold an MPL alongside a calamity loan and vice versa. Two conditions matter: any existing Pag-IBIG loan must be current, and your combined short-term loans cannot exceed 90 percent of your Total Accumulated Value. Any existing housing loan must also be current for a new housing application."
+      },
+      {
+        "q": "What happens if I miss a Pag-IBIG MPL payment?",
+        "a": "A penalty of 1/20 of 1 percent of the unpaid amount applies for every day of delay, which is about 1.5 percent a month, higher than the loan's own interest. The employer side carries a separate penalty for failing to remit what it deducted, but the borrower's exposure is the daily charge on the unpaid amount, plus the knock-on effect: an account in default disqualifies you from renewing or taking a new short-term loan until it is settled."
+      },
+      {
+        "q": "Should I take out a bank loan to pay off BillEase?",
+        "a": "If you qualify and the replaced balance genuinely stays at zero, the rate gap is decisive, a bank personal loan at 15 percent a year against BillEase at about 51 percent effective. The three conditions from the consolidation playbook still have to hold: the loan's rate is clearly below what you are replacing, you actually qualify at that rate, and the BillEase balance stays closed afterward rather than refilling. Miss any of the three and the loan adds a payment without fixing the behavior that created the balance."
+      }
+    ],
+    "ctaLead": "See your own three-loan order, free",
+    "ctaSub": "Add your real debts and see your avalanche-ordered plan, your projected debt-free date, and the interest you would save. No bank linking, manual entry or a CSV, and nothing to pay before you see the numbers."
+  },
 ];
