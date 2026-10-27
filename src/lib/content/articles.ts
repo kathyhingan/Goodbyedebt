@@ -164,12 +164,12 @@ export const ARTICLE_LIST: GuideArticleData[] = [
         "paragraphs": [
           "Here is what consolidation is actually competing against. Commonly cited monthly rate ranges on debt Filipinos typically carry:",
           "(These are commonly published ranges, not guaranteed figures for any specific account. Lenders set their own rates and they move over time. Check your actual statement before deciding.)",
-          "Now look at what a consolidation loan is realistically priced at: a bank personal loan, which sits at roughly 14 to 18 percent a year. If your current mix of debt is mostly credit cards at 36 percent and app loans at 4 to 15 percent a month depending on the lender, consolidating into a 14 to 18 percent personal loan is a real, meaningful savings. If your current mix is mostly an SSS salary loan and a Pag-IBIG loan, both already under 11 percent, consolidating them into a personal loan at 14 to 18 percent would make your situation worse, not better. People do this by accident more often than you would expect, because the pitch (\"one payment, lower rate\") sounds universally true when it is actually conditional on what you already owe."
+          "Now look at what a consolidation loan is realistically priced at: a bank personal loan, which sits at roughly 21 to 29 percent a year at today's published rates. If your current mix of debt is mostly credit cards at 36 percent and app loans at 4 to 15 percent a month depending on the lender, consolidating into a 21 to 29 percent personal loan is a real, meaningful savings. If your current mix is mostly an SSS salary loan and a Pag-IBIG loan, both already under 11 percent, consolidating them into a personal loan at 21 to 29 percent would make your situation worse, not better. People do this by accident more often than you would expect, because the pitch (\"one payment, lower rate\") sounds universally true when it is actually conditional on what you already owe."
         ],
         "bullets": [
-          "SSS salary loan or SSS Conso-Loan: roughly 10 percent a year",
+          "SSS salary loan: 8 percent a year on a diminishing balance for an initial loan; 10 percent for the SSS Conso-Loan and for renewals that follow a penalty condonation within 5 years",
           "Pag-IBIG Multi-Purpose Loan: roughly 10 to 10.5 percent a year",
-          "Bank personal loan (the usual consolidation product): roughly 14 to 18 percent a year",
+          "Bank personal loan (the usual consolidation product): roughly 21 to 29 percent a year at today's published rates",
           "Credit card: capped by the BSP at 3 percent a month, which is 36 percent a year",
           "BNPL and installment apps (Home Credit, BillEase, Cashalo): typically 3 to 4 percent a month, at or above the card's cap on an annualized basis",
           "GCash GCredit: about 4.15 percent a month",
@@ -199,7 +199,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
           ],
           "rows": [
             [
-              "Mostly credit card and app loan debt, and you qualify for 14 to 18 percent",
+              "Mostly credit card and app loan debt, and you qualify for a rate in the low 20s percent or better",
               "Yes, a real and meaningful savings"
             ],
             [
@@ -222,7 +222,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
         "paragraphs": [
           "Here is the comparison nobody selling a consolidation loan will walk you through: running your existing debts in avalanche order, highest rate first, with no new loan, no credit check, and no risk of refreshing a paid-off card.",
           "Take a representative mix: a Tala loan at 11 to 12 percent a month effective, a credit card at 3 percent a month (the BSP cap), and an SSS salary loan at under 1 percent a month. Avalanche order means every extra peso goes to the Tala loan first, specifically because it is costing you roughly five times more per month than the SSS loan. Once it is cleared, the freed-up payment rolls into the credit card. The SSS loan, already cheap, gets paid down last, on schedule.",
-          "Compare the result: a consolidation loan at 14 to 18 percent replacing all three accounts would mean paying 14 to 18 percent on money that was costing you under 1 percent a month (the SSS loan) for the entire life of the new loan. Avalanche order never does that. It only ever concentrates extra payment on the most expensive balance, and leaves the cheap debt exactly where it is, cheap.",
+          "Compare the result: a consolidation loan at the published 21 to 29 percent replacing all three accounts would mean paying 21 to 29 percent on money that was costing you under 1 percent a month (the SSS loan) for the entire life of the new loan. Avalanche order never does that. It only ever concentrates extra payment on the most expensive balance, and leaves the cheap debt exactly where it is, cheap.",
           "This is not an argument that consolidation never makes sense. When most of your balance really is sitting in high-rate revolving debt (cards, BNPL, app loans) and you can genuinely qualify for a meaningfully lower consolidation rate, it can be the right call. The point is that \"I have multiple debts\" is not, by itself, a reason to consolidate. \"My debts are mostly high-rate and I can get approved for something clearly lower\" is the actual reason, and most people never check whether that is true for their specific numbers before applying."
         ],
         "bullets": null,
@@ -233,7 +233,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
         "heading": "Running the actual numbers on a real example",
         "paragraphs": [
           "Take a reader with three debts: a 150,000 peso credit card balance at the BSP-capped 3 percent a month, a 60,000 peso Tala-style app loan at 11 to 12 percent a month effective, and a 100,000 peso SSS salary loan at under 1 percent a month, total debt 310,000 pesos. Two paths, assuming 15,000 pesos a month available above minimums:",
-          "Path one, a consolidation loan at 16 percent a year (roughly 1.33 percent a month), replacing all three: the blended rate on the new loan is a flat 1.33 percent a month on the full 310,000. That is a clear improvement over the credit card and the app loan's rates, but it is more than the SSS loan's own rate, meaning the 100,000 pesos that used to cost under 1 percent a month now costs 1.33 percent a month for the life of the new loan, a real increase on that portion.",
+          "Path one, a consolidation loan at 28.67 percent a year, BPI's published maximum annual contractual rate (about 2.39 percent a month), replacing all three: the blended rate on the new loan is a flat 2.39 percent a month on the full 310,000. That is a clear improvement over the credit card and the app loan's rates, but it is more than the SSS loan's own rate, meaning the 100,000 pesos that used to cost under 1 percent a month now costs 2.39 percent a month for the life of the new loan, a real increase on that portion.",
           "Path two, avalanche order with no new loan: the 15,000 pesos a month goes entirely to the Tala-style loan first, since its rate is by far the most expensive. Once it clears, the freed payment rolls to the credit card. The SSS loan continues at its own low rate the whole time, untouched by any new, higher blended rate.",
           "The exact total interest difference depends on your real payoff timeline, which is the entire reason to run your own numbers rather than someone else's example. But the direction of the comparison holds for almost anyone in a similar mix: consolidating a cheap government loan into a pricier blended rate works against you, even while the same consolidation genuinely helps the expensive app loan and card balance it is also absorbing."
         ],
@@ -2620,5 +2620,171 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     ],
     "ctaLead": "See your own three-loan order, free",
     "ctaSub": "Add your real debts and see your avalanche-ordered plan, your projected debt-free date, and the interest you would save. No bank linking, manual entry or a CSV, and nothing to pay before you see the numbers."
+  },
+  {
+    "slug": "debt-consolidation-guide",
+    "title": "Debt Consolidation in the Philippines: Complete 2026 Guide",
+    "description": "The four consolidation routes in the Philippines compared at current published rates: personal loans, balance transfers, conversions, and restructuring, plus the add-on rate trap and the blended-rate test to run before applying.",
+    "kicker": "Consolidation, end to end",
+    "tldr": "Debt consolidation in the Philippines means one new loan or one balance transfer that pays off several debts. It only saves money when the new rate clearly beats the blended rate you already pay. Here are the four routes, what they actually cost at current published rates, and the math to run before you apply.",
+    "sections": [
+      {
+        "heading": "What debt consolidation actually means in the Philippines",
+        "paragraphs": [
+          "Debt consolidation replaces several separate debts with a single new one. Instead of a credit card statement, two app loans, and a government loan each with its own due date, you end up with one lender, one monthly payment, and one rate. The pitch writes itself: simpler, cheaper, done.",
+          "The part that the pitch skips is that consolidation is a trade, not a rescue. You are exchanging a mix of rates for one new rate, and the new rate has to be genuinely lower than the weighted average of the rates you are leaving behind for the trade to save you anything. When it is not, you end up paying more for the privilege of fewer due dates. This guide covers both halves: the routes that actually exist in the Philippine market, and the arithmetic that tells you whether any of them helps you specifically."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The four routes, compared",
+        "paragraphs": [
+          "There is no special product called a debt consolidation loan in most Philippine banks. Consolidation is something you assemble out of ordinary products. These are the four real routes:",
+          "The first three routes all move your debt to a new, cheaper structure. The fourth keeps the debt where it is and changes the terms. Which one fits depends less on the rates and more on the shape of what you owe, which is what the rest of this guide is for."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Route",
+            "How it works",
+            "Published cost today",
+            "The catch"
+          ],
+          "rows": [
+            [
+              "Bank personal loan",
+              "Borrow a lump sum, pay off every debt yourself, repay the bank in installments",
+              "BPI salary and personal loans quote a maximum annual contractual rate of 28.67 percent; Security Bank quotes a 1.89 percent monthly add-on, an APR from 29.48 percent",
+              "Approval is hardest for the people who need it most, and fees stack on top"
+            ],
+            [
+              "Balance transfer",
+              "Move card balances from other banks onto one card, paid in installments",
+              "BPI balance transfer: 1 percent monthly add-on for 6 to 24 month terms, 0.99 percent at 36 months, an effective 21.01 to 21.64 percent a year",
+              "Covers credit card balances only, and needs available limit on the receiving card"
+            ],
+            [
+              "Balance conversion",
+              "Convert one card's own balance into a fixed installment plan on the same card",
+              "BPI balance conversion carries the same 1 percent add-on family; the bank's own example converts 20,000 pesos over 12 months at 1,866.67 a month",
+              "One card at a time, and the card must stay otherwise healthy"
+            ],
+            [
+              "Restructuring with your current lenders",
+              "Negotiate adjusted terms directly with the lenders you already owe",
+              "Not a published rate; outcomes vary by lender and by case",
+              "Not guaranteed, must be requested, and works best before accounts go badly past due"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "What the routes cost at current published rates",
+        "paragraphs": [
+          "Here are the numbers the banks themselves publish right now, checked at the source before this guide went up. Use them as the realistic band for what consolidation costs, not as quotes for your own application.",
+          "A bank personal loan is the workhorse route. BPI's salary and personal loans quote a maximum annual contractual rate of 28.67 percent on terms of 12 to 36 months, with a 1,500 peso one-time processing fee deducted from the loan proceeds and documentary stamp tax at 75 percent of 1 percent on loans above 250,000 pesos. Security Bank's personal loan quotes a 1.89 percent monthly add-on rate on 12 to 36 month terms, which the bank itself translates into an APR beginning at 29.48 percent and an estimated 37.53 percent at 36 months, on amounts from 30,000 to 2,000,000 pesos. Converted to a monthly cost, both land in the same neighborhood: roughly 2.4 percent a month at the top of the published band.",
+          "A balance transfer is the cheapest published route for pure credit card debt. BPI's balance transfer charges a 1 percent monthly add-on for 6 to 24 month terms and 0.99 percent for 36 months, which the bank's own rate table translates into an effective 21.01 to 21.64 percent a year. A service fee applies to each availment. The limits are structural: the receiving card must have enough available credit to absorb the transferred balance, and the route only handles credit card balances, not app loans and not government loans.",
+          "A balance conversion works on the same rate family but operates inside one card, turning a revolving balance that costs up to the cap into a fixed installment with an end date. BPI's own published example: 20,000 pesos converted over 12 months at a 1 percent add-on becomes 1,866.67 pesos a month, 2,400 pesos total interest, an effective 1.79 percent a month.",
+          "For contrast, what you are consolidating away from. Revolving credit card interest in the Philippines is capped by the BSP at 3 percent a month, a 36 percent a year ceiling, with the BSP reserving the right to review the ceiling periodically; a few card products price under the cap, BPI's Free+ card at 2.5 percent being one, and the BSP caps credit card installment purchases separately at a 1 percent monthly add-on. App loans and BNPL accounts run the widest range in the mix, from roughly 3 percent a month at the calm end to 11 to 12 percent a month effective for the priciest, depending entirely on the lender; the dedicated lender guides on the hub carry the verified per-lender figures."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The add-on rate trap: why 1 percent a month is not 12 percent a year",
+        "paragraphs": [
+          "The single most expensive misunderstanding in consolidation shopping is treating a monthly add-on rate as an annual rate. It is not, and the banks' own tables say so.",
+          "Add-on interest is charged on the original principal every single month, even though your outstanding balance falls every month as you pay it down. On a 12 month loan you are, on average, using only about half the money while paying interest on all of it. That is why BPI's own balance transfer table shows a 1.00 percent monthly add-on producing a 21.46 percent effective annual rate at 12 months, and the bank's worked example converts the same 1 percent add-on into 1.79 percent effective per month. One percent add-on is not 12 percent a year. It is about 21.",
+          "Two shopping rules fall out of this. First, never compare an add-on quote against an effective rate quote, or against a card's 3 percent monthly charge; convert everything to the same unit or the comparison is fiction. Second, when a bank publishes both an add-on rate and an EIR column, the EIR column is the honest one. The same trap runs in reverse on app loans, where a rate quoted per month on a small short-term balance annualizes into numbers far above anything a bank would print; the multi-loan installment guide on the hub walks through the same-unit conversion step by step."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Who qualifies, and what the application actually checks",
+        "paragraphs": [
+          "A consolidation loan is a normal credit-checked application, which creates the uncomfortable loop at the center of this whole topic: the applicants who would benefit most from a lower rate are often the hardest to approve, because banks price income stability, existing obligations, and credit history into both the approval and the rate.",
+          "Practically, expect to document income and employment, expect the bank to see the obligations you already carry, and expect the fee stack on top of the rate: BPI deducts its 1,500 peso processing fee from the proceeds and adds documentary stamp tax above 250,000 pesos, and balance transfers and conversions each carry a service fee per availment. Approval amounts hinge on your debt-to-income picture. A person carrying 220,000 pesos across three accounts at the limit of their salary will often be offered less than they owe, or a rate that no longer beats their blend, or nothing at all.",
+          "This is why the decision sequence matters. Check what the market will actually offer you before you build a plan that depends on being offered it. A rate quote costs nothing and commits you to nothing, and comparing that quote against your own blended rate, calculated before you apply, is the entire decision."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The blended rate test: the only math that decides it",
+        "paragraphs": [
+          "Every route above is worth doing or not worth doing based on one number: your blended rate. Total the interest each debt charges you per month, divide by your total balance, and you have it.",
+          "A worked example with the real published numbers. A reader owes 220,000 pesos across three accounts: an 80,000 peso credit card at the 3 percent monthly cap, a 40,000 peso app loan at 11.5 percent a month effective (the middle of the range the priciest lenders publish), and a 100,000 peso SSS salary loan at 8 percent a year on a diminishing balance, about 0.67 percent a month. The monthly interest is 2,400 plus 4,600 plus about 670, roughly 7,670 pesos. Blended: 7,670 divided by 220,000, about 3.5 percent a month, or roughly 42 percent a year before compounding.",
+          "Now the routes. A bank personal loan at the published 28.67 percent maximum works out to about 2.39 percent a month: clearly cheaper than the blend, and a genuine win against the card and the app loan. A balance transfer at 21.46 percent effective is about 1.79 percent a month, cheaper still, but it can only absorb the card balance. Both routes, notice, would raise the cost of the SSS leg from 0.67 percent a month to their own higher rate if the SSS loan were folded in.",
+          "So the example's honest conclusion is two moves, not one. Consolidate or transfer the expensive legs, which the math supports. Leave the cheap government loan exactly where it is, because no bank product on the published tables beats 8 percent a year. Consolidation done right is usually partial, not total."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "When consolidating is the wrong call",
+        "paragraphs": [
+          "Three situations where the trade works against you.",
+          "First, folding cheap government money into expensive money. An SSS salary loan costs 8 percent a year on a diminishing balance for an initial loan, with a 1 percent service fee and pro-rated interest deducted up front, rising to 10 percent only for renewals that follow a penalty condonation. A Pag-IBIG multi-purpose loan publishes around 10.5 percent a year. Both are cheaper than every consolidation route on today's bank tables, which start around 21 percent effective and reach past 29. Rolling either one into a consolidation loan is a pay raise for the bank, and it happens by accident whenever someone consolidates \"everything\" because one payment sounds simpler. The SSS and Pag-IBIG guides on the hub carry the verified figures and the payoff treatment for each.",
+          "Second, the refreshed card trap. The consolidation pays the card to zero, the card stays open, the card creeps back into use, and twelve months later you hold the consolidation loan and a rebuilt card balance at the same time. This is the most common way consolidation leaves people worse off than they started, and it is a behavior problem the rate math cannot fix. If the cards will not actually stay untouched, do not consolidate until that changes, or close the cards as part of the plan and accept the trade-off that comes with it.",
+          "Third, approval below your blend. If the best rate you are offered is not clearly lower than your blended rate, the consolidation is just refinancing sideways with fees attached. In that case the realistic paths are running the debts in avalanche order with no new loan at all, or requesting a restructuring from the lenders you already owe, which the BSP's own debt management guidance tells borrowers to do before accounts deteriorate."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "How to consolidate without making things worse",
+        "paragraphs": [
+          "One, list every debt with its balance, its rate in the unit the lender quotes, the minimum payment, and the due date. Two, compute your blended rate from that list. Three, collect at least two route quotes and convert every quote to the same unit using the EIR tables the banks publish beside their add-on rates. Four, add the fee stack to each quote: processing fees, documentary stamp tax, service fees per availment. Five, apply only where the all-in cost clearly beats the blend, and only for the expensive legs. Six, the day the proceeds land, pay off the target balances in full and keep the confirmations, because a consolidation that does not actually retire the old debts is just more debt. Seven, remove the relapse path: stop using the paid-off cards the same week, set the new loan on auto-debit, and put the freed-up monthly cash flow into the remaining balances rather than into lifestyle.",
+          "The whole sequence is arithmetic plus self-honesty, and the second one is the hard part. It is also why the order of operations matters more than the rate you negotiate."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Run your own numbers before you apply",
+        "paragraphs": [
+          "Everything in this guide reduces to one comparison: the route's all-in rate against your blend. Your blend takes five minutes to compute, and the payoff calculator embedded in the first guide on the hub runs the full version, your balances in, an avalanche-ordered plan out, with the debt-free date and the interest totals under your current structure versus any new structure you are considering. Goodbye Debt's free plan does the same inside the app, no bank linking, manual entry or a CSV, and nothing to pay before you see the numbers.",
+          "If your blend is dominated by card and app loan debt and you can genuinely qualify well under it, consolidation is a real lever and you now know which route and which traps to check. If your mix is mostly government loans already under 11 percent, the math says leave them alone, and the avalanche plan will show you a debt-free date without a new application. Either answer is a good answer, as long as it comes from your numbers."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I consolidate credit card debt and app loans together into one bank loan?",
+        "a": "Usually yes, because a personal loan's proceeds are yours to spend, including on settling app loans and card balances directly. The approval and rate still depend on your income, obligations, and credit history, and remember the fee stack. A balance transfer cannot do this job; it moves credit card balances only."
+      },
+      {
+        "q": "Is a 1 percent monthly add-on rate a cheap loan?",
+        "a": "No. Add-on interest is charged on the original principal all year while your balance falls, so a 1 percent add-on works out to roughly 21 percent effective a year on a 12 month term, per the banks' own EIR tables. Compare effective rates to effective rates, never an add-on quote against a card's monthly charge."
+      },
+      {
+        "q": "Will consolidating hurt my credit record?",
+        "a": "The application itself is a routine credit check, the same one any loan triggers. What shapes your record afterward is behavior: keep every consolidated account at a zero balance, keep the new loan's payments on time, and do not re-spend the paid-off cards. Consolidation followed by re-spending is what damages people, not the paperwork."
+      },
+      {
+        "q": "Should I roll my SSS or Pag-IBIG loan into the consolidation?",
+        "a": "Almost never. An initial SSS salary loan runs 8 percent a year on a diminishing balance and a Pag-IBIG multi-purpose loan publishes around 10.5 percent a year, while bank consolidation products start near 21 percent effective. Folding either into the new loan raises their cost for the life of the loan. Consolidate the expensive legs and leave the government loans on their own schedules."
+      },
+      {
+        "q": "What if no lender offers me a rate lower than my blended rate?",
+        "a": "Then consolidation cannot help you today, and that outcome is common exactly when debts are highest. The workable paths are avalanche order on your existing debts, which needs no approval at all, and requesting a restructuring directly from your current lenders before accounts go badly past due. Both are cheaper than paying fees to refinance sideways."
+      }
+    ],
+    "ctaLead": "See if consolidation actually beats your blend, free",
+    "ctaSub": "Add your real debts and see your avalanche-ordered plan, your projected debt-free date, and what each consolidation route would have to beat. No bank linking, manual entry or a CSV, and nothing to pay before you see the numbers."
   },
 ];

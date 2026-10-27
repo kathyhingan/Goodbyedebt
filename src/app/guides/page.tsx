@@ -168,6 +168,7 @@ const groupMeta: {
       "credit-card-statement",
       "personal-loan-for-credit-card",
       "debt-consolidation",
+      "debt-consolidation-guide",
     ],
   },
   {
