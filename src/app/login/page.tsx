@@ -1,10 +1,11 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { homeForRole } from "@/lib/auth/homeForRole";
+import { gaEvent, utmParams } from "@/lib/analytics";
 
 const LINK_BTN: React.CSSProperties = {
   marginTop: 12,
@@ -28,11 +29,21 @@ function LoginForm() {
   const [msg, setMsg] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
+  // signup_visit: fired once per page load while the signup form is shown.
+  // Lands in GA4 as a native event (no Admin-side derived event needed);
+  // mark it a key event to count signup-landing conversions by utm_source.
+  const firedVisit = useRef(false);
+  useEffect(() => {
+    if (mode !== "signup" || firedVisit.current) return;
+    firedVisit.current = true;
+    gaEvent("signup_visit", { mode: "signup", ...utmParams() });
+  }, [mode]);
+
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     setMsg(null);
     if (!isSupabaseConfigured) {
-      setMsg("Backend not configured yet — set Supabase env vars to enable sign-in.");
+      setMsg("Backend not configured yet. Set Supabase env vars to enable sign-in.");
       return;
     }
     setBusy(true);
@@ -50,10 +61,15 @@ function LoginForm() {
       } else if (mode === "signup") {
         const { data, error } = await supabase.auth.signUp({ email, password });
         if (error) throw error;
-        // With email confirmation off, signUp returns an active session — send
-        // the user straight into the app. If confirmation is on, there's no
-        // session yet, so fall back to the check-your-email prompt.
+        // With email confirmation off, signUp returns an active session, so
+        // send the user straight into the app. If confirmation is on, there
+        // is no session yet, so fall back to the check-your-email prompt.
         if (data.session) {
+          // sign_up: the completed-signup conversion. Fired only when the
+          // account actually exists and is usable. The short wait gives the
+          // collect hit time to be issued before the redirect navigation.
+          gaEvent("sign_up", { method: "email", ...utmParams() });
+          await new Promise((r) => setTimeout(r, 250));
           const home = redirect !== "/dashboard" ? redirect : await homeForRole();
           window.location.assign(home);
         } else {
