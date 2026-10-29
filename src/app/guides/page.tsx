@@ -144,7 +144,12 @@ const groupMeta: {
   {
     group: "Start here",
     dark: false,
-    order: ["goodbye-debt-is-live", "which-debt-to-pay-off-first", "how-to-become-debt-free"],
+    order: [
+      "goodbye-debt-is-live",
+      "which-debt-to-pay-off-first",
+      "how-to-become-debt-free",
+      "what-is-debt",
+    ],
   },
   {
     group: "Borrowing costs, compared",

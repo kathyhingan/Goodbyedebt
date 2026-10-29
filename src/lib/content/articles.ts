@@ -2787,4 +2787,221 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "ctaLead": "See if consolidation actually beats your blend, free",
     "ctaSub": "Add your real debts and see your avalanche-ordered plan, your projected debt-free date, and what each consolidation route would have to beat. No bank linking, manual entry or a CSV, and nothing to pay before you see the numbers."
   },
+  {
+    "slug": "what-is-debt",
+    "title": "What Is Debt (and How to Actually Get Rid of It): A Filipino's Guide",
+    "description": "What debt legally is in the Philippines, the four shapes it takes, what a minimum payment really costs (BPI's own 20,000 peso sample), the credit registry behind every loan, and the order that ends it fastest.",
+    "kicker": "Debt, defined plainly",
+    "tldr": "Debt is money you are legally obliged to pay back, and Philippine law defines that obligation in Article 1156 of the Civil Code. The balance is only one of three numbers that matter. What decides whether you escape it is the rate, the way the balance behaves every month, and the order you attack it in.",
+    "sections": [
+      {
+        "heading": "What debt actually is, in Philippine law",
+        "paragraphs": [
+          "The Civil Code is blunt about it. Article 1156 says an obligation is a juridical necessity to give, to do, or not to do. Translated out of legal language: a debt is not a favour you might repay, it is a duty the courts can enforce. Article 1157 lists where obligations come from, and a loan sits under contracts, which Article 1159 says have the force of law between the parties and must be complied with in good faith.",
+          "Two consequences follow, and both matter more than most borrowers expect.",
+          "The first is that the money is genuinely owed. Signing a loan agreement, swiping a card, or accepting an app loan creates a legal tie, not a moral one, and the lender can enforce it in court, add interest and fees while it waits, and turn to collection remedies if it wins.",
+          "The second is that owing money is not a crime in itself. Article III, Section 20 of the 1987 Constitution says plainly that no person shall be imprisoned for debt or non-payment of a poll tax. Being unable to pay is a civil problem with civil consequences, not a jail sentence. What does land people in criminal court is a separate act: issuing a cheque that bounces, or committing estafa, which the companion guide on unpaid debt and the law covers in detail."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The shapes debt comes in",
+        "paragraphs": [
+          "Not all debt behaves the same way, and that difference decides everything. Four shapes cover almost every peso a Filipino household owes.",
+          "Two of those shapes are cheap money held by people who often do not realise it. The SSS and Pag-IBIG lines price below every bank product on the list, which is why rolling them into a consolidation loan is usually a mistake, as the debt consolidation guide on the hub sets out with the arithmetic."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Shape",
+            "What the balance does",
+            "Published cost today",
+            "Typical holders"
+          ],
+          "rows": [
+            [
+              "Revolving credit card",
+              "Stays until you pay it down, and finance charges are added every cycle you carry a balance",
+              "Capped by the BSP at 3 percent a month, or 36 percent a year",
+              "Most households with any formal credit"
+            ],
+            [
+              "Installment loan, bank or in-store",
+              "Falls on a fixed schedule whether you pay attention or not",
+              "BPI salary and personal loans quote a maximum annual contractual rate of 28.67 percent; Security Bank quotes a 1.89 percent monthly add-on, an APR from 29.48 percent",
+              "Salaried borrowers, appliance and gadget buyers"
+            ],
+            [
+              "Government loan",
+              "Falls on a fixed schedule, priced well below the market",
+              "SSS salary loan at 8 percent a year on a diminishing balance for an initial loan; Pag-IBIG multi-purpose loan around 10.5 percent a year",
+              "SSS and Pag-IBIG members"
+            ],
+            [
+              "App loan or BNPL",
+              "Short term, fast amortising, and costly",
+              "The priciest licensed lenders publish effective monthly rates of 11 to 12 percent, with a maximum APR near 141.76 percent",
+              "Younger borrowers, urgent cash needs"
+            ],
+            [
+              "Informal utang",
+              "Verbal, flexible, and quietly expensive",
+              "Not published. The 5 6 lending pattern charges roughly 20 percent for a short term",
+              "Neighbours, relatives, informal lenders"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Every debt is really three numbers",
+        "paragraphs": [
+          "Balance is the number everyone knows and the least useful one. Behind it sit two more.",
+          "The rate is the second number, and it only means anything once it is in a consistent unit. Lenders quote in whichever unit makes their product look cheapest: a card quotes 3 percent a month, a bank quotes 1.89 percent a month add-on, an app quotes a monthly effective rate, a government loan quotes a yearly figure. A 1 percent monthly add-on is not 12 percent a year. BPI's own published tables convert its 1 percent add-on installment into a 1.79 percent effective monthly rate and its card rate of 3 percent nominal into 2.73 percent effective. Comparing an add-on quote against an effective quote is comparing two different products and calling it a decision.",
+          "The third number is the one almost nobody computes: how fast the balance actually falls each month. An installment loan retires its principal on a timetable. A revolving balance retires only what you pay above the finance charge, and the finance charge is charged on the whole unpaid balance, so a minimum payment that barely clears the interest leaves the principal almost standing still."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The same 20,000 pesos, three different structures",
+        "paragraphs": [
+          "BPI publishes worked samples of exactly this on its own site, and they make the point better than any argument. One 20,000 peso retail purchase, three ways of handling it, figures straight from the bank's tables.",
+          "Read the first row slowly. Twelve months of on-time minimum payments on a 20,000 peso balance cost 5,242.24 pesos in interest and leave 10,650 pesos still owed. In the second month, the payment is 850 pesos and the finance charge on the standard card is 610 of it, so roughly 240 pesos of that payment touches the actual principal. An installment on the same amount costs 2,400 pesos of interest in total and finishes.",
+          "That is the entire difference between revolving debt and amortising debt, in one table. Nothing about the borrower's discipline changes it; only the structure does.",
+          "The minimum is set that way by design. It is calculated to keep the account in good standing, not to clear the balance. BPI computes its minimum as 3.57 percent of the balance with an 850 peso floor, Metrobank uses 3.5 percent of the outstanding balance or 1,000 pesos whichever is higher, PNB uses 3 percent or 500 pesos, and Bank of Commerce uses 5 percent or 500 pesos. Against a monthly finance charge of 2.5 to 3 percent, that leaves a sliver of every payment for the principal. The banks print the warning themselves, in the polite phrasing of the BPI rates page: paying less than the total amount due will increase the amount of interest and other charges you pay and the time it takes to repay your balance."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Structure",
+            "What you pay each month",
+            "Interest billed in the first 12 months",
+            "Balance left after 12 months"
+          ],
+          "rows": [
+            [
+              "Minimum payments only, standard card at 3 percent a month",
+              "850 in month one, rising to about 1,230",
+              "5,242.24",
+              "10,650"
+            ],
+            [
+              "Minimum payments only, lower-rate card at 2.5 percent a month",
+              "850 in month one, rising to about 1,166",
+              "4,355",
+              "10,650"
+            ],
+            [
+              "12 month installment at a 1 percent monthly add-on",
+              "A flat 1,866.67",
+              "2,400",
+              "Zero"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Your debt follows you into a registry",
+        "paragraphs": [
+          "There is one more fact about debt in the Philippines that most borrowers learn late. Under Republic Act 9510, the Credit Information System Act, the Credit Information Corporation operates a central registry. Lenders are required to submit their borrowers' credit data to it, and the data is updated within 30 days of being made available to the lender, per Rule 4.2 of the law's implementing rules. A credit report drawn from that registry carries your loan contracts with lending institutions, utility subscriptions, and other obligations the CIC is authorised to collect.",
+          "Three practical points come out of that.",
+          "The report can only be accessed with your express written consent, which is why every loan application asks you to sign a waiver. It is how a lender sees your other obligations before pricing your application.",
+          "Negative information does not live there forever. Rule 4.5 A caps it at three years from the date the problem is rectified, whether through payment, settlement, or a compromise agreement. Paying and settling is what starts that clock; waiting does not.",
+          "If you want to see your own record, the registry works with accredited bureaus, and the CIC lists CIBI Information, CRIF Philippines, and TransUnion Philippines. A clean report is worth money: lenders price against it."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The six ways a debt actually ends",
+        "paragraphs": [
+          "The Civil Code lists the ways obligations are extinguished in Article 1231. All six translate into things borrowers do every day.",
+          "Payment is the obvious one. Condonation, or remission, is what a bank does when it accepts a compromise amount and writes off the rest. Novation is refinancing or consolidation: replacing the old obligation with a new one. Compensation is offsetting, where two parties owe each other and cancel the overlapping amount. Confusion or merger is rare in consumer lending, since it requires the creditor and debtor to become the same person. Loss of the thing due covers obligations to deliver a specific item, which a cash loan is not.",
+          "Outside that list, the Code also allows prescription, and this one gets misused constantly. Article 1144 gives ten years to enforce an action on a written contract, on an obligation created by law, or on a judgment. Article 1145 gives six years for an oral contract or a quasi contract. Prescription is a defence you raise when a lender sues after the period has lapsed, not a plan you execute. It does not delete the debt from the registry, it does not stop collection attempts, and it can be interrupted by an acknowledgment or a part payment. Anyone selling you a service to make an old debt legally vanish is selling a defence you may not have."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The payoff order that actually works",
+        "paragraphs": [
+          "With several debts in front of you, the sequence below is the one that finishes fastest for the least interest.",
+          "The alternative order, smallest balance first, is worth naming: it front loads quick wins, and for plenty of people those wins are what keeps them going. The honest trade is that it usually costs more interest than the highest rate first order. The first guide on the hub runs both side by side on the same numbers, which is the cleanest way to see what each one costs you."
+        ],
+        "bullets": null,
+        "numbered": [
+          "List every debt with its balance, its rate, the minimum payment, and the due date. Nothing else in this process works without that list.",
+          "Convert every rate to the same unit. Add-on quotes become effective monthly rates, monthly rates become yearly, yearly rates become monthly. One unit, every debt.",
+          "Pay every minimum, every month, on time. Late fees are the most expensive money in the whole picture and avoidable.",
+          "Direct every spare peso at the debt with the highest effective rate. On a Filipino debt mix that is usually the card or the app loan, not the government loan.",
+          "Protects the cheapest legs: leave SSS and Pag-IBIG loans on their own schedules, since no bank product on today's published tables beats 8 percent a year.",
+          "Keep a fixed number, not a feeling, for the monthly attack amount. The plan only finishes if the payment above the minimums stays roughly the same each month.",
+          "Recompute the debt free date monthly and watch it move. A date that moves closer is the only feedback that matters."
+        ],
+        "subheadings": null
+      },
+      {
+        "heading": "What does not get you out of debt",
+        "paragraphs": [
+          "Five patterns show up over and over in this market, and none of them shortens a payoff.",
+          "Paying minimums and calling it a plan. The bank's own table above shows what that costs.",
+          "Borrowing to pay debt without doing the rate arithmetic. A new loan that prices above your blended rate is not consolidation, it is a fee with extra steps.",
+          "Folding cheap government money into expensive private money because one payment is tidier. This is a pay rise for the lender.",
+          "Ignoring the registry. Unpaid obligations sit there, and a lender reading yours prices the next application accordingly.",
+          "Waiting for a windfall. Extra income helps most when it lands on the highest rate first; parked in a savings account at under 1 percent while a card charges 3 percent a month, it loses money every day it waits."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Your debt free date is a calculation, not a feeling",
+        "paragraphs": [
+          "Everything above reduces to arithmetic you can run in five minutes: the list, the rates in one unit, the minimums, and one number for the extra payment. Do that and you get an order and a date. Skip it and you are managing a feeling.",
+          "Goodbye Debt's free plan runs the full version of it on up to two debts: your balances in, the avalanche order out, the interest saved against a minimum payment plan, and the exact month the last balance clears. Manual entry or a CSV, no bank linking, no card required to see the numbers.",
+          "Pair it with the companion guides as you go. This one covers the definition and the arithmetic. The consolidation guide covers refinancing and its traps. The multi loan installment guide covers the app loan stack. The card statement guide covers reading the document your balance arrives on."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "Is debt illegal in the Philippines?",
+        "a": "No. Debt is a normal civil obligation created by contract, and Article 1156 of the Civil Code defines it as a juridical necessity rather than a crime. The law protects the lender's right to collect and the borrower's right not to be imprisoned for the debt itself."
+      },
+      {
+        "q": "Can I be jailed for not paying a loan?",
+        "a": "Not for the debt. Article III, Section 20 of the Constitution says no person shall be imprisoned for debt. Criminal liability arises from separate acts, such as issuing a cheque that bounces under the Bouncing Checks Law or committing estafa, which is why the charges in these cases always cite an act rather than simply the unpaid amount."
+      },
+      {
+        "q": "Does an old debt expire?",
+        "a": "The right to sue does, eventually: ten years for a written contract, an obligation created by law, or a judgment under Article 1144, and six years for an oral contract or a quasi contract under Article 1145. That is a defence, not a deletion. The obligation can survive in practice, part payment or a written acknowledgment can restart the count, and negative credit information stays in the registry for up to three years after the debt is rectified."
+      },
+      {
+        "q": "Why is my minimum payment not reducing my balance?",
+        "a": "Because it is calculated to keep the account current, not to retire the principal. BPI sets its minimum at 3.57 percent of the balance, Metrobank at 3.5 percent or 1,000 pesos, and PNB at 3 percent or 500 pesos, while the finance charge runs 2.5 to 3 percent a month. On BPI's own published sample, 12 months of minimum payments on a 20,000 peso balance cost 5,242.24 pesos in interest and leave 10,650 pesos owed."
+      },
+      {
+        "q": "Is a bank loan cheaper than carrying a credit card balance?",
+        "a": "On today's published rates, usually yes. The BSP caps credit card finance charges at 3 percent a month, or 36 percent a year, while BPI quotes a maximum annual contractual rate of 28.67 percent on personal and salary loans. Convert both to the same unit before deciding, and remember that folding an SSS loan at 8 percent a year into either one raises your cost."
+      },
+      {
+        "q": "Which debt should I pay off first?",
+        "a": "The one with the highest effective monthly rate, after every rate is converted to the same unit. For most Filipino mixes that means the app loan or the card, ahead of a bank loan, and well ahead of an SSS or Pag-IBIG loan. Pay every minimum on time regardless of the order, and direct the extra money at the top of the list."
+      }
+    ],
+    "ctaLead": "Turn this into your own debt free date, free",
+    "ctaSub": "Add your real balances and rates and see the payoff order, the interest a minimum payment plan costs you, and the exact month the last balance clears. Free on up to two debts, manual entry or a CSV, no bank linking, nothing to pay before you see the numbers."
+  },
 ];
