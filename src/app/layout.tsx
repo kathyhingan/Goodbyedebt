@@ -3,7 +3,7 @@ import Script from "next/script";
 import { Space_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
-import { AppFooter } from "@/components/AppFooter";
+import AppFooter from "@/components/AppFooter";
 import { InstallPrompt } from "@/components/InstallPrompt";
 import { StatementReminder } from "@/components/StatementReminder";
 import { ServiceWorkerManager } from "@/components/ServiceWorkerManager";
