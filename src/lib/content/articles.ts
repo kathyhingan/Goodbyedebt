@@ -3004,4 +3004,139 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "ctaLead": "Turn this into your own debt free date, free",
     "ctaSub": "Add your real balances and rates and see the payoff order, the interest a minimum payment plan costs you, and the exact month the last balance clears. Free on up to two debts, manual entry or a CSV, no bank linking, nothing to pay before you see the numbers."
   },
+  {
+    "slug": "save-money-while-paying-off-debt",
+    "title": "How to Save Money in the Philippines When You Also Have Debt",
+    "description": "The order that works when you owe money: the one month buffer, the extra payment math at the real card cap, where the pesos come from, and the savings challenge that fits a payoff plan.",
+    "kicker": "Saving while paying off debt",
+    "tldr": "The savings and the payoff are not rivals, but they are not equals either. Card debt costs up to 36 percent a year while savings earn a fraction of that, so the order is: one month of expenses as a buffer, every peso after that against the highest rate debt, then the real fund.",
+    "sections": [
+      {
+        "heading": "Why the debt comes first, and by how much",
+        "paragraphs": [
+          "Picture the two piles of money every household with debt is really running. One pile is parked. The other is owed. The parked pile earns whatever a savings account, a time deposit, or a digital bank pays, and in the Philippines that is a low single digit a year at typical balances. The owed pile costs whatever the contract charges, and the ceilings are set by the Bangko Sentral: on a credit card, up to 3 percent a month, or 36 percent a year, on the unpaid balance, under Circular 1165 of January 2023, verified at the BSP's own circular text in November 2026.",
+          "Run the two numbers side by side and the direction stops being a matter of opinion. A 10,000 peso emergency fund earning an illustrative 4 percent a year gains about 400 pesos in a year. A 20,000 peso card balance living at the cap costs up to 7,200 pesos a year in finance charges. The same peso does opposite work depending on which pile it sits in, and the gap is not one or two points. It is the whole difference between an account that inches up and a balance that rebuilds itself every month.",
+          "That is why the popular advice to save and pay debt in equal measure quietly loses money. Splitting 2,000 pesos a month evenly between a savings account and a card at the cap means roughly 900 pesos a year of earned interest sitting next to a balance still being billed hundreds of pesos a month. The buffer (more on its size below) is the only part of the savings pile that should exist while high rate debt is live.",
+          "One caveat keeps this honest: not all debt is expensive debt. The SSS salary loan prices at 8 percent a year for an initial loan, and the Pag-IBIG multi purpose loan runs around 10.5 percent a year, both far below the card cap. Prepaying those in a hurry while a card or an app loan lives at 3 to 12 percent a month is paying down the cheapest money you own. The order matters more than the total, and the app loan tier, where licensed lenders publish effective monthly rates of 11 to 12 percent, is the pile that outranks everything else after the buffer."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "What one extra thousand pesos a month really does",
+        "paragraphs": [
+          "Take the most common expensive balance in the country: a 20,000 peso credit card debt at the 3 percent monthly cap. The card's own minimum payment rule (BPI publishes 3.57 percent of the balance with an 850 peso floor) is designed to keep the account current, not to retire the balance. On the bank's own published sample, twelve months of minimum payments on a 20,000 peso balance cost 5,242.24 pesos in interest and still leave 10,650 pesos owed.",
+          "Now add one thousand pesos to every payment. Computed from the same minimum rule and the same 3 percent monthly cap (statement date mechanics move the exact pesos, not the direction):",
+          "Three numbers fall out of that table. The payoff ends 28 months sooner. The interest avoided is about 10,600 pesos. And the same 1,000 pesos a month parked in savings at an illustrative 4 percent grows to only about 14,300 pesos over those same 14 months, of which roughly 300 is earned interest.",
+          "That comparison is the whole argument in one row. Both households fed 1,000 pesos a month into their choice for 14 months. The payer owns no balance at the end and can bank the full 1,000 from month 15 onward. The saver owns a deposit of 14,300 and still owns the card debt, still being billed at the cap every month it survives. Paying the expensive balance first is not the disciplined choice or the boring choice. It is the one that ends with more money.",
+          "The practical version of this insight costs nothing: every month, find the finance charge line on your statement and pay at least that amount above the minimum, every time, before any peso goes to optional saving. On a 20,000 balance the charge is about 600 pesos. Below that, the balance never falls and the date never gets closer."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Path on a 20,000 peso card balance",
+            "Time to clear",
+            "Total interest paid"
+          ],
+          "rows": [
+            [
+              "Minimum payment only",
+              "about 42 months",
+              "about 15,200 pesos"
+            ],
+            [
+              "Minimum plus 1,000 pesos every month",
+              "about 14 months",
+              "about 4,500 pesos"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "The buffer that keeps you from borrowing again",
+        "paragraphs": [
+          "The order has one exception, and it comes first: one month of essential expenses, held in cash, before any aggressive extra payment. This is not a contradiction of the math above. It is what protects the math from restarting.",
+          "The reason is the emergency loop. A household with no buffer that gets hit with a 5,000 peso repair pays for it with the card, because that is the only money available. Charged at the cap and paid back at 500 pesos a month, that single emergency runs 13 months and costs about 1,000 pesos in interest, and its monthly finance charge alone is 150 pesos while it lives. The buffer is therefore not really savings. It is prepaid interest avoidance, a wall between bad luck and the 36 percent machine.",
+          "Two rules keep the buffer honest. First, size it in expenses, not pesos: one month of rent or amortization, food, transport, utilities, and minimum payments, written down as an actual figure. Second, park it somewhere reachable the same day, a regular savings account or a same-day digital transfer, and never as a registered payee of the card it exists to defend. A buffer that takes three days to reach gets bypassed by the card in the checkout line.",
+          "While the buffer is being built, the payoff runs at minimums plus whatever is left. Once the buffer holds one month, every freed peso flips to the top of the payoff order. Three months of expenses is the target to grow into after the expensive debt is gone, not before."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Where the extra pesos come from",
+        "paragraphs": [
+          "Extra payment has to come from somewhere, and pretending it comes from willpower is why most plans die in week three. The reliable sources are structural, and most households have at least three of them.",
+          "The first source is the statement audit. Read the card statement the way the card statement guide on this hub teaches: every recurring charge named, every annual fee and add-on service questioned. Subscriptions that autoplay but never get watched, insurance riders folded into card benefits, the premium load or data plan sized for a usage pattern two phones ago. Canceling what is idle does not feel like sacrifice because it was never consumption. It was leakage.",
+          "The second source is the food system. The palengke run costs less than the supermarket basket for the same list, and cooking in batches turns the most expensive eating habit, the last minute delivery order, into the exception instead of the Tuesday routine. No fixed peso claim is needed here because every household's basket differs; the mechanism is what matters, buying raw and batch cooking converts the delivery margin into payment money two or three times a week.",
+          "The third source is the windfall rule, decided once and applied without a meeting: 13th month pay, tax refunds, cash gifts, and sold items get split by a standing rule, half to the buffer until it holds one month, the rest straight to the highest rate debt. Deciding the rule in advance is what separates households that absorb a bonus into December from households that cut a balance with it.",
+          "The fourth source is small, automatic, and covered next, because it is also the most Filipino savings habit on the list."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The ipon challenge, with debt in the room",
+        "paragraphs": [
+          "The classic 52 week ipon ladder, saving 1 peso in week one, 2 pesos in week two, up to 52 pesos in the final week, totals 1,378 pesos a year. As a savings achievement it is modest. As debt ammunition it still moves the date, because its value is not the amount, it is the automation.",
+          "Redirected onto the 20,000 peso example above, the ladder adds roughly 115 pesos a month on top of the minimums, and the computed payoff moves from about 42 months to about 33, with total interest falling from about 15,200 to about 11,700 pesos. A 1,378 peso challenge just cut roughly 3,500 pesos of future interest. No version of a savings account does that with the same pesos.",
+          "The full comparison of challenge variants, where each one fails, and which fits a household that also carries utang, is the job of the ipon challenge guide on this hub, which pairs the ladder with a printable tracker. The rule to take from it into this guide: pick the variant you can run for a full year, and give its payout a job in the payoff plan before week one starts. Challenge money without a named destination becomes a December shopping budget."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Make the decision once: automation",
+        "paragraphs": [
+          "Every peso path above collapses into one design decision: move money the day the salary lands, by standing instruction, so the decision is made once instead of negotiated with yourself twelve times a month.",
+          "The sequence that works: minimums leave by auto debit or same day transfer on payday, never after; the extra payment follows immediately, before the balance has a chance to become groceries; the buffer sits in a separate account that is not saved as a payee anywhere. The envelope method, digital version, works for the bills: named wallets or sub accounts per obligation, funded on payday, emptied by their due dates.",
+          "The familiar 50/30/20 split (needs, wants, savings, from Senator Elizabeth Warren's book All Your Worth) is a reasonable starting shape for households without expensive debt. With a card living at the cap or an app loan compounding monthly, the wants share is where the extra payment comes from, and the savings share starts as the one month buffer. Once the expensive debt is gone, the same automation that attacked it redirects, unchanged, into the three month fund and then into actual investing. The plumbing never changes. Only the destination does."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "A plan with a date on it",
+        "paragraphs": [
+          "None of this requires a spreadsheet habit. Goodbye Debt's free plan runs the full engine on up to two debts: balances and rates in, the payoff order out, the interest a minimum payment plan would cost, and the exact month the last balance clears. Manual entry or a CSV import, no bank linking, and nothing to pay before the numbers are on screen. The what if simulator shows what one extra payment a month does to the date before you commit it, which is this article's table, computed on your real balances instead of a 20,000 peso example.",
+          "The founding 100 members keep unlimited debt tracking free forever, and the seats strip on the homepage shows the live count.",
+          "The order, restated one last time: buffer of one month, then every freed peso against the highest effective rate, minimums always paid on time, automation on payday, windfalls split by rule. The savings account gets refilled when the expensive balances stop billing. That is how a household saves money while it owes money: it saves the interest first."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "Should I save money while I still have debt?",
+        "a": "Yes, exactly one thing: a one month buffer of essential expenses. Beyond that, pesos do more against high rate debt than beside it, because card interest at the BSP cap of 3 percent a month outruns any savings rate by a wide margin. After the expensive debt clears, the same payments redirect into the full emergency fund."
+      },
+      {
+        "q": "How much emergency fund is enough when I owe money?",
+        "a": "One month of essentials is the floor while debt is live, because its job is stopping new borrowing, not replacing income. Grow it to three months after the high rate balances are gone. Size it in expenses, not in a round peso figure, and keep it somewhere reachable the same day an emergency arrives."
+      },
+      {
+        "q": "Is it better to park money in a digital savings account or pay my credit card?",
+        "a": "Against a card at the cap, pay the card. A balance of 20,000 pesos costs up to 7,200 pesos a year in finance charges while a 10,000 peso deposit at a typical rate earns a few hundred. The exception is the buffer itself, which belongs in a savings account precisely because it must be reachable the day the emergency happens."
+      },
+      {
+        "q": "Where do I find money to save if my salary barely covers the month?",
+        "a": "Start with the statement audit: idle subscriptions, oversized load and data plans, fees and riders nobody chose. Add the palengke and batch cooking mechanism, apply the standing windfall rule to the 13th month and to cash gifts, and run the 52 week ladder as the automatic layer. The guide's table shows what even small extras do to the payoff date."
+      },
+      {
+        "q": "Does paying extra on my debt improve my credit standing?",
+        "a": "It improves the picture lenders see. Under the Credit Information System Act, lenders submit borrower data to the Credit Information Corporation's registry, and falling balances with on-time payments are exactly what the next lender reads there, after your written consent, before pricing a loan. The registry records the history; it does not run your strategy. The payoff order does that."
+      }
+    ],
+    "ctaLead": "See the date your plan ends, free",
+    "ctaSub": "Add your real balances and rates and get the payoff order, the interest you would save by paying extra, and the exact month the last debt clears. Free on up to two debts, manual entry or a CSV, no bank linking, nothing to pay before you see the plan."
+  },
 ];

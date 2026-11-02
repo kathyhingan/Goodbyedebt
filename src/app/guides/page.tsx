@@ -184,7 +184,7 @@ const groupMeta: {
   {
     group: "Savings and daily habits",
     dark: false,
-    order: ["ipon-challenge"],
+    order: ["ipon-challenge", "save-money-while-paying-off-debt"],
   },
 ];
 
