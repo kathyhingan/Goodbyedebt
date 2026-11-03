@@ -51,6 +51,15 @@ export const metadata: Metadata = {
     description:
       "Goodbye Debt tells you exactly which debt to attack first, how much to pay where each cycle, and the date you'll be free. No bank linking required.",
   },
+  // Closed Ring brand mark (Kathy pick, 2026-11-03). favicon.ico carries
+  // 16/32/48; apple-touch is full bleed because iOS rounds it itself.
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icons/icon-192.png", type: "image/png", sizes: "192x192" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
   twitter: {
     card: "summary",
     title: "Goodbye Debt: See Your Payoff Plan Free",
