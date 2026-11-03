@@ -30,6 +30,10 @@ const PRIMARY = [
   { href: "/dashboard", label: "Dashboard" },
   { href: "/plan", label: "Plan" },
   { href: "/debts", label: "Debts" },
+  // Tools sits in the primary row on purpose: it is a calculator area, not
+  // part of the ledger, and Kathy asked for it reachable as its own tab
+  // rather than buried inside Transactions.
+  { href: "/tools", label: "Tools" },
   { href: "/calendar", label: "Calendar" },
   { href: "/community", label: "Community" },
 ];
