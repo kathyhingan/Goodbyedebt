@@ -184,7 +184,7 @@ const groupMeta: {
   {
     group: "Savings and daily habits",
     dark: false,
-    order: ["ipon-challenge", "save-money-while-paying-off-debt"],
+    order: ["ipon-challenge", "save-money-while-paying-off-debt", "budgeting-apps-philippines"],
   },
 ];
 

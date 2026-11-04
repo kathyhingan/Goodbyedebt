@@ -3139,4 +3139,204 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "ctaLead": "See the date your plan ends, free",
     "ctaSub": "Add your real balances and rates and get the payoff order, the interest you would save by paying extra, and the exact month the last debt clears. Free on up to two debts, manual entry or a CSV, no bank linking, nothing to pay before you see the plan."
   },
+  {
+    "slug": "budgeting-apps-philippines",
+    "title": "Best Budgeting Apps in the Philippines 2026: Verified Prices",
+    "description": "The 2026 list for Philippine users with verified prices: the manual trackers that work, the US apps that price in dollars, why GCash and Maya are not budgeting apps, and the debt job none of them do.",
+    "kicker": "Verified prices, PH reality",
+    "tldr": "For 2026 the working list is: Money Lover, Monefy, Wallet by BudgetBakers, Money Manager, Goodbudget, and Fudget, all with free tiers that run in the Philippines, plus YNAB and EveryDollar, which price in dollars and lock their best features to US users. Every one of them tracks spending. None of them tells you which debt to kill first.",
+    "sections": [
+      {
+        "heading": "What a budgeting app actually does",
+        "paragraphs": [
+          "A budgeting app has one job: show where the money went. It takes what you earn and what you spend, sorts both into categories, and draws the picture. Some add a plan for next month, some add envelopes, some nag you when a category runs hot. All of that is genuinely useful, and for a household whose only problem is disorganized spending, any of the free tiers below will fix it.",
+          "But a budgeting app cannot answer the question this hub exists for. It can show you that 4,000 pesos went to something last month. It cannot tell you whether that 4,000 pesos should go to the card, the salary loan, or the app loan this month, and it cannot tell you the month your last balance clears. Tracking and payoff are different jobs, and the tools that do one well almost never do the other at all.",
+          "One more thing to know before the list: much of what currently ranks for this search was written for 2023, and it leads readers toward apps and prices that have since moved. This guide reads each maker's own pricing page and each app's Philippine store listing instead, in November 2026, and only repeats a price if a primary source published it. Where a price could not be verified at the source, the table says so rather than guessing."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The verified list: free tiers and paid tiers",
+        "paragraphs": [
+          "Here is the whole market that matters to a Philippine user, at prices as published by the makers themselves:",
+          "Three readings of that table matter more than the rest. First, the two strongest method driven apps, YNAB and EveryDollar, are priced for the United States, and EveryDollar's own help center says its mobile app and Premium tier are available only there. Second, almost nothing on this list connects to Philippine banks, which is why the manual trackers dominate the usable rows. Third, the two biggest names in Philippine finance, GCash and Maya, are not on the list as budgeting tools at all, and the next sections take each of these in turn."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "App",
+            "Free tier",
+            "Paid tier, as published",
+            "The catch for Philippine users"
+          ],
+          "rows": [
+            [
+              "Money Lover",
+              "Yes, with ads",
+              "Premium via in-app purchase",
+              "The price shows inside the app, not on the store listing"
+            ],
+            [
+              "Monefy",
+              "Yes, a lite version with ads",
+              "Pro via in-app purchase",
+              "Very simple manual tracker by design"
+            ],
+            [
+              "Wallet by BudgetBakers",
+              "Yes",
+              "Premium via in-app purchase or a web trial",
+              "Multicurrency is the draw; bank sync coverage is limited outside big markets"
+            ],
+            [
+              "Money Manager (Realbyte)",
+              "Yes, and it is included with Google Play Pass",
+              "No separate paid tier on the Philippine listing",
+              "Manual double entry style bookkeeping"
+            ],
+            [
+              "Goodbudget",
+              "Yes, permanent",
+              "A paid Plus upgrade exists",
+              "Envelope method, manual by design; the maker's own pricing page was offline at publish time, so no price is quoted here"
+            ],
+            [
+              "Fudget",
+              "Yes, Fudget Basic",
+              "Fudget Plus at 19.99 USD a year, or 14.99 USD per six months",
+              "Manual only, no bank connections"
+            ],
+            [
+              "YNAB",
+              "No, a 34 day trial, card not required",
+              "14.99 USD a month, or 109 USD a year",
+              "Priced in USD only, no peso plan"
+            ],
+            [
+              "EveryDollar",
+              "Yes, a basic version",
+              "Premium at 17.99 USD a month, or 79.99 USD a year",
+              "The mobile app and Premium are for US users only"
+            ],
+            [
+              "PocketGuard",
+              "7 day trial only, no permanent free tier",
+              "6.25 USD a month, billed 74.99 USD a year",
+              "Bank connectivity is US and Canada only"
+            ],
+            [
+              "GCash",
+              "Yes",
+              "Not applicable",
+              "A wallet and a lender, not a budget tracker"
+            ],
+            [
+              "Maya",
+              "Yes",
+              "Not applicable",
+              "A digital bank and a lender, not a budget tracker"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "The US apps that price in dollars",
+        "paragraphs": [
+          "YNAB is the method app of the group. Its system, called zero based budgeting, assigns every unit of income to a category until nothing is unassigned, which forces the conversation most budgets avoid. It offers a 34 day trial and does not ask for a card to start it. After the trial it costs 14.99 USD a month or 109 USD a year, which its own pricing page works out to 9.08 USD a month on the annual plan. There is no peso pricing anywhere on the page, so a Philippine subscriber pays whatever their card charges for a dollar transaction on top. Bank import is built around US institutions, so here it runs as a manual entry app. Paying 109 USD a year, roughly 6,000 pesos before fees at typical exchange rates, for a manual entry tool is a real commitment, and the trial exists precisely so you can decide with your own numbers before the first charge.",
+          "EveryDollar is the other zero based method app, from the Ramsey camp. Its basic version is free and permanent, and international users can run that basic web budget. The catch is the top of the product: the mobile app and the Premium tier, at 17.99 USD a month or 79.99 USD a year, are officially for US users only. A Philippine user gets the free web version, not the app, and not the premium features. That makes EveryDollar the easiest app on this list to try and the hardest to pay for from here.",
+          "PocketGuard is the paid tracker with a debt hook: its premium tier includes a debt payoff plan feature. But its free tier has shrunk to a 7 day trial, the subscription runs 6.25 USD a month billed as 74.99 USD a year, and its bank connectivity covers the US and Canada only. From the Philippines it is a manual entry app behind a paywall, which is a hard sell against the free manual trackers below."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Manual trackers that run fine in the Philippines",
+        "paragraphs": [
+          "Six apps on the list work here without any US dependency, and all of them start free.",
+          "Goodbudget is the envelope method in an app: you split income into named envelopes and spend from them, permanently, on the free tier. It is manual by design, which its makers treat as a feature, the idea being that the act of recording each expense is the awareness mechanism. A paid Plus tier unlocks more envelopes and accounts. Its own pricing page was offline when this was written, so this guide leaves the Plus price unquoted rather than repeating a review figure that cannot be confirmed at the source.",
+          "Money Lover is the most complete free tracker on the list: wallets, budgets, and reports, supported by ads, with a Premium in-app purchase for the bigger features like multiple wallets, advanced budgets, export, and removing the ads. The price of that upgrade is set inside the app by region, which is why no number appears here.",
+          "Monefy is the opposite bet: almost no features, extremely fast manual entry, free with ads, with a Pro in-app purchase. For a household that abandoned three complicated apps already, the tracker that takes five seconds per entry is the one that survives.",
+          "Wallet by BudgetBakers is a polished tracker with strong multicurrency support, useful if money moves between pesos and other currencies. The free download covers the basics, and Premium sits behind an in-app purchase or a web trial. Its automatic bank sync is aimed at other markets, so here it runs manual.",
+          "Money Manager from Realbyte is a manual, double entry style tracker, free on the Philippine store, and also available inside Google Play Pass if a household already pays for that. Fudget rounds out the set with a one screen, no frills ledger: Fudget Basic free forever, and a Fudget Plus subscription at 19.99 USD a year or 14.99 USD per six months for the extra features. Both prices come straight from its own pricing page.",
+          "None of these connect to a BPI, BDO, GCash, or Maya account automatically. Every one of them expects you to type what you spent. That is not a defect for a Philippine user; it is simply the state of the market, and the next section explains why it matters less than it sounds."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "GCash and Maya: where money moves, and where debt starts",
+        "paragraphs": [
+          "No budgeting list for the Philippines is complete without GCash and Maya, and no honest list pretends they are budgeting apps. They are not. GCash is the country's super app: payments, GSave for savings, and a lending shelf of GLoan, GCredit, and GGives. Maya is a digital bank with savings paying up to 15 percent a year credited daily, and its own credit products: Maya Easy Credit of up to 30,000 pesos, and personal loans up to 250,000 pesos at 0.77 to 2.57 percent monthly add-on, as listed on its store page.",
+          "The reason they belong in this guide is the second half of that paragraph. GCash and Maya are where Philippine debt increasingly starts. The balances live next to the wallet, a tap away, with approval in minutes, and the interest is easy to underestimate because the monthly add-on rates look small. The comparison guide to Tala and GCredit on this hub works a 10,000 peso example through exactly that math, and the full lender comparison converts every major product, these included, into one number you can rank.",
+          "So the practical rule: use GCash or Maya as the wallet, yes, and then treat whatever you owe them as real debts with rates attached, not as wallet noise. They go into the payoff plan with the card and the salary loan. A budgeting app will happily file a GGives payment under shopping and lose the interest entirely, which is one more reason tracking and payoff need separate tools."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Why manual entry is normal here",
+        "paragraphs": [
+          "The dream sold by app store screenshots is the automatic one: connect the bank, every transaction files itself. In the Philippines in 2026 that dream mostly does not exist for consumers. YNAB's import focuses on US banks, PocketGuard connects US and Canadian banks only, EveryDollar's app is US only, and the local trackers are manual by design. The honest setup here is a manual tracker, reconciled against the statement, however often you can stand it.",
+          "Two habits make manual entry survivable. The first is frequency: one minute at the end of the day beats an hour of reconstruction on Sunday. The second is the statement itself, which is the ground truth the app is only imitating. The credit card statement guide on this hub walks through the finance charge line and the minimum payment mechanics, and reading it once teaches you what the tracker cannot see: the interest accruing between purchases, the fees that never appear as transactions, the difference between the statement balance and the running balance.",
+          "This is also where the payoff tool earns its keep as a complement rather than a duplicate. Goodbye Debt's free plan runs its engine on up to two debts with manual entry or a CSV import, and the paid tier adds bulk CSV import, so a household that does its spending tracking in Money Lover and its debt arithmetic in Goodbye Debt never needs a bank connection at all. The two tools pass each other one number a month, the balance owed, and neither pretends otherwise."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The job none of them do: the attack order",
+        "paragraphs": [
+          "Here is the sentence this whole article builds toward: every app on the list above tracks spending, and none of them computes which debt to attack first, in what order, with what extra payment, ending when. Not YNAB with its method, not PocketGuard with its payoff feature, not any of the manual trackers. The moment a household owes more than one balance, the questions that decide how much interest it pays are ordering questions, and tracking apps do not answer them.",
+          "The ordering logic has two classic forms, and the which debt to pay off first guide on this hub works both through with real Philippine rates. Avalanche orders the debts by interest rate, most expensive first, and pays the minimum on everything else. Snowball orders by balance size, smallest first, and banks the early wins. The right choice between them depends on the debts you actually hold, because a 3 percent monthly card cap and a 7 percent salary loan rank differently than American advice assumes, and an 11 to 12 percent effective monthly app loan outranks nearly everything.",
+          "Goodbye Debt was built for exactly that job, and it says so plainly: it is not a budgeting app. You enter every balance and its rate, manual or CSV, and it returns the payoff order, the amount to pay where each cycle, the interest a minimum payment plan would have cost, and the exact month the last balance clears, before asking for anything. The free plan runs the full engine on up to two debts, with avalanche built in. The paid unlock adds the other strategies, unlimited debts, the what-if simulator, and export. The first 100 founding members keep unlimited debt tracking free forever, and the seats strip on the homepage counts what is left. The sequence that works for most households is one tracker from the free rows above, plus this engine for the part the tracker will never do."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "How to choose in five minutes",
+        "paragraphs": [
+          "If the problem is visibility, pick the free manual tracker that matches your patience. Money Lover if you want reports and structure, Monefy if you want speed above all, Money Manager if you think in bookkeeping terms, Goodbudget if the envelope system clicks, Fudget if you want one screen and a cheap upgrade path.",
+          "If the problem is method, and you accept paying in dollars for a US made system, YNAB's 34 day trial is the serious option, taken with full knowledge that it converts to 14.99 USD a month and runs manual here. EveryDollar's free web version is worth a look for the same method at zero cost, with the understanding that the app and the premium tier stop at the US border.",
+          "If the problem is debt, none of the above is the answer, because the tool that answers it is the one on this hub. Track the spending with any free app you like, and run the payoff order here. A tracker plus a plan beats a tracker alone by every measure that matters, and it is the only combination on this page that ends with a date."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the best budgeting app in the Philippines in 2026?",
+        "a": "For tracking, Money Lover or Monefy, both free and both fully usable here, or Goodbudget for the envelope method. YNAB is the premium method app but prices in USD and runs manual locally. If the real problem is debt rather than spending, the better tool is a payoff engine, and the free plan on this site computes the attack order, the monthly amounts, and the debt-free date from your real balances."
+      },
+      {
+        "q": "Is YNAB worth it in the Philippines?",
+        "a": "It is the strongest budgeting method available, and the 34 day trial lets you test it without a card. The costs to weigh are real though: 14.99 USD a month or 109 USD a year, no peso pricing, bank import built for US institutions, so everything is manual here. Try the trial on your actual numbers first, and only subscribe if the method itself, not the automation, is what you were missing."
+      },
+      {
+        "q": "Is GCash a budgeting app?",
+        "a": "No. GCash is a wallet and payment platform, with savings through GSave and borrowing through GLoan, GCredit, and GGives. It files spending, but it does not budget it, and it definitely does not tell you which of your debts to pay first. Keep it as the wallet, and put any GCash borrowing on the payoff list like any other debt, at its real rate."
+      },
+      {
+        "q": "Do budgeting apps work without linking a bank account?",
+        "a": "Yes, and in the Philippines they mostly have to. Nearly every app on this list is manual entry here, either because bank connectivity covers other countries or because the app is manual by design. Manual entry against a statement once a day is slower by a minute and more accurate by a little, since you reconcile against the ground truth instead of trusting a feed."
+      },
+      {
+        "q": "Do I need a budgeting app if I use Goodbye Debt?",
+        "a": "They do different jobs, so the honest answer is that many households want both. Goodbye Debt tells you which debt to attack, in what order, and the month you finish; it does not track groceries or load. A free tracker handles the daily spending. The only number that needs to travel between them is the balance on each debt, updated as it falls."
+      }
+    ],
+    "ctaLead": "Compute your payoff order, free",
+    "ctaSub": "Budgeting apps track spending; none of them tells you which debt to attack first. Add your real balances and rates and see the payoff order, the interest a minimum payment plan costs, and the exact month the last debt clears. Free on up to two debts, manual entry or a CSV, no bank linking, nothing to pay before you see the plan."
+  },
 ];
