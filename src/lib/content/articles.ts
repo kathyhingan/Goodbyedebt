@@ -3339,4 +3339,282 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "ctaLead": "Compute your payoff order, free",
     "ctaSub": "Budgeting apps track spending; none of them tells you which debt to attack first. Add your real balances and rates and see the payoff order, the interest a minimum payment plan costs, and the exact month the last debt clears. Free on up to two debts, manual entry or a CSV, no bank linking, nothing to pay before you see the plan."
   },
+  {
+    "slug": "pagibig-multi-purpose-loan-calculator",
+    "title": "Pag-IBIG Multi-Purpose Loan Calculator: Your Monthly Payment",
+    "description": "Every MPL payment at the form's real rate: 1.4583 percent a month on a diminishing balance over 12, 24, or 36 months, what the marketed 10.5 percent hides, and where the payment sits next to your card and app debts.",
+    "kicker": "The real MPL payment math",
+    "tldr": "A Pag-IBIG Multi-Purpose Loan amortizes at 1.4583 percent a month on a diminishing balance over 12, 24, or 36 months. On 100,000 borrowed that is 9,144, 4,968, or 3,590 a month. The marketed 10.5 percent a year is not the figure the payment formula uses. The full tables are below.",
+    "sections": [
+      {
+        "heading": "What the MPL actually charges",
+        "paragraphs": [
+          "The official Multi-Purpose Loan Application Form, revision HQP-SLF-065, states the interest as 1.4583 percent per month, based on a diminishing balance method, with interest applying during the grace period, amortized over the chosen term. That single sentence is the whole calculator. Multiply 1.4583 by 12 and you get 17.5 percent, which is the \"equivalent rate of 17.5 percent based on diminishing principal balance\" that earlier revisions of the same form printed in parentheses after the headline rate.",
+          "So there are two numbers attached to this loan, and they are not in conflict once you see how each one is built:",
+          "The gap between 10.5 and 17.5 is the difference between quoting a rate against the original principal and charging interest every month on what you have not yet paid back. On a diminishing balance loan the second method is the real cost, because in month one you owe the full amount and the full 1.4583 percent applies to all of it.",
+          "Circular 469, the guidelines revision that took effect in 2025, reshaped the rest of the product: loan terms are now one, two, or three years, the entitlement moved to 90 percent of your Total Accumulated Value, and the minimum contribution history dropped to 12 monthly membership savings. If you do not choose a term at application, the default is two years."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "The number",
+            "Where it comes from",
+            "What it means for your payment"
+          ],
+          "rows": [
+            [
+              "10.5 percent a year",
+              "The Fund's marketing framing for the MPL",
+              "The number that makes the loan look cheap in a brochure"
+            ],
+            [
+              "1.4583 percent a month",
+              "The payment clause on the application form",
+              "The number your amortization is actually computed with"
+            ],
+            [
+              "17.5 percent a year",
+              "The form's own diminishing balance equivalence",
+              "What you effectively pay annually on the money you still owe"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "The payment formula, in plain numbers",
+        "paragraphs": [
+          "The form requires equal monthly payments that fully cover principal and interest over the loan period. That is the standard amortized loan formula: take the monthly rate, take the number of months, and solve for the fixed payment that leaves a zero balance on the last month. No lender tricks hide inside it, but the marketed annual rate does not appear anywhere in it.",
+          "Watch what the formula does with 100,000 pesos over 24 months at 1.4583 percent a month:",
+          "The payment is 4,968.27 every month. Total outflow is 119,238.37, so the true cost of the loan is 19,238.37 in interest, not the 21,000 that a flat 10.5 percent of principal for two years would suggest, and not the 10,500 that reading \"10.5 percent a year\" against the principal alone would promise. The early months are almost one third interest, and the share falls every month as the balance shrinks."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Month",
+            "Interest that month",
+            "Principal that month",
+            "Balance left after"
+          ],
+          "rows": [
+            [
+              "1",
+              "1,458.30",
+              "3,509.97",
+              "96,490.03"
+            ],
+            [
+              "2",
+              "1,407.11",
+              "3,561.15",
+              "92,928.88"
+            ],
+            [
+              "3",
+              "1,355.18",
+              "3,613.08",
+              "89,315.80"
+            ],
+            [
+              "12",
+              "852.35",
+              "4,115.91",
+              "54,332.42"
+            ],
+            [
+              "23",
+              "141.80",
+              "4,826.47",
+              "4,896.85"
+            ],
+            [
+              "24",
+              "71.41",
+              "4,896.85",
+              "0"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Monthly payments at a glance",
+        "paragraphs": [
+          "Every figure below is the standard amortization at 1.4583 percent a month, rounded to the nearest peso. The payment column is what you would owe each month; the number in parentheses is the total interest across the whole term.",
+          "Read the trade-off off any row: the three year term cuts the monthly payment nearly in half against the one year term, and in exchange adds roughly half again to the total interest. On 100,000, choosing 36 months over 12 months lowers the payment from 9,144 to 3,590 and raises the interest from 9,730 to 29,247. Whether that trade is worth it depends entirely on what else is competing for the same monthly budget, which is the question the rest of this page is really about."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Amount borrowed",
+            "12 month term",
+            "24 month term",
+            "36 month term"
+          ],
+          "rows": [
+            [
+              "20,000",
+              "1,829 (1,946)",
+              "994 (3,848)",
+              "718 (5,849)"
+            ],
+            [
+              "50,000",
+              "4,572 (4,865)",
+              "2,484 (9,619)",
+              "1,795 (14,623)"
+            ],
+            [
+              "100,000",
+              "9,144 (9,730)",
+              "4,968 (19,238)",
+              "3,590 (29,247)"
+            ],
+            [
+              "200,000",
+              "18,288 (19,461)",
+              "9,937 (38,477)",
+              "7,180 (58,493)"
+            ],
+            [
+              "300,000",
+              "27,433 (29,191)",
+              "14,905 (57,715)",
+              "10,771 (87,740)"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "What the table leaves out",
+        "paragraphs": [
+          "Four things sit between the clean table above and the payment you will actually see, and all four come from the form itself:",
+          "None of these change the rate; they change how much you borrow and how much a late month costs. The calculator answer is the payment, and the fine print answer is that the payment only holds if nothing goes late."
+        ],
+        "bullets": [
+          "The two month grace period. The loan carries a grace period of two months before amortization starts, and the form charges interest during it. Your first payment lands about two months after release, and the interest that accrued on the untouched principal in those months is part of what the schedule has to recover, so the real lifetime cost runs slightly above the plain table.",
+          "Capacity to pay. The approved amount is capped so your Net Take Home Pay never falls below the floor set by the General Appropriations Act or your company policy. A salary earner who qualifies for 300,000 on paper may be approved for far less.",
+          "The 90 percent TAV ceiling, net of existing loans. Your entitlement is 90 percent of your Total Accumulated Value, minus the outstanding balance of any existing MPL, Calamity Loan, or HELPs. The table row you want may not be the row you are offered.",
+          "The penalty clock. A delayed payment costs 1/20 of 1 percent of the unpaid amount per day, about 1.5 percent a month, which is steeper than the loan's own interest. Payments are applied to penalties first, then interest, then principal, and your employer is supposed to remit what it deducted by the 15th of each month."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "What the payment means next to your other debts",
+        "paragraphs": [
+          "Here is the same loan in context. The column that matters is not the rate, it is what each source of debt charges you per month on the same balance:",
+          "The payoff order that saves the most interest is almost always the reverse of this table: attack the bottom rows first. A Tala balance costs about seven to eight times what the same MPL balance costs per month, and a GCredit or BillEase balance costs more than double. The MPL sits in the cheap third of the table, above only the two government loans that are capped or seasonal.",
+          "That is the whole strategy in one screen: an MPL payment is rarely the debt to prepay, because every extra peso thrown at it saves 1.46 percent a month, while the same peso thrown at the card or the app loan saves 3 to 12 percent a month. Pay the minimums that keep the MPL clean, and send everything spare up the table. The payoff sandbox in the guide on which debt to pay first runs exactly this comparison on your own balances, and the Tagalog combos for SSS plus credit card plus kamag anak and Home Credit plus SSS plus credit card apply the same ordering to those specific stacks."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Debt source",
+            "Monthly rate",
+            "Interest on a 20,000 balance, one month"
+          ],
+          "rows": [
+            [
+              "Pag-IBIG Calamity Loan",
+              "0.50 percent a month",
+              "99"
+            ],
+            [
+              "SSS salary loan",
+              "0.67 percent a month",
+              "133"
+            ],
+            [
+              "Pag-IBIG Multi-Purpose Loan",
+              "1.46 percent a month",
+              "292"
+            ],
+            [
+              "Credit card at the BSP cap",
+              "3 percent a month",
+              "600"
+            ],
+            [
+              "BillEase standard",
+              "3.49 percent a month",
+              "698"
+            ],
+            [
+              "GCredit",
+              "4.15 percent a month",
+              "830"
+            ],
+            [
+              "Tala",
+              "11 to 12 percent a month effective",
+              "2,200 to 2,400"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "When the MPL is still the right move",
+        "paragraphs": [
+          "The exception to \"never prepay the cheap loan\" is when the MPL replaces a debt instead of joining it. The three condition test from the personal loan versus credit card guide applies unchanged:",
+          "One more door worth checking first: if a calamity window is open where you live and you qualify, the Calamity Loan charges 5.95 percent a year, less than half the MPL's effective cost, with up to 80 percent of TAV available. The MPL is the everyday option precisely because it does not need a disaster; when the cheaper sibling is open, use it."
+        ],
+        "bullets": [
+          "The rate is clearly below what you are replacing. At 1.4583 percent a month against a card at the 3 percent cap, GCredit at 4.15, BillEase at 3.49, or Tala in double digits, the gap is wide. Against a bank personal loan at 14 to 18 percent a year it narrows or flips, and the full comparison in the Pag-IBIG plus BillEase plus bank loan guide does that math line by line.",
+          "You actually qualify at the size you need. The 90 percent TAV ceiling, net of existing Pag-IBIG loans, and the take home pay floor decide this, not your desired amount.",
+          "The replaced balance stays closed. A card that gets consolidated and then refills leaves you paying both. The MPL does not fix a spending pattern; it only moves a balance to a cheaper rate."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "How to apply and who qualifies",
+        "paragraphs": [
+          "The application form's requirements list is short: at least 12 monthly membership savings, active membership at application, no existing MPL, Calamity Loan, or HELPs in default, and sufficient proof of income. Members who withdrew their savings can requalify by re-accumulating the equivalent of 12 months of contributions. File at a branch or through the official channels with one accomplished copy of the form plus the required documents, choose your term at application, and pick a release mode: your Pag-IBIG Loyalty Card Plus, credit to a bank account through LANDBANK's payroll validation system, or a check. Processing starts only when the submission is complete, and renewal of an existing loan waits until the current one is current."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "See your own payment inside a full plan",
+        "paragraphs": [
+          "The tables above use round numbers because that is what a calculator page can do. Your situation has specific balances, specific rates, and a specific monthly budget, and the order that saves the most interest depends on all three at once. The free plan in the Goodbye Debt app takes your actual debts, including an MPL alongside anything else you carry, and reports the payoff order, the projected debt free date, and the interest each ordering costs, before anything is paid or signed up for."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "Is the Pag-IBIG MPL really only 10.5 percent a year?",
+        "a": "No, not in the sense that matters. The 10.5 percent figure is the Fund's marketing framing; the application form computes every payment at 1.4583 percent a month on a diminishing balance, which is 17.5 percent a year on the money you still owe. On 100,000 over 24 months you pay 119,238 in total, which is 19,238 in interest. It is still cheap relative to cards and app loans, it is just not a 10.5 percent loan in the way a bank quote would use the term."
+      },
+      {
+        "q": "How much can I borrow with the MPL?",
+        "a": "The lowest of three limits: your desired amount, 90 percent of your Total Accumulated Value minus the outstanding balance of any existing MPL, Calamity Loan, or HELPs, and the capacity to pay cap that keeps your Net Take Home Pay above the required floor. A member with a large savings history and no other Pag-IBIG loans can reach the top rows of the payment table; a member with an existing calamity loan balances against its remaining balance first."
+      },
+      {
+        "q": "MPL or SSS salary loan, which is cheaper?",
+        "a": "The SSS salary loan wins on price and loses on size. It charges 8 percent a year on a diminishing balance, about 133 pesos a month in interest on a 20,000 balance against the MPL's 292, but it is capped at one month's salary amount to a maximum of 20,000, or two months to a maximum of 40,000. If your debt problem fits inside 40,000, the SSS loan is the cheaper tool. If you need more, the MPL is the bigger government-priced option, and nothing stops you using both for different slices."
+      },
+      {
+        "q": "Does the two month grace period make the loan cheaper?",
+        "a": "No. The form charges interest during the grace period, so those two months add cost rather than remove it. What the grace period buys is time: your first payment lands about two months after release, which can be the difference between affording the loan and missing month one. Treat it as a cash flow tool, not a discount, and remember the penalty clock starts if a payment after the grace period slips."
+      },
+      {
+        "q": "Should I use an MPL to pay off my credit card or BillEase?",
+        "a": "Usually yes on rates, with the three conditions attached. Paying 1.4583 percent a month instead of 3 percent or more roughly halves the monthly bleed, and the worked example in the personal loan versus credit card guide shows how big that gap becomes over a full payoff. The traps are qualification and discipline: the MPL amount is capped by your savings and take home pay, and the replaced card has to stay at zero or the loan just added a second payment."
+      }
+    ],
+    "ctaLead": "See your MPL inside your payoff plan, free",
+    "ctaSub": "A payment table uses round numbers. Your plan uses your real MPL balance next to your card, Tala, GCredit, and BillEase debts, and reports the order that saves the most interest, the debt free date, and the cost of each ordering. Free on up to two debts, manual entry or a CSV, no bank linking."
+  },
 ];

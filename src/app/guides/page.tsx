@@ -164,6 +164,7 @@ const groupMeta: {
       "utang-sss-credit-card-kamag-anak",
       "home-credit-sss-credit-card-plano",
       "pagibig-billease-bank-loan",
+      "pagibig-multi-purpose-loan-calculator",
     ],
   },
   {
