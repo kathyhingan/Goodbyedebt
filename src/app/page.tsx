@@ -222,6 +222,7 @@ const body = `
     <div class="hero-ctas">
       <a href="/login?mode=signup" class="btn-primary">Start Free. See Your Plan &rarr;</a>
       <span class="hero-note">Works right in your browser. No app store, no download.</span>
+      <a href="https://www.producthunt.com/products/goodbye-debt?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-goodbye-debt" target="_blank" rel="noopener noreferrer"><img alt="Goodbye Debt - See Your Payoff Plan Free | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1306002&theme=light&t=1793919721586"></a>
     </div>
     <div class="trust-bar">
       <div class="trust-stat"><div class="num">10 min</div><div class="label">To see your full payoff plan</div></div>
