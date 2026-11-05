@@ -72,6 +72,11 @@ const css = `
 .gd-landing .btn-primary{background:var(--green); color:#fff; font-weight:800; font-size:16px; padding:18px 30px; border-radius:10px; display:inline-flex; align-items:center; gap:10px; box-shadow:0 10px 30px -8px rgba(58,158,95,0.55); border:none; cursor:pointer; transition:transform .15s ease;}
 .gd-landing .btn-primary:hover{transform:translateY(-2px);}
 .gd-landing .hero-note{font-size:13px; color:var(--muted); font-weight:600;}
+.gd-landing .asseen{padding:34px 0 10px;}
+.gd-landing .asseen .wrap{display:flex; align-items:center; justify-content:center; gap:26px; flex-wrap:wrap;}
+.gd-landing .asseen-label{width:100%; text-align:center; font-size:11px; letter-spacing:2.4px; text-transform:uppercase; color:var(--muted); font-weight:700; margin:0 0 4px;}
+.gd-landing .asseen a{display:inline-flex; border-radius:6px; overflow:hidden;}
+.gd-landing .asseen img{display:block;}
 .gd-landing .trust-bar{margin-top:64px; padding-top:32px; border-top:1px solid var(--line); display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
 .gd-landing .trust-stat .num{font-family:'Anton',sans-serif; font-size:clamp(24px,3vw,34px); color:var(--green-bright);}
 .gd-landing .trust-stat .label{font-size:12.5px; color:var(--muted); font-weight:600; margin-top:4px; text-transform:uppercase; letter-spacing:0.4px;}
@@ -222,7 +227,6 @@ const body = `
     <div class="hero-ctas">
       <a href="/login?mode=signup" class="btn-primary">Start Free. See Your Plan &rarr;</a>
       <span class="hero-note">Works right in your browser. No app store, no download.</span>
-      <a href="https://www.producthunt.com/products/goodbye-debt?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-goodbye-debt" target="_blank" rel="noopener noreferrer"><img alt="Goodbye Debt - See Your Payoff Plan Free | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1306002&theme=light&t=1793919721586"></a>
     </div>
     <div class="trust-bar">
       <div class="trust-stat"><div class="num">10 min</div><div class="label">To see your full payoff plan</div></div>
@@ -230,6 +234,14 @@ const body = `
       <div class="trust-stat"><div class="num">No bank link</div><div class="label">Manual entry or CSV, your data stays yours</div></div>
       <div class="trust-stat"><div class="num">First 100</div><div class="label">Unlimited debts, free forever</div></div>
     </div>
+  </div>
+</section>
+
+<section class="asseen">
+  <div class="wrap">
+    <div class="asseen-label">As seen in</div>
+    <a href="https://www.producthunt.com/products/goodbye-debt?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-goodbye-debt" target="_blank" rel="noopener noreferrer"><img alt="Goodbye Debt - See Your Payoff Plan Free | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1306002&theme=light&t=1793919721586"></a>
+    <a href="https://shipboost.io/tools/goodbye-debt" data-shipboost-badge="free-launch" target="_blank" rel="noopener"><img src="https://shipboost.io/badge/cmw466j9q000hsn0t5oopy7pi?theme=light" alt="Featured on ShipBoost" width="244" height="56" style="width:244px;height:56px;"></a>
   </div>
 </section>
 
