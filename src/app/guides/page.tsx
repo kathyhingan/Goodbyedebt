@@ -165,6 +165,7 @@ const groupMeta: {
       "home-credit-sss-credit-card-plano",
       "pagibig-billease-bank-loan",
       "pagibig-multi-purpose-loan-calculator",
+      "sss-salary-loan-calculator",
     ],
   },
   {

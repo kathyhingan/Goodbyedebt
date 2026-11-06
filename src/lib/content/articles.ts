@@ -3617,4 +3617,327 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "ctaLead": "See your MPL inside your payoff plan, free",
     "ctaSub": "A payment table uses round numbers. Your plan uses your real MPL balance next to your card, Tala, GCredit, and BillEase debts, and reports the order that saves the most interest, the debt free date, and the cost of each ordering. Free on up to two debts, manual entry or a CSV, no bank linking."
   },
+  {
+    "slug": "sss-salary-loan-calculator",
+    "title": "SSS Salary Loan Calculator: Your Monthly Payment",
+    "description": "Every SSS salary loan payment at the real 8 percent diminishing balance rate over 24 months, what the advance deductions take from your proceeds, and where the payment sits next to your card and app debts.",
+    "kicker": "The real SSS payment math",
+    "tldr": "An SSS salary loan is paid in 24 equal monthly amortizations at 8 percent a year on a diminishing balance. On 20,000 borrowed that is 904.55 a month and 1,709.10 in total interest, and the 200 service fee plus about 202 of advance interest come off your proceeds before you see them. The full tables are below.",
+    "sections": [
+      {
+        "heading": "What the salary loan actually charges",
+        "paragraphs": [
+          "The current rules live in Circular 2025-004, the Guidelines of the SSS Salary Loan Program, published on the SSS Salary Loan page. The interest clause reads: eight percent per annum based on diminishing principal balance, for an initial loan or any renewal where you did not avail of penalty condonation in the past five years. If you renewed after availing of condonation within the past five years, the renewal prices at ten percent. That single rate, divided by 12, is the whole calculator.",
+          "Three more numbers sit next to it, and each one changes what actually reaches you:",
+          "SSS itself adds a warning worth keeping: the Annual Effective Interest Rate may vary slightly per borrower, depending on loan amount, release date, amortization start date, and charges, and your specific EIR appears in the Disclosure Statement during application. So the 8 percent is the pricing basis, not the final cost. The sections below quantify the gap."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "The number",
+            "Where it comes from",
+            "What it means for you"
+          ],
+          "rows": [
+            [
+              "8 percent a year",
+              "The rate clause under Circular 2025-004",
+              "The basis of every payment on this page"
+            ],
+            [
+              "24 equal monthly amortizations",
+              "The repayment term",
+              "The only term; there is no 12 or 36 month option"
+            ],
+            [
+              "1 percent service fee",
+              "Charged and deducted from proceeds",
+              "On 20,000, 200 never reaches your account"
+            ],
+            [
+              "Pro-rated interest in advance",
+              "From loan granting date to the end of the month before the first amortization month",
+              "The circular's own sample deducts 201.64 on a 20,000 loan"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "The payment formula, in plain numbers",
+        "paragraphs": [
+          "Twenty four equal payments that fully retire principal and interest at 8 percent a year is the standard amortized loan. Divide 8 by 12 and you get 0.6667 percent a month; solve for the fixed payment that leaves a zero balance on month 24. Watch what it does with 20,000 pesos:",
+          "The payment is 904.55 every month. Total outflow is 21,709.10, so the true interest cost of the loan is 1,709.10. The first month is 15 percent interest, and the interest share falls every month as the balance shrinks. By the final month you are paying 5.99 of interest on a balance under 900. No hidden charges live inside the schedule; everything else the loan costs you lives in the deductions before release, which the next tables leave out on purpose and a later section prices in."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Month",
+            "Interest that month",
+            "Principal that month",
+            "Balance left after"
+          ],
+          "rows": [
+            [
+              "1",
+              "133.33",
+              "771.21",
+              "19,228.79"
+            ],
+            [
+              "2",
+              "128.19",
+              "776.35",
+              "18,452.43"
+            ],
+            [
+              "3",
+              "123.02",
+              "781.53",
+              "17,670.90"
+            ],
+            [
+              "12",
+              "74.85",
+              "829.69",
+              "10,398.46"
+            ],
+            [
+              "23",
+              "11.94",
+              "892.60",
+              "898.56"
+            ],
+            [
+              "24",
+              "5.99",
+              "898.56",
+              "0"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Monthly payments at a glance",
+        "paragraphs": [
+          "Every figure below is the standard amortization at 8 percent a year over 24 months, rounded to the nearest peso. The payment column is the monthly amortization; the number in parentheses is total interest across the term.",
+          "Read the top and bottom rows together: doubling the loan from 20,000 to 40,000 doubles the payment exactly, because the term never changes. The rows above 20,000 are two-month loans, and they carry a contribution price: a 40,000 loan needs an average Monthly Salary Credit near the 20,000 maximum, which most members never reach. The realistic middle of this table for most borrowers is 10,000 to 20,000."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Amount borrowed",
+            "Monthly payment (24 months)",
+            "Total interest"
+          ],
+          "rows": [
+            [
+              "5,000",
+              "226 (427)",
+              "427"
+            ],
+            [
+              "10,000",
+              "452 (855)",
+              "855"
+            ],
+            [
+              "15,000",
+              "678 (1,282)",
+              "1,282"
+            ],
+            [
+              "20,000",
+              "905 (1,709)",
+              "1,709"
+            ],
+            [
+              "25,000",
+              "1,131 (2,136)",
+              "2,136"
+            ],
+            [
+              "30,000",
+              "1,357 (2,564)",
+              "2,564"
+            ],
+            [
+              "40,000",
+              "1,809 (3,418)",
+              "3,418"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "The ceiling is not your salary",
+        "paragraphs": [
+          "This is the part that surprises people at the counter. The loan is not one or two months of your salary; it is one or two months of your average Monthly Salary Credit:",
+          "On top of the ceiling, the contribution gates decide who can file at all: 36 posted monthly contributions, six of them within the last 12 months before the month of filing, for a one-month loan; 72 posted monthly contributions, six within the last 12 months, for a two-month loan. Self-employed, voluntary, non-working spouse, and land-based OFW members additionally need six posted contributions under their current coverage type. Employed members need an employer current on contributions and loan remittances, and every applicant needs no past due salary loan or similar SSS member loan, no fraud disqualification, age under 65, and an active disbursement account enrolled in DAEM.",
+          "So the calculator answer for most members is smaller than the table suggests. The average of your last 12 MSCs, not your payslip, sets the row you qualify for."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Rule",
+            "What it says",
+            "Ceiling"
+          ],
+          "rows": [
+            [
+              "One-month loan",
+              "The average of your 12 latest posted MSCs under the Regular SS Program, rounded to the next higher MSC, or the amount applied for, whichever is lower",
+              "20,000"
+            ],
+            [
+              "Two-month loan",
+              "Twice that average MSC, rounded to the next higher MSC, or the amount applied for, whichever is lower",
+              "40,000"
+            ],
+            [
+              "Why the cap exists",
+              "MSC under the Regular SS Program tops out at 20,000; contributions above 20,000 up to 35,000 go to the MySSS Pension Booster, which the salary loan does not count",
+              "A member earning 60,000 gross still tops out at 40,000"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "What the table leaves out",
+        "paragraphs": [
+          "Five things sit between the clean table above and the money you actually hold and owe. All five come from the circular itself:",
+          "None of these change the 8 percent; they change what you receive, what a late month costs, and what a condoned past costs you on the next renewal. The calculator answer is the payment; the fine print answer is that the payment only holds if every month lands on time."
+        ],
+        "bullets": [
+          "The start gap. Amortization starts on the second month following the month of approval, and each month's payment deadline is the last day of the following month. The circular's sample: a loan dated 15 April 2025 has its first amortization month in June 2025, due 31 July 2025. Interest accrues on the untouched principal during that gap, and the slice from the granting date to the end of the month before the first amortization month is deducted in advance.",
+          "Net proceeds. On the circular's own sample computation, 20,000 at 8 percent for 46 days deducts 201.64 of advance interest, and the 1 percent service fee takes another 200. Cash received: 19,598.36. Total repaid over the term: 21,709.38. The real cost is 2,111.02, about 10.8 percent of the money that actually landed in your account. SSS prints your exact EIR in the Disclosure Statement at application.",
+          "The 10 percent renewal. Avail of a penalty condonation and any renewal within the next five years prices at 10 percent a year, not 8. On 20,000 over 24 months that is roughly 426 more interest than the clean table. Good standing is worth real money on this loan.",
+          "The penalty ladder. An amortization remitted after its due date bears a 1 percent per month penalty computed and charged for every day of delay. A loan still unpaid after its term carries 10 percent annual interest plus the 1 percent monthly penalty until fully paid. The loan defaults when total unpaid principal, interest, and penalties exceed six monthly amortizations, and the full balance becomes due and demandable. SSS is authorized to deduct an unpaid balance from whatever benefit comes due, including final claims.",
+          "The payment order. Any payment, including overpayments, applies to penalty first, then interest, then principal. Late months dig a hole that the next payment does not refill."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "What 20,000 costs next to your other options",
+        "paragraphs": [
+          "Here is the same loan in context. One row per source of borrowed money, each paying off 20,000 in 24 equal payments at its verified monthly rate:",
+          "The card and GCredit rows are a hypothetical by construction, since both are revolving lines rather than 24 month products; the table asks what the same balance would cost if it were paid off in equal payments at their published rates, which is the comparison a payoff plan actually faces. Tala, at 11 to 12 percent a month effective, is not a 24 month product at any price and lands past the bottom row by any method. The SSS row is the floor of the entire Philippine borrowing table: nothing else on it charges a third of what the card cap allows.",
+          "That fixes the payoff order. An SSS salary loan is never the debt to prepay while a card, GCredit, or app loan balance breathes, because every spare peso thrown at the SSS loan saves 0.67 percent a month while the same peso on the card saves 3 percent or more. Pay the amortization on time to protect the 8 percent pricing and the renewal window, and send everything spare up the table. The payoff sandbox in the guide on which debt to pay first runs exactly this comparison on your own balances, the full lender comparison ranks the private lenders in the same unit, and the Tagalog combo for SSS plus credit card plus kamag anak applies the ordering to that specific stack.",
+          "The one move worth pricing: renewing the SSS loan at 8 percent to retire an expensive balance. The three condition test from the personal loan versus credit card guide applies unchanged. The rate gap is the widest in the market, the amount is capped at what your MSC supports, and the replaced balance has to stay closed or the renewal just added a second payment."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Borrow 20,000 from",
+            "Monthly rate used",
+            "Monthly payment",
+            "Total interest over 24 months"
+          ],
+          "rows": [
+            [
+              "SSS salary loan",
+              "0.67 percent a month",
+              "905",
+              "1,709"
+            ],
+            [
+              "Pag-IBIG Multi-Purpose Loan",
+              "1.4583 percent a month",
+              "994",
+              "3,848"
+            ],
+            [
+              "Credit card at the BSP cap",
+              "3 percent a month",
+              "1,181",
+              "8,343"
+            ],
+            [
+              "BillEase standard installment",
+              "3.49 percent a month",
+              "1,244",
+              "9,860"
+            ],
+            [
+              "GCredit carried as a payoff",
+              "4.15 percent a month",
+              "1,332",
+              "11,967"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Renewal, early settlement, and restructuring",
+        "paragraphs": [
+          "The renewal rules are specific, and they reward punctuality:",
+          "One more rule belongs in every renewal plan: these renewal policies apply to loans granted before Circular 2025-004 too, and a past due salary loan blocks everything until it is settled, restructured, or condoned. The condonation path has its own price, the five year 10 percent renewal window from the section above."
+        ],
+        "bullets": [
+          "Renewal after six months. You may renew at least six months after the existing loan's approval, provided it is not past due and your last three monthly amortizations were paid within their due dates. The old balance comes off the new proceeds.",
+          "Renewing a paid loan. A fully paid loan renews immediately if the last three amortizations were on time. If any of the last three were late, renewal waits three months after full payment.",
+          "The minimum renewal. New proceeds, after charges and the old balance, must be at least 2,000 (100 for kasambahay), or there is no loan.",
+          "No cancellation. The loan cannot be cancelled. Terminating early means paying the outstanding penalty, if any, plus interest and principal in full as of the settlement date."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "How to apply and who qualifies",
+        "paragraphs": [
+          "Application is online only, through your My.SSS account on the SSS website or the MySSS mobile application. The sequence: update your contact information, enroll an active disbursement account in the Disbursement Account Enrollment Module (a UMID ATM card or a PESONet bank account in your name), file the salary loan application, and read the Disclosure Statement before confirming. Employed members then wait for the employer to certify the application electronically in the employer's My.SSS account, attesting that you are presently employed, that your net take home pay covers the amortization, and authorizing payroll deduction and remittance. Self-employed, voluntary, non-working spouse, and land-based OFW members pay by Payment Reference Number at SSS branches or accredited collecting agents. Proceeds land in the enrolled account, net of the service fee, the advance interest, and any outstanding short-term member loan balance."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "See your own payment inside a full plan",
+        "paragraphs": [
+          "The tables above use round numbers because that is what a calculator page can do. Your situation has a specific MSC average, specific balances, and a specific monthly budget, and the order that saves the most interest depends on all three at once. The free plan in the Goodbye Debt app takes your actual debts, including an SSS salary loan alongside a credit card, a Tala installment, or anything else you carry, and reports the payoff order, the projected debt free date, and the interest each ordering costs, before anything is paid or signed up for."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "Is the SSS salary loan really only 8 percent a year?",
+        "a": "Yes, on the basis that matters: 8 percent a year computed on the diminishing principal balance, the clause Circular 2025-004 sets for initial loans and clean renewals. The effective cost is higher than 8 because of the deductions and the start gap. On the circular's own sample, a 20,000 loan releases 19,598.36 after the service fee and advance interest, and repaying it costs 21,709.38, a real cost of about 10.8 percent of the cash received. Your exact Annual Effective Interest Rate is printed in the Disclosure Statement during application, and it varies slightly with your release and amortization dates."
+      },
+      {
+        "q": "How much can I actually borrow from SSS?",
+        "a": "The lower of the amount you apply for and your entitlement: the average of your 12 latest posted Regular SS Monthly Salary Credits rounded to the next higher MSC, once for a one-month loan and twice for a two-month loan, capped at 20,000 and 40,000. Then deductions come off: the 1 percent service fee, pro-rated advance interest, and any outstanding short-term member loan balance. A member with a 20,000 MSC average qualifies for up to 20,000 or 40,000 before deductions; a member with a 10,000 average qualifies for 10,000 or 20,000."
+      },
+      {
+        "q": "SSS salary loan or Pag-IBIG MPL, which is cheaper?",
+        "a": "The SSS loan wins on price and loses on size. On 20,000 over 24 months the SSS payment is 905 against the MPL's 994, with 1,709 in total interest against 3,848. But the SSS ceiling is 40,000 while the MPL reaches six figures for members with enough Total Accumulated Value, and the MPL offers one, two, or three year terms against the SSS's fixed 24 months. If your need fits inside 40,000, the SSS loan is the cheaper tool, and the Pag-IBIG Multi-Purpose Loan calculator guide does the same math for the bigger loan."
+      },
+      {
+        "q": "When is my first payment due?",
+        "a": "The amortization starts on the second month following the month of approval, and the deadline for each month's amortization is the last day of the following month. The circular's sample: a loan dated 15 April 2025 starts amortizing in June 2025, with that month's payment due 31 July 2025. In practice the first payment lands about two months after release, which is the cash flow breathing room the pro-rated advance interest is charging you for."
+      },
+      {
+        "q": "What happens if I miss payments?",
+        "a": "Four escalations, in order. A late amortization bears a 1 percent per month penalty computed for every day of delay, and payments apply to penalty before interest and principal. After the loan term, unpaid balances carry 10 percent annual interest plus the 1 percent monthly penalty until fully paid. Once unpaid principal, interest, and penalties exceed six monthly amortizations the loan is in default and the full balance becomes due and demandable. And SSS can deduct the outstanding balance, including interest and penalties, from any benefit due to you or your beneficiaries, including final claims. Renewal stays blocked the whole time."
+      },
+      {
+        "q": "Can I pay my SSS loan off early, or renew it early?",
+        "a": "Early full settlement is allowed any time: the loan cannot be cancelled, but the outstanding penalty, interest, and principal can be paid in full as of the settlement date. Early renewal is narrower: six months after approval at the soonest, the existing loan not past due, and the last three amortizations paid within their due dates. A fully paid loan renews immediately on the same punctuality condition. If any of the last three payments were late, renewal waits three months after full payment."
+      }
+    ],
+    "ctaLead": "See your SSS loan inside your payoff plan, free",
+    "ctaSub": "A payment table uses round numbers. Your plan uses your real SSS balance next to your card, Tala, GCredit, and BillEase debts, and reports the order that saves the most interest, the debt free date, and the cost of each ordering. Free on up to two debts, manual entry or a CSV, no bank linking."
+  },
 ];
