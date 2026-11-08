@@ -3940,4 +3940,274 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "ctaLead": "See your SSS loan inside your payoff plan, free",
     "ctaSub": "A payment table uses round numbers. Your plan uses your real SSS balance next to your card, Tala, GCredit, and BillEase debts, and reports the order that saves the most interest, the debt free date, and the cost of each ordering. Free on up to two debts, manual entry or a CSV, no bank linking."
   },
+  {
+    "slug": "pagibig-calamity-loan-calculator",
+    "title": "Pag-IBIG Calamity Loan Calculator: Your Monthly Payment",
+    "description": "Every Pag-IBIG calamity loan payment at the real 5.95 percent a year diminishing balance rate over 12, 24, or 36 months, the 90 percent ceiling, and where the payment sits next to your card and app debts.",
+    "kicker": "The real calamity loan payment math",
+    "tldr": "A Pag-IBIG Calamity Loan amortizes at 5.95 percent a year on a diminishing balance over 12, 24, or 36 months. On 90,000, the ceiling on a 100,000 peso TAV, that is 2,736 a month over three years. Tables for every amount are below.",
+    "sections": [
+      {
+        "heading": "What the Pag-IBIG calamity loan actually charges",
+        "paragraphs": [
+          "The official Calamity Loan Application Form, revision HQP-SLF-066, states the interest as 5.95 percent per annum, with interest during the grace period, amortized equally over the term of the loan. That is a diminishing balance rate of about half a percent a month, and it is the lowest rate in the Fund's short term lineup by a wide margin: the Multi-Purpose Loan computes at 1.4583 percent a month, nearly three times as much, as the MPL calculator guide already ran line by line.",
+          "Two parameters changed recently, and most older pages on this loan still print the stale ones. The ceiling moved from 80 percent of your Total Accumulated Value to 90 percent, and the contribution requirement dropped from 24 monthly savings to 12. The 2024 windows, including the Typhoon Carina window that drove most of that year's search interest, ran at the old 80 percent ceiling and the old 24 savings rule. The Fund's current calamity loan page reads 90 percent of your savings, 12 monthly savings, and a choice of 12, 24, or 36 monthly installments, with a three month grace period before the first payment.",
+          "On the term, choose it deliberately at application. Earlier form revisions carried a two year and a three year checkbox and defaulted a blank choice to three years, the longest and most interest heavy schedule on the menu. The current lineup offers one, two, or three years. Either way the lesson is the same: if you do not pick, the paperwork picks for you, and it does not pick the cheapest option."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The payment formula, in plain numbers",
+        "paragraphs": [
+          "The form requires equal monthly payments that fully cover principal and interest over the loan period. That is the standard amortized loan formula: take the monthly rate of 0.4958 percent, take the number of months, and solve for the fixed payment that leaves a zero balance on the last month. Nothing hides inside it, but the number you will see quoted in press releases, 5.95 percent a year, is not the number the formula runs on.",
+          "Watch what it does with the loan most members actually get. A member with a Total Accumulated Value of 100,000 pesos has a ceiling of 90,000, and the 36 month term is the common choice after a disaster when income is disrupted:",
+          "The payment is 2,735.94 every month. Total outflow is 98,493.69, so the true cost of the loan is 8,493.69 in interest. Put the same 90,000 on the MPL at 1.4583 percent a month over the same 36 months and the payment jumps to 3,231.17 with 26,322.05 of total interest. The calamity loan is not just a little cheaper, it is more than four times cheaper in total interest over the three year term, which is why it is worth applying for inside the window instead of defaulting to the MPL afterward."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Month",
+            "Interest that month",
+            "Principal that month",
+            "Balance left after"
+          ],
+          "rows": [
+            [
+              "1",
+              "446.25",
+              "2,289.69",
+              "87,710.31"
+            ],
+            [
+              "3",
+              "423.49",
+              "2,312.45",
+              "83,096.83"
+            ],
+            [
+              "12",
+              "318.22",
+              "2,417.71",
+              "61,761.95"
+            ],
+            [
+              "24",
+              "170.38",
+              "2,565.55",
+              "31,797.14"
+            ],
+            [
+              "36",
+              "13.50",
+              "2,722.44",
+              "0"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Monthly payments at a glance",
+        "paragraphs": [
+          "Every figure below is the standard amortization at 0.4958 percent a month, rounded to the nearest peso. The payment is what you owe each month; the number in parentheses is the total interest across the whole term.",
+          "Your ceiling comes from your own savings, not from this table. The entitlement is 90 percent of your Total Accumulated Value, which is your monthly savings plus your employer's share plus the dividends credited to them:",
+          "Read the trade off off any row of the payment table. On 90,000, stretching from 12 months to 36 months cuts the payment from 7,744 to 2,736 and raises the total interest from 2,927 to 8,494. After a typhoon that trade is often the right one, because the alternative to a manageable payment is not a cheaper loan, it is a missed payment. But make it a decision: the three year term on a small loan adds only a few thousand pesos, while the one year term on a large one can eat most of a month's income."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Your Total Accumulated Value",
+            "Maximum calamity loan"
+          ],
+          "rows": [
+            [
+              "25,000",
+              "22,500"
+            ],
+            [
+              "50,000",
+              "45,000"
+            ],
+            [
+              "100,000",
+              "90,000"
+            ],
+            [
+              "250,000",
+              "225,000"
+            ],
+            [
+              "500,000",
+              "450,000"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "What the table leaves out",
+        "paragraphs": [
+          "Five things sit between the clean table and the payment you will actually see, and all of them come from the form or the program rules:",
+          "None of these change the rate. They change how much you borrow, when the money lands, and what a late month costs."
+        ],
+        "bullets": [
+          "The three month grace period is not free. The form charges interest during the grace months, and your first payment lands on the fourth month. On the 90,000 example, three untouched months add about 1,339 pesos of interest before you have paid anything. If the Fund folds that accrued interest into the balance before amortizing, the payment becomes about 2,777 instead of 2,736 and the total interest about 9,966. Treat the plain table as the floor, not the exact invoice.",
+          "Capacity to pay. The approved amount is capped so your Net Take Home Pay never falls below the floor the General Appropriations Act or your company policy sets. The application agreement on the form itself authorizes Pag-IBIG to compute a lower loanable amount when the amortization would cut too deep. A member whose savings support 90,000 may be approved for far less.",
+          "Existing loans come off the top. The entitlement is 90 percent of TAV minus the outstanding balance of any existing Multi-Purpose Loan, Calamity Loan, or HELPs, and in no case can the combined short term loan total go above the ceiling. If you owe 30,000 on an MPL, a 90,000 ceiling pays out 60,000.",
+          "The penalty clock. A delayed payment costs 1/20 of 1 percent of the unpaid amount per day, about 1.5 percent a month, which is steeper than the loan's own interest. Payments are applied to penalties first, then interest, then principal, and your employer is supposed to remit what it deducted by the 15th of each month.",
+          "The window closes. You must apply within 90 days of the calamity declaration covering your area, and eligibility follows the declared LGU list, not the damage you personally suffered. Miss the window and the same money still exists, but only as the MPL at nearly triple the effective rate."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Who qualifies and the requirements",
+        "paragraphs": [
+          "The eligibility list is short, and every item is verifiable before you apply:",
+          "That last item decides more applications than any other. Proof of income is what the capacity to pay cap runs on, so a member with the savings history but no documentable income may see the approved amount cut to fit the take home pay floor."
+        ],
+        "bullets": [
+          "At least 12 monthly membership savings under the current rules, or total savings equivalent to 12 monthly savings at your rate. Members who withdrew their savings at maturity or through optional withdrawal can qualify again after re-accumulating the equivalent from the withdrawal date.",
+          "At least one monthly saving within the last six months before the application, so lapsed members need to pay in at least one month and wait for it to post.",
+          "Residence in an area declared under a state of calamity. Members whose workplace, not residence, sits in the declared area can apply subject to Management approval.",
+          "No existing Pag-IBIG Housing Loan, MPL, or Calamity Loan in default as of the application date. Existing loans in good standing do not block you, they only reduce the payout.",
+          "Sufficient proof of income."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "How to apply online and track the application",
+        "paragraphs": [
+          "The Fund lists the calamity loan as a live service in the Virtual Pag-IBIG: you can register, apply, and later view the loan status online. The Virtual Pag-IBIG portal is open around the clock, which matters during a calamity window when branch queues are longest. The branch path still works: secure the Calamity Loan Application Form, the CLAF, from any branch or the Fund's website, accomplish one copy, and submit it with the required documents. Processing starts only when the submission is complete, and the Fund does not publish a fixed number of processing days, so the honest answer to how long it takes is: complete documents first, then track the status in Virtual Pag-IBIG.",
+          "Loan proceeds arrive through your Pag-IBIG Loyalty Card Plus, direct credit to a bank account through LANDBANK's payroll validation system, or a check. On the check path there is a trap worth knowing: a check unclaimed for 30 calendar days from the disbursement date is cancelled and the loan is reversed, so update your address and watch for the release notice."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Calamity loan, MPL, or the SSS salary loan",
+        "paragraphs": [
+          "Here is the same decision in one table. The column that matters for your payoff order is the monthly cost of each balance:",
+          "The payoff order that saves the most interest is almost always the reverse of this table: attack the bottom rows first and never prepay the top one. A calamity loan payment is the cheapest peso month you will ever carry from this lineup, which means every extra peso thrown at it saves about half a percent, while the same peso thrown at the card or the app loan saves 3 to 12 percent. Pay the calamity loan minimums, keep them clean, and send everything spare up the table. The guide on which debt to pay first runs this ordering on your actual balances, and the full lender comparison extends it to more creditors.",
+          "The one situation where the calamity loan itself is the aggressive move is when it replaces a debt instead of joining it. The three condition test from the personal loan versus credit card guide applies unchanged: the rate is clearly below what you are replacing, you actually qualify at the size you need, and the replaced balance stays closed. Using a 5.95 percent a year loan to retire a Tala balance at over 130 percent a year effective is a 20 to 1 improvement on every peso, if and only if the app loan gets closed and stays closed."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Loan",
+            "Rate",
+            "Interest on a 20,000 balance, one month",
+            "Ceiling",
+            "Terms",
+            "When you can get it"
+          ],
+          "rows": [
+            [
+              "Pag-IBIG Calamity Loan",
+              "5.95 percent a year",
+              "99",
+              "90 percent of TAV",
+              "12, 24, or 36 months",
+              "Only inside a declared calamity window"
+            ],
+            [
+              "SSS salary loan",
+              "8 percent a year",
+              "133",
+              "20,000 to 40,000",
+              "24 months",
+              "Any time"
+            ],
+            [
+              "Pag-IBIG Multi-Purpose Loan",
+              "1.4583 percent a month",
+              "292",
+              "90 percent of TAV",
+              "12, 24, or 36 months",
+              "Any time"
+            ],
+            [
+              "Credit card at the BSP cap",
+              "3 percent a month",
+              "600",
+              "Credit limit",
+              "Revolving",
+              "Any time"
+            ],
+            [
+              "BillEase standard",
+              "3.49 percent a month",
+              "698",
+              "Credit limit",
+              "Installments",
+              "Any time"
+            ],
+            [
+              "Tala",
+              "11 to 12 percent a month effective",
+              "2,200 to 2,400",
+              "Per appraisal",
+              "Short installments",
+              "Any time"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "When the window is open, is it the right move?",
+        "paragraphs": [
+          "Typhoon Carina in July 2024 is the worked example, because it is the window most people searched for. The declaration opened the program for members in the declared LGUs, applications ran for 90 days, and the ceiling was the old 80 percent of TAV. The mechanics repeated for every declaration since, including the 2025 typhoon season windows, where the published ceiling read 90 percent. What did not change is the sequencing: declaration first, LGU list second, 90 day clock third.",
+          "One more rule matters if a second calamity hits while the first loan is still open. The program allows renewal when another calamity is declared in the same area: the outstanding balance of the existing loan, plus accrued interest and penalties, is deducted from the new loan's proceeds. That is not free money stacking on free money, it is a refinance of whatever you have not paid yet, and the payment table that applies is the one for the new net amount."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "See your own payment inside a full plan",
+        "paragraphs": [
+          "The tables above use round numbers because that is what a calculator page can do. Your situation has specific balances, a specific window deadline, and a specific monthly budget, and the order that saves the most interest depends on all of them at once. The free plan in the Goodbye Debt app takes your actual debts, including a calamity loan alongside anything else you carry, and reports the payoff order, the projected debt free date, and the interest each ordering costs, before anything is paid or signed up for."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "How much can I borrow with the Pag-IBIG calamity loan?",
+        "a": "The lowest of three numbers: the amount you ask for, 90 percent of your Total Accumulated Value minus the outstanding balance of any existing short term Pag-IBIG loans, and the capacity to pay cap that keeps your net take home pay above the required floor. A member with 100,000 in TAV and no other Pag-IBIG loans can reach 90,000 on paper, and the take home pay rule decides whether the approval matches."
+      },
+      {
+        "q": "Is the Pag-IBIG calamity loan still available?",
+        "a": "The program is standing, but it is not always open. A window exists only while your area sits under a state of calamity declaration, and you have 90 days from that declaration to file. Check the Fund's announcements page for the eligible LGU list of the current window; if your city or municipality is not named, the calamity loan is not available to you right now, regardless of the damage, and the Multi-Purpose Loan is the fallback."
+      },
+      {
+        "q": "Can I apply for the Pag-IBIG calamity loan online?",
+        "a": "Yes. The Virtual Pag-IBIG lists calamity loan application and loan status viewing among its online services, gated on your residence being in a declared area. The branch path remains: one accomplished copy of the CLAF plus the required documents, with processing starting only on complete submission."
+      },
+      {
+        "q": "Calamity loan or MPL, which is cheaper?",
+        "a": "The calamity loan, and it is not close. Same 90 percent ceiling, but 5.95 percent a year against the MPL's effective 17.5 percent a year, and a three month grace period against the MPL's two. On the same 90,000 over 36 months the calamity loan costs 8,494 in interest against the MPL's 26,322. The MPL's only real advantages are that it needs no declaration and no window. Inside an open window, the calamity loan wins every column."
+      },
+      {
+        "q": "Does the three month grace period make the loan cheaper?",
+        "a": "No. The form charges interest during the grace period, so the three unpaid months add cost, roughly 1,339 pesos on the 90,000 example. What the grace period buys is time, and after a disaster time is often worth more than the interest it costs. Treat it as a cash flow tool, not a discount."
+      },
+      {
+        "q": "What happens if I miss a calamity loan payment?",
+        "a": "The penalty is 1/20 of 1 percent of the unpaid amount per day, about 1.5 percent a month, which is nearly four times the loan's own monthly interest. Payments apply to penalties first. Three consecutive missed amortizations put you in default, at which point the outstanding balance becomes due and can be deducted from your Total Accumulated Value. If your employer deducted but failed to remit, the penalties shift to the employer, so keep your own records of the deductions."
+      }
+    ],
+    "ctaLead": "See your calamity loan inside your payoff plan, free",
+    "ctaSub": "A payment table uses round numbers. Your plan uses your real calamity loan balance next to your card, Tala, GCredit, and BillEase debts, and reports the order that saves the most interest, the debt free date, and the cost of each ordering. Free on up to two debts, manual entry or a CSV, no bank linking."
+  },
 ];
