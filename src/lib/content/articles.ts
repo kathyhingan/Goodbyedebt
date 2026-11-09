@@ -4210,4 +4210,343 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "ctaLead": "See your calamity loan inside your payoff plan, free",
     "ctaSub": "A payment table uses round numbers. Your plan uses your real calamity loan balance next to your card, Tala, GCredit, and BillEase debts, and reports the order that saves the most interest, the debt free date, and the cost of each ordering. Free on up to two debts, manual entry or a CSV, no bank linking."
   },
+  {
+    "slug": "metrobank-personal-loan-calculator",
+    "title": "Metrobank Personal Loan Calculator: Monthly Payment and Real Cost",
+    "description": "Every Metrobank personal loan payment at the published add on rates, the real diminishing balance cost the add on method hides, and where the payment sits next to your card and app debts.",
+    "kicker": "The real Metrobank payment math",
+    "tldr": "A Metrobank personal loan prices its interest with a monthly add on rate: 1.75 percent for 12 and 18 month terms, 1.50 percent for 24 and 36 months, and as low as 1.25 percent at the bank's best offer. On 100,000 over 36 months that is 4,278 a month. The tables below compute every tenor.",
+    "sections": [
+      {
+        "heading": "What the Metrobank personal loan actually charges",
+        "paragraphs": [
+          "Metrobank states its personal loan terms on its own loan page, and the numbers that govern your payment are these. The loan ranges from 20,000 to 2,000,000 pesos, subject to credit evaluation. The repayment period runs from a minimum of 12 months to a maximum of 36. The published rate table pairs each tenor with a monthly add on rate and an Annual Contractual Rate:",
+          "Above the table, the same page markets rates as low as 1.25 percent monthly add on, and the bank's own worked example uses exactly that: a 300,000 peso loan at 1.25 percent add on over 36 months. The table and the example describe different offers, and the bank states plainly that rates and applicable fees depend on your loan amount and tenor, with the final number set by credit evaluation. Treat 1.25 percent as the floor that a strong application can reach, and the table rates as the standard published schedule.",
+          "One detail in the published table deserves a flag before you rely on it. For the 12, 18, and 24 month rows, the Annual Contractual Rate reproduces exactly from the add on rate, as the math section below shows. For the 36 month row, the published ACR of 25.976 percent is the ACR of the 1.25 percent example, while the 1.50 percent add on rate in that same row computes to about 30.59 percent. The bank publishes both numbers; they just sit in the same row of one table. Before signing a 36 month contract, ask which add on rate your approved offer carries and what ACR it produces, because the two published figures differ by almost five points a year."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Tenor",
+            "Monthly add on rate",
+            "Annual Contractual Rate as published"
+          ],
+          "rows": [
+            [
+              "12 months",
+              "1.75 percent",
+              "36.742 percent"
+            ],
+            [
+              "18 months",
+              "1.75 percent",
+              "36.676 percent"
+            ],
+            [
+              "24 months",
+              "1.50 percent",
+              "31.459 percent"
+            ],
+            [
+              "36 months",
+              "1.50 percent",
+              "25.976 percent"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "The payment formula, in plain numbers",
+        "paragraphs": [
+          "Metrobank prices this loan with the add on method. The interest is computed once, on the full original principal, for the whole term, and then the principal and that interest are split into equal monthly payments. Nothing about the formula is hidden:",
+          "Reproduce the bank's own example and the method checks out to the centavo. On 300,000 pesos at 1.25 percent add on for 36 months, the total interest is 300,000 times 0.0125 times 36, which is 135,000. The total to repay is 435,000, and one thirty sixth of that is 12,083.33 every month, exactly the figure the bank's page prints. Notice what the method does inside that payment: the interest component is 3,750 pesos in month one and 3,750 pesos in month thirty six. The bank charges the same interest pesos on a fully owed loan as on a nearly paid one.",
+          "The Annual Contractual Rate is the bridge between that flat pricing and the way every other loan in your life is measured. Solve the same 12,083.33 payment as a standard diminishing balance loan over 36 months and the implied monthly rate is 2.1647 percent; twelve times that is 25.976 percent, the published ACR to three decimals. The same reproduction works on the 12, 18, and 24 month rows: the add on rates produce the published ACRs of 36.742, 36.676, and 31.459 percent exactly. The ACR is not a separate fee or a marketing number, it is the same loan re expressed on the diminishing balance your balance sheet actually lives on.",
+          "The bank's example also prints an APR of 30.516 percent, which it labels the effective interest rate. That number is the ACR plus the cost of the fees, computed on the money you actually receive: the example deducts 3,750 pesos of fees from a 300,000 loan, so 12,083.33 a month is paid against 296,250 of net proceeds, and solving the same payment against that smaller amount gives an effective annual rate of 30.516 percent, the published figure to three decimals. The bank adds that the minimum APR is 30.516 percent and the maximum is 33.317 percent. Both published rates reproduce from the published inputs, which is why the tables in this guide can be trusted to the peso."
+        ],
+        "bullets": [
+          "Total interest equals the loan amount, times the monthly add on rate, times the number of months.",
+          "Monthly payment equals the loan amount plus total interest, divided by the number of months."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Monthly payments at a glance",
+        "paragraphs": [
+          "Every payment below is computed with the add on method at the published schedule rates, 1.75 percent for the 12 and 18 month columns and 1.50 percent for the 24 and 36 month columns. The payment is what you owe each month; the number in parentheses is the total interest across the whole term. Fees are covered in their own section below, and the 1.25 percent best offer row follows the table.",
+          "At the 1.25 percent floor, the 36 month row moves: 100,000 costs 4,028 a month with 45,000 of total interest, and 500,000 costs 20,139 a month with 225,000 of total interest. The gap between the standard schedule and the floor is the price of a mediocre credit evaluation: on 100,000 over three years it is 9,000 pesos of extra interest.",
+          "Read the trade off off any row. On 100,000, stretching from 12 months to 36 months cuts the payment from 10,083 to 4,278 and raises the total interest from 21,000 to 54,000. The long term is not automatically the expensive choice, though, because the short term has its own costs: a 10,083 monthly payment on a 100,000 loan only fits a budget that clears six figures after rent and food, and a payment you cannot sustain costs more in penalties than the interest it saves. Pick the tenor your actual budget can carry every single month, then prepay when good months arrive, and the term stops being a trap."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Amount borrowed",
+            "12 month term",
+            "18 month term",
+            "24 month term",
+            "36 month term"
+          ],
+          "rows": [
+            [
+              "20,000",
+              "2,017 (4,200)",
+              "1,461 (6,300)",
+              "1,133 (7,200)",
+              "856 (10,800)"
+            ],
+            [
+              "50,000",
+              "5,042 (10,500)",
+              "3,653 (15,750)",
+              "2,833 (18,000)",
+              "2,139 (27,000)"
+            ],
+            [
+              "100,000",
+              "10,083 (21,000)",
+              "7,306 (31,500)",
+              "5,667 (36,000)",
+              "4,278 (54,000)"
+            ],
+            [
+              "300,000",
+              "30,250 (63,000)",
+              "21,917 (94,500)",
+              "17,000 (108,000)",
+              "12,833 (162,000)"
+            ],
+            [
+              "500,000",
+              "50,417 (105,000)",
+              "36,528 (157,500)",
+              "28,333 (180,000)",
+              "21,389 (270,000)"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "What the add on rate hides",
+        "paragraphs": [
+          "Here is the same published schedule translated into the unit the rest of your debts use. The third column re measures each loan as a diminishing balance rate, the way credit cards, app loans, and government loans all accrue. The fourth column is the effective annual cost once the 1,500 peso disbursement fee is counted, computed on a 100,000 loan whose proceeds arrive 1,500 lighter:",
+          "At the 1.25 percent best offer on 36 months, the real rate is 2.16 percent a month and the effective annual cost lands near 30.8 percent on 100,000.",
+          "Now compare those effective annuals with the credit card the bank loan often claims to replace. A card at the BSP ceiling of 3 percent a month carries a nominal annual rate of 36 percent and an effective annual rate of 42.58 percent once compounding is counted. The 12 month Metrobank loan at the standard schedule costs 47.9 percent effective, more than the card it consolidates. The 36 month term at the standard schedule costs 36.8 percent, slightly below the card. Only the floor rate is clearly cheaper. The pattern has a simple cause: flat interest on a falling balance hits hardest on the shortest terms, and the 1,500 peso fee matters most when it is spread over the fewest payments.",
+          "None of this makes the loan a bad product. It makes the marketed 1.5 percent a number you must translate before you compare it with anything. The multiple installment guide runs the same conversion on loan app statements, and the full lender comparison ranks the whole market in this one unit, because a rate comparison done in mixed units is not a comparison, it is a guess."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Tenor",
+            "Rate as marketed",
+            "Real rate on the diminishing balance",
+            "Effective annual with fees"
+          ],
+          "rows": [
+            [
+              "12 months",
+              "1.75 percent add on",
+              "3.06 percent a month",
+              "47.9 percent"
+            ],
+            [
+              "18 months",
+              "1.75 percent add on",
+              "3.06 percent a month",
+              "46.5 percent"
+            ],
+            [
+              "24 months",
+              "1.50 percent add on",
+              "2.62 percent a month",
+              "38.6 percent"
+            ],
+            [
+              "36 months",
+              "1.50 percent add on",
+              "2.55 percent a month",
+              "36.8 percent"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "The fees, and why the proceeds come in light",
+        "paragraphs": [
+          "The bank publishes four fees, and the first one changes the math before the loan even lands:",
+          "Put together on the bank's own example, borrowing 300,000 means signing up to repay 435,000 in payments while receiving 296,250 in cash. The gap between those two numbers is the honest size of the loan, and it is the number the effective annual column above is built on. When you size a consolidation loan, size it on net proceeds: if you need 300,000 to retire your actual balances, you must borrow about 304,000 so the fees do not leave you 3,750 short, and borrowing more to cover fees on fees has its own limit.",
+          "The late fee deserves one paragraph because it compounds with the loan structure. 850 per incidence sounds mild next to the loan's interest, but the fee lands on top of the same payment that is already 10 to 12 percent of a typical borrower's monthly income, and a missed month on an auto-debit arrangement can cascade into two fees when the debit retries. If the budget math says the payment barely fits, the answer is a longer tenor at application, not optimism about never missing one."
+        ],
+        "bullets": [
+          "Disbursement fee, 1,500 pesos, deducted from the proceeds. The bank's own example says so: a 300,000 loan pays out after 1,500 and the documentary stamp tax come off the top.",
+          "Documentary stamp tax, 0.75 percent of the loan amount for loans above 250,000. On 300,000 that is 2,250; on 500,000 it is 3,750; on the 2,000,000 ceiling it is 15,000. Loans at or below 250,000 pay none.",
+          "Late payment fee, 850 pesos per incidence of late or missed payment.",
+          "Pre-termination fee, 5 percent of the outstanding balance or 550 pesos, whichever is higher. On a 100,000 loan prepaid early with 60,000 still outstanding, that is 3,000, not 550."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Who qualifies and the requirements",
+        "paragraphs": [
+          "The published eligibility list is short, and one item on it decides more applications than the rest:",
+          "The credit card requirement is the one people do not expect from a bank loan. Metrobank uses your existing card history as the credit signal, which means applicants with no card at all may be declined regardless of income. The income floor also rules out the thin-margin applicant: 250,000 gross a year is the published minimum, and the approved amount can land anywhere below the 2,000,000 ceiling once the evaluation is done. Ask for a specific amount, expect a specific counteroffer, and check the payment table against the approved figure, not the figure you requested."
+        ],
+        "bullets": [
+          "Filipino citizen, at least 21 years old at application and no older than 65 at loan maturity.",
+          "Gross annual income of at least 250,000 pesos, which is about 20,833 a month.",
+          "An existing credit card.",
+          "If employed, regular status with the current employer for at least one year.",
+          "If self-employed, at least two years operating the current business.",
+          "Every application is subject to credit evaluation."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "How to apply online",
+        "paragraphs": [
+          "The application is fully online and the bank publishes the sequence:",
+          "No income documents are required under the published flow, because the evaluation leans on your existing credit card record. Processing runs in as fast as 7 banking days. Repayment is by auto-debit arrangement from a Metrobank deposit account, and if you do not have one, opening it is part of the approval, so budget for the minimum balance the account type needs. For questions the bank lists its hotline, (02) 88-700-700. Before you submit, decide the tenor deliberately: the calculator on the bank's page will compute any term you enter, and the difference between the 24 and 36 month columns above is real money either way you choose."
+        ],
+        "bullets": null,
+        "numbered": [
+          "Fill out the online personal loan application form.",
+          "Upload a scanned copy or photo of one valid ID.",
+          "Submit and wait for the SMS update."
+        ],
+        "subheadings": null
+      },
+      {
+        "heading": "Metrobank personal loan against the other debts you carry",
+        "paragraphs": [
+          "A payment number only means something next to the other payments you already make. Here is the same comparison unit this guide has used throughout: what one month costs on a 100,000 balance, measured as a diminishing balance rate, the way every lender below actually accrues. For the Metrobank rows, the flat add on pesos are re measured on the balance still owed, which is the only fair way to line them up against the others:",
+          "Read the Metrobank rows as a band, not a single number: from 2,165 a month at the best offer down the table to 3,062 at the standard 12 month rate, against a credit card's 3,000 and app loan rates that start near 3,500 and climb past 11,000. The comparison anchors come from the guides that verified each one at source: the calamity loan and MPL rows from the Pag-IBIG calculator guides, the SSS row from the SSS salary loan guide, the card cap from the credit card statement guide, and the BillEase, Home Credit, and Tala rows from the full lender comparison."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Lender",
+            "Rate as marketed",
+            "One month on a 100,000 balance"
+          ],
+          "rows": [
+            [
+              "Pag-IBIG Calamity Loan",
+              "5.95 percent a year",
+              "496"
+            ],
+            [
+              "SSS salary loan",
+              "8 percent a year",
+              "667"
+            ],
+            [
+              "Pag-IBIG Multi-Purpose Loan",
+              "1.4583 percent a month",
+              "1,458"
+            ],
+            [
+              "Metrobank personal loan, 1.25 percent best offer, 36 months",
+              "2.16 percent a month effective",
+              "2,165"
+            ],
+            [
+              "Metrobank personal loan, standard schedule, 36 months",
+              "2.55 percent a month effective",
+              "2,550"
+            ],
+            [
+              "Metrobank personal loan, standard schedule, 24 months",
+              "2.62 percent a month effective",
+              "2,622"
+            ],
+            [
+              "Credit card at the BSP cap",
+              "3 percent a month",
+              "3,000"
+            ],
+            [
+              "Metrobank personal loan, standard schedule, 12 months",
+              "3.06 percent a month effective",
+              "3,062"
+            ],
+            [
+              "BillEase standard",
+              "3.49 percent a month",
+              "3,490"
+            ],
+            [
+              "Home Credit, average published",
+              "3.89 percent a month",
+              "3,890"
+            ],
+            [
+              "Tala",
+              "11 to 12 percent a month effective",
+              "11,000 to 12,000"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "When a bank loan belongs in a payoff plan",
+        "paragraphs": [
+          "The three condition test from the personal loan versus credit card guide applies unchanged here, and the Metrobank numbers sharpen it:",
+          "One more sequencing point from the debt consolidation guide applies: a bank loan at 30 to 47 percent effective is still an expensive debt. It is a consolidation tool, not a cheap one. The cheapest pesos in your plan stay the government loans at the top of the comparison table, and the payoff order that saves the most interest still comes from running every balance, the new bank loan included, through one avalanche plan rather than from the loan that funded the others."
+        ],
+        "bullets": null,
+        "numbered": [
+          "The new rate is clearly below the debt it replaces. Against a Tala or CashaLoan balance, any Metrobank offer in the table above is a clear win, often three to five times cheaper measured in effective annual terms. Against a credit card at the cap, the 12 month standard schedule loses, the 36 month standard schedule edges it, and the floor rate wins; the card only stays ahead if you were going to carry it revolving for years, which is exactly the behavior a consolidation loan exists to end.",
+          "You qualify at the size you need. The credit card requirement, the 250,000 income floor, and credit evaluation make the approval less certain than an app loan's, and the net proceeds rule trims the usable amount by 1,500 plus any stamp tax. Compute your need on net proceeds, not principal.",
+          "The replaced balances actually close. This is the condition that decides everything. Retiring a 42.58 percent effective card balance with a 30.8 percent floor rate loan saves real money only if the card stops being used; refilling it leaves you paying both. A payoff plan does the closing for you in writing before the loan is signed."
+        ],
+        "subheadings": null
+      },
+      {
+        "heading": "See your own payment inside a full plan",
+        "paragraphs": [
+          "The tables above use round amounts because that is what a calculator page can do. Your situation has a specific approved offer, a specific set of balances it would replace, and a specific monthly budget, and whether the loan helps depends on all three at once. The free plan in the Goodbye Debt app takes your real debts, a Metrobank personal loan alongside the card, the app loans, and anything else you carry, and reports the payoff order, the projected debt free date, and the interest each ordering costs, before anything is paid or signed."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "How much is the monthly payment on a Metrobank personal loan?",
+        "a": "It follows the add on formula: loan amount plus interest, divided by months, where interest is the amount times the monthly add on rate times the term. On 100,000 over 36 months at the standard 1.50 percent add on, that is 4,278 a month with 54,000 of total interest; over 12 months at 1.75 percent it is 10,083 a month with 21,000 of interest. The full table above covers 20,000 to 500,000 across every published tenor, and the bank's own calculator computes single combinations on its loan page."
+      },
+      {
+        "q": "What interest rate does the Metrobank personal loan charge?",
+        "a": "The published schedule is 1.75 percent monthly add on for 12 and 18 month terms and 1.50 percent for 24 and 36 months, with rates as low as 1.25 percent monthly add on for approved offers. Measured the standard way, on the diminishing balance, those translate to 2.16 to 3.06 percent a month effective, annual effective costs of 30.8 to 47.9 percent once fees are counted, and the bank publishes the ACR for each tenor on its rate table. The final rate depends on credit evaluation."
+      },
+      {
+        "q": "Why are my Metrobank loan proceeds smaller than the amount I borrowed?",
+        "a": "The disbursement fee of 1,500 pesos is deducted from the proceeds, and loans above 250,000 also carry a documentary stamp tax of 0.75 percent of the loan amount. On the bank's own 300,000 example, 3,750 in fees come off the top, so 300,000 borrowed means 296,250 received while the full 300,000 is repaid with interest. Size the loan on net proceeds: borrow slightly more than the balances you need to retire, or the fees come out of the amount available to pay them."
+      },
+      {
+        "q": "Can I pay off a Metrobank personal loan early?",
+        "a": "Yes, and the published pre-termination fee is 5 percent of the outstanding balance or 550 pesos, whichever is higher. Prepaying early in the term costs more than late, because the 5 percent applies to a larger outstanding balance: on 100,000 with 60,000 left, that is 3,000. Run the arithmetic before you prepay, because the fee can eat a meaningful share of the interest you would save by ending the loan months ahead of schedule."
+      },
+      {
+        "q": "Is a Metrobank personal loan good for debt consolidation?",
+        "a": "It can be, and the rate decides where. Against app loan balances at 11 to 12 percent a month effective, any Metrobank offer is three to five times cheaper and the consolidation is clearly worth it if the app loans close and stay closed. Against a credit card at the 3 percent BSP cap, the 12 month standard schedule is slightly more expensive in effective annual terms, the 36 month term is slightly cheaper, and the 1.25 percent floor is clearly cheaper. The loan also requires an existing credit card, a 250,000 gross annual income, and credit evaluation, so approval is not guaranteed at the size you need."
+      },
+      {
+        "q": "What happens if I miss a Metrobank personal loan payment?",
+        "a": "The published late payment fee is 850 pesos per incidence of late or non-payment, charged on top of the missed amortization, and repayment runs by auto-debit from your Metrobank deposit account, so a thin account balance is the usual cause. Two missed cycles of fees and interest can approach the cost of the payment itself. If the computed payment barely fits your budget, choose a longer tenor at application instead of betting on never missing one, because the 36 month payment on any amount above is roughly 40 percent lighter than the 12 month one."
+      }
+    ],
+    "ctaLead": "See your bank loan inside your payoff plan, free",
+    "ctaSub": "A payment table uses round numbers. Your plan uses your real bank loan balance next to your card, Tala, GCredit, and BillEase debts, and reports the order that saves the most interest, the debt free date, and the cost of each ordering. Free on up to two debts, manual entry or a CSV, no bank linking."
+  },
 ];

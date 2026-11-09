@@ -167,6 +167,7 @@ const groupMeta: {
       "pagibig-multi-purpose-loan-calculator",
       "sss-salary-loan-calculator",
       "pagibig-calamity-loan-calculator",
+      "metrobank-personal-loan-calculator",
     ],
   },
   {
