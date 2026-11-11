@@ -4549,4 +4549,270 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "ctaLead": "See your bank loan inside your payoff plan, free",
     "ctaSub": "A payment table uses round numbers. Your plan uses your real bank loan balance next to your card, Tala, GCredit, and BillEase debts, and reports the order that saves the most interest, the debt free date, and the cost of each ordering. Free on up to two debts, manual entry or a CSV, no bank linking."
   },
+  {
+    "slug": "home-credit-loan-calculator",
+    "title": "Home Credit Loan Calculator: Monthly Payment and Real Cost",
+    "description": "Every Home Credit cash loan payment at the published terms, the real rate hiding inside the sample computation, and where the payment sits next to your card and app debts.",
+    "kicker": "The real Home Credit payment math",
+    "tldr": "Home Credit prices its cash loan with a nominal monthly rate on a diminishing balance: 1.49 to 8.99 percent depending on your offer, with the published starting point at 2.32 percent. On the company's own 30,000 peso sample that is 1,584.34 a month for 24 months, and the real cost lands near 29 percent a year once the fee is counted.",
+    "sections": [
+      {
+        "heading": "What the Home Credit loan calculator actually computes",
+        "paragraphs": [
+          "Home Credit runs its own calculator on the cash loan page of its website, and it is worth understanding exactly what the tool does before you trust the number it shows. You pick an amount between 3,000 and 150,000 pesos and a term from the published list: 6, 9, 12, 18, 24, 30, 36, 45, 48, or 60 months. The tool then prints a four line breakdown: the loan amount, the processing fee deducted from it, the amount actually disbursed to you, and the estimated monthly installment.",
+          "The page loads with a default sample that doubles as the company's own worked example: 30,000 pesos over 24 months. On that sample the processing fee is 500 pesos, the amount to be disbursed is 29,500, and the estimated monthly installment reads 1,584.34 per month. Under the breakdown the page carries one honest sentence: this is a sample computation, and actual amounts and rates may vary based on the submitted application and information. That sentence matters more than it looks, because the rate inside your approved offer is set per customer, and the gap between the sample and your offer is where the real cost of this loan hides.",
+          "The same page states who can apply: Filipino residents aged 18 to 68 with primary and secondary IDs. Existing customers apply through the Home Credit app, a partner store, or the hotline number in an offer message, and approval runs in as fast as 1 minute. The money arrives by bank transfer or cash pick up at partner stores, and an unclaimed contract cancels after 7 days."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The published sample, reproduced to the centavo",
+        "paragraphs": [
+          "Reproduce the sample with the standard annuity formula for a diminishing balance loan and the structure checks out. The monthly payment of 1,584.34 over 24 months totals 38,024.16, which means the loan carries 8,024.16 of interest on a 30,000 principal across two years.",
+          "Two details in the sample deserve attention before you use the tool's number. First, the payment is computed on the full 30,000 even though you receive 29,500: the 500 peso processing fee reduces what lands in your account but not what the payment is computed on. Second, the payment is an estimate built on a rate the page does not print. The printed figures are the amount, the term, the fee, and the payment, and the rate has to be solved backward from them. The next section does exactly that."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "What rate is hiding inside that payment",
+        "paragraphs": [
+          "Solve the published payment as a diminishing balance loan and the sample's 1,584.34 implies a nominal rate of about 1.99 percent per month on the full 30,000, which is 23.88 percent nominal per year. Count the fee the way a balance sheet counts it, on the 29,500 you actually receive, and the true monthly cost of the money rises to about 2.14 percent: 25.67 percent nominal per year, and 28.91 percent effective once compounding is counted.",
+          "Those implied numbers sit inside Home Credit's published ranges, which come from two places. The Table of Fees and Charges on the company's disclosures page lists a nominal interest rate of 1.49 to 8.99 percent per month for the cash loan, alongside an average monthly effective interest rate of 3.89 percent. The cash loan page's own FAQ adds that the monthly interest rate starts at 2.32 percent, and that the actual rate varies based on preferred amount, term, and the customer.",
+          "One published inconsistency is worth naming before you anchor on the sample. The sample's implied 1.99 percent per month sits below the FAQ's own starting point of 2.32 percent. At 2.32 percent, the same 30,000 peso loan over 24 months would cost 1,644.21 per month, about 60 pesos more than the sample shows. The company's note that actual amounts and rates vary is doing real work here: treat the sample as the shape of the loan, and your Loan Disclosure Statement, which the fee table footnote says carries the actual monthly effective rate, as the only number to sign against."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Every published term, priced at the starting rate",
+        "paragraphs": [
+          "The table below prices all ten published terms on a 30,000 peso loan at the FAQ's starting rate of 2.32 percent per month on a diminishing balance, with the 500 peso fee deducted from the proceeds. The monthly payment column is what you would owe each month, and the effective annual column re measures each term on the net proceeds the way the sections above do, because that is the unit every other debt in your life is priced in.",
+          "Read the two curves against each other. Total interest climbs with the term, from 2,482.54 at 6 months to 25,870.86 at 60, and that is the number most people watch. Effective annual falls with the term, from 39.67 percent to 32.81 percent, because the 500 peso fee spreads across more payments as the term stretches. Neither curve makes this a cheap loan: at the published starting rate, every row costs at least a third of the loan amount per year in effective terms, and the average published offer at 3.89 percent monthly EIR prices above every row on this table.",
+          "The term decision is therefore a budget decision, not a rate optimization. The 6 month row demands 5,413.76 every month; the 60 month row asks 931.18. A payment you cannot sustain triggers the late ladder covered below, which costs more than any interest the short term saves. Pick the term whose payment your actual budget carries on its worst month, not its best one, and prepay in good months instead."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Term",
+            "Monthly payment",
+            "Total interest",
+            "Effective annual with the fee"
+          ],
+          "rows": [
+            [
+              "6 months",
+              "5,413.76",
+              "2,482.54",
+              "39.67 percent"
+            ],
+            [
+              "9 months",
+              "3,731.82",
+              "3,586.34",
+              "37.29 percent"
+            ],
+            [
+              "12 months",
+              "2,892.83",
+              "4,713.98",
+              "36.03 percent"
+            ],
+            [
+              "18 months",
+              "2,057.80",
+              "7,040.44",
+              "34.71 percent"
+            ],
+            [
+              "24 months",
+              "1,644.21",
+              "9,461.04",
+              "34.04 percent"
+            ],
+            [
+              "30 months",
+              "1,399.15",
+              "11,974.53",
+              "33.63 percent"
+            ],
+            [
+              "36 months",
+              "1,238.32",
+              "14,579.37",
+              "33.35 percent"
+            ],
+            [
+              "45 months",
+              "1,081.19",
+              "18,653.74",
+              "33.08 percent"
+            ],
+            [
+              "48 months",
+              "1,042.82",
+              "20,055.34",
+              "33.01 percent"
+            ],
+            [
+              "60 months",
+              "931.18",
+              "25,870.86",
+              "32.81 percent"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "The fees that change the real cost",
+        "paragraphs": [
+          "The published Table of Fees and Charges prices every fee on the cash loan, and three of them move your math on day one. The processing fee runs up to 500 pesos and comes off the proceeds before the money reaches you. The cash pick up fee adds 300 pesos if you claim the loan in cash at a partner store, a cost the bank transfer route avoids. And the two optional riders, Loan Extra Care at up to 99 pesos per month and Borrower Protection at up to 500 pesos per month, hook directly onto the monthly payment.",
+          "The riders deserve one worked number because they are easy to accept at the store and hard to see later. On the 24 month sample, the 99 peso rider adds 2,376 over the term and lifts the 1,584.34 payment to 1,683.34. The 500 peso rider adds 12,000 over the same term, which is 40 percent of the principal riding on top of the loan, and lifts the payment to 2,084.34. Check either box only if you would buy that product standalone at the same price.",
+          "The late payment ladder is the harshest published part of this product, and unlike a credit card it has no minimum payment escape hatch. Non-payment for 5 days costs up to 300 pesos, for 30 days up to 700, and for 60 days up to 1,000. At 90 days the contract terminates with a fee of 40 percent of the outstanding principal, and every 120 days of continued non-payment up to 270 days adds another 2 percent of that principal, with a 5,000 peso attorney's fee at the end. On a mid term outstanding balance of roughly 17,000, the 40 percent termination fee alone is about 6,800 pesos, stacked on top of the payment you already missed.",
+          "Two smaller published fees matter to planners rather than strugglers. A full or partial early repayment costs 300 pesos per request, and a change of due date costs 300. The early repayment fee is flat, unlike the percentage based pre-termination fees banks charge, which makes the early payoff math unusually clean on this loan. The section below runs it."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Installment shopping is a different calculator",
+        "paragraphs": [
+          "Home Credit's other product, installment shopping, is what most people mean when they finance a phone or an appliance, and it computes differently from the cash loan. You shop at more than 18,000 partner stores for items up to 80,000 pesos, approval runs in as fast as 1 minute with at least one ID, and the estimated installment is quoted per product in the app. There is no published rate band for it the way the cash loan has, because the pricing is set per product and term.",
+          "The same real cost method applies to both products, and the same document settles it. The fee table footnote points every borrower to the Loan Disclosure Statement for the actual monthly effective rate, and that statement is where an installment quote's rate lives too. Whatever the product, the check is identical: total payments against cash value received, converted to one monthly effective figure, then compared with the rest of your debts in that same unit."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "How the payment compares with your other options",
+        "paragraphs": [
+          "A Home Credit payment only means something next to the other payments you already make, so here is the same comparison unit the lender guides on this site use: what one month costs on a 100,000 balance, measured as the rate each lender actually accrues. The Home Credit rows use the published floor and the published average. Every other anchor comes from the guides that verified it at source: the Metrobank personal loan calculator guide, the SSS salary loan calculator guide, the Pag-IBIG calamity loan calculator guide, the credit card statement guide, and the full lender comparison.",
+          "The band is the point. At its published floor, a Home Credit cash loan beats the capped credit card by 680 pesos per month on a 100,000 balance, and it also beats the standard bank schedule at every term. At the average published offer it loses to the card by 890 pesos. Your offer screen decides which side of 3 percent your actual rate lands on, which is why the disclosure statement check in the section above is not optional. Against the government loans at the top of the table, no Home Credit offer competes. Against app loans at 11 to 12 percent a month, any Home Credit offer wins by a factor of three, which is why a cash loan used to retire an app loan stack can still be the cheapest move in the room."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Lender",
+            "Rate as published",
+            "One month on a 100,000 balance"
+          ],
+          "rows": [
+            [
+              "Pag-IBIG Calamity Loan",
+              "5.95 percent a year",
+              "496"
+            ],
+            [
+              "SSS salary loan",
+              "8 percent a year",
+              "667"
+            ],
+            [
+              "Metrobank personal loan, best offer, 36 months",
+              "2.16 percent a month effective",
+              "2,165"
+            ],
+            [
+              "Home Credit cash loan, published floor",
+              "2.32 percent a month",
+              "2,320"
+            ],
+            [
+              "Credit card at the BSP cap",
+              "3 percent a month",
+              "3,000"
+            ],
+            [
+              "Metrobank personal loan, standard schedule, 12 months",
+              "3.06 percent a month effective",
+              "3,062"
+            ],
+            [
+              "Home Credit cash loan, average published EIR",
+              "3.89 percent a month",
+              "3,890"
+            ],
+            [
+              "Tala",
+              "11 to 12 percent a month effective",
+              "11,000 to 12,000"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Reading your own offer before you sign",
+        "paragraphs": [
+          "The offer screen or the disclosure statement in the app prints the numbers that matter. Run this sequence on any Home Credit offer, cash loan or installment, before you sign it.",
+          "That last number is the quiet advantage of this product's fee structure. A flat 300 peso early repayment fee, against a bank's 5 percent of the outstanding balance or a card's locked installments, makes this one of the cheapest loans to close ahead of schedule. The interest saved by ending the sample loan a year early outweighs the fee by more than six to one."
+        ],
+        "bullets": null,
+        "numbered": [
+          "Take the monthly nominal rate and the monthly effective rate off the disclosure statement, and note the term and the exact monthly payment.",
+          "Compute the total you will repay, the monthly payment times the term, and compare it with the cash you will actually receive after the processing fee, the pick up fee if you claim in cash, and any riders you accepted.",
+          "Convert to one unit: solve the payment against the net proceeds as a diminishing balance rate, then annualize it. The sections above show the full arithmetic on the published sample.",
+          "Compare that single figure with every debt you carry, converted the same way. The multiple installments guide walks the conversion on loan app statements.",
+          "Decide the term on the payment your worst month can carry, then plan the exit. At the flat 300 peso fee, clearing the sample loan after 12 of 24 payments costs 16,765.21 of outstanding balance plus the fee, against 19,012.08 of payments you would otherwise make, saving about 1,946.87."
+        ],
+        "subheadings": null
+      },
+      {
+        "heading": "If a Home Credit installment already sits in your payoff plan",
+        "paragraphs": [
+          "A fixed installment feels like the comfortable debt: the same payment every month, an end date, nothing revolving. Comfort is not cheapness, and the Home Credit, SSS, and credit card plano guide runs the full Tagalog walkthrough of ranking a Home Credit balance against a credit card and an SSS loan in one unit. The rule it lands on holds in English too: convert first, rank second, and never rank by the size of the monthly payment.",
+          "Two features of this loan can push it up the queue despite the fixed shape. An offer at or above the 3.89 percent average effective rate costs more per month of delay than a capped card does. And the no pause structure cuts the other way: a card under pressure can drop to its minimum payment for one cycle, while a Home Credit installment that slips even five days starts climbing the late ladder on top of the same fixed payment. When the budget is tight, the loan you cannot flex deserves the extra peso."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "See your own payment inside a full plan",
+        "paragraphs": [
+          "The tables above use round amounts because that is what a calculator page can do. Your situation has a specific approved rate, a specific set of balances the loan would sit next to, and a specific monthly budget, and whether the loan helps depends on all three at once. The free plan in the Goodbye Debt app takes your real debts, a Home Credit installment alongside the card, the app loans, and everything else, and reports the payoff order, the projected debt free date, and the interest each ordering costs, before anything is signed or paid."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "How much is the monthly payment on a Home Credit cash loan?",
+        "a": "It follows the standard annuity formula on your offer's monthly rate: the payment solves the loan amount as a diminishing balance over your term. On the company's published sample, 30,000 pesos over 24 months, that is 1,584.34 per month with 8,024.16 of total interest. At the published starting rate of 2.32 percent per month the same loan costs 1,644.21, and the full table above runs every published term, from 5,413.76 at 6 months down to 931.18 at 60."
+      },
+      {
+        "q": "What interest rate does Home Credit charge on a cash loan?",
+        "a": "The published range is 1.49 to 8.99 percent nominal per month, the FAQ on the loan page says the rate starts at 2.32 percent per month, and the disclosures table lists an average monthly effective rate of 3.89 percent. The final rate is set per customer by amount, term, and credit evaluation, so the number on your own disclosure statement, not the sample calculator, is the one to price."
+      },
+      {
+        "q": "Why is my Home Credit disbursement smaller than the loan amount?",
+        "a": "The processing fee of up to 500 pesos is deducted from the proceeds before payout, and claiming the loan as cash at a partner store adds a 300 peso pick up fee. On the published sample, a 30,000 loan pays out 29,500. Any riders you accepted, Loan Extra Care at up to 99 pesos monthly or Borrower Protection at up to 500 pesos monthly, then ride on top of the monthly payment itself."
+      },
+      {
+        "q": "Can I pay off a Home Credit loan early?",
+        "a": "Yes, in full or partially, at a flat 300 pesos per request. On the published sample, clearing the loan after 12 of 24 payments costs 16,765.21 of outstanding balance plus the fee, against 19,012.08 of remaining payments, so the early payoff saves about 1,946.87 net. Because the fee is flat rather than a percentage of the balance, the arithmetic stays favorable at almost any point in the term."
+      },
+      {
+        "q": "What happens if I miss a Home Credit payment?",
+        "a": "The published ladder charges up to 300 pesos at 5 days of non-payment, up to 700 at 30 days, and up to 1,000 at 60 days. At 90 days the contract terminates with a fee of 40 percent of the outstanding principal, and every further 120 days up to 270 adds 2 percent more, with a 5,000 peso attorney's fee at the end. There is no minimum payment option and no pause: the full fixed installment stays due every month."
+      },
+      {
+        "q": "Is a Home Credit cash loan cheaper than a credit card?",
+        "a": "At the published floor of 2.32 percent per month, yes: the capped card at 3 percent costs 680 pesos more per month on a 100,000 balance. At the average published effective rate of 3.89 percent, no: the card wins by 890 pesos. The answer is decided entirely by the rate on your own offer, which is why the conversion steps above, or the worked example in the plano guide, come before any consolidation decision."
+      }
+    ],
+    "ctaLead": "See your Home Credit loan inside your payoff plan, free",
+    "ctaSub": "A payment table uses round numbers. Your plan uses your real Home Credit balance next to your card, Tala, GCredit, and BillEase debts, and reports the order that saves the most interest, the debt free date, and the cost of each ordering. Free on up to two debts, manual entry or a CSV, no bank linking."
+  },
 ];

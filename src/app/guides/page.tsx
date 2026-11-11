@@ -168,6 +168,7 @@ const groupMeta: {
       "sss-salary-loan-calculator",
       "pagibig-calamity-loan-calculator",
       "metrobank-personal-loan-calculator",
+      "home-credit-loan-calculator",
     ],
   },
   {
