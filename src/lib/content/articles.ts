@@ -4815,4 +4815,250 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "ctaLead": "See your Home Credit loan inside your payoff plan, free",
     "ctaSub": "A payment table uses round numbers. Your plan uses your real Home Credit balance next to your card, Tala, GCredit, and BillEase debts, and reports the order that saves the most interest, the debt free date, and the cost of each ordering. Free on up to two debts, manual entry or a CSV, no bank linking."
   },
+  {
+    "slug": "atome-cash-loan-interest",
+    "title": "Atome Cash Loan Interest: The Real Cost of the Fee Stack",
+    "description": "Every Atome Cash payment at the published fee bands, the real cost hiding behind the advertised 1.75 percent, and where the payment sits next to your card and app debts.",
+    "kicker": "The real Atome Cash payment math",
+    "tldr": "Atome Cash publishes interest of 0 to 6 percent a month plus a facilitation fee of 0 to 10 percent, and the fee stack decides the price. The company's own samples imply anywhere from 0.50 to 9.56 percent effective a month, so the rate line alone tells you almost nothing.",
+    "sections": [
+      {
+        "heading": "What the Atome cash loan actually is",
+        "paragraphs": [
+          "Atome Cash is the cash loan inside the Atome PH app, the same app most people know for the Atome Card, the buy now, pay later product that gives 0 percent interest for up to 40 days on purchases. The two products compute nothing alike, and confusing them is the first mistake to avoid. The Card defers a purchase you already made. Cash loans you money you receive upfront, and it charges for that money every month you hold it.",
+          "The product page on atome.ph publishes the shape of the loan: amounts up to 55,000 pesos, flexible repayment plans up to 12 months, and competitive interest rates starting from 1 percent. Approval is one tap for existing users, and the money can arrive through Atome Savings, the Atome Card, a bank transfer, over the counter partners, or e-wallets. One line on the same page matters more than any rate: applications are currently on an invite only basis, so a large share of readers searching for this product cannot apply yet, and the people who can are existing Atome users with transaction history, at least 18 years old with a valid Philippine ID, and holding a bank account.",
+          "That invite only gate has a consequence for this guide. Because almost nobody sees an actual offer without applying inside the app, the published samples and ranges are the only public math that exists. This article works only with what Atome itself has published, reproduces the company's own worked examples to the centavo, and solves what each one really costs once the fees are counted the way your other debts are counted."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The published rates, straight from the source",
+        "paragraphs": [
+          "Atome's own help center carries the fee structure, and it is wider than the headline numbers suggest. The repayment article lists three charges: interest of 0 to 6 percent per month based on the loan amount, a loan origination fee or loan facilitation fee described as a monthly fee calculated on the principal, and a late fee of 5 percent per month on the overdue principal. The same article says the full requested amount is disbursed, and that either an origination fee or a facilitation fee applies depending on the loan structure, never both.",
+          "The fees article for the Swak variant, the short term cash product inside the same app, puts numbers on the facilitation charge: 0 to 10 percent, charged flat per month alongside interest of 0 to 6 percent per month based on loan amount, with the same 5 percent per month late fee on overdue principal. It also carries one sentence that pulls the other direction on disbursement: fees may be deducted from the disbursed amount. Both sentences are published on the same help center on the same day, and the honest reading is that the disbursement you get and the fees you pay are set per offer, which is why the app's own Repayment Plan and Loan Agreement are described as the place the exact fees, disbursed amount, and repayment schedule are always shown before you confirm.",
+          "Three headline numbers then compete for attention: the product page says rates starting from 1 percent, the app store listings say monthly rates as low as 1.75 percent with an annual percentage rate not more than 36 percent and no service charges, and the help center says 0 to 6 percent interest before any facilitation or origination fee. None of these three lines is a lie, and none of them is a price. The price is the sum of the interest line and the fee line on your specific offer, and the sections below show how far apart those can land."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The company's own samples, reproduced to the centavo",
+        "paragraphs": [
+          "Atome publishes two worked examples in its help center, and both reproduce exactly, which is the first good sign. The repayment article walks a 1,000 peso loan over 6 months. The payment formula printed there is the principal plus every monthly charge on the principal, divided across the term: 1,000 plus 1,000 times 2 percent times 6, plus 1,000 times 3 percent times 6, plus 1,000 times 1 percent times 6, all over 6, which computes 226.67 per month exactly as published. The Swak fees article walks a 1,000 peso loan over 28 days at a flat 3 percent facilitation and 2 percent interest per month, and prints 1,050 as the single repayment, which also computes exactly.",
+          "Now look closely at that first example, because it contains the most useful published inconsistency in this whole product. The bullets above the formula name two charges: interest of 2 percent per month and a loan origination fee of 1 percent per month. The formula below them charges three things: 2 percent, 3 percent, and 1 percent, for a total of 6 percent of the principal every month. The parenthetical beside the formula even says it excludes the origination fee for illustration, while the formula itself includes a 1 percent term. One reading prices the sample at 3 percent of principal per month, 180 pesos of total cost. The printed formula prices it at 6 percent, 360 pesos. The company's own page cannot say which structure a given borrower gets, and that is precisely the gap between the rate line and the price.",
+          "The store listings add a second example with its own tension. Their sample loan is 3,000 pesos over 6 months at a monthly interest rate of 1.75 percent, which they price as 52.50 and a total payment of 3,052.50, or 508.75 per month. Check the arithmetic and the 52.50 is exactly one month of the labeled rate, charged once across a 6 month term. If 1.75 percent were charged monthly on the principal the way the help center formulas charge, the total cost would be 315 pesos and the payment 552.50. Both readings are printed by the same company in different places, and neither page resolves the other. The only number that settles your own loan is the Repayment Plan the app shows before you confirm."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "What each sample really costs",
+        "paragraphs": [
+          "The way to make one number out of any of these structures is the unit every other guide on this site uses: solve the payments against the cash you actually receive as a diminishing balance rate, then annualize it. On the store sample, 508.75 per month for 6 months against 3,000 received implies about 0.50 percent effective per month, which compounds to about 6.14 percent a year. On the Swak sample, 1,050 due once after 28 days against 1,000 received is 5 percent per 28 days, which scales to about 5.44 percent effective per month and compounds to about 89 percent a year. On the help center's 6 month sample at the printed formula, 226.67 per month against 1,000 received implies about 9.56 percent effective per month, 199 percent compounded a year.",
+          "The last row is not an Atome sample, and it is labeled as computed: it takes the store's interest floor of 1.75 percent a month and pairs it with the middle of the published facilitation band at 3 percent a month flat, on a 20,000 peso loan over 6 months, the term the app store listings themselves advertise. The payment is 4,283.33, the total cost 5,699.98, and the implied effective rate 7.67 percent a month, 143 percent compounded a year. That is the arithmetic of the fee stack: an advertised 1.75 percent loan whose real price is more than four times the label once the published facilitation charge rides on top.",
+          "Read the table as a warning about anchoring on any single published number. The same product, priced only from its own company's published examples, spans half a percent to nine and a half percent effective a month. The interest line you see in the app store is the smallest component of the price. The facilitation or origination line, which never makes it into an advertisement, is the largest."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Offer, as published",
+            "Cash received",
+            "Payment",
+            "Total cost",
+            "Implied effective monthly"
+          ],
+          "rows": [
+            [
+              "Store sample: 3,000 over 6 months, 1.75 percent labeled monthly",
+              "3,000",
+              "508.75 times 6",
+              "52.50",
+              "0.50 percent"
+            ],
+            [
+              "Swak sample: 1,000 over 28 days at 3 plus 2 percent flat",
+              "1,000",
+              "1,050 once",
+              "50",
+              "5.44 percent"
+            ],
+            [
+              "Help center sample: 1,000 over 6 months at 6 percent flat",
+              "1,000",
+              "226.67 times 6",
+              "360.02",
+              "9.56 percent"
+            ],
+            [
+              "Computed: 20,000 over 6 months at 1.75 plus 3 percent flat",
+              "20,000",
+              "4,283.33 times 6",
+              "5,699.98",
+              "7.67 percent"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "The late fee, and why the term matters more here",
+        "paragraphs": [
+          "The published late fee is 5 percent per month on the overdue principal, and the help center adds that late payments can affect your credit score and your ability to apply for and use future loan services. On a 5,000 peso overdue balance that is 250 pesos in the first month alone, stacked on top of the payment you already missed, and it repeats every month the balance stays overdue. There is no published late ladder of fixed peso steps the way Home Credit's fee table publishes, and no published minimum payment option: the full scheduled payment stays due.",
+          "The term decision carries more weight here than on a bank loan, because the published charges are flat percentages of the principal per month, not diminishing balance interest. A flat charge on the principal costs the same in month six as in month one, while your outstanding balance falls, so the effective rate of the loan rises the longer the fee keeps being computed on money you have partly repaid. Stretching a fee loaded loan to the maximum 12 months does not dilute the fee the way it dilutes a bank's processing fee. It extends the number of months the fee charges. The payment relief is real, the price relief is not, and the computed 20,000 peso scenario above shows the compounded result."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "How the payment compares with your other options",
+        "paragraphs": [
+          "A payment only means something next to the payments you already make, so here is the same comparison unit the lender guides on this site use: what one month costs on a 100,000 balance, measured as the rate each lender actually accrues. The Atome rows use the implied effective rates solved in the sections above. Every other anchor comes from the guides that verified it at source: the Pag-IBIG calamity loan calculator guide, the SSS salary loan calculator guide, the Metrobank personal loan calculator guide, the Home Credit loan calculator guide, the credit card statement guide, and the Tala and GCredit comparison guide.",
+          "The Atome rows span the entire table, from cheaper than the government loans to within reach of an app loan stack, and every one of them comes from Atome's own published figures. That is the finding. The store sample's implied rate would make this one of the cheapest cash loans in the country. The help center sample's implied rate prices it above a capped credit card by more than three times. Your offer screen decides which row you actually live on, and the only way to know is to read the Repayment Plan and the Loan Agreement before confirming, then run the conversion yourself.",
+          "Against the fixed anchors: no fee loaded Atome offer beats the government loans at the top of the table, and any offer whose implied effective rate lands above 3 percent loses to a capped credit card. Where an Atome Cash offer can genuinely help is retiring something worse: against Tala's 11 to 12 percent a month, even the expensive rows above win by a wide margin, which is why a cheaper cash loan used deliberately to close an app loan stack can still be the best move in the room. The debt consolidation guide runs that decision in full."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Lender",
+            "Rate as published or implied",
+            "One month on a 100,000 balance"
+          ],
+          "rows": [
+            [
+              "Pag-IBIG Calamity Loan",
+              "5.95 percent a year",
+              "496"
+            ],
+            [
+              "SSS salary loan",
+              "8 percent a year",
+              "667"
+            ],
+            [
+              "Atome Cash, store sample implied",
+              "0.50 percent a month effective",
+              "498"
+            ],
+            [
+              "Metrobank personal loan, best offer, 36 months",
+              "2.16 percent a month effective",
+              "2,165"
+            ],
+            [
+              "Home Credit cash loan, published floor",
+              "2.32 percent a month",
+              "2,320"
+            ],
+            [
+              "Credit card at the BSP cap",
+              "3 percent a month",
+              "3,000"
+            ],
+            [
+              "Metrobank personal loan, standard schedule, 12 months",
+              "3.06 percent a month effective",
+              "3,062"
+            ],
+            [
+              "Home Credit cash loan, average published EIR",
+              "3.89 percent a month",
+              "3,890"
+            ],
+            [
+              "Atome Cash Swak, 28 day sample implied",
+              "5.44 percent a month effective",
+              "5,443"
+            ],
+            [
+              "Atome Cash, computed mid scenario",
+              "7.67 percent a month effective",
+              "7,672"
+            ],
+            [
+              "Atome Cash, help center sample implied",
+              "9.56 percent a month effective",
+              "9,562"
+            ],
+            [
+              "Tala",
+              "11 to 12 percent a month effective",
+              "11,000 to 12,000"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Reading your own offer before you confirm",
+        "paragraphs": [
+          "The app shows every number that matters before you confirm: the exact fees, the disbursed amount, and the repayment schedule, in the Repayment Plan and the Loan Agreement. Run this sequence on any Atome Cash offer before you tap confirm.",
+          "One more check belongs in this sequence because Atome is two products wearing one logo. If the balance you are pricing is on the Atome Card, the 0 percent up to 40 days purchase product, none of this article's math applies to purchases cleared inside the window, and the Card's installment plans, 3 or 6 months at monthly rates as low as 2 percent by the store listings, price by their own rules. Price the Card installments separately from the Cash loan, because they can sit in your plan at completely different effective rates."
+        ],
+        "bullets": null,
+        "numbered": [
+          "Write down the monthly payment, the term, the exact amount that will land in your account, and every fee line the plan shows, interest and facilitation or origination separately.",
+          "Compute the total you will repay, the monthly payment times the number of payments, and subtract the cash you will actually receive. That difference is the real price of the money, whatever the rate line says.",
+          "Convert to one unit: solve the payment stream against the amount received as a diminishing balance rate, then annualize it. The sections above show the full arithmetic on all three published samples.",
+          "Compare that single figure with every debt you carry, converted the same way. The multiple loan app installments guide walks the conversion on loan app statements, and the same method prices a credit card or a Home Credit installment.",
+          "Decide the term on the payment your worst month can carry, not the one that looks smallest, and remember the flat fee structure: stretching the term extends the months the fee charges, it does not dilute it."
+        ],
+        "subheadings": null
+      },
+      {
+        "heading": "If an Atome Cash balance already sits in your payoff plan",
+        "paragraphs": [
+          "A fixed installment with an end date feels like the comfortable debt, and comfort is not cheapness. The Home Credit, SSS, and credit card plano guide runs the full Tagalog walkthrough of ranking a fixed installment against a card and a government loan in one unit, and the rule it lands on holds here: convert first, rank second, never rank by the size of the monthly payment. An Atome Cash payment of 4,283.33 looks smaller than a 5,000 peso card minimum, and at the computed mid scenario it costs more per month of delay than the card does.",
+          "Two features shape where this loan ranks. The fee loaded structures convert to effective rates in app loan territory, 5 to 10 percent a month, which puts them near the top of almost any payoff queue next to a capped card or a government loan. And the late structure gives no pause: a card under pressure can drop to its minimum for one cycle, while a missed Atome payment starts a 5 percent per month penalty on the overdue principal on top of the full scheduled payment. When the budget is tight, the loan that cannot flex deserves the extra peso.",
+          "The BillEase interest rate guide and the Tala and GCredit comparison guide cover the other BNPL and app loan side of this comparison, and the full lender comparison ranks the whole set in one table. If the Atome balance is one of four or five app loans, the ranking exercise in the multiple loan app installments guide is the fastest way to see which of them is actually hurting you most."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "See your own payment inside a full plan",
+        "paragraphs": [
+          "The tables above use round amounts because that is what a published sample can do. Your situation has a specific approved fee structure, a specific set of balances the loan sits next to, and a specific monthly budget, and whether the loan helps depends on all three at once. The free plan in the Goodbye Debt app takes your real debts, an Atome Cash installment alongside the card, the app loans, and everything else, and reports the payoff order, the projected debt free date, and the interest each ordering costs, before anything is signed or paid."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "What interest rate does Atome Cash charge?",
+        "a": "The published bands are wide: interest of 0 to 6 percent per month based on the loan amount, plus either a loan facilitation fee of 0 to 10 percent or a loan origination fee, one of the two per loan structure, charged monthly on the principal. The product page says rates start from 1 percent and the app store listings say as low as 1.75 percent a month with an APR not more than 36 percent. The price is the sum of the two lines on your own offer, not either headline number."
+      },
+      {
+        "q": "How much is the monthly payment on an Atome Cash loan?",
+        "a": "It is the principal plus every monthly charge on the principal, divided across the term, on the company's own published formula. On the help center's 1,000 peso sample that is 226.67 per month for 6 months at the printed 6 percent total; on the store's 3,000 peso sample it is 508.75 for 6 months. Your own Repayment Plan in the app shows the exact payment before you confirm, and the total cost check above takes under a minute."
+      },
+      {
+        "q": "Why is my Atome Cash offer more expensive than the advertised 1.75 percent?",
+        "a": "Because the advertisement quotes the interest line alone. The published facilitation fee of up to 10 percent of principal per month rides on top, and the help center's own 6 month sample charges 6 percent of principal per month in total against bullets naming only 3. On a 20,000 peso loan at 1.75 percent interest plus 3 percent facilitation, the implied effective cost is about 7.67 percent a month, more than four times the label. Price the total payments against the cash received, never the rate line."
+      },
+      {
+        "q": "What happens if I miss an Atome Cash payment?",
+        "a": "The published late fee is 5 percent per month on the overdue principal, which on a 5,000 peso overdue balance is 250 pesos in the first month, repeating every month the balance stays overdue. The help center adds that late payments can affect your credit score and your ability to use future loan services. There is no published minimum payment option: the full scheduled payment stays due."
+      },
+      {
+        "q": "Is Atome Cash cheaper than a credit card?",
+        "a": "The published samples span both answers. The store sample implies about 0.50 percent effective a month, which beats the BSP card cap of 3 percent; the help center's 6 month sample implies about 9.56 percent, which loses to the card by more than three times. Your offer's fee structure decides which side it lands on, so run the conversion in the sections above before any consolidation move."
+      },
+      {
+        "q": "Is Atome Cash the same as the Atome Card?",
+        "a": "No, and the difference changes the math completely. The Atome Card is the buy now, pay later product: 0 percent interest for up to 40 days on purchases, with optional 3 or 6 month installments priced separately. Atome Cash lends you actual money upfront and charges monthly interest plus a facilitation or origination fee. A purchase deferred on the Card inside the 40 day window costs nothing; the same amount taken as Cash starts charging from day one."
+      }
+    ],
+    "ctaLead": "See your Atome Cash offer inside your payoff plan, free",
+    "ctaSub": "A payment table uses round numbers. Your plan uses your real Atome Cash balance next to your card, Tala, GCredit, and BillEase debts, and reports the order that saves the most interest, the debt free date, and the cost of each ordering. Free on up to two debts, manual entry or a CSV, no bank linking."
+  },
 ];

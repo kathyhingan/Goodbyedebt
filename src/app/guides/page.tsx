@@ -169,6 +169,7 @@ const groupMeta: {
       "pagibig-calamity-loan-calculator",
       "metrobank-personal-loan-calculator",
       "home-credit-loan-calculator",
+      "atome-cash-loan-interest",
     ],
   },
   {
