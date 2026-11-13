@@ -170,6 +170,7 @@ const groupMeta: {
       "metrobank-personal-loan-calculator",
       "home-credit-loan-calculator",
       "atome-cash-loan-interest",
+      "gcash-loan-cost",
     ],
   },
   {

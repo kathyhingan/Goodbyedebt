@@ -1296,13 +1296,13 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "title": "Tala vs GCash GCredit: Which Costs You More?",
     "description": "GCredit's published rate against Tala's own disclosed effective monthly rate, with a worked 10,000-peso example.",
     "kicker": "11 to 12 percent vs 4.15 percent",
-    "tldr": "GCredit charges a published 4.15 percent a month. Tala's own disclosures put its effective monthly rate at 11 to 12 percent, before a late fee. For most borrowers, GCredit is roughly a third of Tala's monthly cost, and the gap is big enough that it should decide which balance gets paid off first, not just where you borrow next.",
+    "tldr": "GCredit publishes 5 to 7 percent a month. Tala's own disclosures put its effective monthly rate at 11 to 12 percent, before a late fee. For most borrowers, GCredit costs roughly half of Tala's monthly rate or less, and the gap is big enough that it should decide which balance gets paid off first, not just where you borrow next.",
     "sections": [
       {
         "heading": "The two structures, side by side",
         "paragraphs": [
           "These two do not price loans the same way, so a fair comparison starts with the structure of each.",
-          "GCash GCredit charges 4.1529 percent a month, a published, consistent rate applied to the amount you draw. Your GScore affects your credit limit, not the rate. If you pay on time, you pay the same rate as everyone else.",
+          "GCash GCredit publishes 5 to 7 percent a month, a published range set by how active you are on GCash; the more you use the app, the lower your rate can sit. Your activity moves you inside that range, and your GScore affects your credit limit. Interest is prorated daily at the monthly rate divided by 30, and a balance paid on the same day as the transaction accrues nothing.",
           "Tala splits its cost into two separate charges on every loan: a one-time processing fee of 3.99 to 11.99 percent of the principal, charged each time you borrow, plus a daily service fee of 0.21 to 0.43 percent of the principal per day, charged until you finish repaying or until 61 days, whichever comes first. Loan terms run 15 to 61 days, limits run 1,000 to 25,000 pesos, and offers are personalized per customer. Tala's own published disclosure states the resulting effective monthly interest rate at 11.00 to 12.00 percent, with a maximum annual percentage rate of 141.76 percent.",
           "(These figures come from Tala's own support documentation and app listing, and GCash's published GCredit rate, as of the dates checked. Both lenders update pricing periodically, so confirm the offer in your own app before deciding.)"
         ],
@@ -1318,7 +1318,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
           "rows": [
             [
               "Monthly rate",
-              "4.1529 percent, published",
+              "5 to 7 percent, published",
               "11 to 12 percent effective, per Tala's own disclosure"
             ],
             [
@@ -1348,7 +1348,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
             ],
             [
               "15,000 balance for one month",
-              "About 623 pesos",
+              "About 750 to 1,050 pesos",
               "About 1,650 to 1,800 pesos"
             ]
           ]
@@ -1357,7 +1357,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "What the comparison actually shows",
         "paragraphs": [
-          "Put the two effective monthly rates next to each other and the gap is not close: GCredit at 4.15 percent a month, Tala's own disclosure at 11 to 12 percent a month. On a 15,000 peso balance held for one month, that difference is roughly 1,050 pesos a month in interest, every month, for as long as both balances sit. The daily percentages behind Tala's structure are charged on the full borrowed amount every day, so they compound into far larger effective monthly figures than a monthly-rate lender would charge for the same balance, which is exactly why a rate table alone cannot capture the difference.",
+          "Put the two effective monthly rates next to each other and the gap is not close: GCredit at 5 to 7 percent a month, Tala's own disclosure at 11 to 12 percent a month. On a 15,000 peso balance held for one month, that difference is roughly 600 to 1,050 pesos a month in interest, every month, for as long as both balances sit. The daily percentages behind Tala's structure are charged on the full borrowed amount every day, so they compound into far larger effective monthly figures than a monthly-rate lender would charge for the same balance, which is exactly why a rate table alone cannot capture the difference.",
           "A concrete 30 day example makes Tala's structure visible: borrow 10,000 pesos at a 3.99 percent processing fee plus a 0.43 percent daily service fee, and 30 days later you owe the original 10,000, plus roughly 400 pesos of processing fee, plus roughly 1,290 pesos of daily service fees, for a total near 11,700 pesos. That is roughly 17 percent of the principal in 30 days, which is what the 11 to 12 percent effective monthly rate, plus the fee structure's details, adds up to in practice.",
           "Two honest caveats. First, Tala's rates are personalized: a long, on-time borrowing history prices at the low end of each range, so an established Tala borrower pays less than a first-time one, though even that low end sits well above GCredit's published rate. Second, Tala charges you only for the days you actually need the money, so borrowing for 15 days costs meaningfully less than borrowing for 61; the effective monthly comparison assumes the balance actually sits for a month, which is exactly the situation of someone carrying the balance rather than paying it off quickly."
         ],
@@ -1368,7 +1368,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "What this means for which one you pay off first",
         "paragraphs": [
-          "If you owe both, the honest priority order is almost always the same: avalanche order sends every extra peso to the Tala balance first, because 11 to 12 percent a month is roughly three times the cost of GCredit's 4.15 percent. Clearing Tala first, while keeping GCredit on its normal schedule, minimizes the total interest you pay across the two. If you only owe one of them, the comparison matters less for payoff priority and more the next time you are choosing where to borrow: all else equal, GCredit's published, consistent rate costs roughly a third of what Tala's structure costs for a balance held a month."
+          "If you owe both, the honest priority order is almost always the same: avalanche order sends every extra peso to the Tala balance first, because 11 to 12 percent a month sits well above GCredit's published 5 to 7 percent range. Clearing Tala first, while keeping GCredit on its normal schedule, minimizes the total interest you pay across the two. If you only owe one of them, the comparison matters less for payoff priority and more the next time you are choosing where to borrow: all else equal, GCredit's published rate costs roughly half or less of what Tala's structure costs for a balance held a month."
         ],
         "bullets": null,
         "numbered": null,
@@ -1377,7 +1377,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "The late fee, and the cost that worsens when you struggle",
         "paragraphs": [
-          "One more structural difference worth naming directly. Tala charges a late fee equal to 5 percent of your outstanding balance when a loan goes unpaid past its term, and its personalized pricing means a shaky repayment history can price your next loan at the higher end of the fee ranges. GCredit's rate does not worsen based on your repayment behavior, and your GScore affects your limit rather than your rate. If your income is irregular, that difference matters before you borrow from either, and it is exactly the kind of behavior-sensitive pricing detail that generic loan comparisons skip."
+          "One more structural difference worth naming directly. Tala charges a late fee equal to 5 percent of your outstanding balance when a loan goes unpaid past its term, and its personalized pricing means a shaky repayment history can price your next loan at the higher end of the fee ranges. GCredit's published pricing is set by how active you are on GCash rather than by your repayment behavior the way Tala's repricing is, and your GScore affects your limit. If your income is irregular, that difference matters before you borrow from either, and it is exactly the kind of behavior-sensitive pricing detail that generic loan comparisons skip."
         ],
         "bullets": null,
         "numbered": null,
@@ -1386,8 +1386,8 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "The rate math, in a single worked example",
         "paragraphs": [
-          "Borrow 10,000 pesos from Tala at a 3.99 percent processing fee plus a 0.43 percent daily service fee, and repay after 30 days: you owe the original 10,000, plus roughly 400 pesos of processing fee, plus roughly 1,290 pesos of daily service fees, for a total near 11,700 pesos. Borrow the same 10,000 on GCredit at 4.1529 percent a month, and 30 days later you owe roughly 10,415 pesos. The difference is roughly 1,285 pesos on the same principal, over the same month, every time you do it.",
-          "That gap is not a rounding error, it is the entire decision: on repeated monthly borrowing, the Tala structure costs roughly three times what GCredit costs, which is why this comparison deserves a full article rather than a sentence. The only common situation where the gap narrows is a borrower with a long, established on-time Tala history pricing at the bottom of Tala's fee ranges, and even that borrower typically pays more than GCredit's published rate, just by less than a first-time borrower would."
+          "Borrow 10,000 pesos from Tala at a 3.99 percent processing fee plus a 0.43 percent daily service fee, and repay after 30 days: you owe the original 10,000, plus roughly 400 pesos of processing fee, plus roughly 1,290 pesos of daily service fees, for a total near 11,700 pesos. Borrow the same 10,000 on GCredit at its published 5 to 7 percent a month, and 30 days later you owe 10,500 to 10,700 pesos. The difference is roughly 1,000 to 1,200 pesos on the same principal, over the same month, every time you do it.",
+          "That gap is not a rounding error, it is the entire decision: on repeated monthly borrowing, the Tala structure costs well above what GCredit's published range costs, which is why this comparison deserves a full article rather than a sentence. The only common situation where the gap narrows is a borrower with a long, established on-time Tala history pricing at the bottom of Tala's fee ranges, and even that borrower typically pays more than GCredit's published rate, just by less than a first-time borrower would."
         ],
         "bullets": null,
         "numbered": null,
@@ -1396,7 +1396,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       {
         "heading": "If you owe both plus other debts, the full picture",
         "paragraphs": [
-          "The Tala-versus-GCredit comparison usually sits inside a larger mix, and the honest version of this article covers that too. Take a reader with a 12,000 peso Tala loan, a 9,000 peso GCredit balance, a 40,000 peso credit card at the 3 percent cap, and an SSS salary loan at under 1 percent, with 10,000 pesos a month available above minimums. Avalanche order after converting every balance to the same unit: the Tala loan, at its disclosed 11 to 12 percent effective monthly rate, gets every extra peso first, despite being neither the largest balance nor the loudest bill. GCredit is second, the card third, and the SSS loan rides at minimums as the cheapest money in the plan. A snowball order would clear the GCredit 9,000 first for the quick win, and the cost of that choice is roughly 1,000 pesos a month in avoidable interest while the Tala balance sits, every month it sits, which is the clearest possible illustration of why rate order beats balance order at these rate gaps.",
+          "The Tala-versus-GCredit comparison usually sits inside a larger mix, and the honest version of this article covers that too. Take a reader with a 12,000 peso Tala loan, a 9,000 peso GCredit balance, a 40,000 peso credit card at the 3 percent cap, and an SSS salary loan at under 1 percent, with 10,000 pesos a month available above minimums. Avalanche order after converting every balance to the same unit: the Tala loan, at its disclosed 11 to 12 percent effective monthly rate, gets every extra peso first, despite being neither the largest balance nor the loudest bill. GCredit is second, the card third, and the SSS loan rides at minimums as the cheapest money in the plan. A snowball order would clear the GCredit 9,000 first for the quick win, and the cost of that choice is several hundred pesos a month in avoidable interest while the Tala balance sits, every month it sits, which is the clearest possible illustration of why rate order beats balance order at these rate gaps.",
           "The exception that actually changes the order: a GCredit balance inside its billing cycle that can be cleared interest free, or a Tala loan small enough to clear in one payment before meaningful service fees accrue. Tala charges only for the days you hold the balance, so a balance cleared within days costs a fraction of the monthly equivalent, which is why the honest answer always starts with your own numbers rather than a general ranking."
         ],
         "bullets": null,
@@ -1416,7 +1416,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "faq": [
       {
         "q": "Is GCredit cheaper than Tala?",
-        "a": "For a balance held a month, almost always yes. GCredit's published 4.15 percent a month sits well below Tala's own disclosed effective monthly rate of 11 to 12 percent, even at the low end of Tala's personalized ranges."
+        "a": "For a balance held a month, almost always yes. GCredit's published 5 to 7 percent range sits well below Tala's own disclosed effective monthly rate of 11 to 12 percent, even at the top of GCredit's range."
       },
       {
         "q": "What is Tala's maximum interest rate?",
@@ -1432,7 +1432,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       },
       {
         "q": "If I have both a Tala loan and GCredit, which should I clear first?",
-        "a": "The Tala balance, in almost every realistic case, since its effective monthly cost runs roughly three times GCredit's published rate. Enter both into a payoff plan with real rates and the order confirms itself from your actual numbers rather than a general rule."
+        "a": "The Tala balance, in almost every realistic case, since its effective monthly cost runs well above GCredit's published 5 to 7 percent. Enter both into a payoff plan with real rates and the order confirms itself from your actual numbers rather than a general rule."
       }
     ],
     "ctaLead": "See your own payoff order, free",
@@ -5060,5 +5060,206 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     ],
     "ctaLead": "See your Atome Cash offer inside your payoff plan, free",
     "ctaSub": "A payment table uses round numbers. Your plan uses your real Atome Cash balance next to your card, Tala, GCredit, and BillEase debts, and reports the order that saves the most interest, the debt free date, and the cost of each ordering. Free on up to two debts, manual entry or a CSV, no bank linking."
+  },
+  {
+    "slug": "gcash-loan-cost",
+    "title": "What a GCash Loan Really Costs: GLoan, GGives, and GCredit",
+    "description": "GLoan, GGives, GCredit, and Sakto priced in one table, the published sample that shows the monthly rate is charged flat, and what a 20,000 peso GLoan really costs on the money you receive.",
+    "kicker": "The real GCash loan math",
+    "tldr": "GCash publishes GLoan at 1.59 to 6.99 percent a month plus a 3 to 5 percent processing fee, GGives at 0 to 5.49 percent, and GCredit at 5 to 7 percent. The published sample implies a flat monthly charge, so a 20,000 peso GLoan at the ceiling computes to 11.53 percent a month on the money you actually receive.",
+    "sections": [
+      {
+        "heading": "Three ways to borrow inside GCash",
+        "paragraphs": [
+          "The Borrow tab in the GCash app holds four products, and they are not interchangeable. GLoan puts cash in your wallet, from 500 up to 300,000 pesos per the help center, repayable in 1 to 24 months. GGives pays partner merchants for you while you pay GCash back in installments, from 1,000 to 125,000 pesos over 2 to 24 months. GCredit is a revolving line of up to 50,000 pesos that covers QR payments, bills, and online checkout when your wallet runs dry. GLoan Sakto is the micro version of GLoan, 100 to 300 pesos due in about three weeks. Two different companies stand behind these offers: Fuse Financing backs GLoan and GGives, and CIMB Bank powers GCredit.",
+          "Every one of them prices the same way: a monthly rate that sounds small, a fee or a fee-like charge that arrives before or beside the rate, and a late fee schedule that compounds daily once you slip. The sticker rate is where the confusion starts, because a monthly rate is not an annual rate, and a flat monthly rate is not even the monthly rate you think you are paying. This guide converts all four products into the same units, using only figures GCash or its lender partners publish, plus clearly labeled computations where GCash publishes no worked example.",
+          "One caution before the numbers. Every offer inside the app is personalized and not guaranteed. GCash reviews eligibility weekly, and the help center repeats on every product page that a high GScore or long usage history does not lock in an approval. The published rates are the boundaries of what GCash can charge you, not a quote."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "",
+            "GLoan",
+            "GLoan Sakto",
+            "GGives",
+            "GCredit"
+          ],
+          "rows": [
+            [
+              "What you get",
+              "Cash in your wallet",
+              "Cash, 100 to 300 pesos",
+              "GCash pays the merchant, you pay in installments",
+              "A revolving line for QR, bills, and online checkout"
+            ],
+            [
+              "Amount",
+              "500 to 300,000 pesos",
+              "100 to 300 pesos",
+              "1,000 to 125,000 pesos",
+              "Up to 50,000 pesos"
+            ],
+            [
+              "Term",
+              "1 to 24 months",
+              "About 21 days",
+              "2 to 24 months",
+              "Billed monthly, interest by the day"
+            ],
+            [
+              "Published monthly rate",
+              "1.59 to 6.99 percent",
+              "0 percent",
+              "0 to 5.49 percent",
+              "5 to 7 percent per the help center, 3 to 7 percent per the CIMB sheet"
+            ],
+            [
+              "Fee on top",
+              "3 to 5 percent processing, deducted from proceeds",
+              "3 to 15 percent, added at repayment",
+              "None published",
+              "None published"
+            ],
+            [
+              "If you pay late",
+              "1 percent per missed due date, plus 0.15 percent a day on terms over 3 months",
+              "1 percent per missed due date",
+              "1 percent per missed due date, plus 0.15 percent a day",
+              "Ladder: 200 to 1,500 pesos cumulative"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "GLoan: the published rate card, line by line",
+        "paragraphs": [
+          "The GLoan fees page in the GCash help center publishes the whole structure in one table, and it is worth reading line by line because the interesting numbers are not the interest.",
+          "The interest rate is 1.59 to 6.99 percent per month, set by your eligibility and the payment term you choose. The processing fee is 3 to 5 percent of the loan amount, and it is deducted from the amount you receive, which means a 20,000 peso loan at the 3 percent fee disburses 19,400 pesos while the interest bills against the full 20,000. The late payment fee is 1 percent of your loan amount every time you miss a due date. On top of that sits a daily late fee of 0.15 percent per day, which the help center says applies strictly to loan terms longer than 3 months. The limits page adds the term range, 1 to 24 months, and notes that some users see a small 100 to 500 peso offer due 21 days after disbursement, which is the Sakto structure appearing inside the main product.",
+          "Three details deserve a flag. First, the amount ceiling: the help center table says 500 to 300,000 pesos, while GCash's own marketing page for GLoan still carries an up to 150,000 headline and an up to 125,000 line in its body text. The help center table is the current published figure, the marketing page has not caught up, and the offer screen in your app is the binding number either way. Second, disbursement is fast: the application page says the loan lands in your wallet within 24 hours after you complete the steps, which is the product's real selling point. Third, the fee comes off the top, so every effective rate you compute on GLoan has to use the money you received, not the money you borrowed. We will do exactly that below."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The published sample that proves the rate is flat",
+        "paragraphs": [
+          "GCash does not publish a worked GLoan example, but it publishes one for GGives, its installment sibling, and the sample is the most revealing number in the whole product family. The fees page shows a purchase of 10,000 pesos on June 10, a 6 month term, and a monthly payment of 2,015.67 pesos.",
+          "Run the arithmetic and the structure falls out. Six payments of 2,015.67 total 12,094.02, so the interest is 2,094.02 pesos. Divide that by the original 10,000 and by 6 months and you get 3.49 percent per month, charged on the original purchase amount for every month of the term, not on the shrinking balance. The sample reconciles to the centavo, which is the tell of a published formula rather than a coincidence.",
+          "Why does flat versus declining matter that much? On a declining balance loan, each payment retires principal, so interest is charged on less money every month. On a flat rate, you keep paying the full rate on the full principal even after you have paid half of it back. The same 3.49 percent flat works out to an effective 5.72 percent per month on the declining balance, and 94.9 percent compounded annually (computed from the published sample). That is the real price of money in the GCash installment engine, and it is why comparing GCash's sticker to a credit card's 3 percent monthly ceiling on a declining balance is an apples to oranges exercise until you convert both.",
+          "The same flat logic is what makes long terms deceptive. The same 10,000 peso purchase at the same 3.49 percent flat over 12 months costs 4,188 pesos in interest instead of 2,094, exactly double, while the monthly payment drops from 2,015.67 to about 1,182. The monthly bill looks lighter and the total cost doubles. Your GGives dashboard shows the exact installment before you confirm, so the number is always available, it just is not annualized for you."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "What a 20,000 peso GLoan costs, computed at both ends",
+        "paragraphs": [
+          "GLoan publishes rate boundaries but no worked sample, so this section computes one, with the assumption stated. The scenario: 20,000 pesos, 12 monthly payments, the 3 percent processing fee (600 pesos, leaving 19,400 pesos in your wallet), and interest charged flat on the full principal every month, the structure the GGives sample proves for the installment engine and the structure consistent with GLoan's interest cashback, which refunds only future unused months.",
+          "At the published floor of 1.59 percent per month, interest totals 3,816 pesos, the monthly payment is 1,984.67, and the total repaid is 23,816. On the 19,400 you actually received, that is an effective 3.31 percent per month, 47.7 percent compounded annually (computed). At the published ceiling of 6.99 percent per month, interest totals 16,776 pesos, the monthly payment is 3,064.67, and the total repaid is 36,776. On the same 19,400 of proceeds, that is an effective 11.53 percent per month, 270.6 percent compounded annually (computed).",
+          "Two things to take from the spread. The fee does real damage at short maturities and mild damage here, lifting the effective rate about 0.4 points above the sticker at the floor. The ceiling is the shock: 6.99 percent flat per month is not a little more than a card, it is an effective monthly cost near the territory of the app based lenders, 11.53 percent on real proceeds, before any late fee. And because the structure is flat, neither scenario ever gets cheaper as you pay down the balance; the only lever is paying the whole thing off early, which GLoan rewards with its interest cashback rather than an interest recalculation.",
+          "If your offer screen shows a rate between the two ends, the same method converts it: interest equals amount times monthly rate times months, monthly payment equals the total divided by the months, and the effective rate is what you get when you solve against the disbursed amount. Or skip the algebra and put the real numbers into a payoff plan that does it for you."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "GGives: installments with the same late fee teeth",
+        "paragraphs": [
+          "GGives is the buy now, pay later product: GCash pays the partner merchant, you pay GCash in 2 to 24 monthly installments, up to 5 active GGives loans at once if you are eligible, with 1,000 to 125,000 pesos of buying power. Interest runs 0 to 5.49 percent per month depending on your eligibility and term, and the zero end is real, merchants and GCash run 0 percent installment promotions regularly.",
+          "The late fee is where GGives gets expensive, and GCash publishes the exact formula. Miss a due date and you owe 1 percent of your loan amount for each missed due date, plus 0.15 percent of your outstanding balance per day until you pay. The help center's own sample: a 10,000 peso purchase from June 10 on a 6 month term, monthly due every 10th, 2,015.67 a month. Miss the August 10 payment and pay on August 15, and the fee is 1 percent of 10,000, which is 100, plus 0.15 percent of the 8,333.33 outstanding balance times 5 days, which is 62.50. Total 162.50 pesos for five days late, and it reproduces exactly.",
+          "Read that formula again, because it stacks. The 1 percent is per missed due date, so a payment two months behind can carry two 1 percent hits, and the 0.15 percent daily rider runs on the outstanding balance the whole time you are late. At 0.15 percent a day, five weeks of delinquency adds about 5 percent of the balance before you count the per-due-date charges. The zero interest installment is only zero while every due date is met.",
+          "Payment mechanics matter here too. The GGives terms say payments made through banks or over the counter channels should be completed at least 3 days before the due date, because your GCash wallet is the fallback and it gets auto deducted if the external payment does not post in time. Payments apply to fees and penalties first, then interest, then principal, so a late fee never quietly evaporates when you pay."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "GCredit: the line that charges by the day",
+        "paragraphs": [
+          "GCredit works differently from the other three, and its help center pricing changed recently enough that older articles, including our own Tala comparison, carry a stale figure. The current published range is 5 to 7 percent per month, set by how active you are on GCash, with the help center noting that more usage can push your rate down. CIMB's product disclosure sheet, the document behind the product, states the band as 3 to 7 percent monthly, prorated to the number of days you hold the balance. Both figures are published, the help center is current as of today, and the disclosure sheet is dated earlier, so quote them as a range with sources rather than one number.",
+          "Interest starts the day after you use the line, and it is prorated daily: the daily rate is the monthly rate divided by 30. The help center's sample reproduces exactly: borrow 1,000 pesos on October 1 at the 5 percent rate, pay on October 10, nine days of borrowing, 1,000 times 5 percent divided by 30 times 9 equals 15 pesos, total due 1,015. The same day you pay, the same day you borrowed, nothing accrues, and the page says so explicitly: pay your GCredit dues on the transaction day and no interest is charged.",
+          "The credit line runs up to 50,000 pesos, and the product carries no fees as published, which makes its late structure the only cost trap. The disclosure sheet sets a minimum amount due of 10 percent of unpaid charges plus interest and penalty fees, and a late fee ladder that steps with how many days you are past due: 200 pesos for 1 to 30 days late, 300 more at 31 to 60, 400 more at 61 to 90, and 600 more beyond 90, for cumulative totals of 200, 500, 900, and 1,500 pesos. Their worked example: 10,000 pesos at 3 percent for a full 30 days is 300 pesos of interest, amount due 10,300, minimum due 1,300. That reproduces exactly too.",
+          "The practical read: GCredit is the cheapest money in the app for a balance you clear inside a billing cycle, and it has no origination fee at all. Held for months, it is 5 to 7 percent a month compounding by the day, which is expensive money by any annualized standard."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "GLoan Sakto: the micro loan that trades interest for a fee",
+        "paragraphs": [
+          "GLoan Sakto sits at the bottom of the range and inverts the structure: 100 to 300 pesos, zero interest, due 21 days after disbursement. The cost is a processing fee of 3 to 15 percent, shown as a fixed peso amount, and unlike the main GLoan fee it is not deducted from what you receive, it is added to your total amount due at repayment. Miss a due date and the late fee is 1 percent of the loan amount each time. There is no daily late fee rider on Sakto.",
+          "Do the math on the worst published case: 300 pesos with a 15 percent fee costs 45 pesos to borrow for three weeks. Annualized that is dramatic, but on absolute pesos it is the price of a soft drink, and for an emergency jeepney fare week it may be the cheapest formal credit in the country at that ticket size. The honest framing: Sakto's fee structure is expensive per peso per year and trivial per event, which is exactly the trade you want at 300 pesos and exactly the trade you do not want scaled up to 20,000."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "How to qualify and apply for a GCash loan",
+        "paragraphs": [
+          "All three products share one gate: you either see an offer in the app or you do not, and GCash says plainly that offers are not guaranteed. The published eligibility for GLoan and GGives: a Filipino citizen, 21 to 65 years old, a fully verified GCash account, a valid government ID, a verified GCash email, and active use of the app. GCredit tops out at age 64. Everything runs on Philippine mobile numbers only, and GCash reviews eligibility weekly, so unlocking products means using Pay Bills, Buy Load, Cash In, Send Money, GInsure, and GInvest while staying clean on every existing GCash loan account.",
+          "Applying for GLoan takes a few screens: tap Borrow, select GLoan, check your offer, enter an amount in 500 peso increments, choose the term, pick a loan purpose, review the disclosure statement, and confirm with the code sent to your number. The money lands in your wallet within 24 hours per the help center, and a face scan may be required. GGives activates similarly from the Borrow tab, and GCredit activates from Borrow as well. One rule worth internalizing before you apply for anything: any overdue balance on GLoan, GGives, GCredit, or Borrow Load blocks a new GLoan application, so the four accounts share one reputation inside GCash."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "How to pay, and how paying early pays you back",
+        "paragraphs": [
+          "GLoan dues can be paid three ways. The dashboard is the fast one: tap Pay Now, review the dues breakdown, pay, and it reflects instantly. Pay Bills works too, under the Fuse Financing, Inc. biller with your Loan Account ID, posting within 3 business days. Offline partners cover you without the app: BPI and Metrobank take the Loan Account ID, BDO and Bayad Center take your GCash registered mobile number, and those post within 3 business days. Your Loan Account ID comes from the Welcome to GLoan email's payment schedule file. The terms apply payments to fees and penalties first, then interest, then principal, the same order GGives uses.",
+          "The early payment rule is the best consumer feature in the whole family, and the details decide whether you get it. Pay your entire GLoan balance at least 1 month before your due date and GCash returns the interest for the future months you are skipping, as an interest cashback that appears in Transactions within 24 hours, no SMS, check the App Inbox. The published examples show exactly how the boundary works on a 5 month loan availed June 8: pay in full on July 7, one day before the July 8 due date, and four future months, August through November, come back to you. Pay on July 10 instead and the August cycle has partially started, so only three months come back. Pay on November 5, in the same month as the final due date, and there are no full unused months, so nothing comes back. Past months' interest is never refunded, so the cashback rewards decisiveness, not partial early payments. Fully paying early may also reset your loan limit for the next borrow, though GCash marks that as a review outcome, not a promise.",
+          "On GGives there is no equivalent cashback publish, and the terms point the other way: external payments need to land 3 days before the due date, and excess payments roll to the next installment. GCredit rewards early payment structurally, since interest is prorated by the day, so clearing the balance early simply stops the daily accrual."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Where a GCash loan belongs in a payoff plan",
+        "paragraphs": [
+          "Every GCash product prices in a monthly rate, and two of them charge that rate flat on the original amount, which means the number on the offer screen understates the annual cost by a wide margin. That is not a reason to avoid the app, it is a reason to rank it correctly against your other debts. A GGives balance at an implied 3.49 percent flat is an effective 5.72 percent monthly; a GCredit balance accrues 5 to 7 percent monthly by the day; a ceiling priced GLoan runs 11.53 percent effective on proceeds (all computed above from published figures). Next to a credit card at the 3 percent monthly cap, or a bank personal loan in the low twenties annualized, most GCash balances belong behind the card in avalanche order but ahead of nothing.",
+          "The comparison set is already built across this series: the Tala versus GCredit piece converts the app lenders to one unit, the multiple loan app installments guide shows how to tell which installment is actually hurting you most, the BillEase and Cashalo cost pieces do the same published sample reproduction for their lenders, and the full lender comparison lines the whole market up side by side. If GCash debt is one of several you carry, put the real balances and real rates into the free plan and let the order come from the arithmetic. The flat structures are exactly the kind of debt that looks tame in a list and costs the most interest per month in reality."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the GLoan interest rate?",
+        "a": "GCash publishes 1.59 to 6.99 percent per month, set by your eligibility and the term you choose, with a processing fee of 3 to 5 percent deducted from your proceeds and a 1 percent late fee per missed due date. There is no published worked sample, so the only rate that matters is the one on your offer screen, and the app shows the exact monthly due before you confirm."
+      },
+      {
+        "q": "What is GCredit's interest rate?",
+        "a": "The GCash help center currently publishes 5 to 7 percent per month based on your GCash activity, prorated daily at the monthly rate divided by 30. CIMB's product disclosure sheet states 3 to 7 percent monthly. Both are published figures; the help center range is the current one as of this writing, and paying on the same day as the transaction accrues nothing."
+      },
+      {
+        "q": "Is GGives really zero interest?",
+        "a": "Zero percent is the floor of a 0 to 5.49 percent monthly range, offered case by case and often tied to merchant promotions. The published 10,000 peso sample implies a 3.49 percent flat monthly charge for a mid range offer. Even a true 0 percent installment is only zero while you pay on time: the late fee of 1 percent per missed due date plus 0.15 percent of the outstanding balance per day applies regardless of your interest rate."
+      },
+      {
+        "q": "How much GCredit can you get with a 400 GScore?",
+        "a": "GCash publishes no mapping from GScore to credit line, so no honest table exists. What is published: the line runs up to 50,000 pesos, offers are reviewed weekly, and a fully verified, active account is the published eligibility floor. The limit on your screen under Borrow, then GCredit, is the only binding number, and it can move in either direction as your usage changes."
+      },
+      {
+        "q": "How do you pay a GLoan or a GGives loan?",
+        "a": "For GLoan: pay instantly in the Borrow tab's dashboard, through Pay Bills under the Fuse Financing, Inc. biller, or at offline partners like BPI, Metrobank, BDO, and Bayad Center using your Loan Account ID or GCash registered mobile number. Biller and partner payments post within 3 business days. For GGives, pay inside the app from your GGives dashboard, and if you pay through a bank or an over the counter channel, complete it at least 3 days before the due date so your wallet is not auto deducted."
+      },
+      {
+        "q": "What happens if you miss a GCash loan payment?",
+        "a": "GLoan charges 1 percent of the loan amount per missed due date plus 0.15 percent per day on terms longer than 3 months; GGives charges the same 1 percent plus the same daily rider with no term limit; GCredit steps through a ladder that reaches 1,500 pesos in cumulative late fees past 90 days. Overdue balances also block new offers across all your GCash loan accounts, and GCash's collections partners may contact you by call, SMS, or email about the unpaid balance."
+      }
+    ],
+    "ctaLead": "Rank your GCash loan against every debt you owe, free",
+    "ctaSub": "A rate table uses stickers. Your plan uses your real GLoan, GGives, or GCredit balance next to your card, Tala, and BillEase debts, converted to the same unit, and reports the order that saves the most interest, the debt free date, and the cost of each ordering. Free on up to two debts, manual entry or a CSV, no bank linking."
   },
 ];
