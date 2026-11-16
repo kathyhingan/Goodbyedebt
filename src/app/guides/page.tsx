@@ -171,6 +171,7 @@ const groupMeta: {
       "home-credit-loan-calculator",
       "atome-cash-loan-interest",
       "gcash-loan-cost",
+      "juanhand-review",
     ],
   },
   {

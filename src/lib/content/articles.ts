@@ -5262,4 +5262,280 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "ctaLead": "Rank your GCash loan against every debt you owe, free",
     "ctaSub": "A rate table uses stickers. Your plan uses your real GLoan, GGives, or GCredit balance next to your card, Tala, and BillEase debts, converted to the same unit, and reports the order that saves the most interest, the debt free date, and the cost of each ordering. Free on up to two debts, manual entry or a CSV, no bank linking."
   },
+  {
+    "slug": "juanhand-review",
+    "title": "JuanHand Review: Interest Rates, Fees, and How It Compares",
+    "description": "The published JuanHand example priced to the centavo, the three places the company disagrees with itself about the 10 percent service fee, and what the loan costs next to your card, GLoan, and Tala.",
+    "kicker": "The real JuanHand loan math",
+    "tldr": "JuanHand's own listings price a 10,000 peso, 91 day loan at 12 percent a year interest plus a 10 percent service fee, 11,299.17 all in. Solved against the money you receive, that example costs about 6.37 percent effective a month. The fee line is the price, and the fee line is also where the company's own pages disagree.",
+    "sections": [
+      {
+        "heading": "What JuanHand is and who runs it",
+        "paragraphs": [
+          "JuanHand is a cash loan app in the Philippines, operated by Wefund Lending Corp. The company publishes its SEC Registration No. CS201825672 and Certificate of Authority No. 2844 in the header of every page on its website and in both app store listings, which is the first check any lender review should run and this one passes. The site also states that the company is compliant with the SEC, the National Privacy Commission, and the AMLC, and points borrowers to the Disclosure Statement before any transaction. Those are the company's own claims, and the registration numbers are the verifiable part of them.",
+          "The scale claims are large: 116 billion pesos in disbursed capital, 20.1 million active users, 63 million total transactions, over 33 million users served. Treat those as the company's own marketing figures. The independently countable numbers are the store listings: 10 million plus downloads on Google Play with a 4.7 rating from about 277,000 reviews, and a 4.6 rating from about 80,000 ratings on the App Store, with the Play listing updated October 29, 2026.",
+          "The product itself is short term cash lending. The store listings publish a loan amount of 2,000 to 50,000 pesos and a loan term of 91 to 180 days. The website's own borrowing page shows a slider from 1 to 12 months with the headline up to 50,000 pesos, and both pages say the final amount and repayment details appear in the app. The two terms do not match, and the honest reading is that the store disclosures are the regulated documents while the website slider is marketing; the section below walks every published number, including the ones that disagree."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The published numbers, straight from the sources",
+        "paragraphs": [
+          "JuanHand publishes its pricing in three places, and they line up on the structure but not on every line item.",
+          "From the Google Play listing, fetched November 16, 2026:",
+          "From the App Store listing, fetched the same day:",
+          "From the website, juanhand.com:",
+          "Three of those lines cannot all be true at once, and the next two sections price each of them."
+        ],
+        "bullets": [
+          "Borrow up to 50,000 pesos",
+          "Interest rate as low as 0.025 percent, with no period published next to the figure",
+          "A first loan promotion: apply now for a chance to enjoy your first installment interest free",
+          "Zero processing fees on all loans, stated in the FAQ section, and the fraud page says JuanHand will never ask for processing fees or service charges",
+          "A borrowing page slider offering terms from 1 to 12 months"
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The company's own example, reproduced to the centavo",
+        "paragraphs": [
+          "The Play listing's example is the most complete published picture of the product, so start by checking its arithmetic. Interest: 10,000 times 12 percent is 1,200 pesos for a full year; 91 days of it is 1,200 times 91 over 365, which computes to 299.18 pesos. The listing prints 299.17, a one centavo truncation, which is as close to exact as a published example usually gets. The service fee: 10 percent of 10,000 is 1,000 pesos, exact. Total repayment: 10,000 plus 299.17 plus 1,000 is 11,299.17, exact as printed. Monthly repayment: 11,299.17 over 3 is 3,766.39, exact as printed. The example computes.",
+          "Notice what the structure is. The interest is simple interest on the original principal for the days held, the same structure Tala's disclosure uses and the same structure the GCash GLoan math uses, not a diminishing balance rate like a bank loan or a Pag-IBIG amortization. And the service fee is a flat one time charge added to the repayment, not a monthly fee like Atome's facilitation charge. One fee, charged once, equal to a tenth of the principal.",
+          "Now check the App Store's version of the same example. Same loan, same rate, total payment 10,299.17 pesos: the service fee is gone. Nothing on the App Store listing mentions a fee at all. One company, two stores, one product, and the two published prices differ by exactly the 1,000 peso service fee. The Play listing is the priced document, and anyone comparing JuanHand on the App Store alone would price the product at a third of its Play listed cost."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The three published pictures of the fee",
+        "paragraphs": [
+          "Put the fee lines side by side, because this is the single most important thing a JuanHand review can tell you:",
+          "The same company publishes three different prices for the same loan on the same day. The website's own scam warning says JuanHand will never ask for processing fees, which is a statement about scammers, not a pricing schedule, but the FAQ line beside it reads like one. The Play listing is the only place where the example actually includes a fee, and a fee of 10 percent of principal charged once is not a rounding error: on this example it is 77 percent of the total cost of the loan.",
+          "The practical rule is the one every guide on this site repeats: the app's own offer screen, the Disclosure Statement the company itself points to, is the price. Whatever the website says, expect the service fee line to exist, because the company's most detailed published example includes it."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Where published",
+            "The fee line, as published",
+            "What it does to the 10,000 peso example"
+          ],
+          "rows": [
+            [
+              "Website FAQ",
+              "Zero processing fees on all loans",
+              "Total cost 299.17"
+            ],
+            [
+              "App Store listing",
+              "No fee line published",
+              "Total payment 10,299.17"
+            ],
+            [
+              "Google Play listing",
+              "Service fee 10 percent, one time",
+              "Total repayment 11,299.17"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "What a JuanHand loan really costs",
+        "paragraphs": [
+          "The way to make one number out of this is the unit every lender guide on this site uses: solve the payment stream against the cash you actually receive as a diminishing balance rate, then annualize it.",
+          "On the Play example, you receive 10,000 pesos and repay 3,766.39 pesos a month for 3 months. Solving that stream gives an effective cost of about 6.37 percent a month, which compounds to about 110 percent a year. On the App Store version with no fee, the same loan solves to about 1.49 percent a month, about 19 percent a year. The fee moves the price of the same loan by more than four times.",
+          "At the published maximum, a 30 percent APR on the same 91 day loan produces interest of 747.95 pesos, and with the 10 percent service fee the repayment becomes 11,747.95 pesos over 3 payments, which solves to about 8.51 percent effective a month, about 166 percent compounded a year. That is the worst published case, and it is worth knowing before an emergency makes the decision for you.",
+          "A flat framing makes the same point without annuity math: the Play example costs 1,299.17 pesos on 10,000 for 3 months, which is 4.33 percent of the principal per month charged flat, plus the note that you repay in installments while the interest accrues on the full principal the whole 91 days.",
+          "For context, the small loan caps the SEC published in Memorandum Circular No. 14, Series of 2025, reported when they were issued in December 2025 and effective April 1, 2026 on new, renewed, or restructured loans of 10,000 pesos or less over terms of up to four months: a nominal interest cap of 6 percent a month, an effective interest rate cap of 12 percent a month that includes fees, a penalty cap of 5 percent a month, and a total cost cap of 100 percent of the amount borrowed regardless of how long the loan stays outstanding. The published JuanHand example, 10,000 pesos over 3 months, sits inside that scope, and its computed 6.37 percent effective monthly cost sits inside the 12 percent ceiling with room to spare. The caps are context, not a promise about any specific offer."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Who can apply, and what you need",
+        "paragraphs": [
+          "The two store listings publish the eligibility lines with one small difference:",
+          "The website's FAQ lists the acceptable IDs: SSS, TIN, UMID, driver's license, passport, postal ID, PRC, voter's, GSIS, PhilHealth, and the national ID. One ID is the whole document requirement, which is the appeal and the risk of this product class: the bar to borrow is a phone number, an ID, and a claimed income, and nothing in the published material describes income verification.",
+          "The application steps as published: download the app, register with your mobile number, fill in your information, upload one valid ID, complete the process, and tap Apply Now. The site says approval comes as fast as 5 minutes, and the FAQ says you can check your real time application status in the app or through the customer service hotline."
+        ],
+        "bullets": [
+          "18 years old and up, per Google Play; 18 to 60 years old, per the App Store",
+          "Filipino citizen",
+          "One government issued ID",
+          "A stable income"
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Getting the money, and paying it back",
+        "paragraphs": [
+          "Disbursement runs through e-wallets and banks. The published e-wallet list is GCash, Maya, and GrabPay, and the bank list runs from BDO, BPI, Metrobank, Landbank, PNB, UnionBank, and Security Bank through CIMB, EastWest, RCBC, Robinsons Bank, and dozens of smaller institutions. The FAQ also says loan cash can be withdrawn through over the counter outlets nationwide. One Play listing line adds Coins PH to the receive list. You do not choose a payday visit; the money lands where your account points it.",
+          "Repayment is the more important half for this guide. The published channels are 7-Eleven, GCash, RD Pawnshop, and M. Lhuillier, and the FAQ is specific about the mechanics: present your unique JuanHand repayment code and a valid Philippine government ID at the counter. The app also carries a Bill tab with the due amount, and the site's own repayment walkthrough ends with keep your proof of payment, which is advice worth taking with any lender whose posts you pay at a convenience store counter.",
+          "One feature matters for planning: the limit path. The FAQ says your total available credit limit is automatically reviewed and likely increased after you fully repay, and the app carries an Increase Limit button where you can upload extra supporting documents. In other words, the product is designed to grow with repayment history. That is standard lending economics, and it cuts both ways: a clean repayment record raises your ceiling at exactly the moment your budget has proven it can carry the payment."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "What happens if you pay late",
+        "paragraphs": [
+          "Here the published record goes quiet. JuanHand publishes no penalty rate, no late fee ladder, and no grace period anywhere on its website or in either store listing. The SEC caps reported above apply a ceiling, not a schedule: for a covered loan, penalties cannot exceed 5 percent a month of the outstanding scheduled amount, and everything combined cannot exceed 100 percent of what you borrowed. Within those ceilings your actual late terms live in your loan agreement.",
+          "The website does publish the collection posture, and it is worth quoting the claims as claims: the debt collection team follows standard ethical processes, will never visit you or your family in person for loan collection, and does not send private SMS or personal emails. App loan collection practices are the number one complaint theme in Philippine lending app reviews, so take the claim seriously, keep every message, and know that the published promise gives you something concrete to hold the company to."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "JuanHand next to your other debts",
+        "paragraphs": [
+          "The same comparison unit the other lender guides use: one month's cost on a 100,000 peso balance at the rate each lender actually accrues. The JuanHand rows solve from its own published examples. The anchors come from the guides that verified them at source, with the verification dates noted.",
+          "Read the spread, not the rows: JuanHand's own published examples price it anywhere from cheaper than a capped credit card to within reach of an app loan stack, and the difference is almost entirely the 10 percent service fee plus the rate your profile gets. The GLoan, Atome, Tala, and Home Credit rows carry the same lesson in their own fee structures, which is why the full lender comparison guide exists."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Lender",
+            "Rate as published or implied",
+            "One month on a 100,000 balance"
+          ],
+          "rows": [
+            [
+              "JuanHand, App Store example implied",
+              "1.49 percent a month effective",
+              "1,490"
+            ],
+            [
+              "Home Credit cash loan, published floor",
+              "2.32 percent a month",
+              "2,320"
+            ],
+            [
+              "Credit card at the BSP cap",
+              "3 percent a month",
+              "3,000"
+            ],
+            [
+              "Home Credit cash loan, average published EIR",
+              "3.89 percent a month",
+              "3,890"
+            ],
+            [
+              "GCash GLoan, computed best case on proceeds",
+              "3.31 percent a month effective",
+              "3,310"
+            ],
+            [
+              "Atome Cash Swak, 28 day sample implied",
+              "5.44 percent a month effective",
+              "5,443"
+            ],
+            [
+              "JuanHand, Play example as published",
+              "6.37 percent a month effective",
+              "6,370"
+            ],
+            [
+              "GCash GLoan, computed worst case on proceeds",
+              "11.53 percent a month effective",
+              "11,530"
+            ],
+            [
+              "Tala",
+              "11 to 12 percent a month effective",
+              "11,000 to 12,000"
+            ],
+            [
+              "JuanHand, computed at 30 percent APR plus the 10 percent fee",
+              "8.51 percent a month effective",
+              "8,510"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "When a JuanHand loan makes sense",
+        "paragraphs": [
+          "The published shape of the product suggests three honest use cases. First, bridging a genuine one time gap smaller than your next sure inflow, where the 91 day minimum term ends quickly and the total peso cost, fee included, stays known and bounded. Second, retiring something worse: against Tala at 11 to 12 percent a month effective, even the expensive computed JuanHand row wins by a wide margin, and the debt consolidation guide runs that decision in full. Third, building a repayment record toward a bigger limit at a lender whose published example is cheaper than the alternatives you have.",
+          "It makes less sense as recurring top up money. The term floor is 91 days, so there is no 30 day single cycle option the way shorter app loans offer; every borrow carries at least three months of scheduled payments. The service fee charges fully on day one whether you hold the money 91 days or 180, so extending the term dilutes nothing. And the limit growth mechanic is engineered to make the next loan feel earned, which is precisely the moment to run the conversion yourself instead of tapping apply."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "How to pay a JuanHand loan off faster",
+        "paragraphs": [
+          "The math of this loan gives you one clean lever: the interest is simple interest on the original principal for the days held, so every day earlier you clear it is a day of interest that never accrues. The service fee is fixed at disbursement and neither grows nor refunds by term, so the fee is a sunk cost the day you accept the loan; the interest is the part you still control.",
+          "Three moves that fit this structure:",
+          "Then do the same total cost check the sections above ran, on your own offer: payment times payments, minus cash received. Under a minute, and it catches every fee the rate line hides."
+        ],
+        "bullets": null,
+        "numbered": [
+          "Round every payment up and mark the extra against principal, then confirm the reduced balance in the app before the next due date, because simple interest on a smaller principal accrues less every remaining day.",
+          "Clear it before the 180 day mark rather than letting a renewal stack, since the App Store listing describes the 180 day maximum as including renewal time, and a renewed fee is a second 10 percent event on the same borrowed money.",
+          "If you are juggling JuanHand next to a card, a GLoan, and an app loan stack, rank them in one unit before you prepay anything: the multiple loan app installments guide walks the conversion, and the payoff order that saves the most interest is usually not the smallest payment."
+        ],
+        "subheadings": null
+      },
+      {
+        "heading": "The scam warnings JuanHand itself publishes",
+        "paragraphs": [
+          "The site's fraud section is unusually specific, and it doubles as a checklist for any lender app: JuanHand will never ask for your OTP verification code, will never request private bank account details or payment outside the official in app channels, will never visit you or your family in person for collection, and does not send private SMS or personal emails. Official customer service numbers are published on the site, hours are Monday to Sunday, 9 in the morning to 6 in the evening, and the site asks you to cross check every message against those official channels.",
+          "The context for those warnings is real: lending app impersonation scams are common enough in the Philippines that the company spends its homepage warning about them. The same discipline protects you on the pricing side. Anyone who calls you offering to process your JuanHand loan for a fee is exactly the middleman the site says does not exist, and the published fee that does exist, the 10 percent service fee, belongs to the company, not to anyone who texts you about it."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "See your own loans in one plan",
+        "paragraphs": [
+          "Published examples use round numbers. Your situation has your actual approved rate, your actual fee, and the other debts the payment competes with every month. The free plan in the Goodbye Debt app takes your real JuanHand installment alongside your card, your GLoan, your Tala, and everything else, converts them to the same unit, and reports the payoff order that saves the most interest, the projected debt free date, and what each ordering costs. Free on up to two debts, manual entry or a CSV, no bank linking."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "Is JuanHand legit and SEC registered?",
+        "a": "The operator is Wefund Lending Corp., publishing SEC Registration No. CS201825672 and Certificate of Authority No. 2844 on its website and both app store listings, and the site claims compliance with the SEC, the NPC, and the AMLC. Registration is the floor, not the review: read the Disclosure Statement the company itself points to before any transaction, and price the total repayment against the cash received."
+      },
+      {
+        "q": "How much is JuanHand's interest rate per month?",
+        "a": "The website advertises rates as low as 0.025 percent with no period published beside the figure. The store listings publish a maximum APR of 30 percent and a worked example at 12 percent a year, which is about 1 percent of the principal per month charged flat on the days held. With the 10 percent service fee included, the published example's all in cost solves to about 6.37 percent effective a month. Your profile decides your actual rate, and the offer screen decides your actual price."
+      },
+      {
+        "q": "Does JuanHand charge a processing fee?",
+        "a": "The company's own pages disagree. The website FAQ says JuanHand charges zero processing fees on all loans. The Google Play listing's worked example adds a 10 percent service fee of 1,000 pesos on a 10,000 peso loan. The App Store example includes no fee. The most detailed published document, the Play listing, is the one that prices the fee, so plan for it to exist and verify the line on your own offer before confirming."
+      },
+      {
+        "q": "How fast does JuanHand approve and release a loan?",
+        "a": "The site says approval comes as fast as 5 minutes after the one ID application. Disbursement goes to GCash, Maya, GrabPay, or a long list of banks, with over the counter cash withdrawal available nationwide. Actual arrival time depends on the disbursement channel, and the app shows the real time application status."
+      },
+      {
+        "q": "What happens if I miss a JuanHand payment?",
+        "a": "No penalty rate, late fee ladder, or grace period is published anywhere in the company's own materials. For small loans the SEC's reported caps apply: penalties capped at 5 percent a month of the outstanding scheduled amount, and total cost capped at 100 percent of the amount borrowed, from April 1, 2026 on new, renewed, or restructured loans. The site states that collection follows standard ethical processes with no personal visits and no private messaging, and asks you to verify every message against its official channels."
+      },
+      {
+        "q": "Can I increase my JuanHand loan limit?",
+        "a": "Yes, by two published routes: the limit is automatically reviewed and likely increased after you fully repay, and the app's Increase Limit button lets you upload extra supporting documents to raise the ceiling manually. The limit growth is why the payoff order matters before you borrow again: a clean close on the cheapest debt you owe does more for your budget than a bigger ceiling on the most expensive one."
+      }
+    ],
+    "ctaLead": "Rank your JuanHand loan against every debt you owe, free",
+    "ctaSub": "A review uses published samples. Your plan uses your real JuanHand installment next to your card, GLoan, Tala, and Atome debts, converted to the same unit, and reports the order that saves the most interest, the debt free date, and the cost of each ordering. Free on up to two debts, manual entry or a CSV, no bank linking."
+  },
 ];
