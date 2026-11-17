@@ -39,6 +39,7 @@ const PRIMARY = [
 ];
 
 const SECONDARY = [
+  { href: "/tools", label: "Tools" },
   { href: "/transactions", label: "Transactions" },
   { href: "/guides", label: "Guides" },
   { href: "/roadmap", label: "Roadmap" },
