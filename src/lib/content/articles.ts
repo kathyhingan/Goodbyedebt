@@ -5538,4 +5538,285 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "ctaLead": "Rank your JuanHand loan against every debt you owe, free",
     "ctaSub": "A review uses published samples. Your plan uses your real JuanHand installment next to your card, GLoan, Tala, and Atome debts, converted to the same unit, and reports the order that saves the most interest, the debt free date, and the cost of each ordering. Free on up to two debts, manual entry or a CSV, no bank linking."
   },
+  {
+    "slug": "pagibig-mp2-interest-rate",
+    "title": "Pag-IBIG MP2 Interest Rate: 2011 to 2025 and vs Paying Debt First",
+    "description": "The MP2 dividend for 2025 is 7.12 percent tax free. Every declared rate since 2011, the payout rules that shape what it is worth, and the math that says which debts to clear before you save.",
+    "kicker": "Every MP2 rate since 2011",
+    "tldr": "The MP2 rate for 2025 is 7.12 percent a year, tax free, declared on February 27, 2026. The 2026 rate is not out yet. MP2 has paid between 4.63 and 8.11 percent a year since 2011. If you owe a credit card, a GLoan, or a bank personal loan, pay that first: those debts cost 19 to 43 percent a year.",
+    "sections": [
+      {
+        "heading": "What the MP2 rate actually is",
+        "paragraphs": [
+          "MP2, the Modified Pag-IBIG 2 Savings Program, is a voluntary savings facility run by the Home Development Mutual Fund, the government agency everyone calls Pag-IBIG Fund. It sits on top of your regular Pag-IBIG membership savings, which are mandatory. MP2 is optional, separate, and pays a higher declared return.",
+          "The word \"interest\" is a slight misnomer that every search engine has adopted, including this page's title. MP2 does not pay fixed interest. It pays a dividend: your share of Pag-IBIG Fund's annual net income. Philippine law requires the Fund to return at least 70 percent of its annual net income to members as dividends, and the board declares the exact rate once a year, usually in late February, for the year that just closed.",
+          "Three consequences follow from that structure, and they matter more than the headline number:",
+          "For 2025, the Fund declared 64.34 billion pesos in total dividends, a record, equal to a 98.6 percent payout ratio against 65.28 billion pesos in net income, far above the 70 percent floor. Regular Pag-IBIG savings earned 6.62 percent for 2025, up from 6.60 percent in 2024, and MP2 earned 7.12 percent, up from 7.10 percent."
+        ],
+        "bullets": null,
+        "numbered": [
+          "The rate is declared after the fact. The 7.12 percent for 2025 was announced on February 27, 2026, at the Fund's Chairman's Report. When you save during 2026, nobody knows what your 2026 dividend will be yet. It will be declared around February 2027.",
+          "The rate is not guaranteed. MP2 paid 8.11 percent in 2017 and 5.79 to 6.00 percent in 2021, depending on the source you read. Any plan that assumes 7.12 percent every year is a plan built on a number Pag-IBIG has never promised.",
+          "The dividends are tax free. MP2 earnings are exempt from the 20 percent withholding tax that applies to ordinary bank deposit interest. A 7.12 percent MP2 dividend is worth more after tax than a 7.12 percent taxable deposit."
+        ],
+        "subheadings": null
+      },
+      {
+        "heading": "MP2 dividend rates year by year",
+        "paragraphs": [
+          "The table below is the complete declared history since the program's first full year. Rates are dividends declared for each calendar year, announced the following February or March.",
+          "Three patterns are worth reading out of that table:",
+          "One caution on reading history: the table shows what MP2 paid, not what it will pay. The 2026 rate will be declared around February 2027."
+        ],
+        "bullets": [
+          "The floor keeps rising. The weakest years of the last decade, 2020 and 2021, still paid more than 6 percent. The early years of the program, 2011 to 2014, paid in the 4.6 percent range and have never been seen again.",
+          "Averages you can plan around. Over the last 15 years the average declared rate is 6.30 percent a year. Over the last 10 years it is 7.06 percent. Over the last 5 years, 2021 to 2025, it is 6.86 percent, which is exactly the number Pag-IBIG's own Japan service desk uses in its published MP2 sample computations.",
+          "Fourteen straight years above 4.58 percent, fifteen straight years above regular bank savings. Major Philippine banks' regular savings accounts published rates in the 0.0125 to 0.50 percent range in the comparison table that has been live on Moneymax's MP2 guide since the 2022 to 2024 era. Even against that stale table, the gap is not close."
+        ],
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Year",
+            "Declared MP2 dividend rate"
+          ],
+          "rows": [
+            [
+              "2011",
+              "4.63 percent"
+            ],
+            [
+              "2012",
+              "4.67 percent"
+            ],
+            [
+              "2013",
+              "4.58 percent"
+            ],
+            [
+              "2014",
+              "4.69 percent"
+            ],
+            [
+              "2015",
+              "5.34 percent"
+            ],
+            [
+              "2016",
+              "7.43 percent"
+            ],
+            [
+              "2017",
+              "8.11 percent, the all time high"
+            ],
+            [
+              "2018",
+              "7.41 percent"
+            ],
+            [
+              "2019",
+              "7.23 percent"
+            ],
+            [
+              "2020",
+              "6.12 percent"
+            ],
+            [
+              "2021",
+              "6.00 percent"
+            ],
+            [
+              "2022",
+              "7.03 percent"
+            ],
+            [
+              "2023",
+              "7.05 percent"
+            ],
+            [
+              "2024",
+              "7.10 percent"
+            ],
+            [
+              "2025",
+              "7.12 percent"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "The rules that shape what 7 percent is worth",
+        "paragraphs": [
+          "The rate is only half the product. These are the published program rules, as carried by the official Pag-IBIG Japan service desk page, and they change what the dividend is actually worth to you:",
+          "That last bullet is the one most rate-first guides skip. MP2 is not a parking spot for money you might need. It is a five year commitment with a real exit penalty. Every peso you put in MP2 instead of a credit card payment is a peso locked away from your debt plan, at a return lower than the debt's cost."
+        ],
+        "bullets": [
+          "Minimum 500 pesos per transaction. You can save in small, regular amounts; there is no large minimum to open.",
+          "Five year maturity. Each MP2 account matures five years after opening. This is the single most important rule in the program.",
+          "Two payout options. Choose annual dividend payout, where each year's dividend is credited out to your registered bank account, or compounded, where dividends stay in and earn more dividends. The payout option is fixed per account.",
+          "Multiple accounts allowed. You can hold several MP2 accounts at once, each separately registered and funded, each with its own payout option and its own five year clock.",
+          "A 20 million peso cap. Total remitted savings per member, across all MP2 accounts, is capped at 20 million pesos.",
+          "A one time rollover. At enrollment, or before maturity, you can opt in to roll the entire matured amount, principal plus returns, into one additional five year cycle under the same payout option.",
+          "Pre-termination is restricted and penalized. Early withdrawal is allowed for a defined list of grounds: total disability or insanity, separation from service by reason of health, death of the member or an immediate family member, retirement, permanent departure from the country, layoff or company closure, critical illness of the member or an immediate family member as certified by a physician, repatriation of an OFW member, or other grounds the board approves. Outside that list, early withdrawal costs 50 percent of all returns already earned. Under the compounded option the fee comes out of the returns; under the annual payout option 50 percent of the returns earned is deducted from your principal, and the current year's returns also carry the 50 percent fee."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The 2025 numbers, worked",
+        "paragraphs": [
+          "The 2025 declaration is the largest in the Fund's 45 year history. The published figures, all from the announcement coverage of February 27 to 28, 2026:",
+          "The gap between MP2 and regular savings narrowed to half a percentage point: 7.12 versus 6.62. On 100,000 pesos that difference is 500 pesos a year. MP2's extra return is real but it is not dramatic in peso terms; the five year lock is what you are actually selling for it.",
+          "The official Japan service desk publishes a sample computation at 6.86 percent, the 2021 to 2025 average: save 500 pesos a month for five years, 30,000 pesos of principal, and the published table shows 5,230.75 pesos in dividends for a total of 35,230.75 pesos. We restate that sample as published. Our own reproductions under two stated methods, annual crediting on the average running balance and monthly compounding at one twelfth the annual rate, both compute higher, 5,588.38 and 5,667.04 pesos respectively, so the official sample appears to use a more conservative crediting method than either. We flag the difference rather than silently adopt a number."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Figure",
+            "2025 value"
+          ],
+          "rows": [
+            [
+              "Total dividends declared",
+              "64.34 billion pesos"
+            ],
+            [
+              "Payout ratio",
+              "98.6 percent of net income"
+            ],
+            [
+              "Net income",
+              "65.28 billion pesos"
+            ],
+            [
+              "Regular savings dividend rate",
+              "6.62 percent"
+            ],
+            [
+              "MP2 dividend rate",
+              "7.12 percent"
+            ],
+            [
+              "Membership savings collections",
+              "160.41 billion pesos, a record"
+            ],
+            [
+              "Voluntary savings within that total",
+              "93.6 billion pesos"
+            ],
+            [
+              "Housing loans released",
+              "140.54 billion pesos to 90,727 families"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "MP2 or utang first? The math that decides",
+        "paragraphs": [
+          "Here is the comparison that matters for the reader with debt. Take one spare 1,000 pesos and ask where it does more work over the next year.",
+          "Computed equivalents used above, from published figures: GLoan's published 1.59 to 6.99 percent a month compounds to 20.84 to 124.97 percent a year effective; the MPL form's 1.4583 percent a month on a diminishing balance compounds to 18.97 percent a year effective, against its published 10.5 percent a year framing; the 3 percent monthly finance charge most Philippine cards publish compounds to 42.58 percent a year effective, while the BSP ceiling framing is 36 percent a year.",
+          "Read the table and the rule writes itself: every debt costing more than 7 percent a year beats MP2, and in the Philippine credit market that is nearly all of them. Credit cards, online loans, bank personal loans, BNPL plans, and even the government's own MPL all cost more per year than MP2 has ever declared. Paying them first is a guaranteed return at the debt's rate; MP2 is an unguaranteed return at a lower rate, delayed five years.",
+          "The only close call in the table is the SSS salary loan at 8 percent a year. Its margin over MP2 is 0.88 points, and the case for keeping the loan and saving in MP2 instead rests on MP2 paying above 8 percent, which has happened once in 15 years (2017's 8.11 percent). But that trade buys you a 5 year lock and a 50 percent pre-termination fee on returns if your plans change, against a loan you could simply clear. Certainty is worth the 0.88 points here, and the forums agree: the recurring \"borrow from SSS and put it in MP2\" leverage idea surfaces on r/phinvest every year and gets talked down on rate uncertainty every time. The same logic applies on top of existing utang, only more strongly.",
+          "So the working order for a person with debt:"
+        ],
+        "bullets": null,
+        "numbered": [
+          "Any debt above roughly 8 percent a year gets the spare pesos first. Cards, online loans, personal loans, MPL, Home Credit, BNPL: all of them.",
+          "The one month buffer for emergencies comes before MP2, because MP2 money cannot come back without penalties before year five.",
+          "MP2 starts when the expensive debt is gone. Against a clean slate, 7.12 percent tax free with a government fund behind it is a genuinely good place for medium term savings, and better than the savings accounts banks publish.",
+          "Never borrow to save in MP2. The spread between an 8 percent loan and an unguaranteed 7.12 percent dividend is not a strategy; it is a coin flip wearing a calculator."
+        ],
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Where the 1,000 pesos goes",
+            "Annual effect",
+            "Guaranteed?"
+          ],
+          "rows": [
+            [
+              "Into MP2 at the 2025 rate",
+              "Earns 71.20 pesos, tax free",
+              "No, the rate is declared yearly"
+            ],
+            [
+              "Into regular Pag-IBIG savings",
+              "Earns 66.20 pesos, tax free",
+              "No, declared yearly"
+            ],
+            [
+              "Onto a credit card at the BSP ceiling",
+              "Saves 360 pesos of finance charges",
+              "Yes, and it compounds in your favor"
+            ],
+            [
+              "Onto a GCash GLoan balance at the published band",
+              "Saves 208 to 1,250 pesos at the effective annual equivalents",
+              "The band is published per user"
+            ],
+            [
+              "Onto a Pag-IBIG Multi-Purpose Loan",
+              "Saves about 190 pesos at the effective annual equivalent",
+              "The monthly rate is fixed by the form"
+            ],
+            [
+              "Onto a bank personal loan",
+              "Saves about 287 to 295 pesos at published ACR or APR levels",
+              "Yes, contractual"
+            ],
+            [
+              "Onto an SSS salary loan",
+              "Saves 80 pesos",
+              "Yes, fixed rate"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "How to open an MP2 account",
+        "paragraphs": [
+          "Opening takes minutes and the requirements are light, which is why the program's popularity keeps climbing:"
+        ],
+        "bullets": [
+          "Where: through Virtual Pag-IBIG, the Fund's online portal, or over the counter at any Pag-IBIG branch. The Fund's own officers pushed members toward Virtual Pag-IBIG accounts during the February 2026 dividend announcement, since dividends and balances show there first.",
+          "Who can open: active Pag-IBIG Fund members; former members who are pensioners or retirees with another source of monthly income, regardless of age, provided they saved at least 24 monthly contributions before retiring; and natural born Filipinos who reacquired citizenship under RA 9225, with at least 24 monthly savings before permanently migrating.",
+          "How much: 500 pesos minimum per transaction, with no published monthly ceiling below the 20 million peso lifetime cap across accounts.",
+          "Choose the payout option when you enroll: annual payout or compounded. Pick compounded if you do not need the cash flow; picking annual and reinvesting manually adds friction the program was designed to remove."
+        ],
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the MP2 interest rate for 2026?",
+        "a": "Not declared yet as of November 17, 2026. Pag-IBIG declares each year's rate in late February of the following year: the 2025 rate of 7.12 percent was announced on February 27, 2026, and the 2023 rate was announced on February 27, 2024. Expect the 2026 rate around February 2027. Until then, 7.12 percent is the most recent declared figure and the 6.86 percent five year average is the more honest planning number."
+      },
+      {
+        "q": "Is MP2 interest taxable?",
+        "a": "No. MP2 earnings are exempt from the 20 percent withholding tax that applies to regular bank deposit interest, per the program rules carried by the official Pag-IBIG Japan service desk. The 7.12 percent you see is the 7.12 percent you keep."
+      },
+      {
+        "q": "Can I withdraw my MP2 savings before 5 years?",
+        "a": "Only for the allowed grounds: total disability or insanity, health related separation from service, death of the member or an immediate family member, retirement, permanent departure from the country, layoff or company closure, certified critical illness of the member or an immediate family member, OFW repatriation, or other board approved grounds. Outside that list, early redemption costs 50 percent of all returns already earned, and the current year's returns carry the same fee. This is why MP2 money should never double as your emergency fund."
+      },
+      {
+        "q": "Is MP2 better than paying off debt?",
+        "a": "For every debt costing more than about 8 percent a year, no. A credit card at the BSP's 36 percent ceiling, a GLoan anywhere in its published 1.59 to 6.99 percent monthly band, a bank personal loan at a 28.67 percent ACR, or a Pag-IBIG MPL at its fixed monthly rate all cost more per year than MP2's best declared rate, and paying them is guaranteed while MP2's dividend is not. The one marginal case is the SSS salary loan at 8 percent, and even there the certainty of clearing the debt beats a 0.88 point spread that depends on next year's declaration."
+      },
+      {
+        "q": "What happens when MP2 matures after 5 years?",
+        "a": "You redeem the full principal plus accumulated returns, or, if you opted in before maturity, the entire amount rolls over once into a new five year cycle under the same payout option. If you do nothing, the amount sits in the matured account until you claim it, so most savers either redeem or set the rollover at enrollment."
+      },
+      {
+        "q": "Is the MP2 dividend guaranteed by the government?",
+        "a": "The Fund is a government instrumentality and Philippine law requires it to return at least 70 percent of annual net income to members, which is why MP2 has never paid a negative or near zero year. But the specific rate is set annually from actual performance and is not guaranteed in advance. Treat the 7.12 percent as last year's result, not a promise."
+      }
+    ],
+    "ctaLead": "See which debt to clear before you save, free",
+    "ctaSub": "MP2 locks money for five years. Before you commit, add your real balances and rates and see the payoff order, the interest you would save by paying extra, and the exact month the last debt clears. Free on up to two debts, manual entry or a CSV, no bank linking, nothing to pay before you see the plan."
+  },
 ];
