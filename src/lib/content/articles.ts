@@ -5819,4 +5819,281 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "ctaLead": "See which debt to clear before you save, free",
     "ctaSub": "MP2 locks money for five years. Before you commit, add your real balances and rates and see the payoff order, the interest you would save by paying extra, and the exact month the last debt clears. Free on up to two debts, manual entry or a CSV, no bank linking, nothing to pay before you see the plan."
   },
+  {
+    "slug": "bdo-time-deposit-interest-rate",
+    "title": "BDO Time Deposit Interest Rate 2026: Every Published Rate, and vs Paying Your Debt First",
+    "description": "BDO's main bank pays 0.125 to 0.50 percent gross on a time deposit, Network Bank 0.75 to 2.25 percent, before the 20 percent tax. Every published rate, and the math against a card charging 3 percent a month.",
+    "kicker": "Every published BDO rate, net of tax",
+    "tldr": "BDO's main bank pays 0.125 to 0.50 percent a year gross on a peso time deposit, before the 20 percent withholding tax, and BDO Network Bank pays 0.75 to 2.25 percent. Both publish rates as indicative, subject to change without notice. A BDO credit card charges 3 percent a month. Pay the card first; use the time deposit only for your emergency buffer.",
+    "sections": [
+      {
+        "heading": "What BDO actually pays on a time deposit right now",
+        "paragraphs": [
+          "BDO publishes two separate time deposit rate tables under two separate banks, and mixing them up is the single most common error in the guides that rank for this cluster. BDO Unibank is the universal bank. BDO Network Bank is its savings bank subsidiary, and it is a different bank with its own rates, its own branch network, and its own deposit insurance coverage.",
+          "The main bank's product is the Peso Time Deposit, and its published rates as of November 18, 2026:",
+          "The table is stated exactly as BDO publishes it, which includes a gap: the main bank lists rates for the 30 to 90 day band and the 180 to 360 day band on the 100,000 peso and larger brackets, and publishes no rate line for 90 to 180 days on those brackets. BDO also states the rates are indicative and subject to change without notice, and to confirm with the branch upon making placements. Terms of placement are 30, 60, 90, 180, and 360 days, the minimum initial placement is 1,000 pesos, and ownership is evidenced by a Certificate of Peso Time Deposit.",
+          "BDO Network Bank's Regular Time Deposit, same minimum, same terms, different table:",
+          "Two structural points before the debt comparison, because they change what these small numbers are worth:"
+        ],
+        "bullets": [
+          "The rates are gross and taxed. Both banks withhold 20 percent final tax on interest earned. A 0.25 percent gross rate is 0.20 percent net. The net column is the only one that matters.",
+          "The best published rates are locked behind seven figure deposits. On the main bank, everything below 1 million pesos pays 0.125 percent for short terms and at most 0.250 percent for the longest term. The 0.500 percent top rate requires 5 million pesos. A first time saver with 50,000 pesos is shopping in the 0.125 percent row, and no guide should pretend otherwise."
+        ],
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Deposit size",
+            "30 to under 60 days",
+            "60 to under 90",
+            "90 to under 180",
+            "180 to under 360",
+            "360 days"
+          ],
+          "rows": [
+            [
+              "1,000 to 9,999",
+              "0.750 percent",
+              "0.750 percent",
+              "0.750 percent",
+              "0.875 percent",
+              "1.000 percent"
+            ],
+            [
+              "10,000 to 49,999",
+              "1.000 percent",
+              "1.000 percent",
+              "1.000 percent",
+              "1.125 percent",
+              "1.250 percent"
+            ],
+            [
+              "50,000 to 99,999",
+              "1.000 percent",
+              "1.000 percent",
+              "1.000 percent",
+              "1.250 percent",
+              "1.250 percent"
+            ],
+            [
+              "100,000 to 199,999",
+              "1.250 percent",
+              "1.250 percent",
+              "1.250 percent",
+              "1.375 percent",
+              "1.375 percent"
+            ],
+            [
+              "200,000 to 499,999",
+              "1.250 percent",
+              "1.250 percent",
+              "1.250 percent",
+              "1.375 percent",
+              "1.375 percent"
+            ],
+            [
+              "500,000 to 999,999",
+              "1.250 percent",
+              "1.250 percent",
+              "1.250 percent",
+              "1.375 percent",
+              "1.375 percent"
+            ],
+            [
+              "1,000,000 to 2,999,999",
+              "1.500 percent",
+              "1.500 percent",
+              "1.500 percent",
+              "1.750 percent",
+              "1.750 percent"
+            ],
+            [
+              "3,000,000 to 4,999,999",
+              "1.500 percent",
+              "1.500 percent",
+              "1.500 percent",
+              "1.750 percent",
+              "1.750 percent"
+            ],
+            [
+              "5,000,000 to 9,999,999",
+              "1.500 percent",
+              "1.500 percent",
+              "1.500 percent",
+              "1.750 percent",
+              "1.750 percent"
+            ],
+            [
+              "10,000,000 to 19,999,999",
+              "1.625 percent",
+              "1.625 percent",
+              "1.625 percent",
+              "2.000 percent",
+              "2.250 percent"
+            ],
+            [
+              "20 million and above",
+              "1.625 percent",
+              "1.625 percent",
+              "2.000 percent",
+              "2.250 percent",
+              "2.250 percent"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "The withholding tax and the pretermination penalty",
+        "paragraphs": [
+          "The 20 percent withholding tax on deposit interest is standard across Philippine banks, so the net return is the gross rate times 0.8. On the main bank's most common brackets, the net rates are small enough to write in pesos:",
+          "The pretermination penalty is the other published term that reshapes the math. Both product pages state the placement is subject to a pretermination penalty without publishing the exact formula on the rate page, so the honest statement is: if you break the term early, a penalty applies and its size is confirmed at the branch before you place. The practical consequence does not need the formula. A time deposit is money you promise not to touch, which means it must never be the home for money you might need for a due date, a medical bill, or a layoff. Metrobank's own time deposit explainer, published September 22, 2026, makes the same point on the record: build the emergency fund first, and keep the emergency fund and the time deposit as separate allocations.",
+          "One protection worth knowing: deposits at both banks are insured by the Philippine Deposit Insurance Corporation up to 1,000,000 pesos per depositor, per bank. The Network Bank page states it directly. This is why the time deposit, for all its tiny rates, is still the right *shape* of product for a committed emergency buffer: the principal cannot move, and the institution cannot take it. It is the price of the parking spot that is out of line with the debt side, not the safety."
+        ],
+        "bullets": [
+          "50,000 pesos, 360 days, main bank: 0.125 percent gross is 62.50 pesos of interest, 50.00 pesos net after the 20 percent withholding. Computed from the published rate.",
+          "100,000 pesos, 360 days, main bank: 0.250 percent gross is 250 pesos of interest, 200 pesos net. Computed.",
+          "100,000 pesos, 360 days, Network Bank: 1.375 percent gross is 1,375 pesos of interest, 1,100 pesos net. Computed."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The other side of the ledger: what BDO charges on a credit card",
+        "paragraphs": [
+          "The comparison that decides this question is not time deposit versus other savings products. It is time deposit versus the debt you already owe. BDO publishes its credit card economics in its own current table of fees and charges, revised May 2026 and posted live on its site:",
+          "Hold those two columns side by side for a second, because this is the whole article in one breath: the bank pays you 0.125 to 0.50 percent a year for lending it money through a time deposit and charges you 3 percent a month for lending you money through a credit card. The spread between what a bank pays on deposits and what it charges on revolving debt is not a BDO quirk; it is the business model of every bank on earth. The question is only which side of the spread your pesos sit on."
+        ],
+        "bullets": [
+          "Monthly interest rate: 3.00 percent on retail and cash advance transactions, inclusive of the cash advance fee for cash advances.",
+          "Interest accrues per day at 3 percent divided by 30 days on the daily balance. The bank's own sample computation charges 10,200 pesos for 31 days at 316.20 pesos. Computed on the same method, a 100,000 peso balance carried for a full year accrues about 36,500 pesos of interest.",
+          "The 3.00 percent monthly rate compounds to an effective 42.58 percent a year (1.03 to the 12th power minus 1, computed). That sits under the BSP's 36 percent annual finance charge ceiling for credit cards in its published monthly framing and above it in effective annual terms, which is exactly the conversion most cardholders never see.",
+          "The minimum amount due is 5 percent of the total remaining balance or 500 pesos, whichever is higher, and the late payment charge is 850 pesos or the unpaid minimum amount due, whichever is lower."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Time deposit or pay the utang first: the math",
+        "paragraphs": [
+          "Worked at the peso level, for the deposit sizes actual humans hold. Assumptions stated in each row: published gross rates less the 20 percent withholding for deposits, the published 3.00 percent monthly at the bank's own per day method for the card."
+        ],
+        "bullets": [
+          "Time deposit for one year, main bank: 250 gross, 200 net. Network Bank: 1,375 gross, 1,100 net. Computed.",
+          "The card, carried: 3,000 pesos in month one, about 36,500 over a year. Computed.",
+          "Break even check, computed: to *earn* 36,500 pesos net in a year at the main bank's 0.20 percent net rate, you would need about 18.25 million pesos in a time deposit. Even at Network Bank's 1.10 percent net on the 100,000 bracket, you would need about 3.32 million pesos. Anyone holding millions in a time deposit while carrying card debt is paying the bank to hold their money while the card eats them alive at 42.58 percent effective.",
+          "Verdict: pay the card. The deposit's entire annual net return is erased by nine days of card interest."
+        ],
+        "numbered": [
+          "Keep a starter cash buffer you can reach, one month of essentials, before any extra payments, so the next flat tire does not go back on the card at 3 percent a month.",
+          "Everything above that buffer goes to the highest rate debt, avalanche order, until the expensive debts are gone.",
+          "The time deposit starts after the expensive debt is dead, holding the grown emergency fund: three to six months of essentials, PDIC insured, in 30, 90, and 360 day laddered terms so part of it always matures soon.",
+          "Never place emergency money in a time deposit while expensive debt lives. The pretermination penalty punishes exactly the withdrawal an emergency requires, and the card's 3 percent monthly makes re-borrowing the worst possible fallback."
+        ],
+        "subheadings": [
+          {
+            "text": "Scenario 1: 50,000 pesos in hand, 50,000 pesos on a BDO credit card.:",
+            "paragraphs": []
+          },
+          {
+            "text": "Scenario 2: 100,000 pesos in hand, 100,000 pesos on a BDO credit card.:",
+            "paragraphs": [
+              "The table's fourth row is there because the MP2 comparison is the closest thing to a fair fight, and it still loses to the card. MP2's 7.12 percent is the best guaranteed structure a Filipino saver with government backing can reach today, and guide 31 covers exactly why it still comes after expensive debt. A time deposit paying a fifth of that is not in the race.",
+              "The one exception, and it matters: if the 100,000 pesos is your emergency fund and the card balance is large, the answer is not to dump every peso of the buffer into the card either. The working order, consistent with the save money while paying debt guide:"
+            ]
+          }
+        ],
+        "table": {
+          "headers": [
+            "Where 100,000 pesos works harder for a year",
+            "Rate published",
+            "Net effect over one year",
+            "What happens to the card"
+          ],
+          "rows": [
+            [
+              "Pay the credit card balance",
+              "3.00 percent a month, published",
+              "About 36,500 pesos of interest avoided, computed, tax free",
+              "Balance gone, cost stops"
+            ],
+            [
+              "BDO Peso Time Deposit, 360 days",
+              "0.250 percent gross",
+              "200 pesos net, computed",
+              "Untouched, still charging 3,000 a month"
+            ],
+            [
+              "BDO Network Bank Time Deposit, 360 days",
+              "1.375 percent gross",
+              "1,100 pesos net, computed",
+              "Untouched, still charging 3,000 a month"
+            ],
+            [
+              "MP2, for reference",
+              "7.12 percent declared for 2025, tax free",
+              "7,120 pesos",
+              "Untouched, and money locked five years"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "What the ranking guides get wrong",
+        "paragraphs": [
+          "The current search results for this cluster illustrate why the rates need to come from the bank's own pages:",
+          "None of this requires cynicism; rates pages change and aggregators lag. It just means the only safe comparison is the one made from the bank's own published table on the day you decide."
+        ],
+        "bullets": [
+          "The top ranking generic guide, live on a major finance site, was last updated June 28, 2023, and its worked example assumes a 3 percent annual rate on a 50,000 peso deposit. No BDO product page publishes anything close to 3 percent a year on a time deposit today; the main bank's published band starts at 0.125 percent. That example overstates the realistic BDO return by roughly 24 times.",
+          "Bank explainers, including Metrobank's September 2026 piece, cover mechanics well and never mention debt, which is the decision the reader is actually making.",
+          "The BDO Network Bank table gets quoted as BDO's table, tripling the reader's expectation: 0.75 percent looks like the floor when the main bank's floor is 0.125 percent, and neither bank's rate sheet is marked clearly in most aggregations."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "How to open one and what to confirm at the branch",
+        "paragraphs": [
+          "The mechanics, per the published product pages:"
+        ],
+        "bullets": [
+          "Minimum initial placement: 1,000 pesos at both banks, which makes the product accessible to almost everyone. The honest note: at the main bank's 0.125 percent, a 1,000 peso placement earns 1 peso before tax over a full year. The minimum is a door, not a strategy.",
+          "Terms: 30, 60, 90, 180, or 360 days at both banks. Longer pays more on the main bank only from the 100,000 peso bracket up; below that bracket the rate is flat across all terms, so term length buys you nothing but illiquidity.",
+          "Ownership: a time deposit certificate at both banks. Keep it; redemption at maturity runs through it.",
+          "Opening is at the branch for both banks, with a valid ID from the standard list (passport, driver's license, UMID, PhilSys, and the rest of the 26 accepted IDs the main bank publishes).",
+          "Confirm three things before placing: the current rate for your exact bracket and term (the published rates are indicative and change without notice), the exact pretermination penalty schedule in writing, and whether the placement auto rolls over at maturity, which defaults you into a new locked term if you do nothing."
+        ],
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the BDO time deposit interest rate for 2026?",
+        "a": "BDO does not publish a single annual rate. As of November 18, 2026, the main bank's Peso Time Deposit pays 0.125 to 0.50 percent a year gross depending on deposit size and term, with everything below 1 million pesos paying 0.125 percent for short terms and at most 0.250 percent for the longest terms, and BDO Network Bank's Regular Time Deposit pays 0.75 to 2.25 percent gross on its own table. Both banks state the rates are indicative and subject to change without notice, so confirm the live rate at the branch before placing."
+      },
+      {
+        "q": "Is the BDO time deposit rate compounded or simple interest?",
+        "a": "The published rates are per annum rates on the placement, paid at maturity for a single term. The 360 day rate applied to the principal for one year is the full published interest for the term; there is no intra year compounding on a single placement. Rolling over at maturity starts a new term on the new balance, which is where compounding would occur, one term at a time."
+      },
+      {
+        "q": "How much does a 100,000 BDO time deposit earn in a year?",
+        "a": "At the published 360 day rate for the 100,000 to below 200,000 bracket, 0.250 percent gross: 250 pesos of interest, 200 pesos net after the 20 percent withholding tax, computed. At BDO Network Bank's 1.375 percent for the same bracket and term: 1,375 gross, 1,100 net, computed. Rates are indicative and change without notice."
+      },
+      {
+        "q": "Should I put money in a time deposit if I have credit card debt?",
+        "a": "No, with one exception for the starter emergency buffer. A BDO credit card charges 3.00 percent a month per the bank's own published fees table, about 42.58 percent effective a year, computed, while the main bank's time deposit pays 0.125 to 0.50 percent a year gross. Every peso above a one month cash buffer works about 180 times harder clearing the card than sitting in the deposit, computed. Keep one month of essentials liquid, put the rest on the card, and open the time deposit after the expensive debt is gone."
+      },
+      {
+        "q": "What is the difference between BDO and BDO Network Bank time deposits?",
+        "a": "They are two banks. BDO Unibank is the universal bank and its Peso Time Deposit pays 0.125 to 0.50 percent gross. BDO Network Bank is BDO's savings bank subsidiary, regulated by the BSP, with its own branches and its own Regular Time Deposit table paying 0.75 to 2.25 percent gross, plus its own PDIC coverage up to 1,000,000 pesos per depositor. Guides that quote one table under the other bank's name overstate or understate your actual rate by a wide margin."
+      },
+      {
+        "q": "Can I withdraw my BDO time deposit early?",
+        "a": "Yes, but the placement is subject to a pretermination penalty. Neither bank publishes the exact penalty formula on its rate page, so confirm it in writing at the branch before placing. The practical rule stands regardless of the formula: money that might need to come out early for a due date, a medical bill, or a layoff does not belong in a time deposit, and while expensive debt is alive, a premature withdrawal plus a 3 percent monthly card charge is the most expensive possible sequence."
+      }
+    ],
+    "ctaLead": "See what your debt costs per month, free",
+    "ctaSub": "A time deposit earns in a year what the card charges in days. Add your real balances and rates and see the payoff order, the interest each payment kills, and the exact month the last debt clears. Free on up to two debts, manual entry or a CSV, no bank linking, nothing to pay before you see the plan."
+  },
 ];
