@@ -6096,4 +6096,281 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "ctaLead": "See what your debt costs per month, free",
     "ctaSub": "A time deposit earns in a year what the card charges in days. Add your real balances and rates and see the payoff order, the interest each payment kills, and the exact month the last debt clears. Free on up to two debts, manual entry or a CSV, no bank linking, nothing to pay before you see the plan."
   },
+  {
+    "slug": "security-bank-time-deposit-interest-rate",
+    "title": "Security Bank Time Deposit Interest Rate 2026: Every Published Rate, and vs Paying Your Debt First",
+    "description": "Security Bank's peso time deposit pays 0.57 to 4.96 percent a year gross on its board table, 2.17 percent for one year at the 100,000 peso minimum, before the 20 percent tax. Every published rate, and the math against a card charging 3 percent a month.",
+    "kicker": "Every published Security Bank rate, net of tax",
+    "tldr": "Security Bank's peso time deposit pays 0.57 to 4.96 percent a year gross on its published board table, 2.17 percent for one year at the 100,000 peso entry bracket, before the 20 percent withholding tax. Its credit cards charge 3 percent a month. Even at the best rates in the series, the card still wins by about 21 times. Pay the card first.",
+    "sections": [
+      {
+        "heading": "What Security Bank actually pays on a time deposit right now",
+        "paragraphs": [
+          "Security Bank publishes one peso time deposit board table on its own rates page, read live on November 20, 2026. The structure is different from the other banks in this series: the tenors run from overnight out to seven years, the brackets start at 100,000 pesos, and the rates climb with both size and term. The full published table:",
+          "Four published details change how that table reads:",
+          "The dollar side exists too: the same rates page publishes a USD time deposit table from 1.68 percent at twelve months on the 1,000 to 4,999 dollar bracket up to 3.64 percent at seven years on the 100,000 dollar and up bracket, plus Chinese yuan, euro, and yen tables for those holding those currencies. Filipino savers pricing a peso emergency fund are shopping in the peso table, so that is the table the rest of this page works."
+        ],
+        "bullets": [
+          "The short columns exist and pay zero at the entry brackets. The bank's table also carries overnight, one week, two week, and three week columns, and on the 100,000 to 299,999 and 300,000 to 999,999 brackets every one of them is 0.00 percent. Only the 1 million and up brackets pay anything below one month, and it is 0.05 to 0.25 percent. A Security Bank time deposit shorter than a month, at the sizes actual humans hold, earns nothing.",
+          "The rates apply to individual clients only and are stated as indicative, subject to change without notice. Corporate placements price separately.",
+          "Placements of one year and up carry a payout choice: monthly, quarterly, semi-annually, annually, or upon maturity. For the two to seven year tenors the bank asks you to coordinate the final maturity date with your branch of account.",
+          "The bank also publishes a separate longer product, Secure Goals Plus, on the same rates page, paying 4.30 to 5.55 percent a year for one to four year commitments, with the five to ten year tenors marked currently unavailable due to ongoing system enhancements. That is a different product with a different structure, not the board table above, and this page prices the regular time deposit."
+        ],
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Peso Range",
+            "1 Mo (27 to 44 days)",
+            "2 Mos (45 to 79)",
+            "3 Mos (80 to 130)",
+            "6 Mos (131 to 270)",
+            "12 Mos (271 to 364)",
+            "2 Yrs",
+            "3 Yrs",
+            "4 Yrs",
+            "5 Yrs",
+            "7 Yrs"
+          ],
+          "rows": [
+            [
+              "100,000 to 299,999",
+              "0.57 percent",
+              "0.61 percent",
+              "0.97 percent",
+              "1.79 percent",
+              "2.17 percent",
+              "3.05 percent",
+              "3.43 percent",
+              "3.57 percent",
+              "3.75 percent",
+              "3.96 percent"
+            ],
+            [
+              "300,000 to 999,999",
+              "0.82 percent",
+              "0.86 percent",
+              "1.22 percent",
+              "2.04 percent",
+              "2.42 percent",
+              "3.30 percent",
+              "3.68 percent",
+              "3.82 percent",
+              "4.00 percent",
+              "4.21 percent"
+            ],
+            [
+              "1,000,000 to 2,999,999",
+              "1.07 percent",
+              "1.11 percent",
+              "1.47 percent",
+              "2.29 percent",
+              "2.66 percent",
+              "3.55 percent",
+              "3.93 percent",
+              "4.07 percent",
+              "4.25 percent",
+              "4.46 percent"
+            ],
+            [
+              "3,000,000 to 4,999,999",
+              "1.32 percent",
+              "1.36 percent",
+              "1.72 percent",
+              "2.54 percent",
+              "2.91 percent",
+              "3.80 percent",
+              "4.18 percent",
+              "4.32 percent",
+              "4.50 percent",
+              "4.71 percent"
+            ],
+            [
+              "5,000,000 and up",
+              "1.57 percent",
+              "1.61 percent",
+              "1.97 percent",
+              "2.79 percent",
+              "3.16 percent",
+              "4.05 percent",
+              "4.43 percent",
+              "4.57 percent",
+              "4.75 percent",
+              "4.96 percent"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "The withholding tax, the day count, and how the money actually lands",
+        "paragraphs": [
+          "The 20 percent final withholding tax on deposit interest applies here exactly as at every bank in this series, so the net rate is the gross rate times 0.8. On the entry bracket, the numbers in pesos:",
+          "Two structural notes the raw table hides. First, the one year band is 271 to 364 days, not 365, so a placement that runs a full calendar year sits at the top of that band, and the bank's published rates are per annum figures applied to the days the money is actually placed. Second, on placements of one year and up you choose the payout schedule, and that choice matters for the debt comparison: if you are still carrying revolving debt, interest that pays out quarterly to your CASA account is at least reachable, while interest that compounds until maturity is money the debt keeps paying for. Security Bank's foreign currency time deposit fine print states the mechanics as principal times the gross rate times one minus the tax rate times actual days over 360, published on its own product pages.",
+          "The published pages do not state a pretermination penalty schedule for the peso time deposit, so the honest statement is the same one this series keeps making: if you break the term early, the treatment is confirmed at the branch before you place, in writing. The practical consequence does not need the formula. A time deposit is money you promise not to touch, which means it must never be the home for money you might need for a due date, a medical bill, or a layoff. Deposits are PDIC insured up to 1,000,000 pesos per depositor, per the bank's own product page, so the principal cannot walk away. It is the price of the parking spot that is out of line with the debt side, not the safety."
+        ],
+        "bullets": [
+          "100,000 pesos, one year band (271 to 364 days), 2.17 percent gross: 2,170 pesos of interest, 1,736 pesos net after withholding. Computed from the published rate.",
+          "100,000 pesos, about half a year in the six month band (131 to 270 days) at 1.79 percent per annum: about 883 pesos gross for a 180 day placement, about 706 net. Computed.",
+          "100,000 pesos, three years at 3.43 percent per annum: 10,290 pesos gross over the full term, 8,232 net. Computed."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "What the special rate promo tells you",
+        "paragraphs": [
+          "Security Bank ran a published Time Deposit Special Rate Promo with a promo period of April 15 to June 30, 2026, per DTI Fair Trade Permit No. FTEB-252426, Series of 2026, on its own site: 3.00 percent per annum for a six month peso placement and 3.25 percent for a twelve month placement, minimum 100,000 pesos, funded with fresh money or an existing CASA balance, open to notified new and existing individual clients. The promo window has closed, and the promo's own mechanics state the consequence that matters: any other tenor follows the existing board rates, and a placement that rolls over at maturity goes back to the board rate too.",
+          "Read together with the board table, the promo teaches the two things about Philippine time deposit pricing that generic guides never say out loud:",
+          "On a 100,000 peso placement, the expired promo's twelve month rate would have netted 2,600 pesos for the year after withholding, computed, against 1,736 at the board rate. Keep both numbers in your head when you price a placement, and ask the branch what is running before you sign anything."
+        ],
+        "bullets": null,
+        "numbered": [
+          "The board rate is the floor, not the ceiling. During the promo window, the twelve month promo rate of 3.25 percent beat the 100,000 peso board rate of 2.17 percent by half again. A saver who walked in off the street and never mentioned the promo would have placed at the board rate. The published board table tells you the worst rate you should accept, and the branch desk and the bank's own promo pages tell you the rest.",
+          "Promo pricing is how the banks compete for fresh money, and it is always shorter or more conditional than the board. The promo demanded fresh funds, a fixed tenor, and a notification, and it expired on a date. Board rates persist; promos are fishing."
+        ],
+        "subheadings": null
+      },
+      {
+        "heading": "The other side of the ledger: what Security Bank charges on a credit card",
+        "paragraphs": [
+          "The comparison that decides this question is not time deposit versus other savings products. It is time deposit versus the debt you already owe. Security Bank publishes its credit card economics in its own fees and charges table on its credit cards page, read live on November 20, 2026:",
+          "Hold the two columns side by side, because this is the whole article in one breath: the bank pays you 2.17 percent a year, at best on the entry bracket, for lending it money through a time deposit, and charges you 3 percent a month for lending you money through a credit card. The spread between what a bank pays on deposits and what it charges on revolving debt is the business model of every bank on earth. Security Bank's version of the spread is simply the narrowest this series has measured, which makes it the cleanest place to see the principle."
+        ],
+        "bullets": [
+          "Interest: 3 percent per month, published across the card lineup in the bank's fee table. The bank's newer posted version of the same page carries the same 3 percent for the open cards and adds a 2.5 percent carve out for the Wave card on cards issued until August 28, 2025; Wave is marked currently unavailable on the live page. The 3 percent monthly rate compounds to an effective 42.58 percent a year (1.03 to the 12th power minus 1, computed), the same figure this series computed for BDO, and it sits under the BSP's 36 percent annual ceiling in the regulator's published monthly framing while sitting above it in effective annual terms.",
+          "Interest is charged on the average daily balance for the billing cycle, per the bank's own FAQ, whenever you pay below the total amount due. A static 100,000 peso balance accrues 3,000 pesos in the first month and about 36,000 pesos over a year. Computed.",
+          "The interest free window is real but conditional: the bank states interest or finance charges will not be applied on new purchases within the current statement cycle. Pay the statement in full and the card is free float; pay less and the 3 percent starts.",
+          "The minimum amount due is 3 percent of the total amount due or 500 pesos, whichever is higher, plus overlimit and overdue amounts. The late payment fee is 1,000 pesos or the unpaid minimum amount due, whichever is lower, and the cash advance fee is 200 pesos per transaction, all per the published fee table."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Time deposit or pay the utang first: the math",
+        "paragraphs": [
+          "Worked at the peso level, for the deposit sizes actual humans hold. Assumptions stated in each row: published gross board rates less the 20 percent withholding for the deposit, the published 3 percent monthly at the average daily balance method for the card."
+        ],
+        "bullets": [
+          "Time deposit for one year at the 1 million bracket board rate, 2.66 percent: 26,600 gross, 21,280 net. Computed.",
+          "The card still costs 36,000 a year while it lives. Computed.",
+          "Break even check, computed: to net 36,000 pesos in a year at the entry bracket's 1.736 percent net rate, you would need about 2.07 million pesos placed. At the 5 million bracket's twelve month rate, about 1.42 million. Even at the single best published rate anywhere in the board table, 4.96 percent at seven years on 5 million and up, you would need about 907,000 pesos parked for seven years to offset one year of card interest. Anyone holding seven figures in a time deposit while carrying card debt is paying the bank to hold their money while the card eats them alive at 42.58 percent effective."
+        ],
+        "numbered": [
+          "Keep a starter cash buffer you can reach, one month of essentials, before any extra payments, so the next flat tire does not go back on the card at 3 percent a month.",
+          "Everything above that buffer goes to the highest rate debt, avalanche order, until the expensive debts are gone.",
+          "The time deposit starts after the expensive debt is dead, holding the grown emergency fund: three to six months of essentials, PDIC insured, laddered across the bank's own published bands so part of it always matures soon.",
+          "Never place emergency money in a time deposit while expensive debt lives. An early break of the term plus a 3 percent monthly card charge is the most expensive possible sequence, and the bank's 100,000 peso minimum makes the lockup even harder to justify at small balances."
+        ],
+        "subheadings": [
+          {
+            "text": "Scenario 1: 100,000 pesos in hand, 100,000 pesos on a Security Bank credit card.:",
+            "paragraphs": []
+          },
+          {
+            "text": "Scenario 2: you have more than the minimum, say 1,000,000 pesos, and the same 100,000 card balance.:",
+            "paragraphs": [
+              "The table's last two rows are there to keep the whole series honest. Security Bank's entry bracket pays 8.7 times what BDO's main bank pays on the same 100,000 pesos over the same year, computed, and it is still less than a quarter of what MP2 pays tax free. Security Bank is the best published parking spot this series has priced, and it is still not in the race against a 3 percent monthly card.",
+              "The one exception, and it matters: if the 100,000 pesos is your emergency fund and the card balance is large, the answer is not to dump every peso of the buffer into the card either. The working order, consistent with the save money while paying debt guide:"
+            ]
+          }
+        ],
+        "table": {
+          "headers": [
+            "Where 100,000 pesos works harder for a year",
+            "Rate published",
+            "Net effect over one year",
+            "What happens to the card"
+          ],
+          "rows": [
+            [
+              "Pay the credit card balance",
+              "3 percent a month, published",
+              "About 36,000 pesos of interest avoided, computed, tax free",
+              "Balance gone, cost stops"
+            ],
+            [
+              "Security Bank peso TD, 12 month band, entry bracket",
+              "2.17 percent gross",
+              "1,736 pesos net, computed",
+              "Untouched, still charging 3,000 a month"
+            ],
+            [
+              "The expired promo rate, 12 months",
+              "3.25 percent gross",
+              "2,600 pesos net, computed",
+              "Untouched, and the promo is over"
+            ],
+            [
+              "BDO main bank, 360 days, same bracket",
+              "0.250 percent gross",
+              "200 pesos net, computed",
+              "Untouched, and 8.7 times worse than Security Bank"
+            ],
+            [
+              "MP2, for reference",
+              "7.12 percent declared for 2025, tax free",
+              "7,120 pesos",
+              "Untouched, and money locked five years"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "What the ranking pages get wrong",
+        "paragraphs": [
+          "The current search results for this cluster illustrate why the rates need to come from the bank's own table:",
+          "None of this requires cynicism; rates pages change and aggregators lag. It just means the only safe comparison is the one made from the bank's own published table on the day you decide."
+        ],
+        "bullets": [
+          "The bank's own rates page holds the top results, which is correct, but the aggregator summaries that rank behind it flatten the table into a single range. One deposit comparison site quotes Security Bank time deposits at 1.22 to 3.95 percent, a range that skips both the 0.57 percent entry rate and the 4.96 percent top rate, and maps no rate to any bracket or tenor. A reader with 100,000 pesos cannot price a placement from that range.",
+          "The generic time deposit guides that rank for the wider cluster mention Security Bank mostly as a pointer, one of them sending readers to the bank's own calculator without quoting a single published rate from the table.",
+          "Nobody in the checked results answers the actual decision, time deposit versus paying debt, with the bank's real published rates on both sides. The 100,000 peso minimum, the zero percent sub month rates at the entry brackets, and the promo versus board gap are all published facts that never make it into the ranking pages."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "How to open one and what to confirm at the branch",
+        "paragraphs": [
+          "The mechanics, per the bank's own pages:"
+        ],
+        "bullets": [
+          "You need a Security Bank account number first, and the bank states you need an active regular savings account to make a time deposit. The online flow asks whether you already bank with them, then walks four steps: open the account opening form, fill the required fields, wait for the confirmation text, bring the required item to the indicated branch.",
+          "The minimum placement is 100,000 pesos for the peso time deposit, published on both the product page and the rates page. At the entry bracket's 2.17 percent, a minimum placement earns 2,170 pesos gross for a year, 1,736 net. The minimum is a real door here, not a token one.",
+          "Terms run from 30 days to 7 years on the published table, with the sub month columns paying zero at the entry brackets, the payout option on one year and up, and branch coordination on the two to seven year maturity dates.",
+          "Confirm four things before placing: the current board rate for your exact bracket and term (the rates are indicative and change without notice), any active promo rate you qualify for and its conditions, the early withdrawal treatment in writing, and whether the placement auto rolls over at maturity, which defaults you back to the board rate into a new locked term if you do nothing."
+        ],
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the Security Bank time deposit interest rate for 2026?",
+        "a": "Security Bank does not publish a single annual rate. As of November 20, 2026, its peso time deposit board table pays 0.57 to 4.96 percent a year gross depending on deposit size and term, with the 100,000 peso entry bracket paying 0.57 percent for a month, 2.17 percent for the one year band, and 3.96 percent at seven years, and the 5 million and up bracket reaching 4.96 percent. Rates apply to individual clients and are stated as indicative, subject to change without notice, so confirm the live rate at the branch before placing."
+      },
+      {
+        "q": "How much does a 100,000 Security Bank time deposit earn in a year?",
+        "a": "At the published one year band rate for the 100,000 to 299,999 bracket, 2.17 percent gross: 2,170 pesos of interest, 1,736 pesos net after the 20 percent withholding tax, computed. Under the bank's expired 2026 promo the same placement at 3.25 percent would have netted 2,600, computed. Rates are indicative and change without notice."
+      },
+      {
+        "q": "Is the Security Bank time deposit compounded or simple interest?",
+        "a": "The published board rates are per annum rates applied to the days the money is placed, and on a single placement the interest is paid at the schedule you choose: on placements of one year and up you can take it monthly, quarterly, semi-annually, annually, or upon maturity. Taking the payout each period and not reinvesting it is simple interest by behavior; letting it ride to maturity and rolling over starts a new term on the new balance, which is where compounding happens, one term at a time."
+      },
+      {
+        "q": "Should I put money in a time deposit if I have credit card debt?",
+        "a": "No, with one exception for the starter emergency buffer. A Security Bank credit card charges 3 percent a month per the bank's published fee table, about 42.58 percent effective a year, computed, while the best published one year board rate on the entry bracket nets 1.736 percent after tax. Every peso above a one month cash buffer works about 21 times harder clearing the card than sitting in the deposit, computed. Keep one month of essentials liquid, put the rest on the card, and open the time deposit after the expensive debt is gone."
+      },
+      {
+        "q": "What is the minimum for a Security Bank time deposit?",
+        "a": "100,000 pesos for the peso time deposit, published on the bank's own product and rates pages, and you need a Security Bank savings account number first. That is one hundred times the 1,000 peso minimum at BDO, which makes Security Bank's table a product for money you already have, not a starter account. Deposits are PDIC insured up to 1,000,000 pesos per depositor."
+      },
+      {
+        "q": "Can I withdraw my Security Bank time deposit early?",
+        "a": "The bank's published time deposit pages do not state a pretermination penalty schedule for the peso time deposit, so the exact treatment is confirmed at the branch before you place, in writing. The practical rule stands regardless: money that might need to come out early for a due date, a medical bill, or a layoff does not belong in a time deposit, and while expensive debt is alive, an early break plus a 3 percent monthly card charge is the most expensive possible sequence. The bank does publish a 5 percent pretermination fee on its ChargeLight installment plan, which is a different product, and its absence from the time deposit pages is a gap to close at the desk, not a promise of a free exit."
+      }
+    ],
+    "ctaLead": "See what your debt costs per month, free",
+    "ctaSub": "A time deposit earns in a year what the card charges in weeks. Add your real balances and rates and see the payoff order, the interest each payment kills, and the exact month the last debt clears. Free on up to two debts, manual entry or a CSV, no bank linking, nothing to pay before you see the plan."
+  },
 ];
