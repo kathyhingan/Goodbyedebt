@@ -6373,4 +6373,220 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "ctaLead": "See what your debt costs per month, free",
     "ctaSub": "A time deposit earns in a year what the card charges in weeks. Add your real balances and rates and see the payoff order, the interest each payment kills, and the exact month the last debt clears. Free on up to two debts, manual entry or a CSV, no bank linking, nothing to pay before you see the plan."
   },
+  {
+    "slug": "landbank-time-deposit-interest-rate",
+    "title": "LANDBANK Time Deposit Interest Rate 2026: The Only Published Rates, and vs Paying Your Debt First",
+    "description": "LANDBANK does not publish a rate board for its regular peso time deposit; the branch quotes it. The published GreenGrowth tiers run 2.00 to 4.00 percent a year before tax, and a card charging 3 percent monthly beats them by 11 to 22 times.",
+    "kicker": "The published rates, and the board at the branch",
+    "tldr": "LANDBANK does not publish a rate board for its regular peso time deposit; the branch quotes it. The only published peso time deposit rates are the GreenGrowth tiers, 2.00 to 4.00 percent a year, before the 20 percent tax. A card charging 3 percent monthly beats them by 11 to 22 times. Pay the card first.",
+    "sections": [
+      {
+        "heading": "LANDBANK publishes the product, not the rate",
+        "paragraphs": [
+          "The bank's own Peso Time Deposit page, read live on November 21, 2026, publishes the structure of the product and stops before the pricing:",
+          "The bank's public rate document, the Deposit Account Information poster dated as of August 1, 2026, prices the regular peso time deposit the same way: same minimum, same 30 day floor, same \"based on LANDBANK's posted rates, terms and amount\" in the rate column. The poster is the document Philippine banks use to meet their disclosure obligations, and LANDBANK's poster fills in numbers for the products it tiers publicly and leaves the regular time deposit row pointing at the branch.",
+          "The unpublished board is not a secret; it is an input. The same poster shows the branch quoted time deposit rates feeding other products:",
+          "So the rate sheet exists, it is quoted at the bank's 607 branches and branch lite units (the bank's own count from its GreenGrowth announcement), and it is not on the internet. Any page quoting a specific LANDBANK regular time deposit rate is quoting a stale aggregator, a branch visit, or nothing. This page sticks to what the bank actually publishes."
+        ],
+        "bullets": [
+          "EASY Savings Plus, the bank's tiered savings account, pays 0.05 percent up to 20,000 pesos and then tiered rates that are, in the poster's own words, \"based on LANDBANK's Regular Peso TD posted rates.\"",
+          "The High Yield Savings Account, at a 1,000,000 peso minimum and a 30 day term, is priced with the same based on posted rates language.",
+          "The regular US dollar time deposit, at a 1,000 dollar minimum, carries no published rate in the poster either."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The published table LANDBANK does have: GreenGrowth Deposit",
+        "paragraphs": [
+          "The LANDBANK GreenGrowth Deposit is a one year time deposit that funds environmental and social projects, and it is the one peso time deposit in the bank's poster with printed rates. The full published table, as of August 1, 2026:",
+          "The gross figures are the bank's published cells. The net rates and peso figures are computed from them at the standard 20 percent final withholding tax on deposit interest, using the bank's own published formula: interest equals face value times the rate times the term over 360, paid at maturity for a one year placement.",
+          "The mechanics around that table come from the poster and the bank's own terms and conditions for individual customers, and four of them change how the table reads in a debt comparison:",
+          "The funds side of the story is real: the bank commits the proceeds to projects with environmental or social impact, renewable energy and sustainable agriculture among them. A time deposit that plants trees is a fine thing. It does not change the arithmetic below."
+        ],
+        "bullets": [
+          "The rate is fixed per placement. The account earns fixed interest based on the indicated rate in the Certificate of Time Deposit, per the bank's published terms. Partial withdrawal is not allowed.",
+          "Pre-termination is double expensive by design. Break the term and the rate reverts to the prevailing regular peso savings deposit rate, which the poster publishes at 0.05 percent, and the documentary stamp tax computed upon placement is deducted from your net proceeds. On a normal run the bank absorbs that DST; on a break, you pay it out of the remains.",
+          "Renewal is automatic unless you instruct otherwise. Without a signed maturity instruction, the account renews by itself, at whatever rate the bank is posting when it does.",
+          "The product can disappear at any time. The bank reserves the right to discontinue offering or renewing GreenGrowth upon reaching its target volume. Deposits are PDIC insured up to 1,000,000 pesos per depositor, per the poster."
+        ],
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Placement size",
+            "Published rate, per annum",
+            "Net of 20 percent withholding",
+            "Net interest on the tier minimum, one year"
+          ],
+          "rows": [
+            [
+              "50,000 to below 500,000 pesos",
+              "2.00 percent",
+              "1.60 percent",
+              "800.00 pesos on 50,000"
+            ],
+            [
+              "500,000 to below 5,000,000 pesos",
+              "3.00 percent",
+              "2.40 percent",
+              "12,000.00 pesos on 500,000"
+            ],
+            [
+              "5,000,000 pesos and above",
+              "4.00 percent",
+              "3.20 percent",
+              "160,000.00 pesos on 5,000,000"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "LANDBANK's own worked example, reproduced to the peso",
+        "paragraphs": [
+          "The poster carries a sample computation for the regular peso time deposit, and it is the only peso number the bank publishes for that product anywhere. The bank's illustration: a principal of 30,000 pesos placed for 90 days at a nominal 0.20 percent per annum, which the poster's own assumption line describes as based on market rates, term and amount. The bank's arithmetic: gross interest 15.00 pesos, withholding tax 3.00 pesos, net proceeds 12.00 pesos, an effective 0.04 percent net of tax for the 90 days.",
+          "This series reproduces every bank's worked example before trusting its own formulas, and this one reproduces exactly: 30,000 times 0.20 percent times 90 over 360 is 15.00, the 20 percent tax takes 3.00, and 12.00 remains. The method checks out.",
+          "What to make of the number is the more careful question. The 0.20 percent is an illustration, not a quoted rate; the poster says so itself in the assumption line. But banks choose their illustration rates from the world they operate in, and the bank chose a rate that earns 12 pesos net on a 90 day placement of 30,000. For scale: that is below every published cell on Security Bank's board, below every cell of BDO Network Bank's board, and in the same dead zone as BDO's main bank board, whose published cells run 0.125 to 0.50 percent. The state bank's own example of a normal small placement sits at the bottom of the industry's published range. Ask the branch for the current posted rates before you place, and ask in writing, because the branch desk is the only place those numbers exist."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The dollar side and the rest of the published board",
+        "paragraphs": [
+          "The poster's dollar row follows the same pattern as the peso row: the regular US dollar time deposit at a 1,000 dollar minimum carries no printed rate. The exception is the High Yield US Dollar Time Deposit, which publishes two cells: 0.40 percent per annum for a two year placement of 2,000 to 9,999.99 dollars, and 0.50 percent for a three year placement of 10,000 dollars and up, compounded annually on a 365 day count. The bank's dollar savings rate is 0.025 percent, and the poster's cooling off rules let you cancel a new high yield placement without penalty within two banking days, forfeiting the interest.",
+          "The peso savings backdrop, all from the same poster: the regular passbook savings account and the savings account with ATM pay 0.05 percent per annum, on a 10,000 and 500 peso minimum respectively. The PISO microsavings account earns the prevailing regular savings rate. The OptiSaver Plus account publishes a tiered band above its 50,000 minimum: 0.05 percent up to 500,000 pesos, and tiered rates from 1.00 to 4.00 percent at 500,000 and above. The High Yield Savings Account needs 1,000,000 pesos and quotes branch rates like the regular time deposit.",
+          "Two of those numbers matter for the debt comparison. First, 0.05 percent is where pre-terminated GreenGrowth money lands, which means breaking a placement to pay a bill converts your earnings to almost nothing and deducts the placement DST from what is left. Second, the savings accounts' 0.05 percent shows what the bank pays when it does publish a small peso rate: the smallest number in this series so far, one eighth of BDO's main bank entry cell."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "What the launch announcement tells you",
+        "paragraphs": [
+          "The bank's own announcement page for GreenGrowth, read live in a real browser on November 21, 2026 (the site's news pages sit behind a bot wall for plain fetchers; a real browser gets through), frames the product at launch: tiered rates as high as 4.25 percent per annum, a fixed one year term, a minimum placement of 50,000 pesos offering 2.25 percent, up to 4.25 percent for deposits of 5,000,000 pesos and above, opened online through the bank's digital onboarding system and completed at any of 607 branches.",
+          "Set the announcement beside the current poster and you get the series' recurring lesson, stated as published and never corrected: the launch table paid 2.25 to 4.25 percent; the operative poster as of August 1, 2026 pays 2.00 to 4.00 percent. A quarter point has come off both ends. The announcement page carries no date, the product's own brochure file dates to early 2024, and the poster is the current document. Launch framing decays; the rate sheet in force is what a placement actually earns. The same pattern showed up at Security Bank, where the promo's 3.25 percent beat the board's 2.17 percent for one window and then expired back to the board.",
+          "One more detail from the announcement confirms the operational reality of this bank: you can start the account online, and the branch network finishes it. For a product whose pricing lives at the branch, that is not a formality. The branch visit is where you ask for the regular time deposit's posted rates, compare them against the published GreenGrowth table, and decide which of the two products your money takes."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The other side of the ledger: the debt you would keep paying",
+        "paragraphs": [
+          "The comparison that decides this question is not time deposit against other savings products. It is time deposit against the debt you already owe, and that is where this page has to be more careful than usual, because LANDBANK does not publish its card pricing online either. The bank's credit cards page publishes features, not rates: no maintenance fee, no overlimit fee, no installment conversion fee, a cash advance limit capped at 30 percent of the total credit limit, and a definition of the minimum amount due. The bank's fees and charges documents for peso and dollar transactions, both dated August 4, 2026, carry no card interest line either.",
+          "So the debt side is priced the way this series prices it when a bank hides its card economics: at the BSP's published ceiling framing of 3 percent per month on credit card revolving balances, the figure this series verified against BSP materials for the MP2 and BDO pieces in November 2026 and reuses here. Compounded, 3 percent monthly is an effective 42.58 percent a year. LANDBANK's own cards may charge less; nothing published says they do, and the ceiling is the honest worst case for the comparison. On that framing:"
+        ],
+        "bullets": [
+          "50,000 pesos of card debt accrues 1,500 pesos in the first month and 18,000 pesos over a static year. The same 50,000 parked in GreenGrowth's entry tier nets 800.00 pesos for the whole year. The card costs 22.5 times what the deposit earns.",
+          "At the middle tier, 500,000 parked nets 12,000.00 for the year while 500,000 of card debt accrues 180,000: 15 times.",
+          "At the top tier, 5,000,000 parked nets 160,000.00 while the same balance on a card accrues 1,800,000: 11.2 times. That is the smallest gap in the series and it is still an order of magnitude.",
+          "The deposit's entire year is erased by 16 days of card interest at the entry tier, 24 days at the middle tier, and 32 days at the top tier.",
+          "The bank's own sample makes the point brutally. A 30,000 peso placement for 90 days nets 12.00 pesos. The same 30,000 on a card at the cap accrues 2,700 pesos over the same 90 days: 225 times what the deposit pays.",
+          "The break even deposits are large. To match 18,000 pesos of annual card interest on 50,000 of debt, you would need 1,125,000 pesos deposited at the entry tier's net rate, 750,000 at the middle tier, or 562,500 at the top tier. The top tier requires 5,000,000 placed, and a household holding 5,000,000 in cash is not the household carrying revolving card debt.",
+          "Pre-termination pairs worst with debt. The person most likely to break a one year term early is the person whose finances are tight, and the product's published break terms convert the placement to a 0.05 percent savings rate and deduct the DST from the proceeds. Parking money you might need for a due date in a product that punishes early exit is the exact wrong shape for money with a job."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The comparison table: LANDBANK's published rates against the series",
+        "paragraphs": [
+          "The BDO and Security Bank cells are the published boards verified live for their own guides on November 18 and 20, 2026; the net column is computed. Read the table three ways. Against BDO's main bank, LANDBANK's published entry tier wins outright: 2.00 percent beats every published BDO main bank cell by four times or more. Against Security Bank, LANDBANK's entry tier beats Security Bank's short bands at the 100,000 bracket, and loses the long game: Security Bank's board climbs past 3 percent at two years and reaches 4.96 at seven, where LANDBANK publishes nothing longer than one year. Against the card, nothing changes: the gap is 11 to 22 times on LANDBANK's own published numbers, and the card always wins.",
+          "One caveat belongs in the table's margin. The regular LANDBANK time deposit may price better than GreenGrowth at the branch, particularly for large placements, because posted branch rates are negotiated products and the GreenGrowth table is a fixed published menu. No public document confirms that, and this page does not guess. The published record is what it is: GreenGrowth's tiers are the only peso time deposit rates LANDBANK shows the public, and they are the rates this comparison runs on."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Bank and product",
+            "Published rate",
+            "Term",
+            "Minimum placement",
+            "Net of 20 percent tax"
+          ],
+          "rows": [
+            [
+              "LANDBANK GreenGrowth Deposit",
+              "2.00 to 4.00 percent",
+              "1 year",
+              "50,000 pesos",
+              "1.60 to 3.20 percent"
+            ],
+            [
+              "BDO main bank peso time deposit",
+              "0.125 to 0.50 percent",
+              "30 to 360 days",
+              "1,000 pesos",
+              "0.10 to 0.40 percent"
+            ],
+            [
+              "BDO Network Bank peso time deposit",
+              "0.75 to 2.25 percent",
+              "30 to 360 days",
+              "1,000 pesos",
+              "0.60 to 1.80 percent"
+            ],
+            [
+              "Security Bank peso time deposit",
+              "0.57 to 4.96 percent",
+              "27 days to 7 years",
+              "100,000 pesos",
+              "0.46 to 3.97 percent"
+            ],
+            [
+              "Credit card revolving balance, BSP ceiling framing",
+              "3.00 percent per month",
+              "monthly",
+              "none",
+              "42.58 percent effective a year"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "So: LANDBANK time deposit or pay your debt first?",
+        "paragraphs": [
+          "The answer at LANDBANK is the same as at every bank in this series, and here the published numbers make it unusually clean. If the money has a job, if it is the buffer between you and a due date, or the balance that rolls every month, it pays the debt. The best published year at this bank is 160,000 pesos on 5,000,000 parked at the top tier for a locked year, and the same balance carried on a card at the ceiling framing costs 1,800,000 in the same year. No branch desk in the country closes that gap, because the gap is not a rate shopping problem; it is a 3 percent a month problem.",
+          "If the money is genuinely idle and you carry no revolving debt, the published record gives GreenGrowth a defensible spot in the lineup. The 2.00 percent entry tier needs 50,000 pesos and a one year commitment, beats every published cell of BDO's main bank board outright, beats Security Bank's short bands, funds environmental and social projects with the money while it sits, and is PDIC insured to 1,000,000 pesos. It is the first published table in this series where the state bank's entry rate clears the private banks' published entry rates cleanly, and it is still a rounding error against the debt side.",
+          "The decision rule this series keeps returning to holds at the state bank too. The emergency fund stays liquid, because a one year locked deposit with a DST penalty on exit is not an emergency fund. The debt gets paid first, because 3 percent a month beats 2 to 4 percent a year by an order of magnitude at every tier the bank publishes. And the regular time deposit's rate, the one number this whole page cannot print because LANDBANK does not publish it, is a branch question: ask for the posted rates in writing, compare them against the GreenGrowth table above, and place the money only after the debt that charges 3 percent a month is gone."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the interest rate on a LANDBANK time deposit?",
+        "a": "For the regular peso time deposit, LANDBANK publishes no rate: the bank's product page and its Deposit Account Information poster both state the rate is based on the bank's posted rates, terms and amount, and the branch quotes it. The published rates the bank does show are the GreenGrowth Deposit tiers, 2.00 percent for placements of 50,000 to below 500,000 pesos, 3.00 percent for 500,000 to below 5,000,000, and 4.00 percent for 5,000,000 and above, all for a one year term, before the 20 percent withholding tax. The bank's own sample computation prices a 90 day placement of 30,000 pesos at 0.20 percent per annum."
+      },
+      {
+        "q": "What is the minimum for a LANDBANK time deposit?",
+        "a": "The regular peso time deposit opens at 1,000 pesos with a 30 day minimum term, per the bank's product page and poster. The GreenGrowth Deposit, the product with published rates, needs 50,000 pesos and locks the money for one year. The High Yield US Dollar Time Deposit starts at 2,000 dollars for two years or 10,000 dollars for three years."
+      },
+      {
+        "q": "Why does LANDBANK not publish its regular time deposit rates online?",
+        "a": "The bank prices the regular time deposit through posted rates that are quoted at branches, and its public documents say exactly that: the product page, the poster, and even the EASY Savings Plus tier structure, whose upper tiers are defined as based on LANDBANK's Regular Peso TD posted rates, all point at the branch. The practical move is to ask the branch for the posted rates for your placement size and term, in writing, before committing. Any website quoting a specific LANDBANK regular time deposit rate is not quoting a published source."
+      },
+      {
+        "q": "Is the LANDBANK GreenGrowth Deposit safe and insured?",
+        "a": "The principal is PDIC insured up to 1,000,000 pesos per depositor, per the bank's poster. The rate is fixed per placement in the Certificate of Time Deposit, the certificate is non-transferable, and partial withdrawal is not allowed. Two published conditions to know: the bank reserves the right to discontinue the offering or renewal of the product once it reaches its target volume, and without a signed maturity instruction the account renews automatically at maturity."
+      },
+      {
+        "q": "What happens if I pre-terminate a LANDBANK time deposit?",
+        "a": "On the regular peso time deposit, the bank's published treatment is that the rate reverts to the prevailing regular savings rate, which the poster publishes at 0.05 percent. On GreenGrowth, the published terms go further: the rate reverts to the prevailing regular peso savings deposit rate and the documentary stamp tax computed upon placement is deducted from your net proceeds. The practical reading: an early exit at this bank converts your placement to near zero earnings and can charge you for the privilege."
+      },
+      {
+        "q": "Is a LANDBANK time deposit better than paying my credit card?",
+        "a": "No, and the published numbers settle it. At the entry tier, 50,000 pesos parked for a year nets 800 pesos after tax; the same 50,000 on a card at the 3 percent monthly ceiling framing accrues 18,000 in the same year, 22.5 times as much. Even at the 4.00 percent top tier, which requires 5,000,000 pesos, the card's cost runs 11 times the deposit's earnings, and the deposit's whole year is erased by about a month of card interest. Pay the card first, then place what is left."
+      }
+    ],
+    "ctaLead": "See what your debt costs per month, free",
+    "ctaSub": "A time deposit earns in a year what the card charges in weeks. Add your real balances and rates and see the payoff order, the interest each payment kills, and the exact month the last debt clears. Free on up to two debts, manual entry or a CSV, no bank linking, nothing to pay before you see the plan."
+  },
 ];
