@@ -6589,4 +6589,284 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "ctaLead": "See what your debt costs per month, free",
     "ctaSub": "A time deposit earns in a year what the card charges in weeks. Add your real balances and rates and see the payoff order, the interest each payment kills, and the exact month the last debt clears. Free on up to two debts, manual entry or a CSV, no bank linking, nothing to pay before you see the plan."
   },
+  {
+    "slug": "bpi-time-deposit-interest-rate",
+    "title": "BPI Time Deposit Interest Rate 2026: The Full Published Board, and vs Paying Your Debt First",
+    "description": "BPI publishes its complete peso time deposit board: 0.25 to 0.75 percent a year across four brackets and five terms, before the 20 percent tax. Every published rate, the bank's own card samples reproduced, and the math against a card charging 3 percent a month.",
+    "kicker": "The full published board, and the card math",
+    "tldr": "BPI publishes its complete peso time deposit board: 0.25 to 0.75 percent a year across four brackets and five terms, before the 20 percent withholding tax. Its credit cards charge 2.5 to 3 percent monthly. The bank's own sample shows a 20,000 peso card balance costing 26 percent of principal in one year. Pay the card first.",
+    "sections": [
+      {
+        "heading": "The full published board",
+        "paragraphs": [
+          "The product is the Peso Auto Renew Time Deposit, and the board below is reproduced exactly as BPI publishes it on the product page, read live on November 22, 2026. The minimum term is 35 days, the minimum initial placement is 50,000 pesos, the same 50,000 is the required balance to earn interest, and the placement automatically renews at maturity.",
+          "Three structural facts the raw table hides:",
+          "Interest earnings are subject to the applicable final withholding tax as prescribed by law, and BPI's own deposit updates notice, published on the bank's site, sets the final withholding tax on deposit interest at 20 percent under the Capital Markets Efficiency Promotion Act. Net of that tax, the one year columns pay:",
+          "The gross figures are the bank's published cells. The net rates and peso figures are computed from them at the published 20 percent final withholding tax, on the longest published term, where a full year at the per annum rate is the term itself."
+        ],
+        "bullets": [
+          "The middle two brackets are priced identically. The 500,000 to 999,999 bracket and the 1,000,000 to 4,999,999 bracket carry the same rate in every column, so the board effectively has three price points, not four.",
+          "The biggest jump sits between the 50,000 bracket and 500,000. Moving from the entry bracket to the second one lifts the 63 day rate from 0.2500 to 0.5000 percent, doubling it, while every later bracket change moves the rates by 0.1250 percent or less.",
+          "The one year rate is the best rate at every bracket level, and even then the entry bracket's one year rate, 0.5000 percent, equals what the 5,000,000 and above bracket pays at just 35 days. Money talks, but 5,000,000 pesos speaks the same language as 50,000 parked a year."
+        ],
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Placement size",
+            "Published one year rate",
+            "Net of 20 percent withholding",
+            "Net interest on the bracket minimum, one year"
+          ],
+          "rows": [
+            [
+              "50,000 to 499,999 pesos",
+              "0.5000 percent",
+              "0.4000 percent",
+              "200.00 pesos on 50,000"
+            ],
+            [
+              "500,000 to 4,999,999 pesos",
+              "0.5000 percent",
+              "0.4000 percent",
+              "2,000.00 pesos on 500,000"
+            ],
+            [
+              "5,000,000 pesos and above",
+              "0.7500 percent",
+              "0.6000 percent",
+              "30,000.00 pesos on 5,000,000"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "What the published pages do not say",
+        "paragraphs": [
+          "Complete as the board is, BPI publishes no day count formula for peso time deposits anywhere on its public pages. The bank's terms and conditions say interest on accounts is calculated based on the account's daily balance and credited according to the bank determined rates on its pricing and rates advisories, and stop there. BDO and Security Bank show the same gap, so this page computes peso figures only on the 365 day term, where principal times the per annum rate is the whole calculation and no day count assumption is needed.",
+          "The bank also publishes no worked time deposit example to reproduce, unlike the credit card side where BPI gives a full step by step computation. The pre-termination rule is published but generic: the terms and conditions state that a time deposit terminated before maturity pays out net of applicable taxes, administrative costs, service fees and other pre-termination charges and penalty, all for the depositor's account, without printing a penalty schedule the way LANDBANK's poster does for GreenGrowth.",
+          "Two more products complete the published picture:",
+          "So the board at the top of this page is not a teaser for better published numbers elsewhere. It is the complete published peso rate card, and the branch quoted products sit above it by design."
+        ],
+        "bullets": [
+          "Plan Ahead Time Deposit, a five year peso time deposit at a 50,000 peso minimum, is the one BPI product whose rate is only available in the branches. The page promises a fixed rate for the entire term, higher than regular time deposits, with interest credited monthly to a settlement account or paid at the end of the five years. The tax line matters more than usual here: interest income is tax free for individual Plan Ahead accounts opened before July 1, 2025, and accounts opened from that date pay the 20 percent final withholding tax.",
+          "The US dollar time deposit board publishes a flat wall of zeros below 100,000 dollars: every bracket from 1,000 to 99,999 dollars pays 0.0000 percent at every term from 35 days to 2 years, across all six currencies the bank lists, and the 100,000 dollar and above bracket pays 0.125 percent. For peso savers comparing placements, the peso board above is the only one that matters."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The debt side is published just as completely",
+        "paragraphs": [
+          "BPI's credit card fees page, updated as of July 2026, lists the finance charge for every card the bank issues:",
+          "Around those headline rates, the same page publishes the rest of the machinery: the cash advance fee is 200 pesos per transaction, the late payment fee is 850 pesos or the unpaid minimum amount due whichever is lower, installment loans carry an add on rate of up to 1 percent monthly, and the balance transfer and credit to cash service fee is 500 pesos per availment up to 50,000 pesos and 700 pesos above that, effective September 17, 2026. The bank's own sample computations state the minimum amount due at 3.57 percent of the total outstanding balance.",
+          "The bank even tells you how it computes the interest: the daily rate is the monthly rate times twelve divided by 360 days, applied to the unpaid balance for each day. That is the formula behind the worked samples in the next section."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Card group",
+            "Finance charge per month",
+            "Published effective rate per month"
+          ],
+          "rows": [
+            [
+              "Signature, Robinsons Cashback, Platinum Rewards, Gold Rewards, Amore Cashback, Rewards, Petron, Edge, Family, Corporate, eCredit, Omni",
+              "3 percent",
+              "2.73 percent"
+            ],
+            [
+              "BPI Free+",
+              "2.5 percent",
+              "2.25 percent"
+            ],
+            [
+              "Cash advance, the twelve card group above",
+              "3 percent",
+              "3.16 percent"
+            ],
+            [
+              "Cash advance, BPI Free+",
+              "2.5 percent",
+              "2.65 percent"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "BPI's own sample computation, reproduced",
+        "paragraphs": [
+          "BPI publishes a full worked example for a retail transaction on a BPI Free+ card, and it reproduces exactly. The scenario: a 20,000 peso purchase posted the day after the statement date, the previous balance paid at 850 pesos on the due date, the finance charge rate 2.50 percent monthly.",
+          "Every cell reproduces to the centavo on the bank's own published factor, so the method is sound, and it can be trusted for the debt side numbers below.",
+          "The bank also publishes twelve month amortization samples for the same 20,000 peso starting balance, paying only the minimum amount due every cycle:",
+          "Look at the first line again. A 20,000 peso purchase, minimum payments made on time every single month, generates 5,242.24 pesos of interest over a year, which is 26.2 percent of the original purchase. That is the bank's own arithmetic, published on its own site, and it is the number to hold in your head when the board at the top of this page starts looking attractive."
+        ],
+        "bullets": [
+          "BPI Mastercard or BPI Visa, 3 percent monthly: total interest 5,242.24 pesos, average outstanding balance 16,009 pesos, published effective rate 2.73 percent monthly.",
+          "BPI Free+, 2.5 percent monthly: total interest 4,355 pesos, same average balance, published effective rate 2.27 percent monthly.",
+          "Cash advance on the 3 percent cards: total interest 5,942.27 pesos including the cash advance fee, average balance 16,184 pesos, published effective rate 3.16 percent monthly."
+        ],
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Step",
+            "The bank's computation",
+            "Result"
+          ],
+          "rows": [
+            [
+              "Factor rate",
+              "2.50 percent times 12 months, divided by 360 days",
+              "0.000833"
+            ],
+            [
+              "Days at full balance",
+              "20,000 x 0.000833 x 19 days",
+              "316.54 pesos"
+            ],
+            [
+              "Days after payment",
+              "(20,000 minus 850) x 0.000833 x 12 days",
+              "191.42 pesos"
+            ],
+            [
+              "Finance charge",
+              "316.54 plus 191.42",
+              "507.96 pesos"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Time deposit versus paying the card",
+        "paragraphs": [],
+        "bullets": [
+          "Even the bank's lowest published card rate charges 1,250 pesos in month one on 50,000, 15,000 pesos over a static year, an effective 34.49 percent annualized. Computed.",
+          "The deposit's 200 peso net year is erased by 4.8 days of Free+ interest. Computed.",
+          "The break even placement is 3,750,000 pesos at the entry net rate, 2,500,000 at the top bracket's net rate. Computed."
+        ],
+        "numbered": null,
+        "subheadings": [
+          {
+            "text": "Scenario 1: 50,000 pesos in hand, 50,000 pesos on a BPI card at 3 percent monthly.:",
+            "paragraphs": []
+          },
+          {
+            "text": "Scenario 2: the bank's own 20,000 peso sample against the same 20,000 in the deposit.:",
+            "paragraphs": []
+          },
+          {
+            "text": "Scenario 3: the cheapest card in the bank, BPI Free+ at 2.5 percent monthly.:",
+            "paragraphs": [
+              "The verdict is the same as every bank in this series, and here it comes with the bank's own published samples doing the arguing: the card wins everywhere on the board, by margins from 65 to 90 times, and the published break evens sit above the brackets that would have to pay them."
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "Where the board sits in the series",
+        "paragraphs": [
+          "Net annual rates on one year placements at each bank's entry bracket, all computed from published rates at the 20 percent withholding:",
+          "BPI's board is the most complete publication in the series and the lowest paying at the long end: its best published rate, 0.7500 percent, is under one sixth of Security Bank's 4.96 percent seven year rate and about one fifth of LANDBANK's 4.00 percent GreenGrowth tier. The full transparency cuts the other way too: because every cell is published, nobody can claim the branch hides a better board for ordinary depositors the way LANDBANK's setup does. What you see is the published card."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Bank and product",
+            "Published one year gross, entry bracket",
+            "Net of 20 percent"
+          ],
+          "rows": [
+            [
+              "BPI Peso Auto Renew, 50,000 bracket, 365 days",
+              "0.5000 percent",
+              "0.4000 percent"
+            ],
+            [
+              "BDO Peso Time Deposit, 100,000 bracket, 360 days",
+              "0.250 percent",
+              "0.200 percent"
+            ],
+            [
+              "BDO Network Bank, 100,000 bracket, 360 days",
+              "1.375 percent",
+              "1.100 percent"
+            ],
+            [
+              "Security Bank, 100,000 bracket, 12 months",
+              "2.17 percent",
+              "1.736 percent"
+            ],
+            [
+              "LANDBANK GreenGrowth, 50,000 tier, one year",
+              "2.00 percent",
+              "1.600 percent"
+            ],
+            [
+              "LANDBANK GreenGrowth, 500,000 tier",
+              "3.00 percent",
+              "2.400 percent"
+            ],
+            [
+              "LANDBANK GreenGrowth, 5,000,000 tier",
+              "4.00 percent",
+              "3.200 percent"
+            ],
+            [
+              "Pag-IBIG MP2, for reference, tax free",
+              "7.12 percent declared for 2025",
+              "7.12 percent, no withholding"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "When a BPI time deposit makes sense",
+        "paragraphs": [
+          "The one paragraph summary: BPI publishes everything, and everything it publishes says the same thing. The deposit earns 0.25 to 0.75 percent before tax. The card charges 2.5 to 3 percent monthly, and the bank's own sample shows what that does to a balance over a year. If you have both, the deposit money has one job, and it is to stop the monthly bleed first."
+        ],
+        "bullets": [
+          "After the expensive debt is dead. Holding the emergency fund in laddered terms, 35, 63, 91, 182 and 365 days, so part of it always matures soon, is exactly what the board's five columns are shaped for. The money is PDIC insured up to 1,000,000 pesos per depositor, as the bank's own pages state.",
+          "Against BPI's own savings accounts, the board wins. The bank's SaveUp savings pays 0.0925 percent with a 5,000 peso daily balance needed to earn, 46.25 pesos a year gross on 50,000, and the Auto Renew entry bracket's one year rate pays 5.4 times that, 250 pesos gross on the same money. Computed from the published rates. Maxi-Saver pays 0.125 percent with a matching bonus for a month without withdrawals, at a 2,000,000 peso minimum.",
+          "Plan Ahead, for the tax free grandfathered cohort. Accounts opened before July 1, 2025 keep tax free interest for a five year fixed term at a branch quoted rate. For accounts opened now, the 20 percent withholding applies, and the rate itself is only available in the branches, so the published board remains the only rate you can verify before walking in.",
+          "Never while revolving debt lives. The minimum amount due in the bank's own samples, 3.57 percent of the balance, keeps the account current and costs 26 percent of the principal in a year. No published deposit rate in the country covers that."
+        ],
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is BPI's time deposit interest rate in 2026?",
+        "a": "The published Peso Auto Renew board pays 0.2500 to 0.7500 percent a year gross, by bracket and term, before the 20 percent final withholding tax. The entry bracket, 50,000 to 499,999 pesos, pays 0.2500 percent at 35 days and 0.5000 percent at 365 days. The top bracket, 5,000,000 pesos and above, reaches 0.7500 percent at 182 and 365 days."
+      },
+      {
+        "q": "How much does a 50,000 peso BPI time deposit earn in a year?",
+        "a": "At the published 365 day entry rate of 0.5000 percent: 250 pesos gross, 200 pesos net after the 20 percent withholding tax. Computed from the published rate. The same money carried on a BPI credit card at 3 percent monthly costs 1,500 pesos in the first month alone."
+      },
+      {
+        "q": "Can you negotiate a higher BPI time deposit rate?",
+        "a": "BPI's Plan Ahead five year time deposit has a fixed rate that is only available in the branches, so branch quoted rates above the published board exist for some products. Anything above the board is a quote you receive at the branch, not a published rate, and this page tracks published rates only."
+      },
+      {
+        "q": "Does BPI pay time deposit interest monthly?",
+        "a": "The Peso Auto Renew placement earns at the per annum rate for the term and automatically renews at maturity. The Plan Ahead five year product is the one that credits interest monthly to a settlement account, or pays it at the end of the five year term, per the product page."
+      },
+      {
+        "q": "Is a BPI time deposit insured?",
+        "a": "Deposits are insured by PDIC up to 1,000,000 pesos per depositor, as stated on BPI's own pages. The bank is regulated by the Bangko Sentral ng Pilipinas."
+      },
+      {
+        "q": "Should I put money in a BPI time deposit or pay my credit card first?",
+        "a": "Pay the card. On the bank's own published numbers, the best entry bracket deposit earns 200 pesos net in a year while the cheapest card in the bank charges 1,250 pesos in the first month, and the bank's own twelve month sample shows a 20,000 peso balance costing 5,242.24 pesos paying only the minimum. The deposit's year is erased by 4 days of card interest."
+      }
+    ],
+    "ctaLead": "See what your debt costs per month, free",
+    "ctaSub": "A time deposit earns in a year what the card charges in weeks. Add your real balances and rates and see the payoff order, the interest each payment kills, and the exact month the last debt clears. Free on up to two debts, manual entry or a CSV, no bank linking, nothing to pay before you see the plan."
+  },
 ];
