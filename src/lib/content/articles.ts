@@ -233,7 +233,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
         "heading": "Running the actual numbers on a real example",
         "paragraphs": [
           "Take a reader with three debts: a 150,000 peso credit card balance at the BSP-capped 3 percent a month, a 60,000 peso Tala-style app loan at 11 to 12 percent a month effective, and a 100,000 peso SSS salary loan at under 1 percent a month, total debt 310,000 pesos. Two paths, assuming 15,000 pesos a month available above minimums:",
-          "Path one, a consolidation loan at 28.67 percent a year, BPI's published maximum annual contractual rate (about 2.39 percent a month), replacing all three: the blended rate on the new loan is a flat 2.39 percent a month on the full 310,000. That is a clear improvement over the credit card and the app loan's rates, but it is more than the SSS loan's own rate, meaning the 100,000 pesos that used to cost under 1 percent a month now costs 2.39 percent a month for the life of the new loan, a real increase on that portion.",
+          "Path one, a consolidation loan at 28.67 percent a year, BPI's published Salary Loan maximum annual contractual rate (about 2.39 percent a month; the Regular Personal Loan caps higher, at 31.76 percent), replacing all three: the blended rate on the new loan is a flat 2.39 percent a month on the full 310,000. That is a clear improvement over the credit card and the app loan's rates, but it is more than the SSS loan's own rate, meaning the 100,000 pesos that used to cost under 1 percent a month now costs 2.39 percent a month for the life of the new loan, a real increase on that portion.",
           "Path two, avalanche order with no new loan: the 15,000 pesos a month goes entirely to the Tala-style loan first, since its rate is by far the most expensive. Once it clears, the freed payment rolls to the credit card. The SSS loan continues at its own low rate the whole time, untouched by any new, higher blended rate.",
           "The exact total interest difference depends on your real payoff timeline, which is the entire reason to run your own numbers rather than someone else's example. But the direction of the comparison holds for almost anyone in a similar mix: consolidating a cheap government loan into a pricier blended rate works against you, even while the same consolidation genuinely helps the expensive app loan and card balance it is also absorbing."
         ],
@@ -2658,7 +2658,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
             [
               "Bank personal loan",
               "Borrow a lump sum, pay off every debt yourself, repay the bank in installments",
-              "BPI salary and personal loans quote a maximum annual contractual rate of 28.67 percent; Security Bank quotes a 1.89 percent monthly add-on, an APR from 29.48 percent",
+              "BPI's Salary Loan quotes a maximum annual contractual rate of 28.67 percent and the Regular Personal Loan up to 31.76 percent; Security Bank quotes a 1.89 percent monthly add-on, an APR from 29.48 percent",
               "Approval is hardest for the people who need it most, and fees stack on top"
             ],
             [
@@ -2686,7 +2686,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
         "heading": "What the routes cost at current published rates",
         "paragraphs": [
           "Here are the numbers the banks themselves publish right now, checked at the source before this guide went up. Use them as the realistic band for what consolidation costs, not as quotes for your own application.",
-          "A bank personal loan is the workhorse route. BPI's salary and personal loans quote a maximum annual contractual rate of 28.67 percent on terms of 12 to 36 months, with a 1,500 peso one-time processing fee deducted from the loan proceeds and documentary stamp tax at 75 percent of 1 percent on loans above 250,000 pesos. Security Bank's personal loan quotes a 1.89 percent monthly add-on rate on 12 to 36 month terms, which the bank itself translates into an APR beginning at 29.48 percent and an estimated 37.53 percent at 36 months, on amounts from 30,000 to 2,000,000 pesos. Converted to a monthly cost, both land in the same neighborhood: roughly 2.4 percent a month at the top of the published band.",
+          "A bank personal loan is the workhorse route. BPI's Salary Loan quotes a maximum annual contractual rate of 28.67 percent and the Regular Personal Loan up to 31.76 percent, on terms of 12 to 36 months, with a 1,500 peso one-time processing fee deducted from the loan proceeds and documentary stamp tax at 75 percent of 1 percent on loans above 250,000 pesos. Security Bank's personal loan quotes a 1.89 percent monthly add-on rate on 12 to 36 month terms, which the bank itself translates into an APR beginning at 29.48 percent and an estimated 37.53 percent at 36 months, on amounts from 30,000 to 2,000,000 pesos. Converted to a monthly cost, these land in the same neighborhood: roughly 2.4 to 2.6 percent a month at the top of the published band.",
           "A balance transfer is the cheapest published route for pure credit card debt. BPI's balance transfer charges a 1 percent monthly add-on for 6 to 24 month terms and 0.99 percent for 36 months, which the bank's own rate table translates into an effective 21.01 to 21.64 percent a year. A service fee applies to each availment. The limits are structural: the receiving card must have enough available credit to absorb the transferred balance, and the route only handles credit card balances, not app loans and not government loans.",
           "A balance conversion works on the same rate family but operates inside one card, turning a revolving balance that costs up to the cap into a fixed installment with an end date. BPI's own published example: 20,000 pesos converted over 12 months at a 1 percent add-on becomes 1,866.67 pesos a month, 2,400 pesos total interest, an effective 1.79 percent a month.",
           "For contrast, what you are consolidating away from. Revolving credit card interest in the Philippines is capped by the BSP at 3 percent a month, a 36 percent a year ceiling, with the BSP reserving the right to review the ceiling periodically; a few card products price under the cap, BPI's Free+ card at 2.5 percent being one, and the BSP caps credit card installment purchases separately at a 1 percent monthly add-on. App loans and BNPL accounts run the widest range in the mix, from roughly 3 percent a month at the calm end to 11 to 12 percent a month effective for the priciest, depending entirely on the lender; the dedicated lender guides on the hub carry the verified per-lender figures."
@@ -2722,7 +2722,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
         "paragraphs": [
           "Every route above is worth doing or not worth doing based on one number: your blended rate. Total the interest each debt charges you per month, divide by your total balance, and you have it.",
           "A worked example with the real published numbers. A reader owes 220,000 pesos across three accounts: an 80,000 peso credit card at the 3 percent monthly cap, a 40,000 peso app loan at 11.5 percent a month effective (the middle of the range the priciest lenders publish), and a 100,000 peso SSS salary loan at 8 percent a year on a diminishing balance, about 0.67 percent a month. The monthly interest is 2,400 plus 4,600 plus about 670, roughly 7,670 pesos. Blended: 7,670 divided by 220,000, about 3.5 percent a month, or roughly 42 percent a year before compounding.",
-          "Now the routes. A bank personal loan at the published 28.67 percent maximum works out to about 2.39 percent a month: clearly cheaper than the blend, and a genuine win against the card and the app loan. A balance transfer at 21.46 percent effective is about 1.79 percent a month, cheaper still, but it can only absorb the card balance. Both routes, notice, would raise the cost of the SSS leg from 0.67 percent a month to their own higher rate if the SSS loan were folded in.",
+          "Now the routes. A bank personal loan at the published maximums, 28.67 percent on the Salary Loan and up to 31.76 percent on the Regular Personal Loan, works out to about 2.39 to 2.65 percent a month: clearly cheaper than the blend, and a genuine win against the card and the app loan. A balance transfer at 21.46 percent effective is about 1.79 percent a month, cheaper still, but it can only absorb the card balance. Both routes, notice, would raise the cost of the SSS leg from 0.67 percent a month to their own higher rate if the SSS loan were folded in.",
           "So the example's honest conclusion is two moves, not one. Consolidate or transfer the expensive legs, which the math supports. Leave the cheap government loan exactly where it is, because no bank product on the published tables beats 8 percent a year. Consolidation done right is usually partial, not total."
         ],
         "bullets": null,
@@ -2832,7 +2832,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
             [
               "Installment loan, bank or in-store",
               "Falls on a fixed schedule whether you pay attention or not",
-              "BPI salary and personal loans quote a maximum annual contractual rate of 28.67 percent; Security Bank quotes a 1.89 percent monthly add-on, an APR from 29.48 percent",
+              "BPI's Salary Loan quotes a maximum annual contractual rate of 28.67 percent and the Regular Personal Loan up to 31.76 percent; Security Bank quotes a 1.89 percent monthly add-on, an APR from 29.48 percent",
               "Salaried borrowers, appliance and gadget buyers"
             ],
             [
@@ -2994,7 +2994,7 @@ export const ARTICLE_LIST: GuideArticleData[] = [
       },
       {
         "q": "Is a bank loan cheaper than carrying a credit card balance?",
-        "a": "On today's published rates, usually yes. The BSP caps credit card finance charges at 3 percent a month, or 36 percent a year, while BPI quotes a maximum annual contractual rate of 28.67 percent on personal and salary loans. Convert both to the same unit before deciding, and remember that folding an SSS loan at 8 percent a year into either one raises your cost."
+        "a": "On today's published rates, usually yes. The BSP caps credit card finance charges at 3 percent a month, or 36 percent a year, while BPI quotes a maximum annual contractual rate of 28.67 percent on the Salary Loan and up to 31.76 percent on the Regular Personal Loan. Convert both to the same unit before deciding, and remember that folding an SSS loan at 8 percent a year into either one raises your cost."
       },
       {
         "q": "Which debt should I pay off first?",
@@ -6868,5 +6868,175 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     ],
     "ctaLead": "See what your debt costs per month, free",
     "ctaSub": "A time deposit earns in a year what the card charges in weeks. Add your real balances and rates and see the payoff order, the interest each payment kills, and the exact month the last debt clears. Free on up to two debts, manual entry or a CSV, no bank linking, nothing to pay before you see the plan."
+  },
+  {
+    "slug": "bpi-personal-loan-interest-rate",
+    "title": "BPI Personal Loan Interest Rate 2026: The Published ACR, and vs Paying Your Card First",
+    "description": "BPI's Regular Personal Loan publishes an ACR cap of 31.76 percent and the Salary Loan 28.67 percent, with worked samples on the page. Every published number, the fee and tax stack, and the math against a card charging 3 percent a month.",
+    "kicker": "The published ACR, and the card math",
+    "tldr": "Published on BPI's own pages: the Regular Personal Loan carries an Annual Contractual Rate of up to 31.76 percent and the Salary Loan a maximum of 28.67 percent, as of November 23, 2026. The bank's 20,000 peso sample costs 23,600 over 12 months. On the bank's own numbers, every loan route beats paying a 3 percent monthly card at minimums.",
+    "sections": [
+      {
+        "heading": "What BPI publishes on personal loan rates right now",
+        "paragraphs": [
+          "BPI's consumer cash lending splits into two products with two published caps, both live on bpi.com.ph as of November 23, 2026:",
+          "One number moved and one held. When this series last verified BPI's pages on October 27, 2026, the personal loan page's published cap read 28.67 percent. Today the Regular Personal Loan reads up to 31.76 percent while the Salary Loan still reads 28.67 percent. That is roughly a three point rise in the published cap in under a month, and it is the kind of move you only catch by rechecking the source, which is exactly why every guide in this series re-verifies at the bank's own pages before publishing. If you are comparing quotes across weeks, quote dates matter more than most borrowers realize.",
+          "The published range matters as much as the cap. The bank's FAQ states the Regular Personal Loan runs from 20,000 up to 3,000,000 pesos, capped at three times gross monthly income. A 20,000 peso loan is the floor of the product, and the floor is where the fixed 1,500 peso fee does the most damage, which the fee section below computes."
+        ],
+        "bullets": [
+          "BPI Regular Personal Loan. The bank's page states the Annual Contractual Rate is up to 31.76 percent, with loan terms of 12, 18, 24, 30, or 36 months. The loan is collateral free, reaches up to 3,000,000 pesos, and can go as high as three times your gross monthly income. A one time processing fee of 1,500 pesos is deducted from the loan proceeds, and documentary stamp tax worth 75 percent of 1 percent of the loan amount applies to loans above 250,000 pesos.",
+          "BPI Salary Loan Program. Offered through partner employers, submitted via your HR representative, with a maximum annual contractual rate of 28.67 percent on the same 12 to 36 month terms, amounts up to 1,000,000 pesos, and the same 1,500 peso fee and documentary stamp tax rules. The bank describes the add on rate as low, and exclusive to the employees of companies enrolled in the program."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The two published samples, reproduced",
+        "paragraphs": [
+          "BPI prints a worked example on each product page. Both use the same 20,000 peso, 12 month shape, which makes them directly comparable. Reproducing them is also how you learn the bank's method.",
+          "The Regular Personal Loan sample. The page states: a loan amount of 20,000 pesos payable over 12 months will have a total repayment amount of 23,600 pesos, inclusive of interest. The estimated monthly amortization is 1,966.67 pesos. The Annual Contractual Rate on this sample: 31.72 percent.",
+          "The Salary Loan sample. The page states: a loan amounting to 20,000 pesos with a term of 12 months will pay 23,240 pesos, inclusive of interest. The estimated monthly amortization is 1,936.67 pesos, with an ACR of 28.67 percent.",
+          "Both samples reproduce exactly under the simple add on method. Take the regular sample: one twelfth of the principal is 1,666.67 pesos. The monthly interest is 300 pesos, which is 1.5 percent of 20,000. Add them and you get 1,966.67, the published payment to the centavo. Twelve payments of 1,966.67 total 23,600.04, matching the published total. The salary sample works the same way: 1,666.67 of principal plus 270 pesos of interest, which is 1.35 percent of 20,000, gives 1,936.67, and twelve of those total 23,240.04.",
+          "The add on method is the key to the whole pricing structure. Interest is charged on the original principal every month, even though your outstanding balance falls with every payment. In month twelve of the regular sample you still pay 300 pesos of interest on a debt you are about to close. That is why the ACR, the bank's actuarial rate, sits far above the flat rate: solving the 1,966.67 payment as a diminishing balance loan gives a monthly rate of about 2.64 percent, and twelve times that is 31.72 percent, the published ACR to the second decimal. The salary sample solves to 2.39 percent monthly, twelve times 28.67 percent, again matching the published figure exactly. The FAQ's own method example teaches the same arithmetic at the salary loan's rate: on a 100,000 peso loan at 12 months, simple interest of 1.35 percent is 1,350 pesos, monthly principal is 8,333.33, and the monthly amortization is 9,683.33."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "What the ACR means, and what the loan costs after the fee",
+        "paragraphs": [
+          "Three different numbers describe the same loan, and knowing which one you are reading keeps you from being fooled by any lender, not just this one:",
+          "Then the fee stack sits on top. The 1,500 peso processing fee is deducted from proceeds, so a 20,000 loan delivers 18,500 to your account while you repay 23,600. Measured on the money you actually received, the regular sample's monthly internal rate rises to about 3.96 percent, an effective annual cost of about 59.37 percent, computed. On smaller loans the fixed fee dominates; on larger loans it fades. This is the same fee structure Metrobank publishes, and it is why the published ACR alone never tells the whole story on a small loan.",
+          "Documentary stamp tax starts above 250,000 pesos, at 75 percent of 1 percent of the loan amount. Computed examples: 2,250 pesos on a 300,000 loan, 3,750 on a 500,000 loan, and 22,500 on the 3,000,000 ceiling. The tax is on the loan amount, not the proceeds.",
+          "One more published fact belongs in every cost decision: BPI does not print per term ACRs for the personal loan, only the 12 month sample and the cap. Extending the sample's implied add on to a 36 month term would cost 10,800 pesos of interest on the same 20,000, a payment of 855.56 a month, computed, with the interest alone equal to 54 percent of what you borrowed. Longer terms lower the payment and raise the total cost. Treat the longer tenors as quoted at application, and always ask for the ACR on the exact term you are offered."
+        ],
+        "bullets": [
+          "The flat add on rate. 1.5 percent a month on the regular sample, 1.35 percent on the salary sample. This is how the payment is built. It is also the number that understates the cost, because it ignores the falling balance.",
+          "The ACR. 31.72 percent on the regular sample, 28.67 on the salary sample, published on the page. This is the actuarial rate, twelve times the monthly internal rate of the payment stream. It is the honest annual number, and BPI prints it.",
+          "The effective annual rate. Compounding the ACR's monthly rate for a full year gives about 36.76 percent on the regular sample and 32.75 percent on the salary sample, computed. BPI prints the ACR, not the compound; the compound is what a balance growing at that monthly rate would actually do in a year."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "BPI's four ways to carry 20,000 for a year, compared",
+        "paragraphs": [
+          "The bank publishes every route on its own pages, which lets the comparison run entirely on BPI's numbers. The card row comes from the bank's published sample interest computation page, which assumes a 20,000 retail purchase paid at the 3.57 percent minimum amount due. The service fee on the balance conversion row is charged per availment per the bank's Table of Fees; the bank does not print the amount on the product page, so it is listed as an adder rather than a number.",
+          "Read the table as cost per route on the bank's own published assumptions. Three observations fall out of it:"
+        ],
+        "bullets": null,
+        "numbered": [
+          "The card minimum path is the only one that does not finish. A year of minimums costs 5,242.24 pesos of interest, more than the regular loan's 3,600 plus its 1,500 fee put together, and after all that you still owe 9,350 of the original 20,000. The bank's own sample is the most expensive row on its own sheet.",
+          "The order of BPI's own routes is stable: balance conversion, then salary loan, then regular personal loan, then the card. The gaps are real but not huge. The regular loan costs 360 pesos more all in than the salary loan on this sample; both cost roughly a thousand pesos less than a year of card minimums, with the debt actually gone at the end.",
+          "The cross bank rows bracket BPI's pricing. Metrobank's published floor rate prices a 20,000 loan below BPI's regular product, 3,000 against 3,600 of interest, while Security Bank's 1.89 percent add on prices above both, 6,804 of interest on its 30,000 minimum over a year. Neither gap decides anything by itself, because approval, term, and the fee stack move the total more than the headline add on rate."
+        ],
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Route",
+            "Published rate today",
+            "20,000 pesos over 12 months",
+            "Where the balance ends"
+          ],
+          "rows": [
+            [
+              "BPI Balance Conversion, on the card",
+              "1.00 percent monthly add on, 0.99 at 36 months, effective 21.01 to 21.64 percent a year",
+              "1,866.67 monthly, 2,400 total interest, plus the per availment service fee",
+              "Fully repaid in 12 months"
+            ],
+            [
+              "BPI Salary Loan",
+              "Maximum ACR 28.67 percent",
+              "1,936.67 monthly, 3,240 total interest, plus the 1,500 fee",
+              "Fully repaid in 12 months"
+            ],
+            [
+              "BPI Regular Personal Loan",
+              "ACR up to 31.76 percent",
+              "1,966.67 monthly, 3,600 total interest, plus the 1,500 fee",
+              "Fully repaid in 12 months"
+            ],
+            [
+              "BPI credit card, minimums only",
+              "3 percent nominal monthly, 2.73 percent effective",
+              "5,242.24 interest in the first 12 months, and 9,350 of principal still owed",
+              "Not done after a year"
+            ],
+            [
+              "Metrobank personal loan",
+              "From 1.25 percent monthly add on, ACR 25.976 on the bank's own example",
+              "At the floor rate: 1,916.67 monthly, 3,000 total interest, plus the 1,500 fee",
+              "Fully repaid in 12 months"
+            ],
+            [
+              "Security Bank personal loan",
+              "1.89 percent monthly add on, APR from 29.48 percent",
+              "On its 30,000 minimum: 3,067 monthly, 6,804 total interest",
+              "Fully repaid in 12 months"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "When the loan beats the card, and when nothing beats paying it",
+        "paragraphs": [
+          "The arithmetic first. On BPI's published samples, a 20,000 balance carried for a year costs 5,242.24 pesos of interest at minimum payments, and leaves 9,350 owed. The same 20,000 taken as a regular personal loan costs 3,600 of interest plus the 1,500 fee, 5,100 all in, and ends the debt in exactly 12 months. The month one interest alone differs by half: 600 pesos on the card at 3 percent against 300 pesos of interest inside the loan's fixed payment. Every month the loan is in force, it costs about half the card's interest, and every payment actually retires principal.",
+          "But the honest comparison is not loan against card. It is loan against paying the card off. Cash costs nothing. If you can clear 20,000 of card balance within a few months from your own money, doing so beats the loan's 5,100 by roughly the whole loan cost. The loan exists for the balance you know you cannot clear quickly, and for cash needs the card cannot legally or cheaply serve, tuition balance, a repair, a gap between receivables, where a 3 percent monthly card cash advance, at the bank's published 3.16 percent effective with a 200 peso fee per advance, is the worst row on the sheet.",
+          "For a card balance specifically, BPI's own sheet ranks balance conversion first: 2,400 of interest on the 12 month sample, an effective 21.46 percent a year at that term, plus the service fee, using up to the card's available limit. The personal loan's edge over conversion is scope, not price. It handles non card obligations, it does not consume credit limit, and it does not depend on the card staying otherwise healthy. If you are choosing between them for a pure card balance, conversion is cheaper on the published numbers. If you are consolidating a card plus other obligations, the loan is the tool that covers the whole pile, and the guide on paying off multiple loan app installments at once walks that exact scenario.",
+          "The salary loan deserves its line: at 28.67 percent maximum ACR it is the cheapest cash loan on the bank's sheet, and it prices 360 pesos under the regular product on the 20,000 sample after fees. Its gate is structural. You get it through an HR representative at a company enrolled in the program, so it is an employee benefit before it is a loan product. If your employer has it, the calculator at your HR desk is the first quote to pull.",
+          "Two timing facts complete the picture. First, rates moved: the regular product's published cap rose from 28.67 to 31.76 percent between the October 27 verification and the November 23 recheck, so a quote older than a few weeks may no longer be the bank's current sheet. Second, processing takes 5 to 7 working days on complete documents and proceeds land 1 to 2 banking days after signing, so a loan is a planned move, not an emergency tool; the emergency tool at 3 percent a month is the card, which is precisely why emergencies funded on cards get expensive."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Eligibility, requirements, and release speed",
+        "paragraphs": [
+          "The published facts, from the bank's product and FAQ pages:",
+          "One requirement deserves emphasis because it quietly prices the whole product: the auto debit arrangement. The loan expects a funded BPI account on the due date. If the account runs thin, you are dealing with missed installment penalties on top of the loan, so size the term so the payment clears with margin rather than betting on perfect months."
+        ],
+        "bullets": [
+          "Amount and multiplier. 20,000 to 3,000,000 pesos on the regular product, up to three times gross monthly income. The salary loan runs to 1,000,000 under the same income multiplier. The Seafarer Loan, a related product, reaches 300,000 subject to approval.",
+          "Terms. 12, 18, 24, 30, or 36 monthly installments on both products, collected by automatic debit arrangement from a BPI account, so the funded account needs to hold the payment every due date.",
+          "Documents. One valid Philippine government issued photo bearing ID with signature, plus either the latest three months of payslips, or the latest Income Tax Return or BIR Form 2316, or a Certificate of Employment, for employed applicants. Self employed applicants submit audited financial statements for three years or the latest ITR, plus DTI or SEC business registration.",
+          "Citizenship and residency. The personal loan is available to Filipino citizens residing in the Philippines. Natural born Filipinos who acquired other citizenship may apply while residing in the country, presenting an Alien Certificate Registration ID, subject to credit evaluation.",
+          "Speed. Application processed within 5 to 7 working days on complete documents; proceeds credited within 1 to 2 banking days from signing; the 1,500 fee deducted from proceeds, never paid upfront.",
+          "Early exit. Early loan pay off can be done through a BPI branch, the BPI app, or BPI online, with the payoff amount viewable in the Personal Loan Account screen. Paying early ends the interest you would otherwise owe in the remaining add on months, which is why prepayment is the cheapest rate cut available on any installment loan."
+        ],
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the interest rate of a BPI personal loan in 2026?",
+        "a": "As of November 23, 2026, BPI publishes an Annual Contractual Rate of up to 31.76 percent on the Regular Personal Loan and a maximum of 28.67 percent on the Salary Loan Program, on terms of 12 to 36 months. The bank's own 20,000 peso, 12 month sample carries an ACR of 31.72 percent, which works out to a 1.5 percent monthly add on. Rates on this product moved within the last month, so verify the live page before relying on a quote."
+      },
+      {
+        "q": "How much is the monthly payment on a 20,000 peso BPI personal loan?",
+        "a": "On the bank's published samples: 1,966.67 pesos a month for 12 months on the Regular Personal Loan, totaling 23,600, and 1,936.67 a month on the Salary Loan, totaling 23,240. Both computed by the simple interest method, one twelfth of the principal plus the monthly interest on the original principal. Longer terms reduce the payment but raise total interest; BPI does not publish per term samples, so ask for the ACR on the term you are offered."
+      },
+      {
+        "q": "Why does a BPI personal loan cost more than the rate suggests?",
+        "a": "Three reasons, all published. Interest is computed on the original principal under the add on method even as your balance falls, which is why the 31.72 percent ACR on the sample sits far above the 1.5 percent monthly flat rate. The 1,500 peso processing fee comes off the proceeds, so a 20,000 loan gives you 18,500 while you repay 23,600. And loans above 250,000 pesos carry documentary stamp tax at 75 percent of 1 percent of the loan amount, 2,250 pesos on a 300,000 loan."
+      },
+      {
+        "q": "Is a BPI personal loan cheaper than paying my BPI credit card over time?",
+        "a": "On the bank's own published samples, yes. A 20,000 card balance at 3 percent monthly, paying only the 3.57 percent minimum, costs 5,242.24 pesos of interest in the first 12 months and still leaves 9,350 owed. The regular personal loan costs 3,600 of interest plus the 1,500 fee, fully repaid in 12 months. The cheapest route for a pure card balance is BPI's balance conversion at 2,400 of interest plus its service fee. Cheaper than all three is paying the balance from your own money."
+      },
+      {
+        "q": "Can I pay off a BPI personal loan early?",
+        "a": "Yes. The bank's FAQ states early loan pay off can be done through a BPI branch, via the BPI app, or BPI online, with the payoff amount available in the Personal Loan Account view or from the 24 hour contact center. Because interest is charged monthly on the original principal, every month you cut from the term removes that month's interest entirely."
+      },
+      {
+        "q": "Who can apply, and how fast does the money arrive?",
+        "a": "Filipino citizens residing in the Philippines, with natural born Filipinos holding other citizenship eligible while residing in the country subject to credit evaluation. Amounts run 20,000 to 3,000,000 pesos at up to three times gross monthly income, on one valid ID plus payslips, an ITR or BIR Form 2316, or a Certificate of Employment. Processing takes 5 to 7 working days on complete documents and proceeds are credited 1 to 2 banking days after signing, with the 1,500 fee deducted from the proceeds."
+      }
+    ],
+    "ctaLead": "See what your debt costs per month, free",
+    "ctaSub": "A loan payment is fixed; a card minimum is a treadmill. Add your real balances and rates and see the payoff order, the interest each payment kills, and the exact month the last debt clears. Free on up to two debts, manual entry or a CSV, no bank linking, nothing to pay before you see the plan."
   },
 ];

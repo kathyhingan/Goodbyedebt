@@ -172,6 +172,7 @@ const groupMeta: {
       "atome-cash-loan-interest",
       "gcash-loan-cost",
       "juanhand-review",
+      "bpi-personal-loan-interest-rate",
     ],
   },
   {
