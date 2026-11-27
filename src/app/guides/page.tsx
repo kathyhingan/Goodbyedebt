@@ -173,6 +173,7 @@ const groupMeta: {
       "gcash-loan-cost",
       "juanhand-review",
       "bpi-personal-loan-interest-rate",
+      "home-credit-interest-rate",
     ],
   },
   {

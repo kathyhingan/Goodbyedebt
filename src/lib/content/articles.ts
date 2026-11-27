@@ -7039,4 +7039,285 @@ export const ARTICLE_LIST: GuideArticleData[] = [
     "ctaLead": "See what your debt costs per month, free",
     "ctaSub": "A loan payment is fixed; a card minimum is a treadmill. Add your real balances and rates and see the payoff order, the interest each payment kills, and the exact month the last debt clears. Free on up to two debts, manual entry or a CSV, no bank linking, nothing to pay before you see the plan."
   },
+  {
+    "slug": "home-credit-interest-rate",
+    "title": "Home Credit Interest Rate 2026: The Published Range, the Fee Behind the Average EIR, and vs Paying Your Debt First",
+    "description": "Home Credit publishes its cash loan at 1.49 to 8.99 percent a month with a 3.89 percent average effective rate, and states the exact loan behind that average. The whole rate family, the fee math reproduced, and where it sits against a card at the legal cap.",
+    "kicker": "The published range, and the fee inside the average",
+    "tldr": "Home Credit publishes a cash loan rate of 1.49 to 8.99 percent a month, nominal, plus an average monthly effective rate of 3.89 percent. The published pages state the exact basis of that average, and it reproduces to the rounding digit. At the average, a Home Credit cash loan costs more per month than a credit card at the legal 3 percent cap.",
+    "sections": [
+      {
+        "heading": "The full Home Credit rate family, as published",
+        "paragraphs": [
+          "Home Credit sells more than one loan, and the word \"interest rate\" lands on a different product depending on where you met the brand. Here is the complete published rate card, every product, every update date, straight from the company's fee disclosure table:",
+          "Three structural facts the table hides:"
+        ],
+        "bullets": [
+          "The Home Credit Card is the only product with a single published rate. Everything else is a range or a schedule, and the card's 3 percent a month happens to sit exactly at the BSP's legal ceiling for bank credit cards, verified at the BSP circular itself.",
+          "The July 28, 2026 HCQWARTA split is the newest published rate move in the family. New signers from that date get \"as low as 3.29 percent a month\" against \"up to 4 percent\" for everyone before it, and the disclosure is one of the few places in Philippine consumer lending where a rate change is published with its exact cohort cutoff date.",
+          "The cheapest published product is not the cash loan. The store installment loan publishes an effective rate of 1.79 percent a month with a 1.00 percent add on, and Mobile 0 percent items carry no interest at all, only a small servicing fee. The cash loan, the product the brand is famous for, is the most expensive published product in the family."
+        ],
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Product",
+            "Published rate",
+            "Fees that change the real cost",
+            "Disclosure updated"
+          ],
+          "rows": [
+            [
+              "Cash Loan",
+              "1.49 to 8.99 percent a month, nominal",
+              "Processing fee up to 500 pesos, deducted from proceeds; Loan Extra Care up to 99 a month; Borrower Protection up to 500 a month",
+              "October 2025"
+            ],
+            [
+              "Consumer (POS) Loan, installment shopping",
+              "0 to 5.99 percent a month, nominal; effective 1.79 percent a month; add on 1.00 percent a month",
+              "3 percent upfront account servicing fee on the financed amount; 0.50 percent a month or 150 pesos, whichever is lower, on Mobile 0 percent items",
+              "September 2026"
+            ],
+            [
+              "Easy Plan Short Term Loan, 4 months non mobile",
+              "2.70 percent a month, nominal; effective 3.98 percent; add on 2.54 percent",
+              "Account servicing fee 0.75 percent of the financed amount a month",
+              "September 2026"
+            ],
+            [
+              "HCQWARTA, pay later QR",
+              "Up to 4 percent a month for accounts signed before July 28, 2026; as low as 3.29 percent a month for accounts signed on or after that date",
+              "5 percent late payment fee on the outstanding amount; interest back benefit if paid on the due date",
+              "July 2026"
+            ],
+            [
+              "HCQWARTA Installment Plan",
+              "1.99 percent add on rate",
+              "150 peso conversion fee; amounts 3,000 to 20,000 pesos at 3, 6, or 12 months",
+              "July 2026"
+            ],
+            [
+              "Home Credit Card",
+              "3 percent a month, nominal, flat",
+              "Membership fee 75 a month on cards issued before September 2021, 200 a month after, waivable at 15,000 pesos monthly spend; cash withdrawal 200 pesos",
+              "May 2026"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "The rate you are quoted sits inside a published range",
+        "paragraphs": [
+          "Ask what Home Credit charges and the company's own pages give you three different numbers, each true, none of them the whole answer:",
+          "The gap between the floor and the FAQ start line is the honest tell: the published range starts at 1.49 percent, but the company's own answer to \"what rate will be applied to my loan\" says it starts at 2.32 percent. Between those two numbers sits the per customer assignment, and the disclosure states where the actual number lives: the Loan Disclosure Statement you receive per loan prints your actual monthly effective interest rate.",
+          "The spread matters more than any single number. On a 20,000 peso loan over 12 months, computed on the annuity Home Credit uses, the published floor to ceiling span is the difference between 3,142.65 pesos of interest and 13,499.28 pesos, a four fold difference on the same amount and term. The rate you are assigned is the single biggest cost variable in the loan, and it is set before you see the money."
+        ],
+        "bullets": [
+          "The disclosure table floor: 1.49 percent a month, nominal, the bottom of the published range.",
+          "The cash loan FAQ, live on the application page on November 27, 2026: \"The monthly interest rate for Home Credit Cash Loan starts at 2.32 percent. Actual rate may vary based on preferred amount and term, per customer.\"",
+          "The average effective rate basis, stated in the disclosure footnote: 3.80 percent a month, nominal, the loan used to compute the company's published average EIR."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "The average EIR, reproduced from Home Credit's own basis",
+        "paragraphs": [
+          "The published footnote is unusually specific: the 3.89 percent average monthly EIR is computed on a loan of 45,000 pesos, a 30 month tenor, 3.80 percent nominal interest, and the 500 peso processing fee. That is enough to reproduce the whole calculation, and it checks out exactly.",
+          "Reproduced, computed on the standard diminishing balance annuity:",
+          "The published figure is 3.89 percent. The recomputed figure from the company's own stated basis is 3.8911 percent. The average EIR is not a marketing round up; it is the real effective cost of the company's own sample loan, fee included.",
+          "Two things follow from that. First, the fee is the whole lift: at a 30 month tenor, the 500 peso processing fee moves 3.80 percent nominal to 3.89 percent effective, roughly one eleventh of a point a month. Second, the effective annual cost of the company's own average loan is 58.08 percent a year, computed by compounding the 3.89 percent monthly rate. Nominal monthly rates read small; compounded and fee loaded, the average cash loan costs about 58 percent of its principal a year in interest."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Step",
+            "The computation",
+            "Result"
+          ],
+          "rows": [
+            [
+              "Monthly installment",
+              "45,000 pesos at 3.80 percent a month, 30 months, annuity",
+              "2,539.53 pesos"
+            ],
+            [
+              "Total paid",
+              "2,539.53 times 30",
+              "76,185.95 pesos"
+            ],
+            [
+              "Interest",
+              "76,185.95 minus 45,000",
+              "31,185.95 pesos"
+            ],
+            [
+              "Effective rate solved from the net proceeds",
+              "44,500 pesos received (45,000 minus the 500 fee), 2,539.53 a month for 30 months",
+              "3.8911 percent a month"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "What 20,000 pesos over 12 months costs at each published rate point",
+        "paragraphs": [
+          "The same loan at the three published rate points, all computed on the annuity, with the 500 peso fee deducted from proceeds:",
+          "The fee's bite shrinks as the tenor grows: on a one year loan the 500 pesos adds roughly half a point to the effective monthly rate, on the company's own 30 month basis it adds one eleventh of a point. Short loans pay the fee fast. That is worth knowing if you are choosing between a 6 month and a 24 month tenor at the same nominal rate; the longer loan dilutes the upfront fee across more months."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Rate point",
+            "Monthly installment",
+            "Total interest",
+            "Effective monthly with the fee",
+            "Effective annual"
+          ],
+          "rows": [
+            [
+              "FAQ start, 2.32 percent",
+              "1,928.55 pesos",
+              "3,142.65 pesos",
+              "2.74 percent",
+              "38.3 percent"
+            ],
+            [
+              "Average EIR basis, 3.80 percent",
+              "2,106.39 pesos",
+              "5,276.65 pesos",
+              "4.24 percent",
+              "64.5 percent"
+            ],
+            [
+              "Published ceiling, 8.99 percent",
+              "2,791.61 pesos",
+              "13,499.28 pesos",
+              "9.50 percent",
+              "197.0 percent"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "Against the card at the legal cap",
+        "paragraphs": [
+          "The comparison that decides whether this loan is cheap is a credit card at the BSP cap. Circular No. 1165, verified at the BSP itself, caps credit card finance charges at 3 percent a month, and 139 of the 141 Philippine cards with a published rate charge exactly that cap. So 3 percent monthly is not a scare number; it is what the ordinary card in your wallet actually charges.",
+          "Set the same 20,000 pesos on both sides:",
+          "The verdict the range itself draws: at the floor and at the company's own average basis, a Home Credit cash loan beats a card you are slowly paying down, on both total cost and deadline. At the ceiling it loses to even a modest card payoff plan. The published range straddles the card cap, which means the answer to \"is Home Credit cheaper than my card\" is genuinely \"it depends which rate you were assigned\", and the Loan Disclosure Statement is where you find out.",
+          "One more comparison belongs here: the store installment product. At its published 1.00 percent add on plus the 3 percent upfront servicing fee, financing 20,000 pesos over 12 months costs 2,400 in interest plus 600 in fees, 3,000 total, computed. If the purchase can wait for a partner store and an installment plan, that product beats the cash loan at every published rate point the company discloses."
+        ],
+        "bullets": [
+          "The card, attacked at 1,000 pesos a month: 31 months to clear, about 10,999 pesos of interest, computed at the 3 percent monthly cap.",
+          "The cash loan at the average EIR basis, 3.80 percent nominal: a fixed 2,106.39 installment, 12 months, 5,276.65 pesos of interest plus the 500 fee, 5,776.65 total.",
+          "The cash loan at the FAQ start rate, 2.32 percent: 3,142.65 pesos of interest plus the fee, 3,642.65 total, done in 12 months.",
+          "The cash loan at the published ceiling, 8.99 percent: 13,499.28 pesos of interest plus the fee, 13,999.28 total, more than the card attack costs."
+        ],
+        "numbered": null,
+        "subheadings": null
+      },
+      {
+        "heading": "Where it sits in the series",
+        "paragraphs": [
+          "Every major Philippine lender priced in the same unit, monthly, from figures verified at primary source in this series:",
+          "Home Credit's cash loan average sits just above the card cap, in the same neighborhood as Billease, and far below the app based lenders. Its store installment product is the cheapest recurring credit in the table outside a government salary loan. The range is the story: the same company sells you money at 1.79 percent effective if you buy a phone at a partner store, and at up to 8.99 percent nominal if you ask for cash."
+        ],
+        "bullets": null,
+        "numbered": null,
+        "subheadings": null,
+        "table": {
+          "headers": [
+            "Lender or product",
+            "Published monthly cost",
+            "Basis"
+          ],
+          "rows": [
+            [
+              "Home Credit Cash Loan, published floor",
+              "1.49 percent",
+              "Nominal, per customer assignment starts at 2.32 percent"
+            ],
+            [
+              "Home Credit Cash Loan, average",
+              "3.89 percent",
+              "Effective, company's own 45,000 peso basis, reproduced"
+            ],
+            [
+              "Home Credit store installment",
+              "1.79 percent",
+              "Effective, plus a 1.00 percent add on and 3 percent upfront fee"
+            ],
+            [
+              "Billease",
+              "3.49 percent",
+              "Declining balance, standard cash loan and BNPL plans"
+            ],
+            [
+              "Credit card at the BSP cap",
+              "3.00 percent",
+              "The legal maximum, charged by 139 of 141 cards"
+            ],
+            [
+              "GCredit",
+              "5 to 7 percent",
+              "GCash help center, set by account activity"
+            ],
+            [
+              "Tala",
+              "11 to 12 percent",
+              "Monthly EIR, maximum APR 141.76 percent"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "When a Home Credit cash loan makes sense",
+        "paragraphs": [
+          "The one paragraph summary: Home Credit publishes more about its rates than almost any lender, and what it publishes says the rate is personal. The disclosed range runs 1.49 to 8.99 percent a month nominal, the company's own FAQ says assignment starts at 2.32 percent, the average effective rate is 3.89 percent a month on the company's own reproducible basis, and your actual number is printed on your Loan Disclosure Statement. At the average it costs more than a maxed card; at the floor it beats one. Read your own statement, then pay the plan, not the minimum."
+        ],
+        "bullets": [
+          "After the expensive debt is dead. If you carry a card balance or an app loan at 5 percent a month or worse, a fixed installment loan at the company's average basis is a refinancing tool, not new debt, provided you close what it replaces.",
+          "When you need a hard deadline. The annuity structure amortizes to zero on a schedule. A card minimum does not. If the choice is a Home Credit plan you know ends in 12 months versus a card you have carried for two years, the deadline has value beyond the rate.",
+          "For purchases at partner stores, take the installment product instead. The published 1.00 percent add on and the Mobile 0 percent option are the cheapest money in the company's whole rate card, and the disclosure says so plainly.",
+          "Never stack it on revolving debt. The average cash loan EIR is 3.89 percent a month, above the card cap. A cash loan taken to keep spending while the card revolves is the most expensive possible stack, and the arithmetic above prices it.",
+          "Know the termination fee before you sign, not after. Missing payments costs 300, then 700, then 1,000 pesos, and at 90 days the termination fee is 40 percent of the outstanding principal, plus 2 percent for every 120 days until 270 days, plus a 5,000 peso attorney's fee. No published card penalty in the country reaches that. This loan is priced to be repaid on schedule, and the fee table is the proof."
+        ],
+        "numbered": null,
+        "subheadings": null
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the Home Credit interest rate in 2026?",
+        "a": "The cash loan publishes a nominal range of 1.49 to 8.99 percent a month, with an average monthly effective rate of 3.89 percent. The application FAQ states the monthly rate starts at 2.32 percent and varies by customer, amount, and term. Your actual rate is printed on the Loan Disclosure Statement you receive per loan."
+      },
+      {
+        "q": "Why is my Home Credit rate higher than the range's floor?",
+        "a": "The floor is the bottom of a per customer assignment range, not a promise. The company's own FAQ says rates start at 2.32 percent, above the 1.49 floor, and vary based on preferred amount and term. Credit assessment, loan size, and tenor all move the number."
+      },
+      {
+        "q": "Does the 500 peso processing fee change the real rate?",
+        "a": "Yes. The fee is deducted from proceeds, so you borrow 20,000 and receive 19,500 while repaying the full amount. On the company's own 45,000 peso, 30 month basis, that fee is what lifts 3.80 percent nominal to the published 3.89 percent effective. On a one year loan it adds roughly half a point a month."
+      },
+      {
+        "q": "Is a Home Credit cash loan cheaper than a credit card?",
+        "a": "At the published floor and at the company's average basis, yes, if you would otherwise carry the card: a 20,000 peso loan at the basis costs 5,776.65 pesos all in over 12 months, against about 10,999 pesos attacking the card at 1,000 a month. At the 8.99 percent ceiling, no: 13,999.28 pesos, more than the card attack. Your assigned rate decides it."
+      },
+      {
+        "q": "What happens if I miss Home Credit payments?",
+        "a": "The published ladder is up to 300 pesos at 5 days, up to 700 at 30 days, up to 1,000 at 60 days. At 90 days the termination fee is 40 percent of the outstanding principal, plus 2 percent for every 120 days of non payment until 270 days, plus a 5,000 peso attorney's fee. It is the harshest published default schedule in this series."
+      },
+      {
+        "q": "Can I pay my Home Credit loan off early?",
+        "a": "Yes. A full or partial early repayment costs a 300 peso fee, and a change of due date costs 300 pesos. An overpayment refund on a closed account costs 50 pesos. Early repayment does not escape the fee ladder, but it stops future interest, which on the average basis is worth far more than the 300 pesos."
+      }
+    ],
+    "ctaLead": "See what your Home Credit loan costs per month, free",
+    "ctaSub": "A rate range is not a rate. Add your real Home Credit installment next to your card, Tala, GCredit, and BillEase debts, converted to the same unit, and see the payoff order that saves the most interest, the debt free date, and the cost of each ordering. Free on up to two debts, manual entry or a CSV, no bank linking, nothing to pay before you see the plan."
+  },
 ];
